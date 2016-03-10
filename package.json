@@ -1,0 +1,39 @@
+{
+  "name": "kisikisi",
+  "version": "1.0.0",
+  "description": "Kisikisi.id merupakan portal pendidikan yang berisi direktori, berita, tutorial, info beasiswa, dan info event mengenai pendidikan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kisikisi/kisikisi.git"
+  },
+  "keywords": [
+    "angular",
+    "single",
+    "app",
+    "application",
+    "web",
+    "portal",
+    "learning"
+  ],
+  "author": "Kisikisi Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kisikisi/kisikisi/issues"
+  },
+  "homepage": "https://github.com/kisikisi/kisikisi#readme",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-include": "^2.1.0",
+    "gulp-jsonmin": "^1.0.2",
+    "gulp-stylus": "^2.3.1",
+    "gulp-uglify": "^1.5.3"
+  }
+}

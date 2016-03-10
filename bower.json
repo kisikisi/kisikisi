@@ -1,0 +1,44 @@
+{
+  "name": "kisikisi",
+  "description": "Kisikisi.id merupakan portal pendidikan yang berisi direktori, berita, tutorial, info beasiswa, dan info event mengenai pendidikan",
+  "main": "index.js",
+  "authors": [
+    "Kisikisi Team"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "single",
+    "app",
+    "application",
+    "web",
+    "portal",
+    "learning"
+  ],
+  "homepage": "https://github.com/kisikisi/kisikisi",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "angular-sanitize": "^1.5.0",
+    "angular-superswipe": "^0.0.2",
+    "angular-touch": "^1.5.0",
+    "cropme": "^0.4.1",
+    "satellizer": "^0.14.0",
+    "codemirror": "^5.12.0",
+    "holderjs": "^2.9.3",
+    "jquery": "^2.2.1",
+    "marked": "^0.3.5",
+    "ng-img-crop": "^0.3.2",
+    "ng-tags-input": "^3.0.0",
+    "semantic": "^2.1.8"
+  }
+}
