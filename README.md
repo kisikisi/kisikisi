@@ -14,6 +14,6 @@
 - change directory to kisikisi `cd kisikisi`
 - install npm dependencies `npm install`
 - install bower dependencies `bower install`
-- create virtual host for `C:\xampp\htdocs\kisikisi` to `http://kisikisi.dev`
+- create virtual host for `C:\xampp\htdocs\kisikisi\dist\` to `http://kisikisi.dev`
 - create virtual host for `C:\xampp\htdocs\kisikisi\api\public` to `http://api.kisikisi.dev`
 - create virtual host for `C:\xampp\htdocs\kisikisi\files` to `http://files.kisikisi.dev`
