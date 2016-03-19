@@ -13,6 +13,7 @@
 - clone this repository `git clone https://github.com/kisikisi/kisikisi.git`
 - change directory to kisikisi `cd kisikisi`
 - install npm dependencies `npm install`
+- install bower in global `npm install -g bower`
 - install bower dependencies `bower install`
 - change directory to api `cd api`
 - install composer dependencies `composer install`
