@@ -25,7 +25,15 @@ Route::group([
 Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
-	Route::get('/login', 'Auth\AuthControllers@login');	
+	Route::get('/login', 'Auth\AuthControllers@login');
+
+	//module school type
+	Route::get('school/type', 'SchoolTypeController@index');
+    Route::post('school/type', 'SchoolTypeController@add');
+    Route::get('school/type/{id}', 'SchoolTypeController@detail');
+    Route::put('school/type/{id}', 'SchoolTypeController@update');
+    Route::delete('school/type/{id}', 'SchoolTypeController@delete');
+  
 });
 
 Route::get('/', function () {
