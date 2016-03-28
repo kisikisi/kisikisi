@@ -14,10 +14,14 @@
 Route::group([
     'domain' => 'admin.' . env('APP_DOMAIN')
 ], function() {
+	Route::post('/login', 'Auth\AuthController@login');	
 	Route::get('/', function () {
 	    return view('admin');
 	});	
 	Route::get('{state}', function () {
+	    return view('admin');
+	});
+	Route::get('{state}/{sub}', function () {
 	    return view('admin');
 	});
 });
@@ -25,7 +29,7 @@ Route::group([
 Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
-	Route::get('/login', 'Auth\AuthControllers@login');
+	Route::post('/login', 'Auth\AuthController@login');
 
 	//module school type
 	Route::get('school/type', 'SchoolTypeController@index');

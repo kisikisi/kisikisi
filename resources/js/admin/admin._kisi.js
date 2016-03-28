@@ -1,4 +1,5 @@
 var kisiCtrl = ['$scope','$auth','$state', function($scope,$auth,$state) {
+
 	$scope.isAuthenticated = function() {
 	  return $auth.isAuthenticated();
 	};

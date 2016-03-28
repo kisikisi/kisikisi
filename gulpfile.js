@@ -44,6 +44,9 @@ var backpaths = {
 		'bower_components/jquery/dist/jquery.min.js',
 		'bower_components/jquery-ui/jquery-ui.min.js',
 		
+		//UIKit
+		'bower_components/uikit/js/components/notify.min.js',
+
 		//adminLTE
 		'bower_components/AdminLTE/bootstrap/js/bootstrap.min.js',
 		'bower_components/AdminLTE/plugins/morris/morris.min.js',
@@ -69,15 +72,20 @@ var backpaths = {
 		'bower_components/satellizer/satellizer.min.js',
 		'bower_components/angularUtils-pagination/dirPagination.js',
 		'bower_components/angular-xeditable/dist/js/xeditable.min.js',
+		'bower_components/angular-environment/dist/angular-environment.min.js',
 		
 	],
 	js:[
 		//angular app
 		'resources/js/admin/*',
 		//'bower_components/AdminLTE/dist/js/pages/dashboard.js',
+		'bower_components/AdminLTE/dist/js/app.min.js',
 		'bower_components/AdminLTE/dist/js/demo.js',
 	],
 	css: [
+		//UIKit
+		'bower_components/uikit/css/components/notify.min.css',
+
 		//adminLTE
 		'bower_components/AdminLTE/bootstrap/css/bootstrap.min.css',
 		'bower_components/font-awesome/css/font-awesome.min.css',
