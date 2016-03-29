@@ -49,3 +49,8 @@ app
 		element.progress();
     };
 })*/
+.directive('sidebar', function() {
+	return function (scope, element, attr) {
+		$.AdminLTE.tree(element);
+    };
+})

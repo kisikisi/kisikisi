@@ -44,7 +44,10 @@
   <!-- ./wrapper -->
 
   <!-- login page  -->
-  <?php include(public_path('views/admin/login.html')) ?>
+  <div ui-view ng-if="!isAuthenticated()">
+      
+  </div>
+  <?php //include(public_path('views/admin/login.html')) ?>
 
   <script type="text/javascript" src="{{ asset('js/lib.admin.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>

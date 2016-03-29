@@ -45,7 +45,7 @@ var backpaths = {
 		'bower_components/jquery-ui/jquery-ui.min.js',
 		
 		//UIKit
-		'bower_components/uikit/js/components/notify.min.js',
+		//'bower_components/uikit/js/components/notify.js',
 
 		//adminLTE
 		'bower_components/AdminLTE/bootstrap/js/bootstrap.min.js',

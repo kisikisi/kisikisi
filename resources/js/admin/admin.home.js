@@ -108,9 +108,9 @@ var homeCtrl = function() {
   $("#calendar").datepicker();
 
   //SLIMSCROLL FOR CHAT WIDGET
-  $('#chat-box').slimScroll({
+  /*$('#chat-box').slimScroll({
     height: '250px'
-  });
+  });*/
 
   /* Morris.js Charts */
   // Sales chart
