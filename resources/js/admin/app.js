@@ -1,9 +1,18 @@
 /* Kisikisi JS Script App */
-
+/*var hostName = window.location.hostname;  
+var hostNameArray = hostName.split(".");  
+var posOfTld = hostNameArray.length - 1;  
+var host = hostNameArray[posOfTld];
+*/
 app = angular.module('kisiApp', ['ui.router', 'satellizer', 'ngTouch', 'superswipe', 
-	'angularUtils.directives.dirPagination', 'xeditable' ]);
-
+	'angularUtils.directives.dirPagination', 'xeditable', 'environment' ]);
 app
+/*.constant('constant', {
+	'site': '//'+host+'/',
+	'api': '//api.'+host+'/',
+	'files': '//files.'+host+'/',
+	'embedly': '8081dea79e164014bcd7cd7e1ab2363a'
+})*/
 .run(['editableOptions', 'editableThemes',function(editableOptions, editableThemes) {
   editableThemes.bs3.inputClass = 'ui input';
   editableThemes.bs3.buttonsClass = 'ui button';
@@ -13,7 +22,8 @@ app
 .controller('kisiCtrl', kisiCtrl)
 .controller('homeCtrl', homeCtrl)
 .controller('authCtrl', authCtrl)
-//.controller('adminCtrl', function() {})
+.controller('schoolTypeCtrl', schoolTypeCtrl)
+.controller('schoolCtrl', schoolCtrl)
 //.controller('adminMappingCtrl', adminMappingCtrl)
 
 /*.directive('datepicker', function() {
@@ -39,3 +49,8 @@ app
 		element.progress();
     };
 })*/
+.directive('sidebar', function() {
+	return function (scope, element, attr) {
+		$.AdminLTE.tree(element);
+    };
+})

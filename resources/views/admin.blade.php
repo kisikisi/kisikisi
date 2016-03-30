@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="kisiApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +17,8 @@
   <![endif]-->
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini" ng-app="kisiApp">
-  <div class="wrapper" ng-controller="kisiCtrl">
+<body class="hold-transition skin-blue sidebar-mini login-page" ng-controller="kisiCtrl">
+  <div class="wrapper" ng-if="isAuthenticated()">
 
     <!-- main header -->
     <?php include(public_path('views/admin/header.html')) ?>
@@ -42,6 +42,12 @@
     <div class="control-sidebar-bg"></div>
   </div>
   <!-- ./wrapper -->
+
+  <!-- login page  -->
+  <div ui-view ng-if="!isAuthenticated()">
+      
+  </div>
+  <?php //include(public_path('views/admin/login.html')) ?>
 
   <script type="text/javascript" src="{{ asset('js/lib.admin.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
