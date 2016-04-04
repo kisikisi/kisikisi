@@ -39,3 +39,9 @@
 -- `gulp back-imagemin` to minimize image files
 -- `gulp back-jsmin` to build js files
 -- `gulp back-cssmin` to build css files
+
+## Daftar nama tim
+-
+-
+-
+-
