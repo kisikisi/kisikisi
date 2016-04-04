@@ -11,4 +11,15 @@ class SchoolType extends Model
     	'name',
     ];
     
+    public function schoolDirectory() {
+        return $this->hasMany('App\SchoolDirectory');
+    }
+    
+    public function createdBy() {
+        return $this->belongsTo('App\NewsCategory','created_by');
+    }
+    
+    public function modifiedBy() {
+        return $this->belongsTo('App\NewsCategory','modified_by');
+    }
 }
