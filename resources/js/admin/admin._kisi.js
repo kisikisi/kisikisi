@@ -1,4 +1,6 @@
-var kisiCtrl = ['$scope','$auth','$state', function($scope,$auth,$state) {
+var kisiCtrl = ['$scope','$rootScope','$auth','$state','envService', function($scope,$rootScope,$auth,$state,envService) {
+
+    $rootScope.env = envService.read('all');
 
 	$scope.isAuthenticated = function() {
 	  return $auth.isAuthenticated();

@@ -50,6 +50,7 @@
     "angular-xeditable": "^0.1.10",
     "angular-file-upload": "^2.2.0",
     "angular-environment": "^1.0.3",
-    "uikit": "^2.25.0"
+    "uikit": "^2.25.0",
+    "angular-ui-notification": "^0.1.0"
   }
 }

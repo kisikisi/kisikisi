@@ -1,4 +1,4 @@
-var authCtrl = ['$scope', '$auth', '$state', function($scope, $auth, $state) {	
+var authCtrl = ['$scope', '$auth', '$state', 'Notification', function($scope, $auth, $state, Notification) {
 	$scope.login = function(form) {
 		$auth.login(form)
 		  .then(function(response) {
@@ -6,10 +6,10 @@ var authCtrl = ['$scope', '$auth', '$state', function($scope, $auth, $state) {
 		    //console.log(response.token)
 		  	//$scope.getAuthUser();
 		  	$state.go('dashboard');
-		    //UIkit.notify(response.data.message, response.status);
+            Notification({message: response.data.message}, response.status);
 		  })
 		  .catch(function(response) {
-		    //UIkit.notify(response.data.message, response.status);
+             Notification({message: response.data.message}, response.status);
 		  });
 	}	
 }];

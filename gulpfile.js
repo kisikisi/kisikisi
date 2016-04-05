@@ -73,6 +73,7 @@ var backpaths = {
 		'bower_components/angularUtils-pagination/dirPagination.js',
 		'bower_components/angular-xeditable/dist/js/xeditable.min.js',
 		'bower_components/angular-environment/dist/angular-environment.min.js',
+		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
 		
 	],
 	js:[
@@ -102,6 +103,7 @@ var backpaths = {
 		
 		//angular directive
 		'bower_components/angular-xeditable/dist/css/xeditable.min.css',
+		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.css',
 
 		//custom style
 		'resources/css/kisikisi.styl'
