@@ -18,7 +18,9 @@ class EducationNews extends Model
         'date',
         'author',
         'ipaddress',
-        'status'
+        'status',
+        'created_by',
+        'modified_by'
     ];
     
     public function newsCategory() {

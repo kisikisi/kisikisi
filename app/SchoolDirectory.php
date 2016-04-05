@@ -20,6 +20,8 @@ class SchoolDirectory extends Model
         'city_id',
         'description',
         'data',
+        'created_by',
+        'modified_by'
     ];
     
     public function schoolType() {
