@@ -2,10 +2,12 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
 	$scope.currentPage = 1;
 	$scope.limit = 10;
 
-    $http.get($scope.env.api+'school/type')
-	.success(function (response) {
-		$scope.type = response.type;
-	})
+    $scope.listType = function() {
+        $http.get($scope.env.api+'school/type')
+        .success(function (response) {
+            $scope.type = response.type;
+        })
+    }
 
 	$scope.addType = function(input) {
 		$http.post($scope.env.api+'school/type', input)
@@ -38,4 +40,6 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
 			})
 		}
 	}
+
+    $scope.listType();
 }];

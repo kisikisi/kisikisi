@@ -2,11 +2,12 @@
 
 namespace App;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class SchoolDirectory extends Model
 {
-    protected $table = 'school_type';
+    protected $table = 'school_directory AS s';
 	protected $fillable = [
     	'school_type_id',
         'name',
@@ -24,6 +25,12 @@ class SchoolDirectory extends Model
         'modified_by'
     ];
     
+    public function schoolList() {
+        return $this->select(DB::raw("s.id, s.name, s.logo, s.images, t.name, c.name"))
+                ->join("school_type AS t", "t.id", "=", "s.school_type_id")
+                ->join("city AS c", "c.id", "=", "s.city_id");
+    }
+
     public function schoolType() {
         return $this->belongsTo('App\SchoolType');
     }

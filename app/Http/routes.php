@@ -38,6 +38,15 @@ Route::group([
     Route::put('school/type/{id}', 'SchoolTypeController@update');
     Route::delete('school/type/{id}', 'SchoolTypeController@delete');
   
+
+	//module school type
+	Route::get('school', 'SchoolDirectoryController@index');
+	Route::get('school/{id}', 'SchoolDirectoryController@detail');
+    Route::post('school', 'SchoolDirectoryController@add');
+    Route::get('school/{id}', 'SchoolDirectoryController@detail');
+    Route::put('school/{id}', 'SchoolDirectoryController@update');
+    Route::delete('school/{id}', 'SchoolDirectoryController@delete');
+
 });
 
 Route::get('/', function () {
