@@ -49,6 +49,20 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			loginRequired: loginRequired
 		}
+	}).state('news', {
+		url: '/news',
+		templateUrl: 'views/admin/news.html',
+		controller: 'newsCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
+	}).state('news-category', {
+		url: '/news/category',
+		templateUrl: 'views/admin/news.category.html',
+		controller: 'newscatCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
 	});
 	//controller example
 	/*.state('mapping', {

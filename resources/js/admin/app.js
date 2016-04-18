@@ -24,6 +24,7 @@ app
 .controller('authCtrl', authCtrl)
 .controller('schoolTypeCtrl', schoolTypeCtrl)
 .controller('schoolCtrl', schoolCtrl)
+.controller('newsCtrl', newsCtrl)
 //.controller('adminMappingCtrl', adminMappingCtrl)
 
 /*.directive('datepicker', function() {
