@@ -41,8 +41,7 @@ var backpaths = {
 		'bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
 		'bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js',
 		'bower_components/AdminLTE/plugins/fastclick/fastclick.js',
-		'bower_components/AdminLTE/dist/js/app.min.js',
-
+		
 		//angular
 		'bower_components/angular/angular.min.js',
 		'bower_components/angular-sanitize/angular-sanitize.min.js',

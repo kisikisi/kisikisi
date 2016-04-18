@@ -26,7 +26,7 @@ class SchoolDirectory extends Model
     ];
     
     public function schoolList() {
-        return $this->select(DB::raw("s.id, s.name, s.logo, s.images, t.name, c.name"))
+        return $this->select(DB::raw("s.id, s.name, s.logo, s.images, t.name AS type, c.name AS city"))
                 ->join("school_type AS t", "t.id", "=", "s.school_type_id")
                 ->join("city AS c", "c.id", "=", "s.city_id");
     }

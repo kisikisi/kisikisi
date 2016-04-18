@@ -30,35 +30,53 @@ Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
 	Route::post('/login', 'Auth\AuthController@login');
-
+    
 	//module school type
 	Route::get('school/type', 'SchoolTypeController@index');
-    Route::post('school/type', 'SchoolTypeController@add');
     Route::get('school/type/{id}', 'SchoolTypeController@detail');
-    Route::put('school/type/{id}', 'SchoolTypeController@update');
-    Route::delete('school/type/{id}', 'SchoolTypeController@delete');
   
-
 	//module school type
 	Route::get('school', 'SchoolDirectoryController@index');
 	Route::get('school/{id}', 'SchoolDirectoryController@detail');
-    Route::post('school', 'SchoolDirectoryController@add');
-    Route::get('school/{id}', 'SchoolDirectoryController@detail');
-    Route::put('school/{id}', 'SchoolDirectoryController@update');
-    Route::delete('school/{id}', 'SchoolDirectoryController@delete');
-
-    //module education news
+    
+    //module news
     Route::get('news', 'EducationNewsController@index');
     Route::get('news/{id}', 'EducationNewsController@detail');
-    Route::post('news', 'EducationNewsController@add');
-    Route::put('news/{id}', 'EducationNewsController@update');
-    Route::delete('news/{id}', 'EducationNewsController@delete');
-
-    //module new category
+    
+    //module news category
     Route::get('news/category', 'NewsCategoryController@index');
-    Route::post('news/category', 'NewsCategoryController@add');
-    Route::put('news/category/{id}', 'NewsCategoryController@update');
-    Route::delete('news/category/{id}', 'NewsCategoryController@delete');
+    
+    Route::group(['middleware' => 'ability:admin|manager'], function () {
+	   //module school type
+        Route::post('school/type', 'SchoolTypeController@add');
+        Route::put('school/type/{id}', 'SchoolTypeController@update');
+        Route::delete('school/type/{id}', 'SchoolTypeController@delete');
+        
+	   //module school type
+        Route::post('school', 'SchoolDirectoryController@add');
+        Route::put('school/{id}', 'SchoolDirectoryController@update');
+        Route::delete('school/{id}', 'SchoolDirectoryController@delete');
+        
+        //module education news
+        Route::post('news', 'EducationNewsController@add');
+        Route::put('news/{id}', 'EducationNewsController@update');
+        Route::delete('news/{id}', 'EducationNewsController@delete');
+
+        //module new category
+        Route::post('news/category', 'NewsCategoryController@add');
+        Route::put('news/category/{id}', 'NewsCategoryController@update');
+        Route::delete('news/category/{id}', 'NewsCategoryController@delete');
+
+    });
+    
+});
+
+Route::group([
+    'domain' => 'dir.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+	    return view('directory');
+	});
 });
 
 Route::get('/', function () {
