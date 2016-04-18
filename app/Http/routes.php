@@ -47,6 +47,18 @@ Route::group([
     Route::put('school/{id}', 'SchoolDirectoryController@update');
     Route::delete('school/{id}', 'SchoolDirectoryController@delete');
 
+    //module education news
+    Route::get('news', 'EducationNewsController@index');
+    Route::get('news/{id}', 'EducationNewsController@detail');
+    Route::post('news', 'EducationNewsController@add');
+    Route::put('news/{id}', 'EducationNewsController@update');
+    Route::delete('news/{id}', 'EducationNewsController@delete');
+
+    //module new category
+    Route::get('news/category', 'NewsCategoryController@index');
+    Route::post('news/category', 'NewsCategoryController@add');
+    Route::put('news/category/{id}', 'NewsCategoryController@update');
+    Route::delete('news/category/{id}', 'NewsCategoryController@delete');
 });
 
 Route::get('/', function () {
