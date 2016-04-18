@@ -12,7 +12,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
     	DB::table('users')->insert([
-        	['name' => 'admin', 'level_id' => '1', 'email' => 'admin@gmail.com', 'password' => Hash::make('secret')],   
+        	['name' => 'admin', 'email' => 'admin@gmail.com', 'password' => Hash::make('secret')],   
+        	['name' => 'manager', 'email' => 'manager@gmail.com', 'password' => Hash::make('secret')],   
+        	['name' => 'member', 'email' => 'member@gmail.com', 'password' => Hash::make('secret')],   
         ]);
     }
 }

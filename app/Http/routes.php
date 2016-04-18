@@ -30,23 +30,35 @@ Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
 	Route::post('/login', 'Auth\AuthController@login');
-
+    
 	//module school type
 	Route::get('school/type', 'SchoolTypeController@index');
-    Route::post('school/type', 'SchoolTypeController@add');
     Route::get('school/type/{id}', 'SchoolTypeController@detail');
-    Route::put('school/type/{id}', 'SchoolTypeController@update');
-    Route::delete('school/type/{id}', 'SchoolTypeController@delete');
   
-
 	//module school type
 	Route::get('school', 'SchoolDirectoryController@index');
 	Route::get('school/{id}', 'SchoolDirectoryController@detail');
-    Route::post('school', 'SchoolDirectoryController@add');
-    Route::get('school/{id}', 'SchoolDirectoryController@detail');
-    Route::put('school/{id}', 'SchoolDirectoryController@update');
-    Route::delete('school/{id}', 'SchoolDirectoryController@delete');
+    
+    Route::group(['middleware' => 'ability:admin|manager'], function () {
+	   //module school type
+        Route::post('school/type', 'SchoolTypeController@add');
+        Route::put('school/type/{id}', 'SchoolTypeController@update');
+        Route::delete('school/type/{id}', 'SchoolTypeController@delete');
+        
+	   //module school type
+        Route::post('school', 'SchoolDirectoryController@add');
+        Route::put('school/{id}', 'SchoolDirectoryController@update');
+        Route::delete('school/{id}', 'SchoolDirectoryController@delete');
+    });
+    
+});
 
+Route::group([
+    'domain' => 'dir.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+	    return view('directory');
+	});
 });
 
 Route::get('/', function () {

@@ -28,6 +28,13 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			loginRequired: loginRequired
 		}
+	}).state('school', {
+		url:'/school', 
+		templateUrl: 'views/admin/school.html',
+		controller: 'schoolCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
 	}).state('school-type', {
 		url:'/school/type', 
 		templateUrl: 'views/admin/school.type.html',
@@ -41,13 +48,6 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		controller: 'authCtrl',
 		resolve: {
 			skipIfLoggedIn: skipIfLoggedIn
-		}
-	}).state('school', {
-		url:'/school/', 
-		templateUrl: 'views/admin/school.html',
-		controller: 'schoolCtrl',
-		resolve: {
-			loginRequired: loginRequired
 		}
 	});
 	//controller example
