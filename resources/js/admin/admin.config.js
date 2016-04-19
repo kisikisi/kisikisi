@@ -49,14 +49,6 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			skipIfLoggedIn: skipIfLoggedIn
 		}
-<<<<<<< HEAD
-	}).state('school', {
-		url:'/school/', 
-		templateUrl: 'views/admin/school.html',
-		controller: 'schoolCtrl',
-		resolve: {
-			loginRequired: loginRequired
-		}
 	}).state('news', {
 		url: '/news',
 		templateUrl: 'views/admin/news.html',
@@ -67,12 +59,10 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	}).state('news-category', {
 		url: '/news/category',
 		templateUrl: 'views/admin/news.category.html',
-		controller: 'newscatCtrl',
+		controller: 'newsCatCtrl',
 		resolve: {
 			loginRequired: loginRequired
 		}
-=======
->>>>>>> 461adf2080b26656b43436302fc4a26898b60500
 	});
 	//controller example
 	/*.state('mapping', {

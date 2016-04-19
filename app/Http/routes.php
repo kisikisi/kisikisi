@@ -35,8 +35,9 @@ Route::group([
 	Route::get('school/type', 'SchoolTypeController@index');
     Route::get('school/type/{id}', 'SchoolTypeController@detail');
   
-	//module school type
+	//module school
 	Route::get('school', 'SchoolDirectoryController@index');
+    Route::get('school/form', 'SchoolDirectoryController@form');
 	Route::get('school/{id}', 'SchoolDirectoryController@detail');
     
     //module news
@@ -52,7 +53,7 @@ Route::group([
         Route::put('school/type/{id}', 'SchoolTypeController@update');
         Route::delete('school/type/{id}', 'SchoolTypeController@delete');
         
-	   //module school type
+	   //module school
         Route::post('school', 'SchoolDirectoryController@add');
         Route::put('school/{id}', 'SchoolDirectoryController@update');
         Route::delete('school/{id}', 'SchoolDirectoryController@delete');

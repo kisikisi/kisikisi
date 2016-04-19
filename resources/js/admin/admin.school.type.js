@@ -1,4 +1,7 @@
 var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notification) {
+    
+    $.AdminLTE.layout.fix();
+    
 	$scope.currentPage = 1;
 	$scope.limit = 10;
 

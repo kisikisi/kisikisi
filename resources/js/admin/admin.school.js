@@ -1,11 +1,22 @@
 var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $scope, Notification, Upload) {
-	$scope.currentPage = 1;
+	$.AdminLTE.layout.fix();
+    
+    $scope.currentPage = 1;
 	$scope.limit = 10;
 
     $scope.listSchool = function() {
         $http.get($scope.env.api+'school')
         .success(function (response) {
             $scope.type = response.type;
+        })
+    }
+    
+    $scope.formSchool = function() {
+        $http.get($scope.env.api+'school/form')
+        .success(function (response) {
+            $scope.schoolTypes = response.schoolTypes;
+            $scope.cities = response.cities;
+            $scope.provinces = response.provinces;
         })
     }
 
@@ -64,5 +75,6 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
 	}
 
     $scope.listSchool();
+    $scope.formSchool();
     $(".textarea").wysihtml5();
 }];

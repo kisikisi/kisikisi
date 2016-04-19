@@ -7,6 +7,9 @@ use Illuminate\Http\Response;
 
 use App\Http\Requests;
 use App\SchoolDirectory;
+use App\Province;
+use App\City;
+use App\SchoolType;
 use Auth;
 
 class SchoolDirectoryController extends Controller
@@ -26,6 +29,14 @@ class SchoolDirectoryController extends Controller
             ->where('id', $id)
             ->get();
 
+        return response()->json($data);
+    }
+    
+    public function form() {
+        $data['schoolTypes'] = SchoolType::all();
+        $data['provinces'] = Province::select(['id','name'])->get();
+        $data['cities'] = City::select(['id','province_id','name'])->get();
+        
         return response()->json($data);
     }
 

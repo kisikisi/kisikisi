@@ -1,15 +1,17 @@
 var newsCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notification) {
-	$scope.currentPage = 1;
+	$.AdminLTE.layout.fix();
+    
+    $scope.currentPage = 1;
 	$scope.limit = 10;
 
-	$scope.listnews = function() {
+	$scope.listNews = function() {
         $http.get($scope.env.api+'news')
         .success(function (response) {
             $scope.news = response.news;
         })
     }
 
-	$scope.addnews = function(input) {
+	$scope.addNews = function(input) {
 		$http.post($scope.env.api+'news', input)
 		.success(function (response) {
             Notification({message: response.message}, response.status);
@@ -22,14 +24,14 @@ var newsCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notifi
 		})
 	}
 
-	$scope.savenews = function(data, id) {
+	$scope.saveNews = function(data, id) {
 		return $http.put($scope.env.api+'news/'+id, data);
 		/*.success(function (response) {
             Notification({message: response.data.message}, response.status);
 		})*/
 	}
 
-	$scope.deletenews = function(id) {
+	$scope.deleteNews = function(id) {
 		var index = $scope.indexSearch($scope.type, id);
 		if (confirm('delete type?')) {
 			$http.delete($scope.env.api+'news/'+id)
@@ -43,6 +45,6 @@ var newsCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notifi
 		}
 	}
 
-	$scope.listnews();
+	$scope.listNews();
 
 }];

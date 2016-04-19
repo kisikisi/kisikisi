@@ -54,14 +54,15 @@ var backpaths = {
 		'bower_components/angular-xeditable/dist/js/xeditable.min.js',
 		'bower_components/angular-environment/dist/angular-environment.min.js',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
+		'bower_components/ng-file-upload/ng-file-upload.min.js',
 
 	],
 	js:[
 		//angular app
 		'resources/js/admin/*',
 		//'bower_components/AdminLTE/dist/js/pages/dashboard.js',
-		'bower_components/AdminLTE/dist/js/app.min.js',
-		'bower_components/AdminLTE/dist/js/demo.js',
+		'bower_components/AdminLTE/dist/js/app.js',
+		//'bower_components/AdminLTE/dist/js/demo.js',
 	],
 	css: [
 		//UIKit

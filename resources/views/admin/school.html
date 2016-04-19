@@ -25,7 +25,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">School Name</label>
               <div class="col-sm-4">
-                <select class="form-control" name="school_type_id" ng-model="input.school_type_id" ng-options="type.id as type.name for type in school_type">
+                <select class="form-control" name="school_type_id" ng-model="input.school_type_id" ng-options="type.id as type.name for type in schoolTypes">
                   <option value="">--Choose Type--</option>
                 </select>
               </div>
@@ -36,12 +36,12 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Location</label>
               <div class="col-sm-5">
-                <select class="form-control" name="province_id" ng-model="input.province_id" ng-options="prov.id as prov.province for prov in province">
+                <select class="form-control" name="province_id" ng-model="input.province_id" ng-options="prov.id as prov.name for prov in provinces">
                   <option value="">--Pick Province--</option>
                 </select>
               </div>
               <div class="col-sm-5">
-                <select class="form-control" name="city_id" ng-model="input.city_id" ng-options="cty.id as cty.name for cty in city">
+                <select ng-if="input.province_id" class="form-control" name="city_id" ng-model="input.city_id" ng-options="cty.id as cty.name for cty in cities | filter:{ province_id : input.province_id }">
                   <option value="">--Pick City--</option>
                 </select>
               </div>

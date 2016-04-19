@@ -1,35 +1,37 @@
-var newsCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notification) {
-	$scope.currentPage = 1;
+var newsCatCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notification) {
+    $.AdminLTE.layout.fix();
+    
+    $scope.currentPage = 1;
 	$scope.limit = 10;
 
-	$scope.listcatnews = function() {
+	$scope.listCatNews = function() {
         $http.get($scope.env.api+'news/category')
         .success(function (response) {
-            $scope.catnews = response.catnews;
+            $scope.catNews = response.catNews;
         })
     }
 
-	$scope.addcatnews = function(input) {
+	$scope.addCatNews = function(input) {
 		$http.post($scope.env.api+'news/category', input)
 		.success(function (response) {
             Notification({message: response.message}, response.status);
 			if (response.status == 'success') {
 				//console.log(response.type);
-				$scope.catnews.push(response.catnews);
+				$scope.catNews.push(response.catNews);
 				$scope.input = {};
 				$('#code').focus();
 			}
 		})
 	}
 
-	$scope.savecatnews = function(data, id) {
+	$scope.saveCatNews = function(data, id) {
 		return $http.put($scope.env.api+'news/category/'+id, data);
 		/*.success(function (response) {
             Notification({message: response.data.message}, response.status);
 		})*/
 	}
 
-	$scope.deletenews = function(id) {
+	$scope.deleteCatNews = function(id) {
 		var index = $scope.indexSearch($scope.type, id);
 		if (confirm('delete news category?')) {
 			$http.delete($scope.env.api+'news/category/'+id)
@@ -37,12 +39,12 @@ var newsCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notifi
 				Notification({message: response.message}, response.status);
 				if (response.status == 'success') {
 					//console.log(response.type);
-					$scope.type.splice(index, 1);	
+					$scope.catNews.splice(index, 1);	
 				}
 			})
 		}
 	}
 
-	$scope.listcatnews();
+	$scope.listCatNews();
 
 }];
