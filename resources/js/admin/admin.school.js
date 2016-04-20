@@ -20,37 +20,41 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
         })
     }
 
+    $scope.uploadIcon = function() {
+        if ($scope.schoolForm.fileicon.$valid && $scope.fileicon) {
+            $scope.onProgress1 = true;
+
+            Upload.upload({
+                url: $scope.env.api+'school/icon',
+                method: 'POST',
+                data: {
+                    image: $scope.fileicon,
+                } 
+            }).then(function (resp) {
+                $scope.onProgress1 = false;
+
+            }, function (resp) {
+                Notification({message: resp.message}, resp.status);
+            }, function (evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                $scope.progress1 = progressPercentage;
+            });
+	    }    
+    }
+    
 	$scope.addSchool = function(input) {
 		console.log(input);
-        if ($scope.categoryForm.fileicon.$valid && $scope.fileicon) {
-		  $scope.onProgress = true;
-	
-	      Upload.upload({
-	            url: $scope.env.api+'school/icon',
-	            method: 'POST',
-			    data: {
-			    	image: $scope.fileicon,
-			    } 
-	        }).then(function (resp) {
-	            $http.post($scope.env.api+'school', input)
-				.success(function (response) {
-					//UIkit.notify(response.message, response.status);
-					if (response.status == 'success') {
-						$scope.onProgress = false;
-						$scope.school.push(response.school);
-						Notification({message: response.message}, response.status);
-						$scope.input = {};
-						$scope.fileicon = {};
-						$('#name').focus();
-					}
-				})
-	        }, function (resp) {
-                Notification({message: resp.message}, resp.status);
-	        }, function (evt) {
-	            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-	            $scope.progress = progressPercentage;
-	        });
-	    }    
+        $http.post($scope.env.api+'school', input)
+        .success(function (response) {
+            //UIkit.notify(response.message, response.status);
+            if (response.status == 'success') {
+                $scope.school.push(response.school);
+                Notification({message: response.message}, response.status);
+                $scope.input = {};
+                $scope.fileicon = {};
+                $('#name').focus();
+            }
+        })
 	}
     
 	$scope.saveSchool = function(data, id) {

@@ -164,7 +164,7 @@ gulp.task('back-jsonmin', function () {
 });
 
 gulp.task('back-watch', function() {
-  gulp.watch(['resources/js/app.js'], ['back-jsmin']);
+  gulp.watch(backpaths.js, ['back-jsmin']);
   gulp.watch(backpaths.css, ['back-cssmin']);
   gulp.watch(backpaths.html, ['back-htmlmin']);
 });

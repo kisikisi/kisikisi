@@ -22,9 +22,23 @@
         </div><!-- /.box-header -->
         <form id="schoolTypeForm" class="box-body" ng-submit="addType(input)">
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-6">
               <div class="form-group">
                 <input class="form-control" name="name" ng-model="input.name" type="text" placeholder="School Type Name" required>
+              </div><!-- /.form-group -->
+            </div><!-- /.col -->
+            <div class="col-md-2">
+              <div class="form-group">
+                <input class="form-control" name="alias" ng-model="input.alias" type="text" placeholder="School Type Alias" required>
+              </div><!-- /.form-group -->
+            </div><!-- /.col -->
+            <div class="col-md-2">
+              <div class="form-group">
+                <select class="form-control" name="group" ng-model="input.group">
+                    <option value="">--Pick Group--</option>
+                    <option value="F">Formal</option>
+                    <option value="N">Non-Formal</option>
+                </select>
               </div><!-- /.form-group -->
             </div><!-- /.col -->
             <div class="col-md-2">
@@ -58,11 +72,15 @@
             <tbody><tr>
               <th>No</th>
               <th>School Type</th>
+              <th>Alias</th>
+              <th>Group</th>
               <th></th>
             </tr>
             <tr dir-paginate="list in type | orderBy:'-id' | itemsPerPage:limit | filter:search" current-page="currentPage">
               <td>{{ ((currentPage-1)*limit)+$index+1 }}</td>
               <td><span editable-text="list.name" e-name="name" e-form="rowform" e-required>{{list.name}}</span></td>
+              <td><span editable-text="list.alias" e-name="alias" e-form="rowform" e-required>{{list.alias}}</span></td>
+              <td><span editable-text="list.group" e-name="group" e-form="rowform" e-required>{{list.group}}</span></td>
               <td>
                 <form class="btn-group" editable-form name="rowform" onbeforesave="saveType($data, list.id)" ng-show="rowform.$visible" shown="inserted == list">
                   <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-default">

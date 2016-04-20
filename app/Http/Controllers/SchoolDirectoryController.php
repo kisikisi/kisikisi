@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 use App\SchoolDirectory;
 use App\Province;
 use App\City;
@@ -40,6 +41,22 @@ class SchoolDirectoryController extends Controller
         return response()->json($data);
     }
 
+    public function uploadIcon() {
+        $icon = Input::file('image');
+    	
+    	//var_dump($icon);
+    	if (Input::hasFile('image')) {
+	        $destinationPath = base_path() . '/storage/files/school/icon/';
+	        if(!$icon->move($destinationPath, $icon->getClientOriginalName())) {
+	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
+	        } else {
+	        	return response()->json(['status' => 'success', 'message' => 'upload'], 200);
+	        }
+		} else {
+	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
+		}
+    }
+    
     public function add(Request $request, SchoolDirectory $school) {
 
         $input = $request->all();

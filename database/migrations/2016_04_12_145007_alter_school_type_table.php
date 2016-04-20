@@ -12,7 +12,8 @@ class AlterSchoolTypeTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function ($table) {
+        Schema::table('school_type', function ($table) {
+            $table->string('alias', 16);
             $table->enum('group', ['F','N']);
         });
     }

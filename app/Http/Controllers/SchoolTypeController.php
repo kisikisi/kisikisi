@@ -27,7 +27,7 @@ class SchoolTypeController extends Controller
     }    
     
     public function add(Request $request) {
-    	$input = $request->only(['name']);
+    	$input = $request->all();
         $input['created_by'] = Auth::user()->id;
         $input['modified_by'] = Auth::user()->id;
         
@@ -46,7 +46,7 @@ class SchoolTypeController extends Controller
     }
 
     public function update(Request $request, $id) {
-    	$input = $request->only(['name']);
+    	$input = $request->all();
         $input['modified_by'] = Auth::user()->id;
 
     	$type = SchoolType::where('id', $id)->first();
