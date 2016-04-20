@@ -1,6 +1,7 @@
 var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $scope, Notification, Upload) {
 	$.AdminLTE.layout.fix();
     
+    $scope.input = {};
     $scope.currentPage = 1;
 	$scope.limit = 10;
 
@@ -20,19 +21,19 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
         })
     }
 
-    $scope.uploadIcon = function() {
-        if ($scope.schoolForm.fileicon.$valid && $scope.fileicon) {
+    $scope.uploadLogo = function() {
+        if ($scope.schoolForm.filelogo.$valid && $scope.filelogo) {
             $scope.onProgress1 = true;
 
             Upload.upload({
-                url: $scope.env.api+'school/icon',
+                url: $scope.env.api+'school/logo',
                 method: 'POST',
                 data: {
-                    image: $scope.fileicon,
+                    image: $scope.filelogo,
                 } 
             }).then(function (resp) {
                 $scope.onProgress1 = false;
-
+                $scope.input.logo = resp.data.logo;
             }, function (resp) {
                 Notification({message: resp.message}, resp.status);
             }, function (evt) {
@@ -42,9 +43,33 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
 	    }    
     }
     
+    $scope.uploadImage = function() {
+        if ($scope.schoolForm.fileimage.$valid && $scope.fileimage) {
+            $scope.onProgress2 = true;
+
+            Upload.upload({
+                url: $scope.env.api+'school/image',
+                method: 'POST',
+                data: {
+                    image: $scope.fileimage,
+                } 
+            }).then(function (resp) {
+                $scope.onProgress2 = false;
+                $scope.input.image = resp.data.image;
+            }, function (resp) {
+                Notification({message: resp.message}, resp.status);
+            }, function (evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                $scope.progress2 = progressPercentage;
+            });
+	    }    
+    }
+    
 	$scope.addSchool = function(input) {
-		console.log(input);
-        $http.post($scope.env.api+'school', input)
+        input.description = $('#description').val();
+        input.data = $('#data').val();
+        
+		$http.post($scope.env.api+'school', input)
         .success(function (response) {
             //UIkit.notify(response.message, response.status);
             if (response.status == 'success') {

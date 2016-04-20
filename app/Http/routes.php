@@ -54,7 +54,8 @@ Route::group([
         Route::delete('school/type/{id}', 'SchoolTypeController@delete');
         
 	   //module school
-        Route::post('school/icon', 'SchoolDirectoryController@uploadIcon');
+        Route::post('school/logo', 'SchoolDirectoryController@uploadLogo');
+        Route::post('school/image', 'SchoolDirectoryController@uploadImage');
         Route::post('school', 'SchoolDirectoryController@add');
         Route::put('school/{id}', 'SchoolDirectoryController@update');
         Route::delete('school/{id}', 'SchoolDirectoryController@delete');

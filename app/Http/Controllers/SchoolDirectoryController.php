@@ -41,16 +41,34 @@ class SchoolDirectoryController extends Controller
         return response()->json($data);
     }
 
-    public function uploadIcon() {
+    public function uploadLogo() {
+        $logo = Input::file('image');
+    	
+    	//var_dump($logo);
+    	if (Input::hasFile('image')) {
+	        $destinationPath = base_path() . '/storage/files/school/logo/';
+            $filename = time() . '.' . $logo->getClientOriginalExtension();
+	        if(!$logo->move($destinationPath, $filename)) {
+	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
+	        } else {
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'logo' => $filename], 200);
+	        }
+		} else {
+	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
+		}
+    }
+    
+    public function uploadImage() {
         $icon = Input::file('image');
     	
     	//var_dump($icon);
     	if (Input::hasFile('image')) {
-	        $destinationPath = base_path() . '/storage/files/school/icon/';
-	        if(!$icon->move($destinationPath, $icon->getClientOriginalName())) {
+	        $destinationPath = base_path() . '/storage/files/school/image/';
+            $filename = time() . '.' . $icon->getClientOriginalExtension();
+	        if(!$icon->move($destinationPath, $filename)) {
 	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
 	        } else {
-	        	return response()->json(['status' => 'success', 'message' => 'upload'], 200);
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'image' => $filename ], 200);
 	        }
 		} else {
 	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
