@@ -56,3 +56,8 @@ app
 		$.AdminLTE.tree(element);
     };
 })
+.directive('wysihtml5', function() {
+	return function (scope, element, attr) {
+		$(element).wysihtml5();
+    };
+})

@@ -26,7 +26,7 @@ class SchoolDirectoryController extends Controller
     }
 
     public function detail($id) {
-        $data['detail'] = SchoolDirectory::with(["schoolType","city","createdBy","modifiedBy"])
+        $data['detail'] = SchoolDirectory::with(["schoolType","city.province","city","createdBy","modifiedBy"])
             ->where('id', $id)
             ->get();
 
@@ -86,7 +86,7 @@ class SchoolDirectoryController extends Controller
     	if ($save) {
     		$data['status'] = 'success';
     		$data['message'] = 'school added';
-    		$data['school'] = $save;
+    		$data['school'] = $school->schoolList()->where('s.id', $save->id)->get();
     	} else {
     		$data['status'] = 'error';
     		$data['message'] = 'school failed to add';
@@ -100,8 +100,10 @@ class SchoolDirectoryController extends Controller
         $input['modified_by'] = Auth::user()->id;
 
     	$type = SchoolDirectory::where('id', $id)->first();
-    	if ($type->update($input)) return response()->json(['success' => 'data_updated'], 200);
-    	else return response()->json(['error' => 'cant_update_data'], 500);
+    	if ($type->update($input)) {
+            $data = $school->schoolList()->where('s.id', $id)->get();
+            return response()->json(['success' => 'data_updated', 'message' => 'data sekolah diperbarui', 'school' => $data], 200);
+        } else return response()->json(['error' => 'cant_update_data', 'message' => 'data sekolah gagal diperbarui'], 500);
     }
 
     public function delete($id) {

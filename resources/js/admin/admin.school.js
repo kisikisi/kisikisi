@@ -1,14 +1,16 @@
-var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $scope, Notification, Upload) {
+var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload', function($http, $scope, $location, Notification, Upload) {
 	$.AdminLTE.layout.fix();
     
+    $scope.onEdit = false;
     $scope.input = {};
+    $scope.schoolAddForm = {};
     $scope.currentPage = 1;
 	$scope.limit = 10;
 
     $scope.listSchool = function() {
         $http.get($scope.env.api+'school')
         .success(function (response) {
-            $scope.type = response.type;
+            $scope.school = response.school;
         })
     }
     
@@ -21,15 +23,14 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
         })
     }
 
-    $scope.uploadLogo = function() {
-        if ($scope.schoolForm.filelogo.$valid && $scope.filelogo) {
+    $scope.uploadLogo = function(isValid, file) {
+        if (isValid) {
             $scope.onProgress1 = true;
-
             Upload.upload({
                 url: $scope.env.api+'school/logo',
                 method: 'POST',
                 data: {
-                    image: $scope.filelogo,
+                    image: file,
                 } 
             }).then(function (resp) {
                 $scope.onProgress1 = false;
@@ -43,15 +44,15 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
 	    }    
     }
     
-    $scope.uploadImage = function() {
-        if ($scope.schoolForm.fileimage.$valid && $scope.fileimage) {
+    $scope.uploadImage = function(isValid, file) {
+        if (isValid) {
             $scope.onProgress2 = true;
 
             Upload.upload({
                 url: $scope.env.api+'school/image',
                 method: 'POST',
                 data: {
-                    image: $scope.fileimage,
+                    image: file,
                 } 
             }).then(function (resp) {
                 $scope.onProgress2 = false;
@@ -66,14 +67,14 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
     }
     
 	$scope.addSchool = function(input) {
-        input.description = $('#description').val();
-        input.data = $('#data').val();
+        input.description = $('#addDescription').val();
+        input.data = $('#addData').val();
         
 		$http.post($scope.env.api+'school', input)
         .success(function (response) {
             //UIkit.notify(response.message, response.status);
             if (response.status == 'success') {
-                $scope.school.push(response.school);
+                $scope.school.push(response.school[0]);
                 Notification({message: response.message}, response.status);
                 $scope.input = {};
                 $scope.fileicon = {};
@@ -82,22 +83,38 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
         })
 	}
     
-	$scope.saveSchool = function(data, id) {
-		return $http.put($scope.env.api+'school/'+id, data);
-		/*.success(function (response) {
+    $scope.editSchool = function(id) {
+        $scope.onEdit = false;
+        $http.get($scope.env.api+'school/'+id)
+        .success(function (response) {
+            $scope.edit = response.detail[0];
+            $scope.onEdit = true;
+            $location.hash('schoolEditForm');
+        })
+    }
+    
+	$scope.saveSchool = function(edit, id) {
+        edit.description = $('#editDescription').val();
+        edit.data = $('#editData').val();
+        
+        var index = $scope.indexSearch($scope.school, id);
+		return $http.put($scope.env.api+'school/'+id, edit)
+		.then(function (response) {
+            $scope.school[index] = response.data.school[0];
             Notification({message: response.data.message}, response.status);
-		})*/
+            $scope.onEdit = false;
+		})
 	}
     
 	$scope.deleteSchool = function(id) {
-		var index = $scope.indexSearch($scope.type, id);
-		if (confirm('delete type?')) {
+		var index = $scope.indexSearch($scope.school, id);
+		if (confirm('delete school?')) {
 			$http.delete($scope.env.api+'school/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
 				if (response.status == 'success') {
 					//console.log(response.type);
-					$scope.type.splice(index, 1);	
+					$scope.school.splice(index, 1);	
 				}
 			})
 		}
@@ -105,5 +122,4 @@ var schoolCtrl = ['$http','$scope', 'Notification','Upload', function($http, $sc
 
     $scope.listSchool();
     $scope.formSchool();
-    $(".textarea").wysihtml5();
 }];
