@@ -26,6 +26,7 @@ app
 .controller('schoolCtrl', schoolCtrl)
 .controller('newsCatCtrl', newsCatCtrl)
 .controller('newsCtrl', newsCtrl)
+.controller('newsLabelCtrl', newsLabelCtrl)
 //.controller('adminMappingCtrl', adminMappingCtrl)
 
 /*.directive('datepicker', function() {

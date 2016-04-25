@@ -63,6 +63,13 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			loginRequired: loginRequired
 		}
+	}).state('news-label', {
+		url: '/news/label',
+		templateUrl: 'views/admin/news.label.html',
+		controller: 'newsLabelCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
 	});
 	//controller example
 	/*.state('mapping', {

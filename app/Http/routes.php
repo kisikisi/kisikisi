@@ -47,6 +47,9 @@ Route::group([
     //module news category
     Route::get('news/category', 'NewsCategoryController@index');
     
+    //module label
+    Route::get('label', 'LabelController@index');
+    
     Route::group(['middleware' => 'ability:admin|manager'], function () {
 	   //module school type
         Route::post('school/type', 'SchoolTypeController@add');
@@ -69,7 +72,12 @@ Route::group([
         Route::post('news/category', 'NewsCategoryController@add');
         Route::put('news/category/{id}', 'NewsCategoryController@update');
         Route::delete('news/category/{id}', 'NewsCategoryController@delete');
-
+        
+        //module label
+        Route::post('label', 'LabelController@add');
+        Route::put('label/{id}', 'LabelController@update');
+        Route::delete('label/{id}', 'LabelController@delete');
+        
     });
     
 });

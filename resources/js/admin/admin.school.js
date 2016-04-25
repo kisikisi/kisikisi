@@ -96,6 +96,8 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload', functi
 	$scope.saveSchool = function(edit, id) {
         edit.description = $('#editDescription').val();
         edit.data = $('#editData').val();
+        edit.city_id = $scope.edit.city.id;
+        edit.school_type_id = $scope.edit.school_type.id;
         
         var index = $scope.indexSearch($scope.school, id);
 		return $http.put($scope.env.api+'school/'+id, edit)

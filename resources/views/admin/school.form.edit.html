@@ -22,13 +22,13 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Location</label>
               <div class="col-sm-5">
-                <select class="form-control" name="province_id" ng-model="edit.city.province" ng-options="prov.id as prov.name for prov in provinces track by prov.id">
+                <select class="form-control" name="province" ng-model="edit.city.province" ng-options="prov as prov.name for prov in provinces track by prov.id">
                   <option value="">--Pick Province--</option>
                 </select>
               </div>
               <div class="col-sm-5">
-                <select ng-if="edit.city.province" class="form-control" name="city_id" ng-model="edit.city" 
-                 ng-options="cty.id as cty.name for cty in (cities | filter:{ province_id : edit.city.province_id }) track by cty.id">
+                <select ng-if="edit.city.province" class="form-control" name="city" ng-model="edit.city" 
+                 ng-options="cty as cty.name for cty in (cities | filter:{ province_id : edit.city.province_id }) track by cty.id">
                   <option value="">--Pick City--</option>
                 </select>
               </div>
