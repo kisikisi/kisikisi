@@ -18,7 +18,7 @@ class EducationNewsController extends Controller
 
 	public function index(EducationNews $education){
     	$data['education'] = EducationNews::all();
-    	return json_encode($data);
+    	return view('educationnews')->with(json_encode($data));
     }
 
      public function add(Request $request, EducationNews $news){
