@@ -17,7 +17,7 @@ class LabelController extends Controller
 
     public function index(Label $news){
     	$data['labels'] = Label::all();
-    	return json_encode($data);
+        return response()->json($data);
     }
 
     public function add(Request $request, Label $news){
@@ -30,11 +30,13 @@ class LabelController extends Controller
     	if ($save) {
     		$data['status'] = 'success';
     		$data['message'] = 'news label added';
-    		$data['labels'] = $save;
+    		$data['label'] = $save;
     	} else {
     		$data['status'] = 'error';
     		$data['message'] = 'news label failed to add';
     	}
+        
+        return response()->json($data);
     }
 
     public function update(Request $request, Label $news,$id){

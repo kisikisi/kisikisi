@@ -55,6 +55,8 @@ var backpaths = {
 		'bower_components/angular-environment/dist/angular-environment.min.js',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
 		'bower_components/ng-file-upload/ng-file-upload.min.js',
+		'bower_components/ng-tags-input/ng-tags-input.min.js',
+		'bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js',
 
 	],
 	js:[
@@ -85,6 +87,9 @@ var backpaths = {
 		//angular directive
 		'bower_components/angular-xeditable/dist/css/xeditable.min.css',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.css',
+		'bower_components/ng-tags-input/ng-tags-input.min.css',
+		'bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css',
+		'bower_components/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css',
 
 		//custom style
 		'resources/css/kisikisi.styl'

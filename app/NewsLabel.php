@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class NewsLabel extends Model
 {
     protected $table = 'news_labels';
+    public $timestamps = false;
 	protected $fillable = [
     	'id',
         'news_id',
-    	'labels_id'
+    	'label_id'
     ];
     
     public function news() {

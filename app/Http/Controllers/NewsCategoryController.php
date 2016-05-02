@@ -16,13 +16,13 @@ class NewsCategoryController extends Controller
 	}
 
     public function index(NewsCategory $news){
-    	$data['category'] = NewsCategory::all();
-    	return json_encode($data);
+    	$data['categories'] = NewsCategory::all();
+    	return response()->json($data);
     }
 
     public function add(Request $request, NewsCategory $news){
     	$input = $request->all();
-    	$input['created_by'] = Auth::user()->id;
+        $input['created_by'] = Auth::user()->id;
         $input['modified_by'] = Auth::user()->id;
 
         $save = NewsCategory::create($input);
@@ -35,6 +35,7 @@ class NewsCategoryController extends Controller
     		$data['status'] = 'error';
     		$data['message'] = 'news category failed to add';
     	}
+    	return response()->json($data);
     }
 
     public function update(Request $request, NewsCategory $news,$id){

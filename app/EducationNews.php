@@ -2,15 +2,15 @@
 
 namespace App;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class EducationNews extends Model
 {
-    protected $table = 'school_type';
+    protected $table = 'education_news';
 	protected $fillable = [
         'news_category_id',
-    	'name',
-        'slug',
+    	'slug',
         'title',
         'content',
         'image_content',
@@ -22,6 +22,13 @@ class EducationNews extends Model
         'created_by',
         'modified_by'
     ];
+    
+    public function newsList() {
+        return $this->select(DB::raw("n.id, n.title, c.name as category, n.date, u.name AS author, n.status, n.image_cover"))
+            ->from('education_news as n')
+            ->join("users AS u", "u.id", "=", "n.author")
+            ->join("news_category AS c", "c.id", "=", "n.news_category_id");
+    }
     
     public function newsCategory() {
         return $this->belongsTo('App\NewsCategory');
@@ -37,5 +44,9 @@ class EducationNews extends Model
     
     public function modifiedBy() {
         return $this->belongsTo('App\NewsCategory','modified_by');
+    }
+    
+    public function newsLabel() {
+        return $this->hasMany('App\NewsLabel', 'news_id');
     }
 }

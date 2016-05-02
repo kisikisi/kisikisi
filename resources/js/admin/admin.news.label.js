@@ -8,7 +8,7 @@ var newsLabelCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
     $scope.listLabel = function() {
         $http.get($scope.env.api+'label')
         .success(function (response) {
-            $scope.label = response.label;
+            $scope.labels = response.labels;
         })
     }
 
@@ -18,9 +18,9 @@ var newsLabelCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
             Notification({message: response.message}, response.status);
 			if (response.status == 'success') {
 				//console.log(response.label);
-				$scope.label.push(response.label);
+				$scope.labels.push(response.label);
 				$scope.input = {};
-				$('#code').focus();
+				$('#name').focus();
 			}
 		})
 	}
@@ -31,14 +31,14 @@ var newsLabelCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
 		})*/
 	}
 	$scope.deleteLabel = function(id) {
-		var index = $scope.indexSearch($scope.label, id);
+		var index = $scope.indexSearch($scope.labels, id);
 		if (confirm('delete label?')) {
 			$http.delete($scope.env.api+'label/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
 				if (response.status == 'success') {
 					//console.log(response.label);
-					$scope.label.splice(index, 1);	
+					$scope.labels.splice(index, 1);	
 				}
 			})
 		}

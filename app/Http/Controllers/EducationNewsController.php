@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\EducationNews;
-
+use App\NewsCategory;
+use App\Label;
 use Auth;
 
 class EducationNewsController extends Controller
@@ -16,13 +18,55 @@ class EducationNewsController extends Controller
 		$this->middleware('jwt.auth', ['except'=>['index','detail']]);
 	}
 
-	public function index(EducationNews $education){
-    	$data['education'] = EducationNews::all();
-    	return json_encode($data);
+	public function index(EducationNews $news){
+    	$data['news'] = $news->newsList()->get();
+    	return response()->json($data);
     }
 
-     public function add(Request $request, EducationNews $news){
+    public function form() {
+        $data['newsCategories'] = NewsCategory::all();
+        $data['labels'] = Label::all();
+    	return response()->json($data);
+    }
+    
+    public function uploadCover() {
+        $logo = Input::file('image');
+    	
+    	//var_dump($logo);
+    	if (Input::hasFile('image')) {
+	        $destinationPath = base_path() . '/storage/files/news/cover/';
+            $filename = time() . '.' . $logo->getClientOriginalExtension();
+	        if(!$logo->move($destinationPath, $filename)) {
+	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
+	        } else {
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'cover' => $filename], 200);
+	        }
+		} else {
+	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
+		}
+    }
+    
+    public function uploadContent() {
+        $icon = Input::file('image');
+    	
+    	//var_dump($icon);
+    	if (Input::hasFile('image')) {
+	        $destinationPath = base_path() . '/storage/files/news/content/';
+            $filename = time() . '.' . $icon->getClientOriginalExtension();
+	        if(!$icon->move($destinationPath, $filename)) {
+	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
+	        } else {
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'content' => $filename ], 200);
+	        }
+		} else {
+	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
+		}
+    }
+    
+    public function add(Request $request, EducationNews $news){
     	$input = $request->all();
+        $input['author'] = Auth::user()->id;
+        $input['date'] = strtotime($input['date']);
     	$input['created_by'] = Auth::user()->id;
         $input['modified_by'] = Auth::user()->id;
 
@@ -31,18 +75,19 @@ class EducationNewsController extends Controller
     	if ($save) {
     		$data['status'] = 'success';
     		$data['message'] = 'education news added';
-    		$data['category'] = $save;
+    		$data['news'] = $save;
     	} else {
     		$data['status'] = 'error';
     		$data['message'] = 'education news  failed to add';
     	}
+        return response()->json($data);
     }
 
     public function detail($id){
-        $data['detail'] = EducationNews::with(["title","content","image_content","image_cover","date"])
-            ->where('id', $id)
-            ->get();
-
+        $data['detail'] = EducationNews::with(["newsCategory","author","newsLabel" => function($query) {
+            $query->label;
+        }])->find($id);
+            
         return response()->json($data);
     }
 
