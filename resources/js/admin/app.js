@@ -5,7 +5,7 @@ var posOfTld = hostNameArray.length - 1;
 var host = hostNameArray[posOfTld];
 */
 app = angular.module('kisiApp', ['ui.router', 'satellizer', 'ngTouch', 'superswipe', 
-	'angularUtils.directives.dirPagination', 'xeditable', 'environment','ui-notification' ]);
+	'angularUtils.directives.dirPagination', 'xeditable', 'environment','ui-notification','ngFileUpload','ngTagsInput','toggle-switch' ]);
 app
 /*.constant('constant', {
 	'site': '//'+host+'/',
@@ -25,6 +25,8 @@ app
 .controller('schoolTypeCtrl', schoolTypeCtrl)
 .controller('schoolCtrl', schoolCtrl)
 .controller('newsCtrl', newsCtrl)
+.controller('newsCatCtrl', newsCatCtrl)
+.controller('newsLabelCtrl', newsLabelCtrl)
 //.controller('adminMappingCtrl', adminMappingCtrl)
 
 /*.directive('datepicker', function() {
@@ -55,3 +57,20 @@ app
 		$.AdminLTE.tree(element);
     };
 })
+.directive('wysihtml5', function() {
+	return function (scope, element, attr) {
+		$(element).wysihtml5();
+    };
+})
+.directive('datepicker', function() {
+    return function(scope, element, attr) {
+        $(element).datepicker();
+    }
+});
+/*.directive('icheckRadio', function() {
+    return function(scope, element, attr) {
+        $(element).iCheck({
+          radioClass: 'iradio_flat-blue'
+        });
+    }
+})*/

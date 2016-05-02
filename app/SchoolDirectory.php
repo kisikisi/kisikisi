@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SchoolDirectory extends Model
 {
-    protected $table = 'school_directory AS s';
+    protected $table = 'school_directory';
 	protected $fillable = [
     	'school_type_id',
         'name',
@@ -17,7 +17,7 @@ class SchoolDirectory extends Model
         'email',
         'website',
         'logo',
-        'images',
+        'image',
         'city_id',
         'description',
         'data',
@@ -26,7 +26,8 @@ class SchoolDirectory extends Model
     ];
     
     public function schoolList() {
-        return $this->select(DB::raw("s.id, s.name, s.logo, s.images, t.name AS type, c.name AS city"))
+        return $this->select(DB::raw("s.id, s.name, s.logo, s.image, t.name AS type, c.name AS city"))
+                ->from('school_directory as s')
                 ->join("school_type AS t", "t.id", "=", "s.school_type_id")
                 ->join("city AS c", "c.id", "=", "s.city_id");
     }

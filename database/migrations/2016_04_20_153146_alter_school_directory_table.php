@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterSchoolTypeTable extends Migration
+class AlterSchoolDirectoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,8 @@ class AlterSchoolTypeTable extends Migration
      */
     public function up()
     {
-        Schema::table('school_type', function ($table) {
-            $table->string('alias', 16);
-            $table->enum('group', ['F','N']);
+        Schema::table('school_directory', function ($table) {
+            $table->renameColumn('images', 'image');
         });
     }
 

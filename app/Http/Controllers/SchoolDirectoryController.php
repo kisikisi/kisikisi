@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 use App\SchoolDirectory;
+use App\Province;
+use App\City;
+use App\SchoolType;
 use Auth;
 
 class SchoolDirectoryController extends Controller
@@ -22,13 +26,55 @@ class SchoolDirectoryController extends Controller
     }
 
     public function detail($id) {
-        $data['detail'] = SchoolDirectory::with(["schoolType","city","createdBy","modifiedBy"])
+        $data['detail'] = SchoolDirectory::with(["schoolType","city.province","city","createdBy","modifiedBy"])
             ->where('id', $id)
             ->get();
 
         return response()->json($data);
     }
+    
+    public function form() {
+        $data['schoolTypes'] = SchoolType::all();
+        $data['provinces'] = Province::select(['id','name'])->get();
+        $data['cities'] = City::select(['id','province_id','name'])->get();
+        
+        return response()->json($data);
+    }
 
+    public function uploadLogo() {
+        $logo = Input::file('image');
+    	
+    	//var_dump($logo);
+    	if (Input::hasFile('image')) {
+	        $destinationPath = base_path() . '/storage/files/school/logo/';
+            $filename = time() . '.' . $logo->getClientOriginalExtension();
+	        if(!$logo->move($destinationPath, $filename)) {
+	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
+	        } else {
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'logo' => $filename], 200);
+	        }
+		} else {
+	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
+		}
+    }
+    
+    public function uploadImage() {
+        $icon = Input::file('image');
+    	
+    	//var_dump($icon);
+    	if (Input::hasFile('image')) {
+	        $destinationPath = base_path() . '/storage/files/school/image/';
+            $filename = time() . '.' . $icon->getClientOriginalExtension();
+	        if(!$icon->move($destinationPath, $filename)) {
+	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
+	        } else {
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'image' => $filename ], 200);
+	        }
+		} else {
+	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
+		}
+    }
+    
     public function add(Request $request, SchoolDirectory $school) {
 
         $input = $request->all();
@@ -40,7 +86,7 @@ class SchoolDirectoryController extends Controller
     	if ($save) {
     		$data['status'] = 'success';
     		$data['message'] = 'school added';
-    		$data['school'] = $save;
+    		$data['school'] = $school->schoolList()->where('s.id', $save->id)->get();
     	} else {
     		$data['status'] = 'error';
     		$data['message'] = 'school failed to add';
@@ -54,8 +100,10 @@ class SchoolDirectoryController extends Controller
         $input['modified_by'] = Auth::user()->id;
 
     	$type = SchoolDirectory::where('id', $id)->first();
-    	if ($type->update($input)) return response()->json(['success' => 'data_updated'], 200);
-    	else return response()->json(['error' => 'cant_update_data'], 500);
+    	if ($type->update($input)) {
+            $data = $school->schoolList()->where('s.id', $id)->get();
+            return response()->json(['success' => 'data_updated', 'message' => 'data sekolah diperbarui', 'school' => $data], 200);
+        } else return response()->json(['error' => 'cant_update_data', 'message' => 'data sekolah gagal diperbarui'], 500);
     }
 
     public function delete($id) {

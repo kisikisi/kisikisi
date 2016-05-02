@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterSchoolTypeTable extends Migration
+class CreateLabelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,10 @@ class AlterSchoolTypeTable extends Migration
      */
     public function up()
     {
-        Schema::table('school_type', function ($table) {
-            $table->string('alias', 16);
-            $table->enum('group', ['F','N']);
+         Schema::create('labels', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 128);
+                
         });
     }
 

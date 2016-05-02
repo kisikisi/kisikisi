@@ -35,16 +35,21 @@ Route::group([
 	Route::get('school/type', 'SchoolTypeController@index');
     Route::get('school/type/{id}', 'SchoolTypeController@detail');
   
-	//module school type
+	//module school
 	Route::get('school', 'SchoolDirectoryController@index');
+    Route::get('school/form', 'SchoolDirectoryController@form');
 	Route::get('school/{id}', 'SchoolDirectoryController@detail');
-    
-    //module news
-    Route::get('news', 'EducationNewsController@index');
-    Route::get('news/{id}', 'EducationNewsController@detail');
     
     //module news category
     Route::get('news/category', 'NewsCategoryController@index');
+    
+    //module news
+    Route::get('news/form', 'EducationNewsController@form');
+    Route::get('news', 'EducationNewsController@index');
+    Route::get('news/{id}', 'EducationNewsController@detail');
+    
+    //module label
+    Route::get('label', 'LabelController@index');
     
     Route::group(['middleware' => 'ability:admin|manager'], function () {
 	   //module school type
@@ -52,21 +57,33 @@ Route::group([
         Route::put('school/type/{id}', 'SchoolTypeController@update');
         Route::delete('school/type/{id}', 'SchoolTypeController@delete');
         
-	   //module school type
+	   //module school
+        Route::post('school/logo', 'SchoolDirectoryController@uploadLogo');
+        Route::post('school/image', 'SchoolDirectoryController@uploadImage');
         Route::post('school', 'SchoolDirectoryController@add');
         Route::put('school/{id}', 'SchoolDirectoryController@update');
         Route::delete('school/{id}', 'SchoolDirectoryController@delete');
         
         //module education news
+        Route::post('news/cover', 'EducationNewsController@uploadCover');
+        Route::post('news/content', 'EducationNewsController@uploadContent');
         Route::post('news', 'EducationNewsController@add');
         Route::put('news/{id}', 'EducationNewsController@update');
         Route::delete('news/{id}', 'EducationNewsController@delete');
-
-        //module new category
+        //module news label
+        Route::post('news/{news_id}/label/{label_id}', 'NewsLabelController@add');
+        Route::delete('news/{news_id}/label/{label_id}', 'NewsLabelController@remove');
+        
+        //module news category
         Route::post('news/category', 'NewsCategoryController@add');
         Route::put('news/category/{id}', 'NewsCategoryController@update');
         Route::delete('news/category/{id}', 'NewsCategoryController@delete');
-
+        
+        //module label
+        Route::post('label', 'LabelController@add');
+        Route::put('label/{id}', 'LabelController@update');
+        Route::delete('label/{id}', 'LabelController@delete');
+        
     });
     
 });

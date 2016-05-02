@@ -1,28 +1,28 @@
 <section class="content-header">
   <h1>
-    School Directory
-    <small>List of School</small>
+    News
+    <small>List of News</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Education Directory</a></li>
-    <li class="active">School Directory</li>
+    <li><a href="#">Education News</a></li>
+    <li class="active">News</li>
   </ol>
 </section>
 <section class="content">
   <div class="row">
-    <div class="col-xs-12" ng-include="'views/admin/school.form.add.html'">
+    <div id="newsForm" class="col-xs-12" ng-include="'views/admin/news.form.html'">
       
     </div>
-    <div id="schoolEditForm" ng-if="onEdit" class="col-xs-12" ng-include="'views/admin/school.form.edit.html'">
+    <!--<div id="newsEditForm" ng-if="onEdit" class="col-xs-12" ng-include="'views/admin/news.form.edit.html'">
       
-    </div>
+    </div>-->
   </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">School List</h3>
+          <h3 class="box-title">News List</h3>
           <div class="box-tools">
             <div class="input-group pull-right" style="width: 150px;">
               <input type="text" name="table_search" ng-model="search" class="form-control input-sm pull-right" placeholder="Search">
@@ -38,22 +38,26 @@
           <table class="table table-hover">
             <tbody><tr>
               <th>No</th>
-              <th>School Name</th>
-              <th>School Type</th>
-              <th>Location</th>
-              <th>School Logo</th>
+              <th>News title</th>
+              <th>Category</th>
+              <th>Author</th>
+              <th>Date</th>
+              <th width="10%">Cover Image</th>
+              <th>Status</th>
               <th></th>
             </tr>
-            <tr dir-paginate="list in school | orderBy:'-id' | itemsPerPage:limit | filter:search" current-page="currentPage">
+            <tr dir-paginate="list in news | orderBy:'-id' | itemsPerPage:limit | filter:search" current-page="currentPage">
               <td>{{ ((currentPage-1)*limit)+$index+1 }}</td>
-              <td>{{list.name}}</td>
-              <td>{{list.type}}</td>
-              <td>{{list.city}}</td>
-              <td><img ng-if="list.logo != ''" ng-src="{{env.file}}school/logo/{{list.logo}}" alt="" width="20%" /></td>
+              <td>{{list.title}}</td>
+              <td>{{list.category}}</td>
+              <td>{{list.author}}</td>
+              <td>{{list.date}}</td>    
+              <td><img ng-if="list.image_cover != ''" ng-src="{{env.file}}news/cover/{{list.image_cover}}" alt="" width="100%" /></td>
+              <td>{{ (list.status == 1)?"Live":"Draft"  }}</td>
               <td>
                 <div class="btn-group" ng-show="!rowform.$visible">
-                  <a class="btn btn-default" ng-click="editSchool(list.id)"><i class="fa fa-edit"></i></a>
-                  <button type="button" class="btn btn-default" ng-click="deleteSchool(list.id)"><i class="fa fa-remove"></i></button>
+                  <a class="btn btn-default" ng-click="editNews(list.id)"><i class="fa fa-edit"></i></a>
+                  <button type="button" class="btn btn-default" ng-click="deleteNews(list.id)"><i class="fa fa-remove"></i></button>
                 </div>
               </td>
             </tr>

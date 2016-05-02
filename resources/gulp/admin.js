@@ -54,14 +54,17 @@ var backpaths = {
 		'bower_components/angular-xeditable/dist/js/xeditable.min.js',
 		'bower_components/angular-environment/dist/angular-environment.min.js',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
+		'bower_components/ng-file-upload/ng-file-upload.min.js',
+		'bower_components/ng-tags-input/ng-tags-input.min.js',
+		'bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js',
 
 	],
 	js:[
 		//angular app
 		'resources/js/admin/*',
 		//'bower_components/AdminLTE/dist/js/pages/dashboard.js',
-		'bower_components/AdminLTE/dist/js/app.min.js',
-		'bower_components/AdminLTE/dist/js/demo.js',
+		'bower_components/AdminLTE/dist/js/app.js',
+		//'bower_components/AdminLTE/dist/js/demo.js',
 	],
 	css: [
 		//UIKit
@@ -84,6 +87,9 @@ var backpaths = {
 		//angular directive
 		'bower_components/angular-xeditable/dist/css/xeditable.min.css',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.css',
+		'bower_components/ng-tags-input/ng-tags-input.min.css',
+		'bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css',
+		'bower_components/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css',
 
 		//custom style
 		'resources/css/kisikisi.styl'
@@ -163,7 +169,7 @@ gulp.task('back-jsonmin', function () {
 });
 
 gulp.task('back-watch', function() {
-  gulp.watch(['resources/js/app.js'], ['back-jsmin']);
+  gulp.watch(backpaths.js, ['back-jsmin']);
   gulp.watch(backpaths.css, ['back-cssmin']);
   gulp.watch(backpaths.html, ['back-htmlmin']);
 });
