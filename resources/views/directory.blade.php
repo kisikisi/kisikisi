@@ -26,7 +26,47 @@
       </div>
     </div>
     <div class="ui container">
-        <div class="ui six cards">
+        <div class="ui grid">
+         <div class="twelve wide column">
+             <div class="right ui rail" style="min-height: 263px;">
+               <div class="ui sticky" >
+                 <h3 class="ui header">Stuck Content</h3>
+                 <img>
+               </div>
+             </div>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+         </div>
+        </div>        
+    </div>
+<!--    <div class="ui container">
+        
+        <div id="content" class="ui four cards">
+         <div class="right ui rail" style="min-height: 263px;">
+            <div class="ui sticky" style="width: 272px !important; height: 263px !important; left: 1080.5px;">
+              <h3 class="ui header">Stuck Content</h3>
+              <img>
+            </div>
+        </div>
          <div class="card">
           <div class="image">
             <img src="/img/avatar.png">
@@ -108,6 +148,9 @@
           </div>
          </div>
         </div>
-    </div>
+    </div>-->
+    <script>
+        $('.ui.sticky').sticky();
+    </script>
 </body>
 </html>

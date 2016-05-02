@@ -47,6 +47,9 @@ class EducationNews extends Model
     }
     
     public function newsLabel() {
-        return $this->hasMany('App\NewsLabel', 'news_id');
+        //return $this->hasMany('App\NewsLabel', 'news_id');
+        return $this->select(DB::raw("l.*"))
+            ->join("news_labels AS nl", "nl.news_id", "=", "education_news.id")
+            ->join("labels AS l", "l.id", "=", "nl.label_id");
     }
 }

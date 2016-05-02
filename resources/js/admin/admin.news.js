@@ -131,9 +131,11 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
         //$scope.onEdit = false;
         $http.get($scope.env.api+'news/'+id)
         .success(function (response) {
-            $scope.input = response.detail[0];
+            $scope.input = response.detail;
+            $scope.input.news_label = response.newsLabel;
             $scope.input.news_category_id = parseInt($scope.input.news_category_id);
             $scope.input.status = parseInt($scope.input.status);
+            $('#addContent').val($scope.input.content);
             $("[data-widget='collapse']").click();
             //$scope.onEdit = true;
             $location.hash('newsForm');
