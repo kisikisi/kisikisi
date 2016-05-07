@@ -49,6 +49,13 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			skipIfLoggedIn: skipIfLoggedIn
 		}
+	}).state('label', {
+		url: '/label',
+		templateUrl: 'views/admin/label.html',
+		controller: 'labelCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
 	}).state('news', {
 		url: '/news',
 		templateUrl: 'views/admin/news.html',
@@ -63,10 +70,17 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			loginRequired: loginRequired
 		}
-	}).state('news-label', {
-		url: '/news/label',
-		templateUrl: 'views/admin/news.label.html',
-		controller: 'newsLabelCtrl',
+	}).state('agenda', {
+		url: '/agenda',
+		templateUrl: 'views/admin/agenda.html',
+		controller: 'agendaCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
+	}).state('agenda-category', {
+		url: '/agenda/category',
+		templateUrl: 'views/admin/agenda.category.html',
+		controller: 'agendaCatCtrl',
 		resolve: {
 			loginRequired: loginRequired
 		}

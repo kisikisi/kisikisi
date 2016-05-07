@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEducationNewsTable extends Migration
+class CreateEducationAgendaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,20 @@ class CreateEducationNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('education_news', function (Blueprint $table) {
+        Schema::create('education_agenda', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('news_category_id')->unsigned();
+            $table->integer('agenda_category_id')->unsigned();
             $table->string('slug', 256);
             $table->string('title', 256);
-            $table->text('content');
-            $table->string('image_content', 256);
+            $table->integer('city_id')->unsigned();
+            $table->string('location', 256);
+            $table->integer('start_datetime');
+            $table->integer('end_datetime');
             $table->string('image_cover' , 256);
-            $table->integer('date')->unsigned();
-            $table->integer('author')->unsigned();
-            $table->string('ipaddress', 32);
+            $table->string('image_content', 256);
+            $table->string('map_address', 256);
+            $table->text('content');
+            $table->string('embed', 256);
             $table->boolean('status');
             $table->timestamps();
             $table->integer('created_by')->unsigned();
@@ -30,17 +33,17 @@ class CreateEducationNewsTable extends Migration
             $table->softDeletes();
         });
         
-        Schema::table('education_news', function (Blueprint $table) {
-            $table->foreign('news_category_id')
+        Schema::table('education_agenda', function (Blueprint $table) {
+            $table->foreign('agenda_category_id')
                 ->references('id')
-                ->on('news_category')
-                ->onDelete('cascade');
-
-            $table->foreign('author')
-                ->references('id')
-                ->on('users')
+                ->on('agenda_category')
                 ->onDelete('cascade');
             
+            $table->foreign('city_id')
+                ->references('id')
+                ->on('city')
+                ->onDelete('cascade');
+
             $table->foreign('created_by')
                 ->references('id')
                 ->on('users')
@@ -60,6 +63,6 @@ class CreateEducationNewsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('education_news');
+        Schema::drop('education_agenda');
     }
 }

@@ -1,4 +1,4 @@
-var newsLabelCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notification) {
+var labelCtrl = ['$http','$scope', 'Notification', function($http, $scope, Notification) {
     
     $.AdminLTE.layout.fix();
     

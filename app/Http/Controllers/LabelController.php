@@ -29,11 +29,11 @@ class LabelController extends Controller
 
     	if ($save) {
     		$data['status'] = 'success';
-    		$data['message'] = 'news label added';
+    		$data['message'] = 'label added';
     		$data['label'] = $save;
     	} else {
     		$data['status'] = 'error';
-    		$data['message'] = 'news label failed to add';
+    		$data['message'] = 'label failed to add';
     	}
         
         return response()->json($data);

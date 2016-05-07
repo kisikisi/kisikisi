@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsLabelsTable extends Migration
+class CreateAgendaLabelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,17 @@ class CreateNewsLabelsTable extends Migration
      */
     public function up()
     {
-         Schema::create('news_labels', function (Blueprint $table) {
+         Schema::create('agenda_labels', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('news_id')->unsigned();
+            $table->integer('agenda_id')->unsigned();
             $table->integer('label_id')->unsigned();
                 
         });
         
-        Schema::table('news_labels', function (Blueprint $table) {
-            $table->foreign('news_id')
+        Schema::table('agenda_labels', function (Blueprint $table) {
+            $table->foreign('agenda_id')
                 ->references('id')
-                ->on('education_news')
+                ->on('education_agenda')
                 ->onDelete('cascade');
 
             $table->foreign('label_id')
@@ -39,6 +39,6 @@ class CreateNewsLabelsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('news_label');
+        Schema::drop('agenda_label');
     }
 }

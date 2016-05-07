@@ -20,7 +20,12 @@
 </IfModule>
 
 # Cors
-Header always set Access-Control-Allow-Origin "http://kisikisi.dev"
-Header always set Access-Control-Allow-Origin "http://admin.kisikisi.dev"
+#Header always set Access-Control-Allow-Origin "http://*.kisikisi.dev"
+SetEnvIf Origin ^(https?://.+\.kisikisi\.dev(?::\d{1,5})?)$ CORS_ALLOW_ORIGIN=$1
+SetEnvIf Origin ^(https?://.+\.kisikisi\.id(?::\d{1,5})?)$ CORS_ALLOW_ORIGIN=$1
+SetEnvIf Origin ^(https?://kisikisi\.id(?::\d{1,5})?)$ CORS_ALLOW_ORIGIN=$1
+SetEnvIf Origin ^(https?://kisikisi\.dev(?::\d{1,5})?)$ CORS_ALLOW_ORIGIN=$1
+Header append Access-Control-Allow-Origin  %{CORS_ALLOW_ORIGIN}e env=CORS_ALLOW_ORIGIN
+Header merge  Vary "Origin"
 Header always set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Access-Control-Allow-Origin, Authorization"
 Header always set Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"

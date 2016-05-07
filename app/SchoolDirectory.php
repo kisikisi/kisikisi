@@ -4,9 +4,11 @@ namespace App;
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SchoolDirectory extends Model
 {
+    use SoftDeletes;
     protected $table = 'school_directory';
 	protected $fillable = [
     	'school_type_id',

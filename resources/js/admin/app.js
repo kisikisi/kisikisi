@@ -22,11 +22,13 @@ app
 .controller('kisiCtrl', kisiCtrl)
 .controller('homeCtrl', homeCtrl)
 .controller('authCtrl', authCtrl)
+.controller('labelCtrl', labelCtrl)
 .controller('schoolTypeCtrl', schoolTypeCtrl)
 .controller('schoolCtrl', schoolCtrl)
 .controller('newsCtrl', newsCtrl)
 .controller('newsCatCtrl', newsCatCtrl)
-.controller('newsLabelCtrl', newsLabelCtrl)
+.controller('agendaCtrl', agendaCtrl)
+.controller('agendaCatCtrl', agendaCatCtrl)
 //.controller('adminMappingCtrl', adminMappingCtrl)
 
 /*.directive('datepicker', function() {

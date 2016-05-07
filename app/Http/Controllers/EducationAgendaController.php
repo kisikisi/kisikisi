@@ -7,24 +7,28 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
-use App\EducationNews;
-use App\NewsCategory;
+use App\EducationAgenda;
+use App\AgendaCategory;
 use App\Label;
+use App\Province;
+use App\City;
 use Auth;
 
-class EducationNewsController extends Controller
+class EducationAgendaController extends Controller
 {
     public function __construct(){
 		$this->middleware('jwt.auth', ['except'=>['index','detail']]);
 	}
 
-	public function index(EducationNews $news){
-    	$data['news'] = $news->newsList()->get();
+	public function index(EducationAgenda $agenda){
+    	$data['agenda'] = $agenda->agendaList()->get();
     	return response()->json($data);
     }
 
     public function form() {
-        $data['newsCategories'] = NewsCategory::all();
+        $data['agendaCategories'] = AgendaCategory::all();
+        $data['provinces'] = Province::select(['id','name'])->get();
+        $data['cities'] = City::select(['id','province_id','name'])->get();
         $data['labels'] = Label::all();
     	return response()->json($data);
     }
@@ -34,7 +38,7 @@ class EducationNewsController extends Controller
     	
     	//var_dump($logo);
     	if (Input::hasFile('image')) {
-	        $destinationPath = base_path() . '/storage/files/news/cover/';
+	        $destinationPath = base_path() . '/storage/files/agenda/cover/';
             $filename = time() . '.' . $logo->getClientOriginalExtension();
 	        if(!$logo->move($destinationPath, $filename)) {
 	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
@@ -51,7 +55,7 @@ class EducationNewsController extends Controller
     	
     	//var_dump($icon);
     	if (Input::hasFile('image')) {
-	        $destinationPath = base_path() . '/storage/files/news/content/';
+	        $destinationPath = base_path() . '/storage/files/agenda/content/';
             $filename = time() . '.' . $icon->getClientOriginalExtension();
 	        if(!$icon->move($destinationPath, $filename)) {
 	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
@@ -63,51 +67,52 @@ class EducationNewsController extends Controller
 		}
     }
     
-    public function add(Request $request, EducationNews $news){
+    public function add(Request $request, EducationAgenda $agenda){
     	$input = $request->all();
-        $input['author'] = Auth::user()->id;
-        $input['date'] = strtotime($input['date']);
+        $input['start_datetime'] = strtotime($input['start_datetime']);
+        $input['end_datetime'] = strtotime($input['end_datetime']);
     	$input['created_by'] = Auth::user()->id;
         $input['modified_by'] = Auth::user()->id;
 
-        $save = EducationNews::create($input);
+        $save = EducationAgenda::create($input);
 
     	if ($save) {
     		$data['status'] = 'success';
-    		$data['message'] = 'education news added';
-    		$data['news'] = $save;
+    		$data['message'] = 'education agenda added';
+    		$data['agenda'] = $save;
     	} else {
     		$data['status'] = 'error';
-    		$data['message'] = 'education news  failed to add';
+    		$data['message'] = 'education agenda  failed to add';
     	}
         return response()->json($data);
     }
 
     public function detail($id){
-        $data['detail'] = EducationNews::with(["newsCategory","author"])->find($id);
-        $data['newsLabel'] = EducationNews::find($id)->newsLabel()->get();
+        $data['detail'] = EducationAgenda::with(["agendaCategory","city"])->find($id);
+        $data['agendaLabel'] = EducationAgenda::find($id)->agendaLabel()->get();
         return response()->json($data);
     }
 
-    public function update(Request $request, EducationNews $news,$id){
+    public function update(Request $request, EducationAgenda $agenda,$id){
     	$input = $request->all();
-        $input['date'] = strtotime($input['date']);
-        $input['modified_by'] = Auth::user()->id;
+        $input['start_datetime'] = strtotime($input['start_datetime']);
+        $input['end_datetime'] = strtotime($input['end_datetime']);
+    	$input['modified_by'] = Auth::user()->id;
 
-    	$type = EducationNews::where('id', $id)->first();
+    	$type = EducationAgenda::where('id', $id)->first();
     	if ($type->update($input)) return response()->json(['success' => 'data_updated'], 200);
     	else return response()->json(['error' => 'cant_update_data'], 500);
     }
 
     public function delete($id){
-    	$delete = EducationNews::where('id', $id)->delete();
+    	$delete = EducationAgenda::where('id', $id)->delete();
 
     	if ($delete) {
     		$data['status'] = 'success';
-    		$data['message'] = 'News deleted';
+    		$data['message'] = 'Agenda deleted';
     	} else {
     		$data['status'] = 'error';
-    		$data['message'] = 'News failed to delete';
+    		$data['message'] = 'Agenda failed to delete';
     	}
 
     	return response()->json($data);
