@@ -1,4 +1,4 @@
-<div ng-if="onDetail" id="schoolDetail" class="ui segments">
+<div ng-if="onDetail" id="schoolDetail">
     <div class="image">
         <img ng-src="{{env.file}}school/image/{{detail.image}}" alt="" class="ui fluid image">
         <!--<div class="ui center aligned grid content">
@@ -10,8 +10,8 @@
             <img ng-src="{{env.file}}school/logo/{{detail.logo}}">
             <div class="content">
                 {{detail.name}}
-                <div class="sub header">{{detail.type}}</div>
-                <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                <div class="sub header">{{detail.school_type.name}}</div>
+                <div ui-rating class="ui star rating" data-rating="3" data-max-rating="5"></div>
             </div>
         </h2>
         <div class="ui six wide column">
@@ -44,15 +44,15 @@
         </div>
     </div>
     <div class="ui three item top attached compact menu">
-      <a class="active item" data-tab="description">
+      <a ui-tab class="active item" data-tab="description">
        <i class="list icon"></i>
         Profile
       </a>
-      <a class="item" data-tab="data">
+      <a ui-tab class="item" data-tab="data">
        <i class="table icon"></i>
         Data
       </a>
-      <a class="item" data-tab="map">
+      <a ui-tab class="item" data-tab="map">
        <i class="map icon"></i>
         Map
       </a>
@@ -138,4 +138,5 @@
     <div class="ui attached segment">
         <div class="fb-comments" data-href="http://kisikisi.id/smkn5tng" data-numposts="5" data-width="100%"></div>
     </div>
+    <div ng-if="widget.rendered">rendered</div>
 </div>

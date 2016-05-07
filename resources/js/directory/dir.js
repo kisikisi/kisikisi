@@ -11,4 +11,12 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
         })
     }    
     $scope.listSchool();
+    
+    var widget = this;
+  
+    $scope.$watch(function () {
+    return widget.href;
+    }, function () {
+    widget.rendered = false;
+    });
 }];

@@ -29,6 +29,7 @@ var dirpaths = {
 		'bower_components/angular-environment/dist/angular-environment.min.js',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
 		'bower_components/ng-tags-input/ng-tags-input.min.js',	
+		'bower_components/angular-easyfb/build/angular-easyfb.min.js',	
     ],
 	js:[
 		//angular app

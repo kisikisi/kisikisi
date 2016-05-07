@@ -1,5 +1,5 @@
-var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authProvider', '$locationProvider', 'envServiceProvider',
-	function($stateProvider, $httpProvider, $urlRouterProvider, $authProvider, $locationProvider, envServiceProvider) {
+var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authProvider', '$locationProvider', 'envServiceProvider', 'ezfbProvider',
+	function($stateProvider, $httpProvider, $urlRouterProvider, $authProvider, $locationProvider, envServiceProvider, ezfbProvider) {
 	
 	var loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
       var deferred = $q.defer();
@@ -60,5 +60,9 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	$urlRouterProvider.otherwise('/');
 	
 	$authProvider.loginUrl = '/login';
+        
+    ezfbProvider.setInitParams({
+        appId: '135688693164869'
+    });
 	
 }]
