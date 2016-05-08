@@ -39,7 +39,8 @@ return [
     |
     */
 
-    'url' => 'http://kisikisi.id',
+    'url' => env('APP_URL', 'http://kisikisi.id'),
+    'domain' => env('APP_DOMAIN', 'kisikisi.id'),
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +92,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', 'Tmq8ah4So4L9Xzh5xlnmmIk6EJKEqRlt'),
 
     'cipher' => 'AES-256-CBC',
 
