@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AgendaCategory extends Model
 {
-    protected $table = 'agenda_category';
+    protected $table = 'agenda_categories';
 	protected $fillable = [
     	'name',
         'created_by',

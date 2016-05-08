@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class SchoolDirectory extends Model
 {
     use SoftDeletes;
-    protected $table = 'school_directory';
+    protected $table = 'school_directories';
 	protected $fillable = [
     	'school_type_id',
         'name',
@@ -28,9 +28,9 @@ class SchoolDirectory extends Model
     ];
     
     public function schoolList() {
-        return $this->select(DB::raw("school_directory.id, school_directory.name, school_directory.logo, school_directory.image, t.name AS type, c.name AS city"))
-                ->join("school_type AS t", "t.id", "=", "school_directory.school_type_id")
-                ->join("city AS c", "c.id", "=", "school_directory.city_id");
+        return $this->select(DB::raw("school_directories.id, school_directories.name, school_directories.logo, school_directories.image, t.name AS type, c.name AS city"))
+                ->join("school_type AS t", "t.id", "=", "school_directories.school_type_id")
+                ->join("city AS c", "c.id", "=", "school_directories.city_id");
     }
 
     public function schoolType() {

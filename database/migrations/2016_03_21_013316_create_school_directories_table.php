@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSchoolDirectoryTable extends Migration
+class CreateSchoolDirectoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,10 @@ class CreateSchoolDirectoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('school_directory', function (Blueprint $table) {
+        Schema::create('school_directories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('school_type_id')->unsigned();
+            $table->string('slug', 32);
             $table->string('name', 128);
             $table->string('address', 256);
             $table->string('map_address', 256);
@@ -22,7 +23,7 @@ class CreateSchoolDirectoryTable extends Migration
             $table->string('email' ,128);
             $table->string('website', 128);
             $table->string('logo', 256);
-            $table->string('images', 256);
+            $table->string('image', 256);
             $table->integer('city_id')->unsigned();
             $table->text('description');
             $table->text('data');
@@ -32,15 +33,15 @@ class CreateSchoolDirectoryTable extends Migration
             $table->softDeletes();
         });
         
-        Schema::table('school_directory', function (Blueprint $table) {
+        Schema::table('school_directories', function (Blueprint $table) {
             $table->foreign('school_type_id')
                 ->references('id')
-                ->on('school_type')
+                ->on('school_types')
                 ->onDelete('cascade');
 
             $table->foreign('city_id')
                 ->references('id')
-                ->on('city')
+                ->on('cities')
                 ->onDelete('cascade');
         });
 
@@ -54,6 +55,6 @@ class CreateSchoolDirectoryTable extends Migration
      */
     public function down()
     {
-       Schema::drop('school_directory');
+       Schema::drop('school_directories');
     }
 }

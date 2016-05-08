@@ -33,7 +33,7 @@ class CreateEducationNewsTable extends Migration
         Schema::table('education_news', function (Blueprint $table) {
             $table->foreign('news_category_id')
                 ->references('id')
-                ->on('news_category')
+                ->on('news_categories')
                 ->onDelete('cascade');
 
             $table->foreign('author')

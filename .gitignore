@@ -3,6 +3,9 @@
 /node_modules
 /vendor
 /storage
+/public/views/
+/public/css/
+/public/js/
 npm-debug.log
 Homestead.yaml
 Homestead.json

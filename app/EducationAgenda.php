@@ -10,7 +10,7 @@ class EducationAgenda extends Model
 {
     use SoftDeletes;
     
-    protected $table = 'education_agenda';
+    protected $table = 'education_agendas';
 	protected $fillable = [
         'agenda_category_id',
     	'slug',

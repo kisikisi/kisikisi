@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSchoolTypeTable extends Migration
+class CreateNewsCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,22 +12,23 @@ class CreateSchoolTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('school_type', function (Blueprint $table) {
+        Schema::create('news_categories', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug', 64);
             $table->string('name', 128);
             $table->timestamps();
             $table->integer('created_by')->unsigned();
             $table->integer('modified_by')->unsigned();
             $table->softDeletes();
-                
         });
-
-        Schema::table('school_type', function (Blueprint $table) {
+        
+        Schema::table('news_categories', function (Blueprint $table) {
+            
             $table->foreign('created_by')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-
+            
             $table->foreign('modified_by')
                 ->references('id')
                 ->on('users')
@@ -43,6 +44,6 @@ class CreateSchoolTypeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('school_type');
+        Schema::drop('news_categories');
     }
 }

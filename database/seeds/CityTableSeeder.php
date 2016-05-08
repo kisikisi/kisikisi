@@ -12,7 +12,7 @@ class CityTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('city')->delete();
+        DB::table('cities')->delete();
         $json = File::get("database/data/regencies.json");
         $data = json_decode($json);
         foreach ($data as $obj) {

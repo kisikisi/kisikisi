@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAgendaLabelTable extends Migration
+class CreateAgendaLabelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,7 +22,7 @@ class CreateAgendaLabelTable extends Migration
         Schema::table('agenda_labels', function (Blueprint $table) {
             $table->foreign('agenda_id')
                 ->references('id')
-                ->on('education_agenda')
+                ->on('education_agendas')
                 ->onDelete('cascade');
 
             $table->foreign('label_id')
@@ -39,6 +39,6 @@ class CreateAgendaLabelTable extends Migration
      */
     public function down()
     {
-        Schema::drop('agenda_label');
+        Schema::drop('agenda_labels');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProvinceTable extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,22 @@ class CreateProvinceTable extends Migration
      */
     public function up()
     {
-       Schema::create('province', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('province_id')->unsigned();
             $table->string('name', 128);
             $table->timestamps();
             $table->softDeletes();
         });
+        
+        Schema::table('cities', function (Blueprint $table) {
+            $table->foreign('province_id')
+                ->references('id')
+                ->on('provinces')
+                ->onDelete('cascade');
+        });
 
-
+        
     }
 
     /**
@@ -29,6 +37,6 @@ class CreateProvinceTable extends Migration
      */
     public function down()
     {
-        Schema::drop('province');
+        Schema::drop('city');
     }
 }

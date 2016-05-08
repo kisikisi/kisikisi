@@ -9,7 +9,7 @@ class NewsCategory extends Model
 {
     use SoftDeletes;
     
-    protected $table = 'news_category';
+    protected $table = 'news_categories';
 	protected $fillable = [
     	'name',
         'created_by',

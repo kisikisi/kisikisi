@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEducationAgendaTable extends Migration
+class CreateEducationAgendasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateEducationAgendaTable extends Migration
      */
     public function up()
     {
-        Schema::create('education_agenda', function (Blueprint $table) {
+        Schema::create('education_agendas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('agenda_category_id')->unsigned();
             $table->string('slug', 256);
@@ -33,15 +33,15 @@ class CreateEducationAgendaTable extends Migration
             $table->softDeletes();
         });
         
-        Schema::table('education_agenda', function (Blueprint $table) {
+        Schema::table('education_agendas', function (Blueprint $table) {
             $table->foreign('agenda_category_id')
                 ->references('id')
-                ->on('agenda_category')
+                ->on('agenda_categories')
                 ->onDelete('cascade');
             
             $table->foreign('city_id')
                 ->references('id')
-                ->on('city')
+                ->on('cities')
                 ->onDelete('cascade');
 
             $table->foreign('created_by')
@@ -63,6 +63,6 @@ class CreateEducationAgendaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('education_agenda');
+        Schema::drop('education_agendas');
     }
 }

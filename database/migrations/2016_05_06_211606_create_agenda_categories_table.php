@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsCategoryTable extends Migration
+class CreateAgendaCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateNewsCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('news_category', function (Blueprint $table) {
+        Schema::create('agenda_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
             $table->timestamps();
@@ -21,7 +21,7 @@ class CreateNewsCategoryTable extends Migration
             $table->softDeletes();
         });
         
-        Schema::table('news_category', function (Blueprint $table) {
+        Schema::table('agenda_categories', function (Blueprint $table) {
             
             $table->foreign('created_by')
                 ->references('id')
@@ -33,7 +33,6 @@ class CreateNewsCategoryTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
         });
-        
     }
 
     /**
@@ -43,6 +42,6 @@ class CreateNewsCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::drop('news_category');
+        Schema::drop('agenda_categories');
     }
 }
