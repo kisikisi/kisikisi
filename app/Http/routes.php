@@ -115,6 +115,14 @@ Route::group([
 	});
 });
 
+Route::group([
+    'domain' => 'agenda.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+	    return view('agenda');
+	});
+});
+
 Route::get('/', function () {
     return view('portal');
 });

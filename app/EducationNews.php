@@ -28,10 +28,9 @@ class EducationNews extends Model
     ];
     
     public function newsList() {
-        return $this->select(DB::raw("n.id, n.title, c.name as category, n.date, u.name AS author, n.status, n.image_cover"))
-            ->from('education_news as n')
-            ->join("users AS u", "u.id", "=", "n.author")
-            ->join("news_category AS c", "c.id", "=", "n.news_category_id");
+        return $this->select(DB::raw("education_news.id, education_news.title, c.name as category, education_news.date, u.name AS author, education_news.status, education_news.image_cover"))
+            ->join("users AS u", "u.id", "=", "education_news.author")
+            ->join("news_category AS c", "c.id", "=", "education_news.news_category_id");
     }
     
     public function newsCategory() {
