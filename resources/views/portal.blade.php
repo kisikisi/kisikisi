@@ -61,10 +61,15 @@
 <div id="section-3">
 	<div class="ui grid container">
 		<div class="centered row ">
-				<h1>Fitur fitur apa saja yang ada di KisiKisi.id?</h1>
+				<h1 class="title">Bagian dari KisiKisi.id</h1>
 		</div>
 		<div class="row">
-
+			<ul class="uk-slideshow uk-overlay-active" data-uk-slideshow>
+				<li>
+					<img src="{{asset('img/photo1.png')}}" width="400" height="400" alt="">
+					<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade">...</div>
+			 	</li>
+			</ul>
 		</div>
 	</div>
 </div>
