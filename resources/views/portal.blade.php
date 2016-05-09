@@ -69,6 +69,7 @@
 					<img src="{{asset('img/photo1.png')}}" width="400" height="400" alt="">
 					<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade">...</div>
 			 	</li>
+			 	
 			</ul>
 		</div>
 	</div>
