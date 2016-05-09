@@ -13,11 +13,11 @@
 
 	<div class="ui grid container section-2">
 
-		<div class="centered row" style="margin-top:70px;">
-			<span class="sub title">Informasi pendidikan anak bangsa</span>
+		<div class="centered row" style="margin-top:190px;">
+			<span class="title kisi">Informasi pendidikan anak bangsa</span>
 		</div>
-		<div class="centered row my-icon">
-			<div class="column"><center><a href="#" class="button-scroll"><i class="ui angle down icon"></i></a></center></div>
+		<div class="centered row my-icon" style="margin-top:65px;">
+			<center><a href="#" class="button-scroll">Getting Started</a></center>
 		</div>
 	</div>
 </div>
