@@ -30,6 +30,12 @@ var portalpaths = {
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
 		'bower_components/ng-tags-input/ng-tags-input.min.js',	
 		'bower_components/angular-easyfb/build/angular-easyfb.min.js',	
+
+		// uikit
+		'bower_components/uikit/js/uikit.min.js',
+		'bower_components/uikit/js/components/parallax.min.js',
+		'bower_components/uikit/js/components/slideshow.min.js',
+		'bower_components/uikit/js/core/scrollspy.min.js'
     ],
 	js:[
 		//Portal js
@@ -38,6 +44,8 @@ var portalpaths = {
 	css: [
 		//UIKit
 		'bower_components/semantic/dist/semantic.min.css',
+		'bower_components/uikit/css/uikit.min.css',
+		'bower_components/uikit/css/components/slideshow.min.css',
 		
 		//custom style
 		'resources/css/kisikisi.styl',
