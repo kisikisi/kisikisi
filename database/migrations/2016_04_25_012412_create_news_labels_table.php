@@ -39,6 +39,6 @@ class CreateNewsLabelsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('news_label');
     }
 }

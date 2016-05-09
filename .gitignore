@@ -1,8 +1,11 @@
 /.idea
 /bower_components
 /node_modules
-/vendor
-/storage
+/storage/files/***/**/*.jpg
+/storage/files/***/**/*.png
+/public/views
+/public/css
+/public/js
 npm-debug.log
 Homestead.yaml
 Homestead.json

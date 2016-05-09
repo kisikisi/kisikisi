@@ -42,11 +42,17 @@ Route::group([
     
     //module news category
     Route::get('news/category', 'NewsCategoryController@index');
-    
     //module news
     Route::get('news/form', 'EducationNewsController@form');
     Route::get('news', 'EducationNewsController@index');
     Route::get('news/{id}', 'EducationNewsController@detail');
+
+    //module agenda category
+    Route::get('agenda/category', 'AgendaCategoryController@index');
+    //module agenda
+    Route::get('agenda/form', 'EducationAgendaController@form');
+    Route::get('agenda', 'EducationAgendaController@index');
+    Route::get('agenda/{id}', 'EducationAgendaController@detail');
     
     //module label
     Route::get('label', 'LabelController@index');
@@ -73,11 +79,24 @@ Route::group([
         //module news label
         Route::post('news/{news_id}/label/{label_id}', 'NewsLabelController@add');
         Route::delete('news/{news_id}/label/{label_id}', 'NewsLabelController@remove');
-        
         //module news category
         Route::post('news/category', 'NewsCategoryController@add');
         Route::put('news/category/{id}', 'NewsCategoryController@update');
         Route::delete('news/category/{id}', 'NewsCategoryController@delete');
+      
+        //module education agenda
+        Route::post('agenda/cover', 'EducationAgendaController@uploadCover');
+        Route::post('agenda/content', 'EducationAgendaController@uploadContent');
+        Route::post('agenda', 'EducationAgendaController@add');
+        Route::put('agenda/{id}', 'EducationAgendaController@update');
+        Route::delete('agenda/{id}', 'EducationAgendaController@delete');
+        //module agenda label
+        Route::post('agenda/{agenda_id}/label/{label_id}', 'AgendaLabelController@add');
+        Route::delete('agenda/{agenda_id}/label/{label_id}', 'AgendaLabelController@remove');
+        //module agenda category
+        Route::post('agenda/category', 'AgendaCategoryController@add');
+        Route::put('agenda/category/{id}', 'AgendaCategoryController@update');
+        Route::delete('agenda/category/{id}', 'AgendaCategoryController@delete');
         
         //module label
         Route::post('label', 'LabelController@add');
@@ -93,6 +112,14 @@ Route::group([
 ], function() {
     Route::get('/', function () {
 	    return view('directory');
+	});
+});
+
+Route::group([
+    'domain' => 'agenda.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+	    return view('agenda');
 	});
 });
 

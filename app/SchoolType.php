@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SchoolType extends Model
 {
-    protected $table = 'school_type';
+    use SoftDeletes;
+    protected $table = 'school_types';
 	protected $fillable = [
     	'name',
         'alias',

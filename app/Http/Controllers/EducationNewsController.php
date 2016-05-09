@@ -14,7 +14,7 @@ use Auth;
 
 class EducationNewsController extends Controller
 {
-   public function __construct(){
+    public function __construct(){
 		$this->middleware('jwt.auth', ['except'=>['index','detail']]);
 	}
 
@@ -91,6 +91,7 @@ class EducationNewsController extends Controller
 
     public function update(Request $request, EducationNews $news,$id){
     	$input = $request->all();
+        $input['date'] = strtotime($input['date']);
         $input['modified_by'] = Auth::user()->id;
 
     	$type = EducationNews::where('id', $id)->first();
@@ -103,10 +104,10 @@ class EducationNewsController extends Controller
 
     	if ($delete) {
     		$data['status'] = 'success';
-    		$data['message'] = 'Category deleted';
+    		$data['message'] = 'News deleted';
     	} else {
     		$data['status'] = 'error';
-    		$data['message'] = 'Category failed to delete';
+    		$data['message'] = 'News failed to delete';
     	}
 
     	return response()->json($data);

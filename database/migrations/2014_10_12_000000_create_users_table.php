@@ -14,7 +14,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('level_id')->unsigned();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 60);
@@ -22,10 +21,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('level_id')
-                ->references('id')
-                ->on('user_level')
-                ->onDelete('cascade');
         });
 
         

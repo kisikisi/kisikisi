@@ -1,0 +1,142 @@
+<div ng-if="onDetail" id="schoolDetail">
+    <div class="image">
+        <img ng-src="{{env.file}}school/image/{{detail.image}}" alt="" class="ui fluid image">
+        <!--<div class="ui center aligned grid content">
+
+        </div>-->
+    </div>
+    <div class="ui segment grid">
+        <h2 class="ui header ten wide column">
+            <img ng-src="{{env.file}}school/logo/{{detail.logo}}">
+            <div class="content">
+                {{detail.name}}
+                <div class="sub header">{{detail.school_type.name}}</div>
+                <div ui-rating class="ui star rating" data-rating="3" data-max-rating="5"></div>
+            </div>
+        </h2>
+        <div class="ui six wide column">
+            <div class="ui list">
+              <div class="item">
+                <i class="marker icon"></i>
+                <div class="ui content">
+                    {{ detail.address }}
+                </div>
+              </div>
+              <div class="item">
+                <i class="phone icon"></i>
+                <div class="content">
+                  {{detail.phone}}
+                </div>
+              </div>
+              <div class="item">
+                <i class="mail icon"></i>
+                <div class="content">
+                  <a href="mailto:{{detail.email}}">{{detail.email}}</a>
+                </div>
+              </div>
+              <div class="item">
+                <i class="linkify icon"></i>
+                <div class="content">
+                  <a href="{{detail.site}}">{{ detail.website }}</a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui three item top attached compact menu">
+      <a ui-tab class="active item" data-tab="description">
+       <i class="list icon"></i>
+        Profile
+      </a>
+      <a ui-tab class="item" data-tab="data">
+       <i class="table icon"></i>
+        Data
+      </a>
+      <a ui-tab class="item" data-tab="map">
+       <i class="map icon"></i>
+        Map
+      </a>
+    </div>
+    <div class="ui attached active tab segment" data-tab="description">
+      <h4 class="ui header">A header</h4>
+       <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+       <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.</p>
+       <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum postulant per id.</p>
+    </div>
+    <div class="ui attached tab segment" data-tab="data">
+      <h4 class="ui header">A header</h4>
+       <table class="ui celled padded table">
+          <thead>
+            <tr><th class="single line">Evidence Rating</th>
+            <th>Effect</th>
+            <th>Efficacy</th>
+            <th>Consensus</th>
+            <th>Comments</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>
+                <h2 class="ui center aligned header">A</h2>
+              </td>
+              <td class="single line">
+                Power Output
+              </td>
+              <td>
+                <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
+              </td>
+              <td class="right aligned">
+                80% <br>
+                <a href="#">18 studies</a>
+              </td>
+              <td>Creatine supplementation is the reference compound for increasing muscular creatine levels; there is variability in this increase, however, with some nonresponders.</td>
+            </tr>
+            <tr>
+              <td>
+                <h2 class="ui center aligned header">A</h2>
+              </td>
+              <td class="single line">
+                Weight
+              </td>
+              <td>
+                <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
+              </td>
+              <td class="right aligned">
+                100% <br>
+                <a href="#">65 studies</a>
+              </td>
+              <td>Creatine is the reference compound for power improvement, with numbers from one meta-analysis to assess potency</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="ui attached tab segment" data-tab="map">
+      <h4 class="ui header">A header</h4>
+        <iframe width="100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3515006578673!2d106.64337961421538!3d-6.2172922626252145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fa277460b6d1%3A0xd06392fc4ad4133d!2sSMKN+5+Tangerang!5e0!3m2!1sid!2sid!4v1462352752618" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="ui attached segment">
+        <button class="ui facebook button">
+          <i class="facebook icon"></i>
+          Facebook
+        </button>
+        <button class="ui twitter button">
+          <i class="twitter icon"></i>
+          Twitter
+        </button>
+        <button class="ui google plus button">
+          <i class="google plus icon"></i>
+          Google Plus
+        </button>
+        <button class="ui instagram button">
+          <i class="instagram icon"></i>
+          Instagram
+        </button>
+        <button class="ui youtube button">
+          <i class="youtube icon"></i>
+          YouTube
+        </button>
+    </div>
+    <div class="ui attached segment">
+        <div class="fb-comments" data-href="http://kisikisi.id/smkn5tng" data-numposts="5" data-width="100%"></div>
+    </div>
+    <div ng-if="widget.rendered">rendered</div>
+</div>
