@@ -3,6 +3,7 @@
 @font-face{font-family:sourcesans-semibold;src:url('../fonts/SourceSansPro-Semibold.ttf');}
 @font-face{font-family:sourcesans-light;src:url('../fonts/SourceSansPro-Light.ttf');}
 @font-face{font-family:sourcesans-regular;src:url('../fonts/SourceSansPro-Regular.ttf');}
+@font-face{font-family:sans-light;src:url('../fonts/OpenSans-Light.ttf');}
 
 *{
 }
@@ -77,9 +78,8 @@ body{
 }
 
 .title.kisi{
-	font-size:52px;
-	font-family:sourcesans-light;
-	text-shadow:2px 0px 1px #33ccff;
+	font-size:42px;
+	font-family:sans-light !important;
 }
 .sub.title{
 	font-size:18px;
@@ -87,16 +87,14 @@ body{
 }
 .button-scroll{
 	border:1px solid rgba(235,235,235,0.80);
-	padding:25px 0px 20px 0px;
-	border-radius: 50px;
+	padding:20px 45px 20px 45px;
+	border-radius: 5px;
 	text-align: center;
 	transition:all 0.3s ease;
-}
-.ui.angle.down.icon{
-	font-size:52px;
-	margin-top:280px;
-	color:rgba(255,255,255,0.80);
-	vertical-align: -55%;
+	color:#f0f0f0 !important;
+	font-size:32px;
+	font-family:sourcesans-light !important;
+	position:relative;
 }
 .button-scroll:hover{
 	background-color:rgba(235,235,235,0.50);
