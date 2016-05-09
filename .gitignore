@@ -3,8 +3,8 @@
 /node_modules
 /storage/files/***/**/*.jpg
 /storage/files/***/**/*.png
+/vendor
 npm-debug.log
 Homestead.yaml
 Homestead.json
 .env
-/vendor
