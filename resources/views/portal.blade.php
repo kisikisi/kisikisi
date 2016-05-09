@@ -13,17 +13,17 @@
 
 	<div class="ui grid container section-2">
 
-		<div class="centered row" style="margin-top:190px;">
+		<div class="centered row" style="margin-top:190px;" data-uk-parallax="{y:'100'}">
 			<span class="title kisi">Informasi pendidikan anak bangsa</span>
 		</div>
-		<div class="centered row my-icon" style="margin-top:65px;">
-			<center><a href="#" class="button-scroll">Getting Started</a></center>
+		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" >
+			<center><a class="button-scroll" href="#menu" data-uk-smooth-scroll>Getting Started</a></center>
 		</div>
 	</div>
 </div>
-<div id="menu" class="ui pointing inverted menu">
+<div id="menu" class="ui inverted menu" data-uk-smooth-scroll>
 	<div class="ui container">
-		<a href="#" class="active item">Home</a>
+		<a href="#" class="item aktif">Home</a>
 		<a href="#" class="item">Direktori Sekolah</a>
 		<a href="#" class="item">E-Learning</a>
 		<a href="#" class="item">Bank Soal</a>
@@ -35,13 +35,25 @@
 	</div>
 </div>
 
-<div id="section-2">
-	<div class="ui grid container">
-		<div class="centered row ">
-				<h1 class="black">Apa itu KisiKisi.id?</h1>
+<div id="section-2" >
+	<div class="ui grid container" >
+		<div class="centered row "  >
+				<h1 class="title" data-uk-parallax="{y:'90'}" >Apa itu KisiKisi.id?</h1>
 		</div>
+		<div style="margin-top:80px;height:10px;width:100%"></div>
 		<div class="row">
-
+			<div class="eleven wide column text" data-uk-parallax="{x:'50'}" >
+			KisiKisi.id merupakan website portal pendidikan terbesar di indonesia
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<div class="five wide column" >
+				<img src="{{asset('img/Geek maskot.png')}}" class="mascot-1"  data-uk-parallax="{x:'-150'}" />
+			</div>
 		</div>
 	</div>
 </div>
