@@ -1,5 +1,5 @@
 /config/
-/public/views:/resources/views
-/public/js:/resources/js
-/public/css:/resources/css
+!/public/views
+!/public/js
+!/public/css
 /vendor:composer.lock
