@@ -1,4 +1,5 @@
-var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload', function($http, $scope, $location, Notification, Upload) {
+var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload', 
+    function($http, $scope, $location, Notification, Upload) {
 	$.AdminLTE.layout.fix();
     
     $scope.onEdit = false;
@@ -66,21 +67,35 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload', functi
 	    }    
     }
     
-	$scope.addSchool = function(input) {
+	$scope.saveSchool = function(input) {
         input.description = $('#addDescription').val();
         input.data = $('#addData').val();
         
-		$http.post($scope.env.api+'school', input)
-        .success(function (response) {
-            //UIkit.notify(response.message, response.status);
-            if (response.status == 'success') {
-                $scope.school.push(response.school[0]);
-                Notification({message: response.message}, response.status);
-                $scope.input = {};
-                $scope.fileicon = {};
-                $('#name').focus();
-            }
-        })
+        if (input.id == undefined) {
+            $http.post($scope.env.api+'school', input)
+            .success(function (response) {
+                //UIkit.notify(response.message, response.status);
+                if (response.status == 'success') {
+                    $scope.school.push(response.school[0]);
+                    $scope.input.id = response.school[0].id;
+                    Notification({message: response.message}, response.status);
+                    //$scope.input = {};
+                    //$scope.fileicon = {};
+                    //$('#name').focus();
+                }
+            })
+        } else {
+            input.city_id = $scope.input.city.id;
+            input.school_type_id = $scope.input.school_type.id;
+
+            var index = $scope.indexSearch($scope.school, input.id);
+            return $http.put($scope.env.api+'school/'+input.id, input)
+            .then(function (response) {
+                $scope.school[index] = response.data.school[0];
+                Notification({message: response.data.message}, response.status);
+                //$scope.onEdit = false;
+            })
+        }
 	}
     
     $scope.editSchool = function(id) {
@@ -88,25 +103,18 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload', functi
         $http.get($scope.env.api+'school/'+id)
         .success(function (response) {
             $scope.edit = response.detail[0];
+            $("#editDescription").val($scope.edit.description);
+            $("#editData").val($scope.edit.description);
+            $(".formcontrol.textarea").wysihtml5();
+            $("[data-widget='collapse']").click();
             $scope.onEdit = true;
-            $location.hash('schoolEditForm');
+            $location.hash('schoolForm');
         })
     }
     
-	$scope.saveSchool = function(edit, id) {
-        edit.description = $('#editDescription').val();
-        edit.data = $('#editData').val();
-        edit.city_id = $scope.edit.city.id;
-        edit.school_type_id = $scope.edit.school_type.id;
+	/*$scope.saveSchool = function(edit, id) {
         
-        var index = $scope.indexSearch($scope.school, id);
-		return $http.put($scope.env.api+'school/'+id, edit)
-		.then(function (response) {
-            $scope.school[index] = response.data.school[0];
-            Notification({message: response.data.message}, response.status);
-            $scope.onEdit = false;
-		})
-	}
+	}*/
     
 	$scope.deleteSchool = function(id) {
 		var index = $scope.indexSearch($scope.school, id);
