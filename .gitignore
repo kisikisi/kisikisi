@@ -3,7 +3,6 @@
 /node_modules
 /storage/files/***/**/*.jpg
 /storage/files/***/**/*.png
-
 npm-debug.log
 Homestead.yaml
 Homestead.json
