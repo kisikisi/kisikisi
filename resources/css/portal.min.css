@@ -10,6 +10,9 @@
 body{
 	background-color: #333;
 }
+ul{
+	list-style:none;
+}
 #tagline{
 	background-color:#f0f0f0;
 	color:#333;
@@ -41,7 +44,11 @@ body{
 #menu{
 	transition:all 0.3s ease-in-out;
 	margin:0;
-	
+}
+.logo{
+	margin-right:25px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 .ui.inverted.menu.fixed.top{
 	background-color: rgb(247,248,255) !important;
@@ -49,9 +56,13 @@ body{
 .ui.inverted.menu.fixed.top .item{
 	color:#333;
 }
-.ui.inverted.menu.fixed.top .item:hover:not(.active){
+.ui.inverted.menu.fixed.top .item:hover{
 	background-color:#8E44AD;
 	color:#fafafa;
+}
+.ui.inverted.menu.fixed.top .item:hover.aktif{
+	color:#fafafa;
+	background-color:#22A7F0;
 }
 .ui.inverted.menu.fixed.top .item.aktif{
 	color:#fafafa;
@@ -108,7 +119,7 @@ body{
 /* section 2 */
 #section-2{
 	background-color:#fff;
-	height:90vh;
+	height:120vh;
 	padding-top:50px;
 	position: relative;
 	z-index:2;
@@ -123,9 +134,39 @@ body{
 
 .mascot-1{
 	position:absolute;
-	height:700px;
-	top:-40px;
-	right:-200px;
+	height:900px;
+}
+
+.chat{
+	height:550px;
+	width:800px;
+	position:absolute;
+	z-index:1;
+	margin-top: -100px;
+	margin-left:-20%;
+}
+#section-2 .text{
+	position:relative;
+	left:25%;
+	top:10%;
+}
+#section-2 .texting{
+	z-index:2;
+	width:430px;
+	position: relative;
+	margin-left:40px;
+	margin-top:30px;
+	color:#fafafa;
+	font-size:21px;
+	line-height:130%;
+}
+#section-2 .icon-master{
+	margin-top:150px;
+}
+#section-2 .icon-master .icon{
+	width:50px;
+	display:inline;	
+	margin-right:10px;
 }
 
 /* section 3 */

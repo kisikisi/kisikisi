@@ -35,7 +35,10 @@ var portalpaths = {
 		'bower_components/uikit/js/uikit.min.js',
 		'bower_components/uikit/js/components/parallax.min.js',
 		'bower_components/uikit/js/components/slideshow.min.js',
-		'bower_components/uikit/js/core/scrollspy.min.js'
+		'bower_components/uikit/js/components/slideshow-fx.min.js',
+		'bower_components/uikit/js/components/slider.min.js',
+		'bower_components/uikit/js/core/scrollspy.min.js',
+
     ],
 	js:[
 		//Portal js
@@ -44,7 +47,9 @@ var portalpaths = {
 	css: [
 		//UIKit
 		'bower_components/semantic/dist/semantic.min.css',
-		'bower_components/uikit/css/uikit.min.css',
+		'bower_components/uikit/css/uikit.almost-flat.min.css',
+		'bower_components/uikit/css/components/slidenav.almost-flat.min.css',
+		'bower_components/uikit/css/components/slider.almost-flat.min.css',
 		'bower_components/uikit/css/components/slideshow.min.css',
 		
 		//custom style
