@@ -5,6 +5,8 @@
     RewriteRule ^(.*)$ $1 [L]
 
     RewriteCond %{REQUEST_URI} !^public
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ public/$2 [L]
-    
+
 </IfModule>

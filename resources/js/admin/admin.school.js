@@ -67,9 +67,12 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 	    }    
     }
     
+    $scope.resetSchool = function() {
+        $scope.input = {};
+        $("[data-widget='collapse']").click();
+    }
+
 	$scope.saveSchool = function(input) {
-        input.description = $('#addDescription').val();
-        input.data = $('#addData').val();
         
         if (input.id == undefined) {
             $http.post($scope.env.api+'school', input)
@@ -85,8 +88,8 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
                 }
             })
         } else {
-            input.city_id = $scope.input.city.id;
-            input.school_type_id = $scope.input.school_type.id;
+            //input.city_id = $scope.input.city.id;
+            //input.school_type_id = $scope.input.school_type.id;
 
             var index = $scope.indexSearch($scope.school, input.id);
             return $http.put($scope.env.api+'school/'+input.id, input)
@@ -102,11 +105,13 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
         $scope.onEdit = false;
         $http.get($scope.env.api+'school/'+id)
         .success(function (response) {
-            $scope.edit = response.detail[0];
-            $("#editDescription").val($scope.edit.description);
-            $("#editData").val($scope.edit.description);
-            $(".formcontrol.textarea").wysihtml5();
+            $scope.input = response.detail[0];
+            $scope.input.school_type_id = parseInt($scope.input.school_type_id);
+            $scope.input.province_id = parseInt($scope.input.city.province_id);
+            $scope.input.city_id = parseInt($scope.input.city_id);
+
             $("[data-widget='collapse']").click();
+
             $scope.onEdit = true;
             $location.hash('schoolForm');
         })

@@ -114,7 +114,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
                 }
             });
         } else {
-            input.news_category_id = $scope.input.school_type.id;
+            input.news_category_id = $scope.input.news_category.id;
 
             var index = $scope.indexSearch($scope.news, input.id);
             $http.put($scope.env.api+'news/'+input.id, input)

@@ -2,6 +2,10 @@ var kisiCtrl = ['$scope','$rootScope','$auth','$state','envService', function($s
 
     $rootScope.env = envService.read('all');
 
+    /*if ($auth.isAuthenticated()) {
+        $.AdminLTE.tree(".sidebar");
+    }*/
+
 	$scope.isAuthenticated = function() {
 	  return $auth.isAuthenticated();
 	};
