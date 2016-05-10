@@ -86,7 +86,7 @@ class SchoolDirectoryController extends Controller
     	if ($save) {
     		$data['status'] = 'success';
     		$data['message'] = 'school added';
-    		$data['school'] = $school->schoolList()->where('s.id', $save->id)->get();
+    		$data['school'] = $school->schoolList()->where($school->table.'.id', $save->id)->get();
     	} else {
     		$data['status'] = 'error';
     		$data['message'] = 'school failed to add';
@@ -101,7 +101,7 @@ class SchoolDirectoryController extends Controller
 
     	$type = SchoolDirectory::where('id', $id)->first();
     	if ($type->update($input)) {
-            $data = $school->schoolList()->where('s.id', $id)->get();
+            $data = $school->schoolList()->where($school->table.'.id', $id)->get();
             return response()->json(['success' => 'data_updated', 'message' => 'data sekolah diperbarui', 'school' => $data], 200);
         } else return response()->json(['error' => 'cant_update_data', 'message' => 'data sekolah gagal diperbarui'], 500);
     }

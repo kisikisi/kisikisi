@@ -1,7 +1,8 @@
 var homeCtrl = function() {
     
   $.AdminLTE.layout.fix();
-    
+  //$.AdminLTE.tree(".sidebar");
+
   //Make the dashboard widgets sortable Using jquery UI
   $(".connectedSortable").sortable({
     placeholder: "sort-highlight",
@@ -21,7 +22,7 @@ var homeCtrl = function() {
   });
 
   //bootstrap WYSIHTML5 - text editor
-  $(".textarea").wysihtml5();
+  //$(".textarea").wysihtml5();
 
   $('.daterange').daterangepicker({
     ranges: {

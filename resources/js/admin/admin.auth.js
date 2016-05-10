@@ -6,10 +6,11 @@ var authCtrl = ['$scope', '$auth', '$state', 'Notification', function($scope, $a
 		    //console.log(response.token)
 		  	//$scope.getAuthUser();
 		  	$state.go('dashboard');
-            Notification({message: response.data.message}, response.status);
+            Notification({message: response.data.message}, response.data.status);
+
 		  })
 		  .catch(function(response) {
-             Notification({message: response.data.message}, response.status);
+             Notification({message: response.data.message}, response.data.status);
 		  });
 	}	
 }];

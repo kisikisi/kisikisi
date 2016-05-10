@@ -1,12 +1,12 @@
 <div class="box box-default collapsed-box">
     <div class="box-header with-border">
-      <h3 class="box-title">Add School</h3>
+      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> School Form </h3>
       <div class="box-tools pull-right">
-        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+        <!--<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>-->
         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
       </div>
     </div><!-- /.box-header -->
-    <form name="schoolAddForm" class="form-horizontal" ng-submit="saveSchool(input)">
+    <form name="schoolAddForm" class="form-horizontal" ng-submit="saveSchool(input)" ng-reset>
         <div class="box-body">
             <div class="form-group">
               <label class="col-sm-2 control-label">School Name</label>
@@ -82,18 +82,18 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Description</label>
               <div class="col-sm-10">
-                <textarea wysihtml5 class="form-control textarea" name="description" ng-model="input.description" placeholder="" id="addDescription" cols="100%" rows="4"></textarea>
+                <div text-angular ng-model="input.description"></div>
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label">Data</label>
               <div class="col-sm-10">
-                <textarea wysihtml5 class="form-control textarea" name="data" ng-model="input.data" placeholder="" id="addData" cols="100%" rows="6"></textarea>
+                <div text-angular ng-model="input.data"></div>
               </div>
             </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
-            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="reset" class="btn btn-default" ng-click="resetSchool()">Cancel</button>
             <button type="submit" class="btn btn-primary pull-right">Save</button>
         </div><!-- /.box-footer -->
     </form>

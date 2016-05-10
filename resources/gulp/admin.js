@@ -38,10 +38,11 @@ var backpaths = {
 		'bower_components/moment/moment.js',
 		'bower_components/AdminLTE/plugins/daterangepicker/daterangepicker.js',
 		'bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js',
-		'bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
+		//'bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
 		'bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js',
 		'bower_components/AdminLTE/plugins/fastclick/fastclick.js',
-		
+
+
 		//angular
 		'bower_components/angular/angular.min.js',
 		'bower_components/angular-sanitize/angular-sanitize.min.js',
@@ -57,6 +58,11 @@ var backpaths = {
 		'bower_components/ng-file-upload/ng-file-upload.min.js',
 		'bower_components/ng-tags-input/ng-tags-input.min.js',
 		'bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js',
+		'bower_components/textAngular/dist/textAngular-rangy.min.js',
+		'bower_components/textAngular/dist/textAngular-sanitize.min.js',
+		'bower_components/textAngular/dist/textAngular.min.js',
+
+        //other module
 
 	],
 	js:[
@@ -82,7 +88,7 @@ var backpaths = {
 		'bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.css',
 		'bower_components/AdminLTE/plugins/datepicker/datepicker3.css',
 		'bower_components/AdminLTE/plugins/daterangepicker/daterangepicker-bs3.css',
-		'bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
+		//'bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
 
 		//angular directive
 		'bower_components/angular-xeditable/dist/css/xeditable.min.css',
@@ -90,6 +96,7 @@ var backpaths = {
 		'bower_components/ng-tags-input/ng-tags-input.min.css',
 		'bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css',
 		'bower_components/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css',
+		'bower_components/textAngular/dist/textAngular.css',
 
 		//custom style
 		'resources/css/kisikisi.styl'
