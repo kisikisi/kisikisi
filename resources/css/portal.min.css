@@ -9,7 +9,11 @@
 }
 body{
 	background-color: #333;
+	position:relative;
+	z-index:-2;
+
 }
+
 ul{
 	list-style:none;
 }
@@ -34,11 +38,11 @@ ul{
 #section-1{
 	height:103vh;
 	position:relative;
-	z-index:1;
+	z-index:-1;
 	color:#fafafa;
-	background-image:url('../img/background_portal.jpg');
+	background-image:url('../img/background/background_portal.jpg');
+	background-size:100% 100% !important;
 	background-attachment: fixed;
-	background-size:100% 100%;
 }
 /* menu */
 #menu{
@@ -52,6 +56,8 @@ ul{
 }
 .ui.inverted.menu.fixed.top{
 	background-color: rgb(247,248,255) !important;
+	border-bottom:2px solid rgb(227,228,235);
+	box-shadow:0px 1px 0px rgb(247,248,255);
 }
 .ui.inverted.menu.fixed.top .item{
 	color:#333;
@@ -126,8 +132,8 @@ ul{
 }
 #section-2 .title{
 	font-family: sourcesans-light;
-	font-size:38px;
-	text-shadow:0px 1px 0px #555;
+	font-size:42px;
+	text-shadow:0px 1px 1px #555;
 	color:#333;
 	margin-top:-70px;
 }
@@ -135,6 +141,8 @@ ul{
 .mascot-1{
 	position:absolute;
 	height:900px;
+	top:-50px;
+	right:-150px;
 }
 
 .chat{
@@ -147,8 +155,8 @@ ul{
 }
 #section-2 .text{
 	position:relative;
-	left:25%;
 	top:10%;
+	left:120px;
 }
 #section-2 .texting{
 	z-index:2;
@@ -171,12 +179,63 @@ ul{
 
 /* section 3 */
 #section-3{
-	border-top:2px solid #f0f0f0;
-	background-color:#fafafa;
+	background-color:#fff;
+	border-top:1px solid #1795a3;
 	min-height:100vh;
 	padding-top:50px;
 	position: relative;
 	z-index:3;
+	color:#333;
+}
+#section-3 .title{
+	font-family: sourcesans-light;
+	font-size:42px;
+	text-shadow:0px 1px 0px #555;
+	margin-bottom:45px;
+}
+.web-image{
+	width:100%;
+	height:500px;
+}
+.slide-content{
+	margin:0 auto !important;display:block !important;width:40%;
+}
+#section-3 .text{
+	margin-top:50px;
+}
+#section-3 .text h1{
+	margin-bottom:15px;
+	font-family:sans-light;
+}
+.white{
+	color:#fafafa;
+}
+.fitur li{
+	display:inline-block;
+	margin-right: 10px;
+}
+
+
+/* section 4 */
+
+#section-4{
+	height:100vh;
+}
+#section-4 .title{
+	color:#555 !important;
+}
+#section-4 *{
+	text-align:center !important;
+	color:#22A7F0 !important;
+}
+#section-4 .ui.card{
+	border:1px solid #22A7F0 !important;
+}
+
+/* section 5 */
+
+#section-5{
+	height:100vh;
 }
 
 /* footer */
@@ -186,4 +245,8 @@ ul{
 	padding-top:50px;
 	position: relative;
 	z-index:4;
+	color:#fafafa !important;
+}
+#footer *{
+	color:#fafafa !important;
 }
