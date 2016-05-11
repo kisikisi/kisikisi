@@ -4,7 +4,6 @@
 /storage/files/***/**/*.jpg
 /storage/files/***/**/*.png
 /vendor
-/public
 npm-debug.log
 Homestead.yaml
 Homestead.json

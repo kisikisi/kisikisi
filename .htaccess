@@ -4,9 +4,11 @@
     RewriteCond %{REQUEST_URI} ^storage
     RewriteRule ^(.*)$ $1 [L]
 
+    RewriteCond %{HTTP_HOST} ^kisikisi.dev$ [OR]
+    RewriteCond %{HTTP_HOST} ^kisikisi.id$
     RewriteCond %{REQUEST_URI} !^public
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+    #RewriteCond %{REQUEST_FILENAME} !-f
+    #RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ public/$2 [L]
 
 </IfModule>

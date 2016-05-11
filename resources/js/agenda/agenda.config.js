@@ -44,10 +44,10 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 				
 			},
 			production: {
-				site: '//kisikisi.com/',
-				api: '//api.kisikisi.com/',
-				dir: '//dir.kisikisi.com/',
-				file: '//files.kisikisi.com/'
+				site: '//kisikisi.id/',
+				api: '//api.kisikisi.id/',
+				dir: '//dir.kisikisi.id/',
+				file: '//files.kisikisi.id/'
 			}
 		}
 	});
