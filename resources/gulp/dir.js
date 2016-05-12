@@ -47,6 +47,32 @@ var dirpaths = {
 		'resources/views/directory/*.html'
 	]
 };
+var portalpaths = {
+	libjs: [
+		//jquery
+		'bower_components/jquery/dist/jquery.min.js',
+		'bower_components/jquery-ui/jquery-ui.min.js',
+
+		//Semantic
+		'bower_components/semantic/dist/semantic.min.js',
+        
+        //angular
+		'bower_components/angular/angular.min.js',
+		'bower_components/angular-touch/angular-touch.min.js',
+		'bower_components/angular-resource/angular-resource.min.js',
+		'bower_components/angular-environment/dist/angular-environment.min.js',
+		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
+
+		// uikit
+		'bower_components/uikit/js/uikit.min.js',
+		'bower_components/uikit/js/components/parallax.min.js',
+		'bower_components/uikit/js/components/slideshow.min.js',
+		'bower_components/uikit/js/components/slideshow-fx.min.js',
+		'bower_components/uikit/js/components/slider.min.js',
+		'bower_components/uikit/js/core/scrollspy.min.js',
+
+    ]
+};
 
 // back-end
 gulp.task('dir-libjsmin', function() {
@@ -55,6 +81,8 @@ gulp.task('dir-libjsmin', function() {
     .pipe(concat('lib.directory.min.js'))
     .pipe(gulp.dest('public/js'));
 });
+
+
 
 gulp.task('dir-jsmin', function() {
   return gulp.src(dirpaths.js)

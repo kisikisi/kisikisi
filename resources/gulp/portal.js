@@ -20,16 +20,10 @@ var portalpaths = {
         
         //angular
 		'bower_components/angular/angular.min.js',
-		'bower_components/angular-sanitize/angular-sanitize.min.js',
-		'bower_components/angular-superswipe/superswipe.js',
 		'bower_components/angular-touch/angular-touch.min.js',
 		'bower_components/angular-resource/angular-resource.min.js',
-		'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-		'bower_components/satellizer/satellizer.min.js',
 		'bower_components/angular-environment/dist/angular-environment.min.js',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
-		'bower_components/ng-tags-input/ng-tags-input.min.js',	
-		'bower_components/angular-easyfb/build/angular-easyfb.min.js',	
 
 		// uikit
 		'bower_components/uikit/js/uikit.min.js',
@@ -50,7 +44,8 @@ var portalpaths = {
 		'bower_components/uikit/css/uikit.almost-flat.min.css',
 		'bower_components/uikit/css/components/slidenav.almost-flat.min.css',
 		'bower_components/uikit/css/components/slider.almost-flat.min.css',
-		'bower_components/uikit/css/components/slideshow.min.css',
+		'bower_components/uikit/css/components/slideshow.almost-flat.min.css',
+		'bower_components/uikit/css/components/dotnav.almost-flat.min.css',
 		
 		//custom style
 		'resources/css/kisikisi.styl',
