@@ -48,11 +48,17 @@ ul{
 #menu{
 	transition:all 0.3s ease-in-out;
 	margin:0;
+	background-color:#27A5B3;
+	color:#fafafa;
 }
 .logo{
 	margin-right:25px;
 	margin-top:5px;
 	margin-bottom:5px;
+}
+.ui.inverted.menu{
+	background-color:#22A7F0 !important;
+	color:#fafafa;
 }
 .ui.inverted.menu.fixed.top{
 	background-color: rgb(247,248,255) !important;
@@ -219,7 +225,8 @@ ul{
 /* section 4 */
 
 #section-4{
-	height:100vh;
+	min-height:100vh;
+	margin-top: 100px;
 }
 #section-4 .title{
 	color:#555 !important;
@@ -230,12 +237,20 @@ ul{
 }
 #section-4 .ui.card{
 	border:1px solid #22A7F0 !important;
+	height:330px;
 }
 
 /* section 5 */
 
 #section-5{
-	height:100vh;
+	min-height:100vh;
+	margin-top:100px;
+}
+#section-5 .title{
+	margin-bottom: 55px;
+}
+.uk-slideshow.uk-text-center.slide-5{
+	height:211px !important;
 }
 
 /* footer */

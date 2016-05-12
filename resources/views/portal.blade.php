@@ -74,7 +74,7 @@
 	</div>
 </div>
 
-<div id="section-3" data-uk-parallax="{y:'-75',target:'#section-3'}">
+<div id="section-3" data-uk-parallax="{y:'85',target:'#section-3'}">
 	<div class="ui container">
 		<h1 class="uk-text-center title">Apa saja yang ada di KisiKisi.id?</h1>
 			<div class="uk-slidenav-position" data-uk-slideshow="animation:'scroll'" width="100%" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true}">
@@ -381,9 +381,9 @@
 	</div>
 </div>
 
-<div id="section-4">
+<div id="section-4"  data-uk-parallax="{y:'95',target:'#section-4'}">
 	<div class="ui container">
-		<h1 class="uk-text-center title">Kenapa memilih Kisikisi?</h1>
+		<h1 class="uk-text-center title">Kenapa memilih Kisikisi</h1>
 		<div class="ui three column grid">
 			<div class="column">
 				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
@@ -454,25 +454,105 @@
 	</div>
 </div>
 
-<div id="section-5">
+<div id="section-5"  data-uk-parallax="{y:'125',target:'#section-5'}">
 	<div class="ui container">
-		<div class="uk-text-center title"><h1>Apa Kata Pengguna?</h1></div>
-		<div class="uk-slidenav-position" data-uk-slideshow="animation:'scroll'" width="100%" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true}">
-			<ul class="uk-slideshow uk-text-center" width="100%">
-				<li style="animation-duration: 500ms;" class="uk-active" aria-hidden="false">a</li>
-				<li>b</li>
-				<li>c</li>
-			</ul>
-			<ul class="uk-dotnav uk-position-bottom uk-flex-center">
-				<li class="uk-active" data-uk-slideshow-item="0"><a href=""></a></li>
-				<li data-uk-slideshow-item="1"><a href=""></a></li>	
-				<li data-uk-slideshow-item="2"><a href=""></a></li>			
-			</ul>
-			<ul>
-			</ul>
-			<a href="" class="uk-slidenav uk-slidenav-next" data-uk-slideshow-item="next"></a>
-			<a href="" class="uk-slidenav uk-slidenav-previous" data-uk-slideshow-item="previous"></a>	
+		<div class="uk-text-center title"><h1>APA KATA ORANG</h1></div>
+	<div class="uk-grid uk-grid-collapse">
+		<div class="uk-width-1-3">
+			<div id="side-menu" class="ui vertical text menu">
+				<div class="header item">Menurut orang lainnya</div>
+				<ul id="inside-menu" data-uk-switcher="{connect:'#switch-content'}">
+					<li aria-expanded="true"><a class="active item">Pengguna</a></li>
+					<li aria-expanded="false"><a class="item">Pelajar</a></li>
+					<li aria-expanded="false"><a class="item">Guru guru</a></li>
+					<li aria-expanded="false"><a class="item">Para orang tua</a></li>
+					<li aria-expanded="false"><a class="item">Tim kisikisi.id</a></li>
+				</ul>
+			</div>
 		</div>
+		
+		<ul id="switch-content" class="uk-switcher uk-width-2-3">
+			<li> <!-- pengguna -->
+				<div class="uk-slidenav-position" data-uk-slideshow="" width="100%" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true}">
+					<ul class="uk-slideshow uk-text-center slide-5" width="100%">
+						<li style="animation-duration: 500ms;" class="uk-active" aria-hidden="false">
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Arbiyanto Wijaya</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>b</li>
+						<li>c</li>
+					</ul>
+					<ul class="uk-dotnav uk-flex-center" aria-hidden="false">
+						<li class="uk-active" data-uk-slideshow-item="0"><a href=""></a></li>
+						<li data-uk-slideshow-item="1"><a href=""></a></li>	
+						<li data-uk-slideshow-item="2"><a href=""></a></li>			
+					</ul>
+					<ul></ul>
+				</div>
+			</li>
+
+			<li> <!-- Pelajar -->
+				<div class="uk-slidenav-position" data-uk-slideshow="" width="100%">
+					<ul class="uk-slideshow uk-text-center slide-5" width="100%" aria-hidden="false">
+						<li class="uk-active">
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">aaaa</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Chentong</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>c</li>
+					</ul>
+					<ul class="uk-dotnav uk-flex-center" aria-hidden="false">
+						<li class="uk-active" data-uk-slideshow-item="0"><a href=""></a></li>
+						<li data-uk-slideshow-item="1"><a href=""></a></li>	
+						<li data-uk-slideshow-item="2"><a href=""></a></li>			
+					</ul>
+					<ul></ul>
+				</div>
+			</li>
+
+		</ul>
+		
+		
+	</div>
 	</div>
 </div>
 
@@ -483,9 +563,7 @@
 </div>
 
 <script>
-$('.special.cards .image').dimmer({
-  on: 'hover'
-});
+
 </script>
 
 </body>
