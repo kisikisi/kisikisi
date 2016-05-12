@@ -15,7 +15,7 @@
 	<div class="ui grid container section-2">
 
 		<div class="centered row" style="margin-top:190px;" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
-			<span class="title kisi">Informasi pendidikan anak bangsa</span>
+			<span id="landing-title" class="title kisi"></span>
 		</div>
 		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
 			<center><a class="button-scroll" href="#section-2" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
@@ -38,10 +38,23 @@
 	</div>
 </div>
 
-<div id="section-2" data-uk-parallax="{y:'75',target:'#section-2'}" >
+<div id="section-min-1">
+	<div class="ui container">
+		<img src="{{asset('img/icon/svg icon/chat_baloon.svg')}}" class="baloon" />
+		<h1>Latar Belakang</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+</div>
+
+<div id="section-2" >
 	<div class="ui grid container" >
 		<div class="centered row "  >
-				<h1 class="title" data-uk-parallax="{y:'150'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu KisiKisi.id?</h1>
+				<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu KisiKisi.id?</h1>
 		</div>
 		<div style="margin-top:80px;height:10px;width:100%"></div>
 		<div class="row">
@@ -74,9 +87,9 @@
 	</div>
 </div>
 
-<div id="section-3" data-uk-parallax="{y:'85',target:'#section-3'}">
+<div id="section-3">
 	<div class="ui container">
-		<h1 class="uk-text-center title">Apa saja yang ada di KisiKisi.id?</h1>
+		<h1 class="uk-text-center title">APA SAJA YANG ADA DI KISIKISI.ID</h1>
 			<div class="uk-slidenav-position" data-uk-slideshow="animation:'scroll'" width="100%" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true}">
 				<ul class="uk-slideshow uk-text-center" width="100%">
 					<li style="animation-duration: 500ms;" class="uk-active" aria-hidden="false">
@@ -381,9 +394,9 @@
 	</div>
 </div>
 
-<div id="section-4"  data-uk-parallax="{y:'95',target:'#section-4'}">
+<div id="section-4">
 	<div class="ui container">
-		<h1 class="uk-text-center title">Kenapa memilih Kisikisi</h1>
+		<h1 class="uk-text-center title">KENAPA MEMILIH KISIKISI.ID</h1>
 		<div class="ui three column grid">
 			<div class="column">
 				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
@@ -454,14 +467,14 @@
 	</div>
 </div>
 
-<div id="section-5"  data-uk-parallax="{y:'125',target:'#section-5'}">
+<div id="section-5">
 	<div class="ui container">
-		<div class="uk-text-center title"><h1>APA KATA ORANG</h1></div>
-	<div class="uk-grid uk-grid-collapse">
+		<div class="uk-text-center title"><h1>APA KATA ORANG TENTANG KISIKISI.ID</h1></div>
+	<div class="uk-grid uk-grid-collapse" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
 		<div class="uk-width-1-3">
 			<div id="side-menu" class="ui vertical text menu">
 				<div class="header item">Menurut orang lainnya</div>
-				<ul id="inside-menu" data-uk-switcher="{connect:'#switch-content'}">
+				<ul id="inside-menu" data-uk-switcher="{connect:'#switch-content',animation:'slide-right'}">
 					<li aria-expanded="true"><a class="active item">Pengguna</a></li>
 					<li aria-expanded="false"><a class="item">Pelajar</a></li>
 					<li aria-expanded="false"><a class="item">Guru guru</a></li>
@@ -473,13 +486,13 @@
 		
 		<ul id="switch-content" class="uk-switcher uk-width-2-3">
 			<li> <!-- pengguna -->
-				<div class="uk-slidenav-position" data-uk-slideshow="" width="100%" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true}">
-					<ul class="uk-slideshow uk-text-center slide-5" width="100%">
-						<li style="animation-duration: 500ms;" class="uk-active" aria-hidden="false">
+				<div class="uk-slidenav-position" data-uk-slideshow="" width="100%">
+					<ul class="uk-slideshow uk-text-center slide-5" width="100%" aria-hidden="false">
+						<li class="uk-active" aria-hidden="false">
 							<div class="uk-panel uk-panel-box">
 								<div class="uk-grid">
 									<div class="uk-width-2-3">
-										<div class="uk-text-center uk-panel-title">Arbiyanto Wijaya</div>
+										<div class="uk-text-center uk-panel-title">Hariyanto Kosim</div>
 										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -510,7 +523,7 @@
 							<div class="uk-panel uk-panel-box">
 								<div class="uk-grid">
 									<div class="uk-width-2-3">
-										<div class="uk-text-center uk-panel-title">aaaa</div>
+										<div class="uk-text-center uk-panel-title">Mohammed Chen Mustofa</div>
 										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -539,6 +552,159 @@
 							</div>
 						</li>
 						<li>c</li>
+					</ul>
+					<ul class="uk-dotnav uk-flex-center" aria-hidden="false">
+						<li class="uk-active" data-uk-slideshow-item="0"><a href=""></a></li>
+						<li data-uk-slideshow-item="1"><a href=""></a></li>	
+						<li data-uk-slideshow-item="2"><a href=""></a></li>			
+					</ul>
+					<ul></ul>
+				</div>
+			</li>
+
+			<li> <!-- Guru Guru -->
+				<div class="uk-slidenav-position" data-uk-slideshow="" width="100%">
+					<ul class="uk-slideshow uk-text-center slide-5" width="100%" aria-hidden="false">
+						<li class="uk-active">
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Prof.Dr.Kompresor.Dafik Nurfatah</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Chentong</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>c</li>
+					</ul>
+					<ul class="uk-dotnav uk-flex-center" aria-hidden="false">
+						<li class="uk-active" data-uk-slideshow-item="0"><a href=""></a></li>
+						<li data-uk-slideshow-item="1"><a href=""></a></li>	
+						<li data-uk-slideshow-item="2"><a href=""></a></li>			
+					</ul>
+					<ul></ul>
+				</div>
+			</li>
+
+			<li> <!-- Para Orang Tua -->
+				<div class="uk-slidenav-position" data-uk-slideshow="" width="100%">
+					<ul class="uk-slideshow uk-text-center slide-5" width="100%" aria-hidden="false">
+						<li class="uk-active">
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Bapak Saya</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Bapak Nico</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>c</li>
+					</ul>
+					<ul class="uk-dotnav uk-flex-center" aria-hidden="false">
+						<li class="uk-active" data-uk-slideshow-item="0"><a href=""></a></li>
+						<li data-uk-slideshow-item="1"><a href=""></a></li>	
+						<li data-uk-slideshow-item="2"><a href=""></a></li>			
+					</ul>
+					<ul></ul>
+				</div>
+			</li>
+
+			<li> <!-- Tim KisiKisi.id -->
+				<div class="uk-slidenav-position" data-uk-slideshow="" width="100%">
+					<ul class="uk-slideshow uk-text-center slide-5" width="100%" aria-hidden="false">
+						<li class="uk-active">
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Rivai Amin</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Arbiyanto Wijaya</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="uk-panel uk-panel-box">
+								<div class="uk-grid">
+									<div class="uk-width-2-3">
+										<div class="uk-text-center uk-panel-title">Dafik Nurfatah</div>
+										<p class="uk-text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat...</p>
+									</div>
+									<div class="uk-width-1-3">
+										<img src="{{asset('img/sampleprofile.png')}}" class="ui medium rounded image" />
+									</div>
+								</div>
+							</div>
+						</li>
 					</ul>
 					<ul class="uk-dotnav uk-flex-center" aria-hidden="false">
 						<li class="uk-active" data-uk-slideshow-item="0"><a href=""></a></li>

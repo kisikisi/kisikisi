@@ -55,6 +55,7 @@
     "angular-easyfb": "^1.4.4",
     "bower": "*",
     "install": "^1.0.4",
-    "textAngular": "^1.5.1"
+    "textAngular": "^1.5.1",
+    "typed.js": "^1.1.1"
   }
 }

@@ -17,13 +17,7 @@ var portalpaths = {
 
 		//Semantic
 		'bower_components/semantic/dist/semantic.min.js',
-        
-        //angular
-		'bower_components/angular/angular.min.js',
-		'bower_components/angular-touch/angular-touch.min.js',
-		'bower_components/angular-resource/angular-resource.min.js',
-		'bower_components/angular-environment/dist/angular-environment.min.js',
-		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
+
 
 		// uikit
 		'bower_components/uikit/js/uikit.min.js',
@@ -33,6 +27,10 @@ var portalpaths = {
 		'bower_components/uikit/js/components/slider.min.js',
 		'bower_components/uikit/js/core/scrollspy.min.js',
 		'bower_components/uikit/js/core/switcher.min.js',
+
+
+		//typed js
+		'bower_components/typed.js/dist/typed.min.js',
 
     ],
 	js:[

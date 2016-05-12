@@ -35,6 +35,19 @@ ul{
 	text-shadow:0px 1px 0px #0099ff;
 }
 
+#section-min-1{
+	min-height:150vh;
+	position:relative;
+	z-index:3;
+	background-color:#89C4F4;
+	color:#fafafa;
+}
+.baloon{
+	filter:sepia(30%);
+	transform:rotate(180deg);
+}
+
+
 #section-1{
 	height:103vh;
 	position:relative;
@@ -44,11 +57,33 @@ ul{
 	background-size:100% 100% !important;
 	background-attachment: fixed;
 }
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
 /* menu */
 #menu{
 	transition:all 0.3s ease-in-out;
 	margin:0;
-	background-color:#27A5B3;
+	background-color:#222A2B;
 	color:#fafafa;
 }
 .logo{
@@ -57,12 +92,12 @@ ul{
 	margin-bottom:5px;
 }
 .ui.inverted.menu{
-	background-color:#22A7F0 !important;
+	background-color:#364243 !important;
 	color:#fafafa;
 }
 .ui.inverted.menu.fixed.top{
 	background-color: rgb(247,248,255) !important;
-	border-bottom:2px solid rgb(227,228,235);
+	border-bottom:1px solid rgb(227,228,235);
 	box-shadow:0px 1px 0px rgb(247,248,255);
 }
 .ui.inverted.menu.fixed.top .item{
@@ -88,6 +123,7 @@ ul{
 	padding-top:80px !important;
 	position: relative;
 	z-index:2;
+
 }
 
 @media(max-width:1024px){
@@ -135,13 +171,15 @@ ul{
 	padding-top:50px;
 	position: relative;
 	z-index:2;
+	background-color:#A9DDF2;
 }
 #section-2 .title{
-	font-family: sourcesans-light;
+	font-family: sans-light;
 	font-size:42px;
-	text-shadow:0px 1px 1px #555;
-	color:#333;
-	margin-top:-70px;
+	color:#fafafa;
+	position:relative;
+	top:60px;
+	text-shadow :0px 1px 0px #fafafa;
 }
 
 .mascot-1{
@@ -168,10 +206,10 @@ ul{
 	z-index:2;
 	width:430px;
 	position: relative;
-	margin-left:40px;
+	margin-left:5%;
 	margin-top:30px;
 	color:#fafafa;
-	font-size:21px;
+	font-size:1.5em;
 	line-height:130%;
 }
 #section-2 .icon-master{
@@ -194,7 +232,6 @@ ul{
 	color:#333;
 }
 #section-3 .title{
-	font-family: sourcesans-light;
 	font-size:42px;
 	text-shadow:0px 1px 0px #555;
 	margin-bottom:45px;
@@ -211,7 +248,6 @@ ul{
 }
 #section-3 .text h1{
 	margin-bottom:15px;
-	font-family:sans-light;
 }
 .white{
 	color:#fafafa;
