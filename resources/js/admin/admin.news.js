@@ -100,21 +100,26 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	    }    
     }
     
+    $scope.resetNews = function() {
+        $scope.input = {};
+        $("[data-widget='collapse']").click();
+    }
+
 	$scope.saveNews = function(input) {
-        input.content = $('#addContent').val();
+        //input.content = $('#addContent').val();
 		
         if (input.id == undefined) {
             $http.post($scope.env.api+'news', input)
             .success(function (response) {
                 Notification({message: response.message}, response.status);
                 if (response.status == 'success') {
-                    //console.log(response.type);
+                    response.news.category = $scope.;
                     $scope.news.push(response.news);
                     $scope.input.id = response.news.id;
                 }
             });
         } else {
-            input.news_category_id = $scope.input.news_category.id;
+            //input.news_category_id = $scope.input.news_category.id;
 
             var index = $scope.indexSearch($scope.news, input.id);
             $http.put($scope.env.api+'news/'+input.id, input)
@@ -135,9 +140,8 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             $scope.input.news_label = response.newsLabel;
             $scope.input.news_category_id = parseInt($scope.input.news_category_id);
             $scope.input.status = parseInt($scope.input.status);
-            $('#addContent').val($scope.input.content);
+
             $("[data-widget='collapse']").click();
-            //$scope.onEdit = true;
             $location.hash('newsForm');
         })
     }
