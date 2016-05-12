@@ -28,9 +28,10 @@ class SchoolDirectory extends Model
     ];
     
     public function schoolList() {
-        return $this->select(DB::raw("school_directories.id, school_directories.name, school_directories.logo, school_directories.image, t.name AS type, c.name AS city"))
+        return $this->select(DB::raw("school_directories.id, school_directories.name, school_directories.logo, school_directories.image, t.id AS school_type_id, c.id AS city_id, p.id AS province_id"))
                 ->join("school_types AS t", "t.id", "=", "school_directories.school_type_id")
-                ->join("cities AS c", "c.id", "=", "school_directories.city_id");
+                ->join("cities AS c", "c.id", "=", "school_directories.city_id")
+                ->join("provinces as p", "p.id", "=", "c.province_id");
     }
 
     public function schoolType() {
