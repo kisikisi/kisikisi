@@ -16,13 +16,13 @@ use Auth;
 class SchoolDirectoryController extends Controller
 {
      public function __construct() {
-        $this->middleware('jwt.auth', ['except' => ['index','detail']]);
+        $this->middleware('jwt.auth', ['except' => ['index','form','detail']]);
     }
 
     public function index(SchoolDirectory $school) {
     	$data['school'] =  $school->schoolList()->get();
 
-        return response()->json($data);
+        return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function detail($id) {
@@ -38,7 +38,7 @@ class SchoolDirectoryController extends Controller
         $data['provinces'] = Province::select(['id','name'])->get();
         $data['cities'] = City::select(['id','province_id','name'])->get();
         
-        return response()->json($data);
+        return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function uploadLogo() {

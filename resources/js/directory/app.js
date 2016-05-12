@@ -1,4 +1,4 @@
-app = angular.module('kisiDirApp', ['ui.router', 'satellizer', 'ngTouch', 'superswipe', 'environment','ui-notification','ngTagsInput', 'ezfb' ]);
+app = angular.module('kisiDirApp', ['ui.router', 'ngSanitize', 'satellizer', 'ngTouch', 'superswipe', 'environment','ui-notification','ngTagsInput', 'ezfb' ]);
 app
 /*.constant('constant', {
 	'site': '//'+host+'/',
@@ -8,6 +8,7 @@ app
 })*/
 .config(config)
 .controller('dirCtrl', dirCtrl)
+.controller('dirIndexCtrl', dirIndexCtrl)
 .controller('dirDetailCtrl', dirDetailCtrl)
 .directive('uiRating', function() {
 	return function (scope, element, attr) {

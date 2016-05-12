@@ -17,20 +17,15 @@
              
             <?php include(public_path('views/directory/sidebar.html')) ?> <!-- main navbar -->
             
-            <div ui-view ng-show="detail.id != undefined" class="ui segments"></div>
-            
-            <div id="content" class="ui three cards" ng-include="'views/directory/school.list.html'">
+            <div ui-view></div>
 
-            </div>
          </div>
         </div>        
     </div>
-<!--    <div class="ui container">
-        
-    </div>-->
-    <script>
-        
-        $('.ui.rating').rating();
-    </script>
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <ng-include src="modalTemplate">
+      </ng-include>
+    </div>
 </body>
 </html>

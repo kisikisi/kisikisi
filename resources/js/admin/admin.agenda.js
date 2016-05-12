@@ -101,6 +101,11 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	    }    
     }
     
+    $scope.resetAgenda = function() {
+        $scope.input = {};
+        $("[data-widget='collapse']").click();
+    }
+
 	$scope.saveAgenda = function(input) {
         input.content = $('#addContent').val();
 		
@@ -136,9 +141,8 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             $scope.input.agenda_label = response.agendaLabel;
             $scope.input.agenda_category_id = parseInt($scope.input.agenda_category_id);
             $scope.input.status = parseInt($scope.input.status);
-            $('#addContent').val($scope.input.content);
+
             $("[data-widget='collapse']").click();
-            //$scope.onEdit = true;
             $location.hash('agendaForm');
         })
     }

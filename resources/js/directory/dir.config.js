@@ -23,7 +23,8 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 
 	$stateProvider.state('school', {
 		url:'/', 
-		controller: 'dirCtrl'
+		controller: 'dirIndexCtrl',
+        templateUrl: 'views/directory/school.list.html'
 	}).state('schoolDetail', {
 		url:'/{id:[a-zA-Z1-9.-]*}', 
 		controller: 'dirDetailCtrl',

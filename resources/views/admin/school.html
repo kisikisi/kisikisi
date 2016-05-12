@@ -47,8 +47,8 @@
             <tr dir-paginate="list in school | orderBy:'-id' | itemsPerPage:limit | filter:search" current-page="currentPage">
               <td>{{ ((currentPage-1)*limit)+$index+1 }}</td>
               <td>{{list.name}}</td>
-              <td>{{list.type}}</td>
-              <td>{{list.city}}</td>
+              <td>{{schoolTypes[indexSearch(schoolTypes, list.school_type_id)].name}}</td>
+              <td>{{cities[indexSearch(cities, list.city_id)].name}}</td>
               <td><img ng-if="list.logo != ''" ng-src="{{env.file}}school/logo/{{list.logo}}" alt="" width="20%" /></td>
               <td>
                 <div class="btn-group" ng-show="!rowform.$visible">

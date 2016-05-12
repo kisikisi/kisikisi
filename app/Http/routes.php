@@ -113,6 +113,9 @@ Route::group([
     Route::get('/', function () {
 	    return view('directory');
 	});
+    Route::get('/{id}', function () {
+	    return view('directory');
+	});
 });
 
 Route::group([

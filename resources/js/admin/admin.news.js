@@ -113,7 +113,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             .success(function (response) {
                 Notification({message: response.message}, response.status);
                 if (response.status == 'success') {
-                    response.news.category = $scope.;
+
                     $scope.news.push(response.news);
                     $scope.input.id = response.news.id;
                 }
