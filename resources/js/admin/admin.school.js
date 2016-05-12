@@ -77,11 +77,10 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
         if (input.id == undefined) {
             $http.post($scope.env.api+'school', input)
             .success(function (response) {
-                //UIkit.notify(response.message, response.status);
+                Notification({message: response.message}, response.status);
                 if (response.status == 'success') {
                     $scope.school.push(response.school[0]);
                     $scope.input.id = response.school[0].id;
-                    Notification({message: response.message}, response.status);
                     //$scope.input = {};
                     //$scope.fileicon = {};
                     //$('#name').focus();
@@ -111,8 +110,6 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
             $scope.input.city_id = parseInt($scope.input.city_id);
 
             $("[data-widget='collapse']").click();
-
-            $scope.onEdit = true;
             $location.hash('schoolForm');
         })
     }
