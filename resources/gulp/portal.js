@@ -32,6 +32,7 @@ var portalpaths = {
 		'bower_components/uikit/js/components/slideshow-fx.min.js',
 		'bower_components/uikit/js/components/slider.min.js',
 		'bower_components/uikit/js/core/scrollspy.min.js',
+		'bower_components/uikit/js/core/switcher.min.js',
 
     ],
 	js:[
