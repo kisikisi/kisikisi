@@ -18,7 +18,7 @@
 			<span id="landing-title" class="title kisi"></span>
 		</div>
 		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
-			<center><a class="button-scroll" href="#section-2" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
+			<center><a class="button-scroll" href="#menu" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
 	</div>
 </div>
@@ -40,31 +40,42 @@
 
 <div id="section-min-1">
 	<div class="ui grid container">
-		<div class="six wide column">
-			<h1 class="title">Latar Belakang</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<div class="row konten">
+			<div class="ten wide column">
+				<img src="{{asset('img/mascot/Education Clinic.png')}}" class="mascot-1" data-uk-parallax="x:'150',target:'#section-min-1'" />
+			</div>
+			<div class="six wide column shape">
+				<h1 class="title">Latar Belakang</h1>
+				<p>Di tengah era globalisasi dan teknologi informasi yang makin menjamur, 
+				para pelaku pendidikan yang tidak terbatas pada guru dan murid membutuhkan suatu sarana dan wadah 
+				untuk ketersediaan informasi yang cepat, 
+				tepat dan akurat yang menunjang bagi peran, tugas dan tanggung jawab masing-masing</p>
+				<p>Layanan Portal Pendidikan berbasiskan teknologi informasi dipandang sebagai solusi yang sangat 
+				bermanfaat bagi para pelaku pendidikan. Dengan adanya Portal Pendidikan berbasiskan teknologi 
+				informasi maka para pelaku pendidikan yang bisa mengakses segala informasi tidak hanya terbatas pada guru 
+				dan murid saja 
+				tetapi seluruh elemen masyarakat bisa mengakses informasi yang dibutuhkan secara real time</p>
+				<p>Maka dari itu <b>Kisikisi.id</b> di ciptakan</p>
+				<a href="#section-2" class="ui button inverted white read" data-uk-smooth-scroll>Baca Lagi</a>
+			</div>
+			
 		</div>
 	</div>
 </div>
 
-<div id="section-2" >
+<div id="section-2" data-uk-smooth-scroll >
 	<div class="ui grid container" >
 		<div class="centered row "  >
 				<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu KisiKisi.id?</h1>
 		</div>
 		<div style="margin-top:80px;height:10px;width:100%"></div>
 		<div class="row">
-			<div class="eleven wide column text" data-uk-parallax="{x:'250',y:'-50',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
+			<div class="eleven wide column text" data-uk-parallax="{x:'50',y:'-50',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
 				<img src="{{asset('img/icon/svg icon/chat_baloon.svg')}}" class="chat" />
-				<div class="texting"><b>Kisikisi.id</b> merupakan portal pendidikan terbesar di Indonesia yang menyajikan
+				<div class="texting"> <p><b>Kisikisi.id </b>merupakan portal pendidikan terbesar di Indonesia yang menyajikan
 				informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita
 				pendidikan dan informasi beasiswa. Dibangun oleh putra-putri bangsa untuk para pelaku pendidikan seperti
-				guru, siswa dan orangtua untuk mempermudah akses informasi yang terkait pendidikan.
+				guru, siswa dan orangtua untuk mempermudah akses informasi yang terkait pendidikan.</p>
 				</div>
 			</div>
 			<div class="five wide column" >
@@ -89,8 +100,9 @@
 </div>
 
 <div id="section-3">
+<div class="mask"></div>
 	<div class="ui container">
-		<h1 class="uk-text-center title">APA SAJA YANG ADA DI KISIKISI.ID</h1>
+		<h1 class="uk-text-center title">Apa saja yang ada di KisiKisi.id</h1>
 			<div class="uk-slidenav-position" data-uk-slideshow="animation:'scroll'" width="100%" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true}">
 				<ul class="uk-slideshow uk-text-center" width="100%">
 					<li style="animation-duration: 500ms;" class="uk-active" aria-hidden="false">
@@ -111,7 +123,7 @@
 						 		
 						 	</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>Direktori Sekolah</h1>
+						 		<h1 class="title-slide">Direktori Sekolah</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -144,7 +156,7 @@
 							</div>
 						</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>E-Learning</h1>
+						 		<h1 class="title-slide">E-Learning</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -176,7 +188,7 @@
 							</div>
 						</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>Bank Soal</h1>
+						 		<h1 class="title-slide">Bank Soal</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -208,7 +220,7 @@
 							</div>
 						</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>Klinik Pendidikan</h1>
+						 		<h1 class="title-slide">Klinik Pendidikan</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -240,7 +252,7 @@
 							</div>
 						</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>Berita Pendidikan</h1>
+						 		<h1 class="title-slide">Berita Pendidikan</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -272,7 +284,7 @@
 							</div>
 						</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>Agenda Pendidikan</h1>
+						 		<h1 class="title-slide">Agenda Pendidikan</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -303,7 +315,7 @@
 							</div>
 						</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>Artikel Pendidikan</h1>
+						 		<h1 class="title-slide">Artikel Pendidikan</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -335,7 +347,7 @@
 							</div>
 						</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>Forum Pendidikan</h1>
+						 		<h1 class="title-slide">Forum Pendidikan</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -367,7 +379,7 @@
 							</div>
 						</div>
 						 	<div class="uk-width-1-1 text">
-						 		<h1>Beasiswa</h1>
+						 		<h1 class="title-slide">Beasiswa</h1>
 						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -388,8 +400,8 @@
 				<ul>
 					
 				</ul>
-				<a href="" class="uk-slidenav uk-slidenav-next" data-uk-slideshow-item="next"></a>
-				<a href="" class="uk-slidenav uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
+				<a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
+				<a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
 				
 			</div>
 	</div>
@@ -397,7 +409,7 @@
 
 <div id="section-4">
 	<div class="ui container">
-		<h1 class="uk-text-center title">KENAPA MEMILIH KISIKISI.ID</h1>
+		<h1 class="uk-text-center title">Kelebihan KisiKisi.id</h1>
 		<div class="ui three column grid">
 			<div class="column">
 				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
@@ -469,8 +481,8 @@
 </div>
 
 <div id="section-5">
-	<div class="ui container">
-		<div class="uk-text-center title"><h1>APA KATA ORANG TENTANG KISIKISI.ID</h1></div>
+	<div class="ui container" data-uk-parallax="y:'100',target:'#section-5'">
+		<h1 class="uk-text-center title">Apa kata orang tentang KisiKisi.id</h1>
 	<div class="uk-grid uk-grid-collapse" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
 		<div class="uk-width-1-3">
 			<div id="side-menu" class="ui vertical text menu">
