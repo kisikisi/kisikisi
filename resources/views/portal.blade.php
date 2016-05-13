@@ -21,6 +21,23 @@
     <script src="{{ asset('js/portal.min.js') }}"></script>
 </head>
 <body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '607018229476252',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <div id="section-1">
 
@@ -30,6 +47,12 @@
 			<span id="landing-title" class="title kisi"></span>
 		</div>
 		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
+			<div
+              class="fb-like"
+              data-share="true"
+              data-width="450"
+              data-show-faces="true">
+            </div>
 			<center><a class="button-scroll" href="#menu" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
 	</div>
