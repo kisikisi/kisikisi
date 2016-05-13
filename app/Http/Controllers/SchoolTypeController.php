@@ -3,25 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use App\Http\Requests;
 use App\SchoolType;
+use Auth;
 
 class SchoolTypeController extends Controller
 {
     public function __construct() {
-        $this->middleware('jwt.auth', ['except' => ['index']]);
+        $this->middleware('jwt.auth', ['except' => ['index','detail']]);
     }
 
     public function index() {
     	$data['type'] =  SchoolType::all();
-
-    	return json_encode($data);
+        
+        return response()->json($data);
     }
 
+    public function detail($id) {
+        $data['schoolType'] = SchoolType::find($id);
+        return response()->json($data);        
+    }    
+    
     public function add(Request $request) {
-    	$input = $request->(['name']);
-
+    	$input = $request->all();
+        $input['created_by'] = Auth::user()->id;
+        $input['modified_by'] = Auth::user()->id;
+        
 		$save = SchoolType::create($input);
 
     	if ($save) {
@@ -33,12 +42,12 @@ class SchoolTypeController extends Controller
     		$data['message'] = 'type failed to add';
     	}
 	
-    	return json_encode($data);
-
+    	return response()->json($data);
     }
 
     public function update(Request $request, $id) {
-    	$input = $request->only('name');
+    	$input = $request->all();
+        $input['modified_by'] = Auth::user()->id;
 
     	$type = SchoolType::where('id', $id)->first();
     	if ($type->update($input)) return response()->json(['success' => 'data_dapat_diperbarui'], 200);
@@ -56,6 +65,6 @@ class SchoolTypeController extends Controller
     		$data['message'] = 'type failed to delete';
     	}
 
-    	return json_encode($data);
+    	return response()->json($data);
     }
 }

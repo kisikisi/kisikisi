@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,8 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => env('APP_URL', 'http://kisikisi.id'),
+    'domain' => env('APP_DOMAIN', 'kisikisi.id'),
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +92,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', 'Tmq8ah4So4L9Xzh5xlnmmIk6EJKEqRlt'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -157,6 +158,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
+
     ],
 
     /*
@@ -204,6 +207,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+
     ],
 
 ];

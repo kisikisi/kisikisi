@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="kisiApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +17,8 @@
   <![endif]-->
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini" ng-app="kisiApp">
-  <div class="wrapper" ng-controller="kisiCtrl">
+<body class="hold-transition skin-blue sidebar-mini login-page" ng-controller="kisiCtrl">
+  <div class="wrapper" ng-if="isAuthenticated()">
 
     <!-- main header -->
     <?php include(public_path('views/admin/header.html')) ?>
@@ -32,6 +32,12 @@
       
     </div>
     <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.3.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+    </footer>
     
     <!-- Control Sidebar -->
     <?php include(public_path('views/admin/sidebar.control.html')) ?>
@@ -42,6 +48,12 @@
     <div class="control-sidebar-bg"></div>
   </div>
   <!-- ./wrapper -->
+
+  <!-- login page  -->
+  <div ui-view ng-if="!isAuthenticated()">
+      
+  </div>
+  <?php //include(public_path('views/admin/login.html')) ?>
 
   <script type="text/javascript" src="{{ asset('js/lib.admin.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>

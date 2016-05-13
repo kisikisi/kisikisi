@@ -16,10 +16,19 @@
 - install composer dependencies `composer install`
 - install npm dependencies `npm install`
 - install bower dependencies `bower install`
+- run `composer dump-autoload`
+
+## Create virtual host to running
+- how to create virtual host on windows `https://delanomaloney.com/2013/07/10/how-to-set-up-virtual-hosts-using-xampp/`
 - create virtual host for `C:\xampp\htdocs\kisikisi\` to `http://kisikisi.dev`
 - create virtual host for `C:\xampp\htdocs\kisikisi\public` to `http://api.kisikisi.dev`
 - create virtual host for `C:\xampp\htdocs\kisikisi\public` to `http://admin.kisikisi.dev`
 - create virtual host for `C:\xampp\htdocs\kisikisi\storage\files` to `http://files.kisikisi.dev`
+- Example:
+`<VirtualHost *:80>
+	DocumentRoot "C:/xampp/htdocs/kisikisi"
+	ServerName testsite.dev
+</VirtualHost>`
 
 ## Back-end Development Guide
 - install any dependency using bower, ex: `bower install jquery-ui --save`
@@ -30,3 +39,9 @@
 -- `gulp back-imagemin` to minimize image files
 -- `gulp back-jsmin` to build js files
 -- `gulp back-cssmin` to build css files
+
+## Daftar nama tim
+-
+-
+-
+-

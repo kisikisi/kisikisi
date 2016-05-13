@@ -1,14 +1,16 @@
-var authCtrl = ['$scope', '$auth', '$state', function($scope, $auth, $state) {	
-	$scope.login = function() {
-		$auth.login($scope.user)
+var authCtrl = ['$scope', '$auth', '$state', 'Notification', function($scope, $auth, $state, Notification) {
+	$scope.login = function(form) {
+		$auth.login(form)
 		  .then(function(response) {
 		    // Redirect user here after a successful log in.
 		    //console.log(response.token)
 		  	//$scope.getAuthUser();
 		  	$state.go('dashboard');
+            Notification({message: response.data.message}, response.data.status);
+
 		  })
 		  .catch(function(response) {
-		    UIkit.notify(response.data.message, response.status);
+             Notification({message: response.data.message}, response.data.status);
 		  });
 	}	
 }];

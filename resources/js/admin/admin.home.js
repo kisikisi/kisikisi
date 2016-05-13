@@ -1,4 +1,8 @@
 var homeCtrl = function() {
+    
+  $.AdminLTE.layout.fix();
+  //$.AdminLTE.tree(".sidebar");
+
   //Make the dashboard widgets sortable Using jquery UI
   $(".connectedSortable").sortable({
     placeholder: "sort-highlight",
@@ -18,7 +22,7 @@ var homeCtrl = function() {
   });
 
   //bootstrap WYSIHTML5 - text editor
-  $(".textarea").wysihtml5();
+  //$(".textarea").wysihtml5();
 
   $('.daterange').daterangepicker({
     ranges: {
@@ -108,9 +112,9 @@ var homeCtrl = function() {
   $("#calendar").datepicker();
 
   //SLIMSCROLL FOR CHAT WIDGET
-  $('#chat-box').slimScroll({
+  /*$('#chat-box').slimScroll({
     height: '250px'
-  });
+  });*/
 
   /* Morris.js Charts */
   // Sales chart

@@ -1,8 +1,9 @@
 /.idea
 /bower_components
 /node_modules
+/storage/files/***/**/*.jpg
+/storage/files/***/**/*.png
 /vendor
-/storage
 npm-debug.log
 Homestead.yaml
 Homestead.json
