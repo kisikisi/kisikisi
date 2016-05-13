@@ -16,6 +16,7 @@ var backpaths = {
 		'bower_components/AdminLTE/dist/img/*'
 	],
 	fonts: [
+		'resources/fonts/*',
 		'bower_components/font-awesome/fonts/*',
 		'bower_components/Ionicons/fonts/*',
 		'bower_components/AdminLTE/bootstrap/fonts/*',
