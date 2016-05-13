@@ -6,15 +6,18 @@
     <link rel="shortcut icon" href="img/logo/logo.png">
     <link rel="stylesheet" href="{{asset('css/portal.min.css')}}" />
     <title>Kisikisi.id - Portal pendidikan</title>
-    <meta content='width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0, user-scalable=0' name='viewport'/>
-    <meta content='IE=Edge' http-equiv='X-UA-Compatible'/>
-    <meta content='website' property='og:type'/>
-    <meta content='Kisikisi.id - Portal pendidikan' property='og:title'/>
-    <meta content='Kisikisi.id merupakan portal pendidikan terbesar di Indonesia yang menyajikan informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita pendidikan dan informasi beasiswa. Dibangun oleh putra-putri bangsa untuk para pelaku pendidikan seperti guru, siswa dan orangtua untuk mempermudah akses informasi yang terkait pendidikan.' property='og:description'/>
-    <meta content='id_ID' property='og:locale'/>
-    <meta content='http://kisikisi.id/' property='og:url'/>
-    <meta content='Kisikisi.id - Portal pendidikan' property='og:site_name'/>
-    <meta content='http://kisikisi.id/img/background/background_portal.jpg' property='og:image'/>
+    <meta content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+    <meta content="website" property="og:type"/>
+    <meta content="607018229476252" property="fb:app_id"/>
+    <meta content="Kisikisi.id - Portal pendidikan" property="og:title"/>
+    <meta content="Kisikisi.id merupakan portal pendidikan terbesar di Indonesia yang menyajikan informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita pendidikan dan informasi beasiswa. Dibangun oleh putra-putri bangsa untuk para pelaku pendidikan seperti guru, siswa dan orangtua untuk mempermudah akses informasi yang terkait pendidikan." property="og:description"/>
+    <meta content="id_ID" property="og:locale"/>
+    <meta content="http://kisikisi.id/" property="og:url"/>
+    <meta content="Kisikisi.id - Portal pendidikan" property="og:site_name"/>
+    <meta content="http://kisikisi.id/img/background/background_portal.jpg" property="og:image"/>
+    <meta content="http://kisikisi.id/img/background/background_portal.jpg" property="og:image:url"/>
+    <meta content="923539880721-sprpmk4rgmjq1ht75govalre7gl86bbm.apps.googleusercontent.com" name="google-signin-client_id"/>
 
     <base href="/index.php"></base>
     <script src="{{ asset('js/lib.portal.min.js') }}"></script>
