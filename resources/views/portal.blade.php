@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"></head>
-<link rel="image_src" type="image/jpeg" href="img/logo/logo.png" />
-<link rel="shortcut icon" href="img/logo/logo.png">
-<link rel="stylesheet" href="{{asset('css/portal.min.css')}}" />
-<base href="/index.php"></base>
-<script src="{{ asset('js/lib.portal.min.js') }}"></script>
-<script src="{{ asset('js/portal.min.js') }}"></script>
-	<title>Kisikisi.id - Portal pendidikan</title>
+    <meta charset="UTF-8">
+    <link rel="image_src" type="image/jpeg" href="img/logo/logo.png" />
+    <link rel="shortcut icon" href="img/logo/logo.png">
+    <link rel="stylesheet" href="{{asset('css/portal.min.css')}}" />
+    <title>Kisikisi.id - Portal pendidikan</title>
+    <meta content='width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta content='IE=Edge' http-equiv='X-UA-Compatible'/>
+    <meta content='website' property='og:type'/>
+    <meta content='Kisikisi.id - Portal pendidikan' property='og:title'/>
+    <meta content='Kisikisi.id merupakan portal pendidikan terbesar di Indonesia yang menyajikan informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita pendidikan dan informasi beasiswa. Dibangun oleh putra-putri bangsa untuk para pelaku pendidikan seperti guru, siswa dan orangtua untuk mempermudah akses informasi yang terkait pendidikan.' property='og:description'/>
+    <meta content='id_ID' property='og:locale'/>
+    <meta content='http://kisikisi.id/' property='og:url'/>
+    <meta content='Kisikisi.id - Portal pendidikan' property='og:site_name'/>
+    <meta content='http://kisikisi.id/img/background/background_portal.jpg' property='og:image'/>
+
+    <base href="/index.php"></base>
+    <script src="{{ asset('js/lib.portal.min.js') }}"></script>
+    <script src="{{ asset('js/portal.min.js') }}"></script>
 </head>
 <body>
 
@@ -29,12 +39,11 @@
 	    <div class="item">
 	       <img src="{{asset('img/logo/logo.png')}}" class="logo" />
 	    </div>
-		<a href="#" class="item aktif">Home</a>
-		<a href="#" class="item">Direktori Sekolah</a>
-		<a href="#" class="item">E-Learning</a>
-		<a href="#" class="item">Bank Soal</a>
-		<a href="#" class="item">Klinik Pendidikan</a>
-		<a href="#" class="item">Berita Pendidikan</a>
+		<a href="dir.kisikisi.id" class="item">Direktori Sekolah</a>
+		<a href="learn.kisikisi.id" class="item">E-Learning</a>
+		<a href="kisikisi.id" class="item">Bank Soal</a>
+		<a href="kisikisi.id" class="item">Klinik Pendidikan</a>
+		<a href="news.kisikisi.id" class="item">Berita Pendidikan</a>
 		<a href="#" class="item">Agenda Pendidikan</a>
 		<a href="#" class="item">Artikel Pendidikan</a>
 		<a href="#" class="item">Forum</a>
