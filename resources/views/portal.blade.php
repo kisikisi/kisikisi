@@ -50,12 +50,6 @@
 			<span id="landing-title" class="title kisi"></span>
 		</div>
 		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
-			<div
-              class="fb-like"
-              data-share="true"
-              data-width="450"
-              data-show-faces="true">
-            </div>
 			<center><a class="button-scroll" href="#menu" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
 	</div>
