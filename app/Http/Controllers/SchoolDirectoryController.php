@@ -16,14 +16,36 @@ use Auth;
 class SchoolDirectoryController extends Controller
 {
      public function __construct() {
-        $this->middleware('jwt.auth', ['except' => ['index','form','detail']]);
+        $this->middleware('jwt.auth', ['except' => ['index','form','detail','paging','scroll']]);
     }
 
     public function index(SchoolDirectory $school) {
-    	$data['school'] =  $school->schoolList()->get();
+    	$data['schools'] =  $school->schoolList()->get();
 
         return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
+
+    public function paging($page, $limit, SchoolDirectory $school) {
+    	$offset = ($page-1) * $limit;
+
+		$data['count'] = $school->count();
+        $data['schools'] =  $school->schoolList()
+            ->orderBy('id','desc')
+            ->skip($offset)
+            ->take($limit)
+            ->get();
+
+        return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function scroll(SchoolDirectory $school) {
+    	$data['schools'] =  $school->schoolList()->get();
+
+        return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+
+
 
     public function detail($id) {
         $data['detail'] = SchoolDirectory::with(["schoolType","city.province","city","createdBy","modifiedBy"])

@@ -5,15 +5,32 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
     $scope.onEdit = false;
     $scope.input = {};
     $scope.schoolAddForm = {};
-    $scope.currentPage = 1;
-	$scope.limit = 10;
+
+    $scope.schools = [];
+    $scope.totalSchools = 0;
+    $scope.pagination = {
+        current: 1
+    };
+    $scope.limit = 20;
 
     $scope.listSchool = function() {
         $http.get($scope.env.api+'school')
         .success(function (response) {
-            $scope.school = response.school;
-        })
-    }
+            $scope.schools = response.school;
+        });
+    };
+
+    $scope.getResultsPage = function(page) {
+        $http.get($scope.env.api+'school/paging/'+page+'/'+$scope.limit)
+        .success(function (response) {
+            $scope.schools = response.schools;
+            $scope.totalSchools = response.count;
+        });
+    };
+
+    $scope.pageChanged = function(page) {
+        $scope.getResultsPage(page);
+    };
     
     $scope.formSchool = function() {
         $http.get($scope.env.api+'school/form')
@@ -21,8 +38,8 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
             $scope.schoolTypes = response.schoolTypes;
             $scope.cities = response.cities;
             $scope.provinces = response.provinces;
-        })
-    }
+        });
+    };
 
     $scope.uploadLogo = function(isValid, file) {
         if (isValid) {
@@ -43,7 +60,7 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
                 $scope.progress1 = progressPercentage;
             });
 	    }    
-    }
+    };
     
     $scope.uploadImage = function(isValid, file) {
         if (isValid) {
@@ -65,40 +82,40 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
                 $scope.progress2 = progressPercentage;
             });
 	    }    
-    }
+    };
     
     $scope.resetSchool = function() {
         $scope.input = {};
         $("[data-widget='collapse']").click();
-    }
+    };
 
 	$scope.saveSchool = function(input) {
         
-        if (input.id == undefined) {
+        if (input.id === undefined) {
             $http.post($scope.env.api+'school', input)
             .success(function (response) {
                 Notification({message: response.message}, response.status);
                 if (response.status == 'success') {
-                    $scope.school.push(response.school[0]);
+                    $scope.schools.push(response.school[0]);
                     $scope.input.id = response.school[0].id;
                     //$scope.input = {};
                     //$scope.fileicon = {};
                     //$('#name').focus();
                 }
-            })
+            });
         } else {
             //input.city_id = $scope.input.city.id;
             //input.school_type_id = $scope.input.school_type.id;
 
-            var index = $scope.indexSearch($scope.school, input.id);
+            var index = $scope.indexSearch($scope.schools, input.id);
             return $http.put($scope.env.api+'school/'+input.id, input)
             .then(function (response) {
-                $scope.school[index] = response.data.school[0];
+                $scope.schools[index] = response.data.school[0];
                 Notification({message: response.data.message}, response.status);
                 //$scope.onEdit = false;
-            })
+            });
         }
-	}
+	};
     
     $scope.editSchool = function(id) {
         $scope.onEdit = false;
@@ -111,27 +128,28 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 
             $("[data-widget='collapse']").click();
             $location.hash('schoolForm');
-        })
-    }
+        });
+    };
     
 	/*$scope.saveSchool = function(edit, id) {
         
 	}*/
     
 	$scope.deleteSchool = function(id) {
-		var index = $scope.indexSearch($scope.school, id);
+		var index = $scope.indexSearch($scope.schools, id);
 		if (confirm('delete school?')) {
 			$http.delete($scope.env.api+'school/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
 				if (response.status == 'success') {
 					//console.log(response.type);
-					$scope.school.splice(index, 1);	
+					$scope.schools.splice(index, 1);
 				}
-			})
+			});
 		}
-	}
+	};
 
-    $scope.listSchool();
+    //$scope.listSchool();
+    $scope.getResultsPage(1);
     $scope.formSchool();
 }];
