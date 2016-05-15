@@ -1,67 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"></head>
-<link rel="stylesheet" href="{{asset('css/portal.min.css')}}" />
-<base href="/index.php"></base>
-<script src="{{ asset('js/lib.portal.min.js') }}"></script>
-<script src="{{ asset('js/portal.min.js') }}"></script>
-	<title>Portal pendidikan</title>
+    <meta charset="UTF-8">
+    <link rel="image_src" type="image/jpeg" href="img/logo/logo.png" />
+    <link rel="shortcut icon" href="img/logo/logo.png">
+    <link rel="stylesheet" href="{{asset('css/portal.min.css')}}" />
+    <title>Kisikisi.id - Portal pendidikan</title>
+    <meta content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+    <meta content="website" property="og:type"/>
+    <meta content="607018229476252" property="fb:app_id"/>
+    <meta content="Kisikisi.id - Portal pendidikan" property="og:title"/>
+    <meta content="Kisikisi.id merupakan portal pendidikan terbesar di Indonesia yang menyajikan informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita pendidikan dan informasi beasiswa. Dibangun oleh putra-putri bangsa untuk para pelaku pendidikan seperti guru, siswa dan orangtua untuk mempermudah akses informasi yang terkait pendidikan." property="og:description"/>
+    <meta content="id_ID" property="og:locale"/>
+    <meta content="http://kisikisi.id/" property="og:url"/>
+    <meta content="Kisikisi.id - Portal pendidikan" property="og:site_name"/>
+    <meta content="http://kisikisi.id/img/background/background_portal.jpg" property="og:image"/>
+    <meta content="http://kisikisi.id/img/background/background_portal.jpg" property="og:image:url"/>
+    <meta content="923539880721-sprpmk4rgmjq1ht75govalre7gl86bbm.apps.googleusercontent.com" name="google-signin-client_id"/>
+
+    <base href="/index.php"></base>
+    <script src="{{ asset('js/lib.portal.min.js') }}"></script>
+    <script src="{{ asset('js/portal.min.js') }}"></script>
 </head>
 <body>
-<div class="mask all"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '607018229476252',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div id="section-1">
 
 	<div class="ui grid container section-2">
 
-		<div class="centered row title" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
-			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
+		<div class="centered row" style="margin-top:190px;" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
+			<span id="landing-title" class="title kisi"></span>
 		</div>
 		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
-			<center><a class="button-scroll" href="#section-min-1" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
+			<div
+              class="fb-like"
+              data-share="true"
+              data-width="450"
+              data-show-faces="true">
+            </div>
+			<center><a class="button-scroll" href="#menu" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
 	</div>
 </div>
 <div id="menu" class="ui inverted menu"  data-uk-smooth-scroll>
 	<div class="ui container">
-		<img src="{{asset('img/logo/logo.png')}}" width="40" height="40" class="logo" />
-		<a href="#" class="item aktif">Home</a>
-		<a href="#" class="item">Direktori Sekolah</a>
-		<a href="#" class="item">E-Learning</a>
-		<a href="#" class="item">Bank Soal</a>
-		<a href="#" class="item">Klinik Pendidikan</a>
-		<a href="#" class="item">Berita Pendidikan</a>
+	    <div class="item">
+	       <img src="{{asset('img/logo/logo.png')}}" class="logo" />
+	    </div>
+		<a href="dir.kisikisi.id" class="item">Direktori Sekolah</a>
+		<a href="learn.kisikisi.id" class="item">E-Learning</a>
+		<a href="kisikisi.id" class="item">Bank Soal</a>
+		<a href="kisikisi.id" class="item">Klinik Pendidikan</a>
+		<a href="news.kisikisi.id" class="item">Berita Pendidikan</a>
 		<a href="#" class="item">Agenda Pendidikan</a>
 		<a href="#" class="item">Artikel Pendidikan</a>
 		<a href="#" class="item">Forum</a>
 		<a href="#" class="item">Beasiswa</a>
 	</div>
 </div>
-<div id="menu-responsive" class="ui right fixed vertical menu">
-
-	<div class="ui container">
-		<img src="{{asset('img/logo/logo.png')}}" width="40" height="40" class="logo" />
-		<i id="button-close" class="remove icon"></i>
-		<a href="#" class="item aktif">Home</a>
-		<a href="#" class="item">Direktori Sekolah</a>
-		<a href="#" class="item">E-Learning</a>
-		<a href="#" class="item">Bank Soal</a>
-		<a href="#" class="item">Klinik Pendidikan</a>
-		<a href="#" class="item">Berita Pendidikan</a>
-		<a href="#" class="item">Agenda Pendidikan</a>
-		<a href="#" class="item">Artikel Pendidikan</a>
-		<a href="#" class="item">Forum</a>
-		<a href="#" class="item">Beasiswa</a>
-
-	</div>
-</div>
-<button class="button-responsive"><i class="sidebar icon"></i></button>
 
 <div id="section-min-1">
 	<div class="ui grid container">
 		<div class="row konten">
 			<div class="ten wide column">
-				<img src="{{asset('img/mascot/Education Clinic.png')}}" class="mascot-1" data-uk-parallax="x:'150',target:'#section-min-1'" />
+				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="x:'150',target:'#section-min-1'" />
 			</div>
 			<div class="six wide column shape">
 				<h1 class="title">Latar Belakang</h1>
@@ -90,7 +109,7 @@
 		<div style="margin-top:80px;height:10px;width:100%"></div>
 		<div class="row">
 			<div class="eleven wide column text" data-uk-parallax="{x:'50',y:'-50',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
-				<img src="{{asset('img/icon/svg icon/chat_baloon.svg')}}" class="chat" />
+				<img src="{{asset('img/icon/chat_baloon.svg')}}" class="chat" />
 				<div class="texting"> <p><b>Kisikisi.id </b>merupakan portal pendidikan terbesar di Indonesia yang menyajikan
 				informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita
 				pendidikan dan informasi beasiswa. Dibangun oleh putra-putri bangsa untuk para pelaku pendidikan seperti
@@ -98,7 +117,7 @@
 				</div>
 			</div>
 			<div class="five wide column" >
-				<img src="{{asset('img/mascot/Geek maskot.png')}}" class="mascot-1"  data-uk-parallax="{x:'-200',y:'40',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}" />
+				<img src="{{asset('img/mascot/geek_mascot.png')}}" class="mascot-1"  data-uk-parallax="{x:'-200',y:'40',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}" />
 			</div>
 		</div>
 
@@ -761,7 +780,6 @@
 </div>
 
 <script>
-
 </script>
 
 </body>
