@@ -9,16 +9,16 @@
 	<title>Portal pendidikan</title>
 </head>
 <body>
-
+<div class="mask all"></div>
 <div id="section-1">
 
 	<div class="ui grid container section-2">
 
-		<div class="centered row" style="margin-top:190px;" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
-			<span id="landing-title" class="title kisi"></span>
+		<div class="centered row title" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
+			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
 		</div>
 		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
-			<center><a class="button-scroll" href="#menu" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
+			<center><a class="button-scroll" href="#section-min-1" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
 	</div>
 </div>
@@ -37,6 +37,25 @@
 		<a href="#" class="item">Beasiswa</a>
 	</div>
 </div>
+<div id="menu-responsive" class="ui right fixed vertical menu">
+
+	<div class="ui container">
+		<img src="{{asset('img/logo/logo.png')}}" width="40" height="40" class="logo" />
+		<i id="button-close" class="remove icon"></i>
+		<a href="#" class="item aktif">Home</a>
+		<a href="#" class="item">Direktori Sekolah</a>
+		<a href="#" class="item">E-Learning</a>
+		<a href="#" class="item">Bank Soal</a>
+		<a href="#" class="item">Klinik Pendidikan</a>
+		<a href="#" class="item">Berita Pendidikan</a>
+		<a href="#" class="item">Agenda Pendidikan</a>
+		<a href="#" class="item">Artikel Pendidikan</a>
+		<a href="#" class="item">Forum</a>
+		<a href="#" class="item">Beasiswa</a>
+
+	</div>
+</div>
+<button class="button-responsive"><i class="sidebar icon"></i></button>
 
 <div id="section-min-1">
 	<div class="ui grid container">

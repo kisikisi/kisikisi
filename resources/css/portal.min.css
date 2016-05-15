@@ -40,29 +40,14 @@ ul{
 	background-size:100% 100% !important;
 	background-attachment: fixed;
 }
-.typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-}
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+#section-1 .title{
+	margin-top: 80px;
 }
 
 /* menu */
+.ui.icon.sidebar{
+	display:none;
+}
 #menu{
 	transition:all 0.3s ease-in-out;
 	margin:0;
@@ -333,7 +318,7 @@ ul{
 /* section 5 */
 
 #section-5{
-	min-height:850px;
+	min-height:90vh;
 	margin-top:100px;
 	background-color:#59ABE3;
 	padding-top:100px;
@@ -364,4 +349,91 @@ ul{
 }
 #footer *{
 	color:#fafafa !important;
+}
+
+.mask.all{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	display:none;
+	z-index:98;
+}
+#menu-responsive{
+	display:none;
+}
+.button-responsive{
+	display:none;
+}
+
+/* Responsive Design Fix */
+@media(max-width:1024px){
+	#section-1{
+
+	}
+	#section-1 .title.kisi{
+		line-height:130%;
+		font-size:2em !important;
+	}
+	#section-1 .button-scroll{
+		padding:10px 25px 10px 25px;
+		font-size:1.7em;
+	}
+	.button-responsive{
+		position:fixed;
+		font-size:28px;
+		cursor:pointer;
+		display:block !important;
+		right:0;
+		top:0;
+		margin-top:15px;
+		margin-right:25px;
+		z-index:99;
+		padding:5px;
+		border:2px solid #fafafa;
+		border-radius:5px;
+		color:#fafafa;
+		background: transparent;
+		text-align: center;
+
+	}
+	.sidebar.icon{
+		margin-top:6px;
+		margin-left:2px;
+	}
+	#menu{
+		display:none;
+	}
+	.ui.inverted.menu.fixed.top{
+		display:none;
+	}
+
+	#menu-responsive{
+		margin-right:-300px;
+		display: block !important;
+		transition:all 0.3s ease-out;
+	}
+	#menu-responsive .logo{
+		margin-left:15px;
+	}
+	#menu-responsive .remove.icon{
+		position: absolute;
+		right:0;
+		top:0;
+		margin-top:10px;
+		margin-right:10px;
+		font-size:28px;
+		cursor:pointer;
+	}
+	.geser{
+		margin-right: 0 !important;
+		transition:all 0.3s ease-out;
+	}
+	.addmask{
+		display:block !important;
+	}
+
+
+
 }

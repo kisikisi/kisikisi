@@ -30,7 +30,6 @@ var portalpaths = {
 
 
 		//typed js
-		'bower_components/typed.js/dist/typed.min.js',
 
     ],
 	js:[
