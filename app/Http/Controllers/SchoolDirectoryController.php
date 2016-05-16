@@ -60,7 +60,9 @@ class SchoolDirectoryController extends Controller
     }
     
     public function form() {
-        $data['schoolTypes'] = SchoolType::orderBy('group','desc')->get();
+        $data['schoolTypes'] = SchoolType::orderBy('group','asc')
+			->orderBy('id','asc')
+			->get();
         $data['provinces'] = Province::select(['id','name'])->get();
         $data['cities'] = City::select(['id','province_id','name'])->get();
         
