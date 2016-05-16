@@ -4,6 +4,7 @@ var include = require('gulp-include');
 var imagemin = require('gulp-imagemin');
 var cssmin = require('gulp-cssmin');
 var stylus = require('gulp-stylus');
+var less = require('gulp-less');
 var htmlmin = require('gulp-htmlmin');
 var jsonmin = require('gulp-jsonmin');
 var fontmin = require('fontmin');
@@ -38,11 +39,16 @@ var dirpaths = {
 		'resources/js/directory/app.js',
 	],
 	css: [
+		//Semantic
+		//'bower_components/semantic/dist/semantic.min.css',
+
 		//UIKit
-		'bower_components/semantic/dist/semantic.min.css',
+		'bower_components/uikit/less/core/variables.less',
+		'bower_components/uikit/less/core/grid.less',
+		'bower_components/uikit/less/core/utility.less',
 		
 		//custom style
-		'resources/css/kisikisi.styl'
+		//'resources/css/kisikisi.styl'
 	],
     html: [
 		'resources/views/directory/*.html'
@@ -57,8 +63,6 @@ gulp.task('dir-libjsmin', function() {
     .pipe(gulp.dest('public/js'));
 });
 
-
-
 gulp.task('dir-jsmin', function() {
   return gulp.src(dirpaths.js)
     .pipe(uglify())
@@ -68,7 +72,8 @@ gulp.task('dir-jsmin', function() {
 
 gulp.task('dir-cssmin', function () {
 	return gulp.src(dirpaths.css)
-		.pipe(stylus())
+		//.pipe(stylus())
+		.pipe(less())
 		.pipe(cssmin({processImport: false}))
 		.pipe(concat('directory.min.css'))
 		.pipe(gulp.dest('public/css'));
