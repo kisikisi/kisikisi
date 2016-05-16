@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Direktori Sekolah</title>
-    <link rel="stylesheet" href="{{ asset('css/directory.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/kisikisi.min.css') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   	<base href="/index.php"></base>
-    <script src="{{ asset('js/lib.directory.min.js') }}"></script>
+    <script src="{{ asset('js/kisikisi.min.js') }}"></script>
     <script src="{{ asset('js/directory.min.js') }}"></script>
 </head>
 <body ng-controller="dirCtrl">
