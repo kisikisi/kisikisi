@@ -32,7 +32,6 @@
       version    : 'v2.6'
     });
   };
-
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -42,12 +41,13 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
+<div class="mask all"></div>
 <div id="section-1">
 
 	<div class="ui grid container section-2">
 
 		<div class="centered row" style="margin-top:190px;" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
-			<span id="landing-title" class="title kisi"></span>
+			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
 		</div>
 		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
 			<center><a class="button-scroll" href="#menu" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
@@ -70,14 +70,30 @@
 		<a href="#" class="item">Beasiswa</a>
 	</div>
 </div>
+<div id="menu-responsive" class="ui right fixed vertical menu">
+	<div class="item">
+	   <img src="{{asset('img/logo/logo.png')}}" class="logo" />
+	</div>
+	<i id="button-close" class="remove icon"></i>
+	<a href="dir.kisikisi.id" class="item">Direktori Sekolah</a>
+	<a href="learn.kisikisi.id" class="item">E-Learning</a>
+	<a href="kisikisi.id" class="item">Bank Soal</a>
+	<a href="kisikisi.id" class="item">Klinik Pendidikan</a>
+	<a href="news.kisikisi.id" class="item">Berita Pendidikan</a>
+	<a href="#" class="item">Agenda Pendidikan</a>
+	<a href="#" class="item">Artikel Pendidikan</a>
+	<a href="#" class="item">Forum</a>
+	<a href="#" class="item">Beasiswa</a>
+</div>
+<button class="button-responsive"><i class="sidebar icon"></i></button>
 
 <div id="section-min-1">
 	<div class="ui grid container">
 		<div class="row konten">
-			<div class="ten wide column">
-				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="x:'150',target:'#section-min-1'" />
+			<div class="six wide mobile six wide tablet ten wide computer column">
+				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="xp:'30%',viewport:'1',target:'#section-min-1'" />
 			</div>
-			<div class="six wide column shape">
+			<div class="ten wide mobile ten wide tablet six wide computer column shape">
 				<h1 class="title">Latar Belakang</h1>
 				<p>Di tengah era globalisasi dan teknologi informasi yang makin menjamur, 
 				para pelaku pendidikan yang tidak terbatas pada guru dan murid membutuhkan suatu sarana dan wadah 
@@ -112,7 +128,7 @@
 				</div>
 			</div>
 			<div class="five wide column" >
-				<img src="{{asset('img/mascot/geek_mascot.png')}}" class="mascot-1"  data-uk-parallax="{x:'-200',y:'40',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}" />
+				<img src="{{asset('img/mascot/geek_mascot.png')}}" class="mascot-1"  data-uk-parallax="{x:'-150',y:'40',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}" />
 			</div>
 		</div>
 
@@ -775,7 +791,6 @@
 </div>
 
 <script>
-
 </script>
 
 </body>
