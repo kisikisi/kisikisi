@@ -1,4 +1,4 @@
-app = angular.module('kisiDirApp', ['ui.router', 'ngSanitize', 'satellizer', 'ngTouch', 'superswipe', 'environment','ui-notification','ngTagsInput', 'ezfb' ]);
+app = angular.module('kisiDirApp', ['ui.router', 'ngSanitize', 'satellizer', 'ngTouch', 'superswipe', 'environment','ui-notification','ngTagsInput', 'ezfb', 'infinite-scroll' ]);
 app
 /*.constant('constant', {
 	'site': '//'+host+'/',
@@ -17,7 +17,10 @@ app
 })
 .directive('uiSticky', function() {
 	return function (scope, element, attr) {
-		$(element).sticky();
+		$(element).sticky({
+			observeChanges: true,
+			context: "#content"
+		});
     };
 })
 .directive('uiTab', function() {

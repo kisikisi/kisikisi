@@ -38,10 +38,14 @@ class SchoolDirectoryController extends Controller
         return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
-    public function scroll(SchoolDirectory $school) {
-    	$data['schools'] =  $school->schoolList()->get();
+    public function scroll($after, $limit, SchoolDirectory $school) {
+    	$lists = $school->schoolList()
+			->orderBy($school->table.'.id', 'desc')
+			->take($limit);
 
-        return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+		if ($after != 0) $lists->where($school->table.'.id','<', $after);
+        $data['schools'] = $lists->get();
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
 
@@ -56,7 +60,7 @@ class SchoolDirectoryController extends Controller
     }
     
     public function form() {
-        $data['schoolTypes'] = SchoolType::all();
+        $data['schoolTypes'] = SchoolType::orderBy('group','desc')->get();
         $data['provinces'] = Province::select(['id','name'])->get();
         $data['cities'] = City::select(['id','province_id','name'])->get();
         

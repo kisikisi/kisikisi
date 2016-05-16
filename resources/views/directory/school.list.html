@@ -1,6 +1,6 @@
 
-<div id="content" class="ui link three cards">
- <div class="card"  ng-repeat="list in school | filter:filter" ng-click="detailSchool(list.id)">
+<div class="ui link three cards" infinite-scroll='nextPage()' infinite-scroll-disabled='scrollBusy'>
+ <div class="card"  ng-repeat="list in schools | filter:filter" ng-click="detailSchool(list.id)">
   <a ng-if="list.image" class="image">
     <img ng-src="{{ env.file }}/school/image/{{ list.image }}">
   </a>

@@ -17,7 +17,7 @@
              
             <?php include(public_path('views/directory/sidebar.html')) ?> <!-- main navbar -->
             
-            <div ui-view></div>
+            <div id="content" ui-view></div>
 
          </div>
         </div>        

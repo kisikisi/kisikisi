@@ -40,6 +40,7 @@ Route::group([
     Route::get('school/form', 'SchoolDirectoryController@form');
 	Route::get('school/{id}', 'SchoolDirectoryController@detail');
 	Route::get('school/paging/{page}/{limit}', 'SchoolDirectoryController@paging');
+	Route::get('school/scroll/{after}/{limit}', 'SchoolDirectoryController@scroll');
     
     //module news category
     Route::get('news/category', 'NewsCategoryController@index');

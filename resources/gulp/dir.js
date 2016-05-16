@@ -29,7 +29,8 @@ var dirpaths = {
 		'bower_components/angular-environment/dist/angular-environment.min.js',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
 		'bower_components/ng-tags-input/ng-tags-input.min.js',	
-		'bower_components/angular-easyfb/build/angular-easyfb.min.js',	
+		'bower_components/angular-easyfb/build/angular-easyfb.min.js',
+		'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
     ],
 	js:[
 		//angular app
@@ -46,32 +47,6 @@ var dirpaths = {
     html: [
 		'resources/views/directory/*.html'
 	]
-};
-var portalpaths = {
-	libjs: [
-		//jquery
-		'bower_components/jquery/dist/jquery.min.js',
-		'bower_components/jquery-ui/jquery-ui.min.js',
-
-		//Semantic
-		'bower_components/semantic/dist/semantic.min.js',
-        
-        //angular
-		'bower_components/angular/angular.min.js',
-		'bower_components/angular-touch/angular-touch.min.js',
-		'bower_components/angular-resource/angular-resource.min.js',
-		'bower_components/angular-environment/dist/angular-environment.min.js',
-		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
-
-		// uikit
-		'bower_components/uikit/js/uikit.min.js',
-		'bower_components/uikit/js/components/parallax.min.js',
-		'bower_components/uikit/js/components/slideshow.min.js',
-		'bower_components/uikit/js/components/slideshow-fx.min.js',
-		'bower_components/uikit/js/components/slider.min.js',
-		'bower_components/uikit/js/core/scrollspy.min.js',
-
-    ]
 };
 
 // back-end
