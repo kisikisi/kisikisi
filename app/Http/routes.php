@@ -38,6 +38,7 @@ Route::group([
 	//module school
 	Route::get('school', 'SchoolDirectoryController@index');
     Route::get('school/form', 'SchoolDirectoryController@form');
+	Route::post('school/search', 'SchoolDirectoryController@search');
 	Route::get('school/{id}', 'SchoolDirectoryController@detail');
 	Route::get('school/paging/{page}/{limit}', 'SchoolDirectoryController@paging');
 	Route::get('school/scroll/{after}/{limit}', 'SchoolDirectoryController@scroll');

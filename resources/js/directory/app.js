@@ -33,11 +33,13 @@ app
 		$(element).tab();
     };
 })
-/*.directive('uiSidebar', function() {
+.directive('uiDropdown', function() {
 	return function (scope, element, attr) {
-		$(element).sidebar('toggle');
+		$(element).dropdown({
+			keepOnScreen: false
+		});
     };
-})*/
+})
 /*
 .directive('sidebar', function() {
 	return function (scope, element, attr) {

@@ -23,8 +23,12 @@ bg-base2=#00ABA9
 /* semantic custom */
 .ui.secondary.pointing.menu .active.item, .ui.secondary.pointing.menu .active.item:hover { border-color: color-base2; color: color-base2; }
 .ui.menu .item { color: color-base; }
+.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover { z-index: 1; }
 /*.segments>.image>.content { position: absolute; width: 100%; top: 100px; margin: 0 auto; }*/
 .ui.icon.header .icon.logo { width: 150px; }
 .ks.bg.base {  }
 
-#mainNav { z-index: 1; margin-bottom: 2em; }
+#mainNav { z-index: 1;  }
+#mainNav .item { padding: 1.2em;  }
+#mainNav .item.logo { padding-top: 0.2em; padding-bottom: 0.2em; -webkit-align-self: auto; align-self: auto;  }
+#content { margin-top: 2em; }

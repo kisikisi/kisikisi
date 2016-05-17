@@ -35,6 +35,7 @@ var paths = {
 		//UIKit
 		'bower_components/uikit/js/uikit.min.js',
 		'bower_components/uikit/js/components/sticky.min.js',
+		'bower_components/uikit/js/components/tooltip.min.js',
 
         //angular
 		'bower_components/angular/angular.min.js',
@@ -60,6 +61,7 @@ var paths = {
 		//uikit
 		'resources/css/less.css',
 		'bower_components/uikit/css/components/sticky.min.css',
+		'bower_components/uikit/css/components/tooltip.min.css',
 
 		//custom style
 		'resources/css/kisikisi.styl'
