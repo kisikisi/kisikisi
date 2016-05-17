@@ -15,19 +15,29 @@ app
 		$(element).rating();
     };
 })
-.directive('uiSticky', function() {
+/*.directive('uiSticky', function() {
 	return function (scope, element, attr) {
 		$(element).sticky({
 			observeChanges: true,
 			context: "#content"
 		});
     };
+})*/
+.directive('ukSticky', function() {
+	return function (scope, element, attr) {
+		UIkit.sticky(element);
+    };
 })
 .directive('uiTab', function() {
 	return function (scope, element, attr) {
-		$(element).tab();;
+		$(element).tab();
     };
 })
+/*.directive('uiSidebar', function() {
+	return function (scope, element, attr) {
+		$(element).sidebar('toggle');
+    };
+})*/
 /*
 .directive('sidebar', function() {
 	return function (scope, element, attr) {

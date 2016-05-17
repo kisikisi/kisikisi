@@ -32,6 +32,10 @@ var paths = {
 		//Semantic
 		'bower_components/semantic/dist/semantic.min.js',
 
+		//UIKit
+		'bower_components/uikit/js/uikit.min.js',
+		'bower_components/uikit/js/components/sticky.min.js',
+
         //angular
 		'bower_components/angular/angular.min.js',
 		'bower_components/angular-sanitize/angular-sanitize.min.js',
@@ -55,6 +59,7 @@ var paths = {
 
 		//uikit
 		'resources/css/less.css',
+		'bower_components/uikit/css/components/sticky.min.css',
 
 		//custom style
 		'resources/css/kisikisi.styl'

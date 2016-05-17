@@ -24,7 +24,7 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
             //$scope.schools.push(response.schools[0]);
 			$scope.after = response.schools[response.schools.length - 1].id;
 			$scope.scrollBusy = false;
-			$('.ui.sticky').sticky('refresh');
+			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.schools);
         })
 	}

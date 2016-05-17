@@ -1,6 +1,10 @@
 var dirCtrl = ['$http','$scope', '$rootScope', '$location', 'Notification', 'envService', 
 function($http, $scope, $rootScope, $location, Notification, envService) {
     $rootScope.env = envService.read('all');
+	$(".ui.sidebar").sidebar("toggle");
+	$(".ui.sidebar").sidebar('attach events', '#mainNavToggle');
+
+
     $scope.modalTemplate = 'views/directory/school.detail.html';
     //console.log($rootScope.env);
     
@@ -30,7 +34,6 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
         });
     };
 
-    
     var widget = this;
   
     $scope.$watch(function () {
