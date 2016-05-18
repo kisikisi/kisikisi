@@ -219,7 +219,7 @@ ul{
 	position: relative;
 	margin-top:30px;
 	color:#333;
-	font-size:1.5em;
+	font-size:1.4em;
 	line-height:130%;
 	text-indent:25px;
 	margin-left:50px;
@@ -270,7 +270,7 @@ ul{
 	margin-left:20%;
 }
 #section-min-1 p{
-	font-size:1.35em;
+	font-size:1.4em;
 	line-height:140%;
 	text-indent:25px;
 }
@@ -289,7 +289,7 @@ ul{
 
 /* section min 2 new */
 #section-min-2{
-	background-color:#fff;
+	background:-moz-radial-gradient(42% 26% 54deg, #FAFAFA, #FFFFFF 58%);
 	padding:20px 0px 20px 0px;
 	vertical-align: middle;
 	position: relative;
@@ -303,6 +303,23 @@ ul{
 	font-size:40px;
 	font-family:sans-semibold;
 	margin-bottom: 50px;
+}
+#section-min-2 p{
+	font-size:1.3em;
+	font-family:sans-light;
+}
+#section-min-2 .row .content-detail{
+	cursor:pointer;
+}
+#section-min-2 .row .content-detail a{
+	color:#333;
+}
+#section-min-2 .row .content-image{
+	display:flex;
+	justify-content:center;
+}
+#section-min-2 .row .content-image .my-icon{
+	width:50%;
 }
 
 
@@ -330,10 +347,10 @@ ul{
 }
 #section-4 .ui.card{
 	border:4px solid #89C4F4 !important;
-	height:350px;
 	background-color: #59ABE3;
 	box-shadow:1px 2px 1px #89C4F4;
 	border-radius:25px;
+	font-size:1em;
 }
 #section-4 .header{
 	margin-top:25px;
@@ -353,6 +370,7 @@ ul{
 	position:absolute;
 	margin-top:-85px;
 	transform:rotate(180deg);
+
 }
 
 #section-5{
@@ -516,6 +534,11 @@ ul{
 	#section-min-1 .shape{
 		font-size:0.7em;
 	}
+
+	#section-min-2 .row .content-image{
+		display:none;
+	}
+
 	#section-3 .title{
 		font-size:28px;
 	}

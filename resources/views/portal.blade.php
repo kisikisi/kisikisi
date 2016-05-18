@@ -160,89 +160,125 @@
 </div>
 
 <div id="section-min-2">
-	<div class="ui container two column grid">
+	<div class="ui container two column stackable grid">
 		<div class="row">
 			<div class="sixteen wide column"><center><h1 class="title">Apa saja yang ada di kisikisi.id</h1></center></div>
 		</div>
-		<div class="row ">
-			<div class="column">
-				<h3><i class="university large icon"></i>Direktori Sekolah</h3>
-				<p>Sebagai search engine/mesin pencari untuk mencari lembaga pendidikan formal/non formal dari tingkat dasar, menengah hingga perguruan tinggi. Informasi yang ditampilkan diharapkan tidak sebatas hanya informasi umum, tapi juga menampilkan program-program unggulan yang bisa juga diupdate oleh lembaga bersangkutan.</p>
+		<div class="row">
+			<div class="column content-detail" data-uk-tooltip="animation:true" title="Kunjungi Direktori Sekolah">
+				<a href="http://dir.kisikisi.id">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/directory.png" class="ui mini image"/>Direktori Sekolah</h3>
+						<p>Sebagai search engine/mesin pencari untuk mencari lembaga pendidikan formal/non formal dari tingkat dasar, menengah hingga perguruan tinggi. Informasi yang ditampilkan diharapkan tidak sebatas hanya informasi umum, tapi juga menampilkan program-program unggulan yang bisa juga diupdate oleh lembaga bersangkutan.</p>
+					</div>
+				</a>
 			</div>
-			<div class="column">
-			a
+			<div class="column content-image">
+				<img src="img/icon/free/search.png" class="my-icon" />
 			</div>
 		</div>
 		<div class="row">
-			<div class="column">
-			a
+			<div class="column content-image">
+				<img src="img/icon/free/video-player.png" class="my-icon" />
 			</div>
-			<div class="eight wide column">
-				<h3><i class="book large icon"></i>E-Learning</h3>
-				<p>Pengguna dapat mempelajari mata pelajaran sekolah secara online. Tidak terbatas hanya pada mata pelajaran umum, pengguna dapat mempelajari berbagai mata pelajaran Kejuruan.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="eight wide column">
-				<h3><i class="cubes large icon"></i>Bank Soal</h3>
-				<p>Memuat dokumentasi soal-soal yang pernah ditampilkan dalam Ujian Nasional atau Ujian Daerah. Dokumentasi Bank Soal akan dikategorikan berdasarkan Tingkat Pendidikan, Mata Pelajaran dan Tahun Ujian sehingga akan memudahkan pengguna untuk mencari mata pelajaran yang dibutuhkan. Bank Soal ini akan menjadi salah satu unggulan pada portal pendidikan untuk menarik pengguna khususnya para pelajar dan juga akan disediakan fitur searching untuk mencari soal-soal pelajaran berdasarkan kata/kalimat tertentu.</p>
-			</div>
-			<div class="column">
-			a
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi E-Learning">
+				<a href="http://learn.kisikisi.id">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/elearning.png" class="ui mini image"/></i>E-Learning</h3>
+						<p>Pengguna dapat mempelajari mata pelajaran sekolah secara online. Tidak terbatas hanya pada mata pelajaran umum, pengguna dapat mempelajari berbagai mata pelajaran Kejuruan.</p>
+					</div>
+				</a>
 			</div>
 		</div>
 		<div class="row">
-			<div class="column">
-			a
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Bank Soal">
+				<a href="http://soal.kisikisi.id">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/banksoal.png" class="ui mini image"/></i>Bank Soal</h3>
+						<p>Memuat dokumentasi soal-soal yang pernah ditampilkan dalam Ujian Nasional atau Ujian Daerah. Dokumentasi Bank Soal akan dikategorikan berdasarkan Tingkat Pendidikan, Mata Pelajaran dan Tahun Ujian sehingga akan memudahkan pengguna untuk mencari mata pelajaran yang dibutuhkan. Bank Soal ini akan menjadi salah satu unggulan pada portal pendidikan untuk menarik pengguna khususnya para pelajar dan juga akan disediakan fitur searching untuk mencari soal-soal pelajaran berdasarkan kata/kalimat tertentu.</p>
+					</div>
+				</a>
 			</div>
-			<div class="eight wide column">
-				<h3><i class="add square large icon"></i>Klinik Pendidikan</h3>
-				<p>: Sebagai sarana bagi pelajar atau orang tua untuk bertanya mengenai permasalahan-permasalahan di bidang pendidikan. Modul ini nantinya akan dipandu oleh ahli atau pakar di bidang pendidikan yang bisa menjawab pertanyaan dari para pengguna sehingga diharapkan membuat portal pendidikan ini lebih hidup dan interaktif. Pada modul ini juga akan di sharing ebook/referensi yang berkaitan dengan pendidikan.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="eight wide column">
-				<h3><i class="newspaper large icon"></i>Berita Pendidikan</h3>
-				<p>: Memuat informasi terkini dan aktual mengenai berita yang terkait dengan pendidikan di Indonesia. Informasi yang muncul akan selalu di update setiap hari dan tidak terbatas hanya pada berita pendidikan nasional saja tetapi issue-issue terkait pendidikan nasional dan berita pendidikan mancanegara yang terkait dengan pendidikan nasional dapat ditampilkan juga.</p>
-			</div>
-			<div class="column">
-			a
+			<div class="column content-image">
+				<img src="img/icon/free/folder.png" class="my-icon" />
 			</div>
 		</div>
 		<div class="row">
-			<div class="column">
-			a
+			<div class="column content-image">
+				<img src="img/icon/free/pipette.png" class="my-icon" />
 			</div>
-			<div class="eight wide column">
-				<h3><i class="calendar large icon"></i>Agenda Pendidikan</h3>
-				<p>Berisikan informasi mengenai jadwal event-event pendidikan yang akan dilaksanakan di Indonesia. Event-event tersebut bisa berupa pameran, seminar, workshop/pelatihan, atau event-event lain yang terkait dengan pendidikan</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="eight wide column">
-				<h3>Artikel Pendidikan</h3>
-				<p>Memuat artikel-artikel di bidang pendidikan. Artikel Pendidikan ini dapat dibuat menjadi 2 kategori yaitu Artikel Pakar Pendidikan (berisikan artikel ilmiah yang ditulis atau kontribusi dari pakar pendidikan) dan Artikel Publik (berisikan artikel yang merupakan hasil kontribusi dari publik bisa dari pelajar, orang tua ataupun pengamat pendidikan yang layak untuk dipublikasikan di depan umum)</p>
-			</div>
-			<div class="column">
-			a
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Klinik Pendidikan">
+				<a href="http://klinik.kisikisi.id">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/clinic.png" class="ui mini image"/></i>Klinik Pendidikan</h3>
+						<p>Sebagai sarana bagi pelajar atau orang tua untuk bertanya mengenai permasalahan-permasalahan di bidang pendidikan. Modul ini nantinya akan dipandu oleh ahli atau pakar di bidang pendidikan yang bisa menjawab pertanyaan dari para pengguna sehingga diharapkan membuat portal pendidikan ini lebih hidup dan interaktif. Pada modul ini juga akan di sharing ebook/referensi yang berkaitan dengan pendidikan.</p>
+					</div>
+				</a>
 			</div>
 		</div>
 		<div class="row">
-			<div class="column">
-			a
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Berita Pendidikan">
+				<a href="http://news.kisikisi.id">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/news.png" class="ui mini image"/></i>Berita Pendidikan</h3>
+						<p>Memuat informasi terkini dan aktual mengenai berita yang terkait dengan pendidikan di Indonesia. Informasi yang muncul akan selalu di update setiap hari dan tidak terbatas hanya pada berita pendidikan nasional saja tetapi issue-issue terkait pendidikan nasional dan berita pendidikan mancanegara yang terkait dengan pendidikan nasional dapat ditampilkan juga.</p>
+					</div>
+				</a>
 			</div>
-			<div class="eight wide column">
-				<h3><i class="users large icon"></i>Forum</h3>
-				<p>Sebagai tempat untuk sharing/diskusi bagi para pelaku pendidikan berdasarkan topik yang telah ditentukan. Modul ini juga akan membuat portal menjadi interaktif karena sesama pengguna akan bisa saling berdiskusi dan berkomentar mengenai suatu topik.</p>
+			<div class="column content-image">
+				<img src="img/icon/free/screen-1.png" class="my-icon" />
 			</div>
 		</div>
 		<div class="row">
-			<div class="eight wide column">
-				<h3><i class="student large icon"></i>Beasiswa</h3>
-				<p>Memuat informasi mengenai beasiswa baik yang diberikan oleh pemerintah, lembaga mancanegara atau swasta.</p>
+			<div class="column content-image">
+				<img src="img/icon/free/color-circle.png" class="my-icon" />
 			</div>
-			<div class="column">
-			a
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Agenda Pendidikan">
+				<a href="http://agenda.kisikisi.id">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/agenda.png" class="ui mini image"/></i>Agenda Pendidikan</h3>
+						<p>Berisikan informasi mengenai jadwal event-event pendidikan yang akan dilaksanakan di Indonesia. Event-event tersebut bisa berupa pameran, seminar, workshop/pelatihan, atau event-event lain yang terkait dengan pendidikan</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Artikel Pendidikan">
+				<a href="http://article.kisikisi.id">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/article.png" class="ui mini image"/></i>Artikel Pendidikan</h3>
+						<p>Memuat artikel-artikel di bidang pendidikan. Artikel Pendidikan ini dapat dibuat menjadi 2 kategori yaitu Artikel Pakar Pendidikan (berisikan artikel ilmiah yang ditulis atau kontribusi dari pakar pendidikan) dan Artikel Publik (berisikan artikel yang merupakan hasil kontribusi dari publik bisa dari pelajar, orang tua ataupun pengamat pendidikan yang layak untuk dipublikasikan di depan umum)</p>
+					</div>
+				<a href="">
+			</div>
+			<div class="column content-image">
+				<img src="img/icon/free/poster.png" class="my-icon" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="column content-image">
+				<img src="img/icon/free/chat.png" class="my-icon" />
+			</div>
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Forum">
+				<a href="http://forum.kisikisi.id">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/forum.png" class="ui mini image"/></i>Forum</h3>
+						<p>Sebagai tempat untuk sharing/diskusi bagi para pelaku pendidikan berdasarkan topik yang telah ditentukan. Modul ini juga akan membuat portal menjadi interaktif karena sesama pengguna akan bisa saling berdiskusi dan berkomentar mengenai suatu topik.</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'right'" title="Kunjungi Beasiswa">
+				<a href="">
+					<div class="ui piled segment">
+						<h3 class="ui header"><img src="img/icon/beasiswa.png" class="ui mini image"/></i>Beasiswa</h3>
+						<p>Memuat informasi mengenai beasiswa baik yang diberikan oleh pemerintah, lembaga mancanegara atau swasta.</p>
+					</div>
+				</a>
+			</div>
+			<div class="column content-image">
+				<img src="img/icon/free/statistics.png" class="my-icon" />
 			</div>
 		</div>
 
@@ -252,68 +288,56 @@
 <div id="section-4">
 	<div class="ui container">
 		<h1 class="uk-text-center title">Kelebihan Kisikisi.id</h1>
-		<div class="ui three column grid">
-			<div class="column">
-				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
-					<div class="content ">
-						<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
-						<h2 class="header ">TERLENGKAP</h2>
-						<div class="description">Kisikisi merupakan website dengan cakupan tema pendidikan dengan fitur
-						yang terluas yang di dukung langsung oleh Kementerian Pendidikan.
-						</div>
+		<div class="ui three doubling stackable cards">
+			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
+				<div class="content ">
+					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<h2 class="header ">TERLENGKAP</h2>
+					<div class="description">Kisikisi merupakan website dengan cakupan tema pendidikan dengan fitur
+					yang terluas yang di dukung langsung oleh Kementerian Pendidikan.
 					</div>
 				</div>
 			</div>
-			<div class="column">
-				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:200}">
-					<div class="content ">
-						<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
-						<h2 class="header">TERAKTUAL</h2>
-						<div class="description">Informasi yang ada selalu di update oleh para kontributor dan staff.
-						</div>
+			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:200}">
+				<div class="content ">
+					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<h2 class="header">TERAKTUAL</h2>
+					<div class="description">Informasi yang ada selalu di update oleh para kontributor dan staff.
 					</div>
 				</div>
 			</div>
-			<div class="column">
-				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:300}">
-					<div class="content ">
-						<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
-						<h2 class="header ">TERAKURAT</h2>
-						<div class="description">Informasi di dapat dari sumber terpercaya secara langsung.
-						</div>
+			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:300}">
+				<div class="content ">
+					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<h2 class="header ">TERAKURAT</h2>
+					<div class="description">Informasi di dapat dari sumber terpercaya secara langsung.
 					</div>
 				</div>
 			</div>
-			<div class="column">
-				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:400}">
-					<div class="content ">
-						<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
-						<h2 class="header ">1 AKUN UNTUK SEMUA</h2>
-						<div class="description">Hanya perlu mendaftarkan satu akun, kamu bisa menggunakan fitur sesuai
-						keperluan.
-						</div>
+			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:400}">
+				<div class="content ">
+					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<h2 class="header ">1 AKUN UNTUK SEMUA</h2>
+					<div class="description">Hanya perlu mendaftarkan satu akun, kamu bisa menggunakan fitur sesuai
+					keperluan.
 					</div>
 				</div>
 			</div>
-			<div class="column">
-				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:500}">
-					<div class="content ">
-						<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
-						<h2 class="header ">KEAMANAN</h2>
-						<div class="description">Privasi user terjaga dengan maksimal, dan semua konten di dalam website ini
-						 memiliki hak cipta.
-						</div>
+			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:500}">
+				<div class="content ">
+					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<h2 class="header ">KEAMANAN</h2>
+					<div class="description">Privasi user terjaga dengan maksimal, dan semua konten di dalam website ini
+					 memiliki hak cipta.
 					</div>
 				</div>
 			</div>
-			<div class="column">
-				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:600}">
-					<div class="content ">
-						<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
-						<h2 class="header ">KARYA ANAK BANGSA</h2>
-						<div class="description">Dibuat oleh anak bangsa yang memiliki kemampuan handal, dan bercita cita
-						memajukan bangsa indonesia dalam bidang pendidikan melalui sarana online yang cepat,tepat dan teraktual.
-						</div>
+			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:600}">
+				<div class="content ">
+					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<h2 class="header ">KARYA ANAK BANGSA</h2>
+					<div class="description">Dibuat oleh anak bangsa yang memiliki kemampuan handal, dan bercita cita
+					memajukan bangsa indonesia dalam bidang pendidikan melalui sarana online yang cepat,tepat dan teraktual.
 					</div>
 				</div>
 			</div>
@@ -327,7 +351,7 @@
 	<div class="ui container" data-uk-parallax="y:'100',target:'#section-5'">
 		<h1 class="uk-text-center title">Apa kata orang tentang Kisikisi.id</h1>
 	<div class="uk-grid uk-grid-collapse" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
-		<div class="uk-width-1-3">
+		<div class="uk-width-small-1-1 uk-width-medium-1-3 uk-width-large-1-3">
 			<div id="side-menu" class="ui vertical text menu">
 				<div class="header item">Menurut orang lainnya</div>
 				<ul id="inside-menu" data-uk-switcher="{connect:'#switch-content',animation:'slide-right'}">
@@ -340,7 +364,7 @@
 			</div>
 		</div>
 		
-		<ul id="switch-content" class="uk-switcher uk-width-2-3">
+		<ul id="switch-content" class="uk-switcher uk-width-small-1-1 uk-width-medium-2-3 uk-width-large-2-3">
 			<li> <!-- pengguna -->
 				<div class="uk-slidenav-position" data-uk-slideshow="" width="100%">
 					<ul class="uk-slideshow uk-text-center slide-5" width="100%" aria-hidden="false">
