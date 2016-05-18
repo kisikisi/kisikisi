@@ -102,31 +102,19 @@
 	<div class="masked masked-2"></div> --}}
 	<div class="ui grid container" >
 		<div class="row" >
-			<div class="twelve wide column text" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
-				<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu Kisikisi.id?</h1>
+			<div class="sixteen wide mobile twelve wide tablet twelve wide computer column text" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
+				<div class="flex center" style="text-align:center;">
+					<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu Kisikisi.id?</h1>
+				</div>
 				<div class="texting"> <p><b>Kisikisi.id </b>merupakan portal pendidikan terbesar di Indonesia yang menyajikan
 				informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita
 				pendidikan dan informasi beasiswa. Dibangun oleh putra-putri bangsa untuk para pelaku pendidikan seperti
 				guru, siswa dan orangtua untuk mempermudah akses informasi yang terkait pendidikan.</p>
 				</div>
 			</div>
-			<div class="sixteen wide mobile four wide tablet four wide computer column" >
+			<div class="sixteen wide mobile four wide tablet four wide computer column abc" >
 				<img src="{{asset('img/mascot/geek_mascot.png')}}" class="mascot-1"  data-uk-parallax="{xp:'-30%',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}" />
 			</div>
-		</div>
-
-		<div class="row icon-master">
-			<!--<div class="twelve wide column">
-				<img src="{{asset('img/icon/directory.png')}}" class="icon" />
-				<img src="{{asset('img/icon/elearning.png')}}" class="icon" />
-				<img src="{{asset('img/icon/banksoal.png')}}" class="icon" />
-				<img src="{{asset('img/icon/clinic.png')}}" class="icon" />
-				<img src="{{asset('img/icon/news.png')}}" class="icon" />
-				<img src="{{asset('img/icon/agenda.png')}}" class="icon" />
-				<img src="{{asset('img/icon/article.png')}}" class="icon" />
-				<img src="{{asset('img/icon/forum.png')}}" class="icon" />
-				<img src="{{asset('img/icon/beasiswa.png')}}" class="icon" />
-			</div>-->
 		</div>
 	</div>
 </div>
@@ -140,7 +128,9 @@
 				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="xp:'30%',viewport:'1',target:'#section-min-1'" />
 			</div>
 			<div class="sixteen wide mobile ten wide tablet six wide computer column shape">
-				<h1 class="title">Latar Belakang</h1>
+				<div class="flex center" style="text-align:center;">
+					<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Latar Belakang</h1>
+				</div>
 				<p>Di tengah era globalisasi dan teknologi informasi yang makin menjamur, 
 				para pelaku pendidikan yang tidak terbatas pada guru dan murid membutuhkan suatu sarana dan wadah 
 				untuk ketersediaan informasi yang cepat, 
@@ -291,7 +281,7 @@
 		<div class="ui three doubling stackable cards">
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
 					<h2 class="header ">TERLENGKAP</h2>
 					<div class="description">Kisikisi merupakan website dengan cakupan tema pendidikan dengan fitur
 					yang terluas yang di dukung langsung oleh Kementerian Pendidikan.
@@ -300,7 +290,7 @@
 			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:200}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
 					<h2 class="header">TERAKTUAL</h2>
 					<div class="description">Informasi yang ada selalu di update oleh para kontributor dan staff.
 					</div>
@@ -308,7 +298,7 @@
 			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:300}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
 					<h2 class="header ">TERAKURAT</h2>
 					<div class="description">Informasi di dapat dari sumber terpercaya secara langsung.
 					</div>
@@ -316,7 +306,7 @@
 			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:400}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
 					<h2 class="header ">1 AKUN UNTUK SEMUA</h2>
 					<div class="description">Hanya perlu mendaftarkan satu akun, kamu bisa menggunakan fitur sesuai
 					keperluan.
@@ -325,7 +315,7 @@
 			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:500}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
 					<h2 class="header ">KEAMANAN</h2>
 					<div class="description">Privasi user terjaga dengan maksimal, dan semua konten di dalam website ini
 					 memiliki hak cipta.
@@ -334,7 +324,7 @@
 			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:600}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}" style="height:150px !important;" /></center>
+					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
 					<h2 class="header ">KARYA ANAK BANGSA</h2>
 					<div class="description">Dibuat oleh anak bangsa yang memiliki kemampuan handal, dan bercita cita
 					memajukan bangsa indonesia dalam bidang pendidikan melalui sarana online yang cepat,tepat dan teraktual.
@@ -345,8 +335,8 @@
 
 	</div>
 </div>
-<div class="wave-2"></div>
-<div style="width:100%;height:15px;background-color:#fff;position:absolute;z-index:10;"></div>
+{{-- <div class="wave-2"></div>
+<div style="width:100%;height:15px;background-color:#fff;position:absolute;z-index:10;"></div> --}}
 <div id="section-5">
 	<div class="ui container" data-uk-parallax="y:'100',target:'#section-5'">
 		<h1 class="uk-text-center title">Apa kata orang tentang Kisikisi.id</h1>
