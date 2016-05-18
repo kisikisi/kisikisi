@@ -103,7 +103,7 @@
 	<div class="ui grid container" >
 		<div class="row" >
 			<div class="sixteen wide mobile twelve wide tablet twelve wide computer column text" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
-				<div class="flex center" style="text-align:center;">
+				<div class="flex center" >
 					<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu Kisikisi.id?</h1>
 				</div>
 				<div class="texting"> <p><b>Kisikisi.id </b>merupakan portal pendidikan terbesar di Indonesia yang menyajikan

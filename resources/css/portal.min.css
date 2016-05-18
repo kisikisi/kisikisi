@@ -232,18 +232,6 @@ ul{
 	padding-top:100px;
 	padding-bottom:50px;
 }
-#section-min-1 .masked-1{
-	background-image:url('../img/background/small_steps.png');
-	background-repeat: top left repeat;
-	width:50%;
-	height:100%;
-}
-#section-min-1 .masked-2{
-	right:0;
-	background-color:#448CCB;
-	width:50%;
-	height:100%;
-}
 #section-min-1 .title{
 	color:#fafafa;
 	text-shadow :0px 1px 0px #fafafa;
@@ -254,7 +242,7 @@ ul{
 #section-min-1 .title:after{
 	background-color:#fafafa;
 	bottom:-8px;
-	margin-left:20%;
+	margin-left:35%;
 }
 #section-min-1 p{
 	font-size:1.4em;
@@ -419,15 +407,6 @@ ul{
 .addmask{
 	display:block !important;
 }
-.flex{
-		display:flex;
-	}
-.flex.center{
-	display:flex;
-	flex-direction:row;
-	justify-content:center;
-	justify-align:center;
-}
 
 /* Responsive Design Fix */
 @media(min-width:1024px){
@@ -516,7 +495,15 @@ ul{
 	#section-min-2 .row .content-image{
 		display:none;
 	}
-	
+	.flex{
+		display:flex;
+	}
+	.flex.center{
+		display:flex;
+		flex-direction:row;
+		justify-content:center;
+		justify-align:center;
+	}
 }
 
 @media only screen and (orientation: landscape) and (max-width:640px) {
@@ -580,6 +567,15 @@ ul{
 
 	#section-min-2 .row .content-image{
 		display:none;
+	}
+	.flex{
+		display:flex;
+	}
+	.flex.center{
+		display:flex;
+		flex-direction:row;
+		justify-content:center;
+		justify-align:center;
 	}
 }
 
@@ -675,5 +671,14 @@ ul{
 	#section-5 .container{
 		padding-top:25px;
 		padding-bottom:150px;
+	}
+	.flex{
+		display:flex;
+	}
+	.flex.center{
+		display:flex;
+		flex-direction:row;
+		justify-content:center;
+		justify-align:center;
 	}
 }
