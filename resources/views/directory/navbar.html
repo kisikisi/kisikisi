@@ -1,4 +1,4 @@
-<div id="mainNav" uk-sticky class="ui icon blue inverted secondary pointing menu">
+<div id="mainNav" data-uk-sticky class="ui icon blue inverted secondary pointing menu">
   <div class="ui container uk-visible-small">
     <a id="mainNavToggle" class="active logo item">
        <img class="icon" ng-src="{{ env.site }}img/logo/logo.png" width="30" alt=""><i class="dropdown icon"></i>
@@ -19,21 +19,31 @@
       <a class="active item logo" href="{{ env.site }}">
         <img ng-src="{{ env.site }}img/logo/logo.png" alt="">
       </a>
-      <a class="item" data-uk-tooltip title="Direktori Sekolah">
-        <i class="university large icon"></i>
-      </a>
-      <a class="item" data-uk-tooltip title="Berita Pendidikan">
-        <i class="newspaper large icon"></i>
-      </a>
-      <a class="item"  data-uk-tooltip title="Agenda Pendidikan">
-        <i class="calendar large icon"></i>
-      </a>
-      <a class="item"  data-uk-tooltip title="Info Beasiswa">
-        <i class="student large icon"></i>
-      </a>
-      <a class="item"  data-uk-tooltip title="E-Learning">
-        <i class="book large icon"></i>
-      </a>
+      <span class="hint--bottom" data-hint="Direktori Pendidikan">
+		  <a class="item">
+				<i class="university large icon"></i>
+		  </a>
+      </span>
+      <span class="hint--bottom" data-hint="Berita Pendidikan">
+      	<a class="item">
+        	<i class="newspaper large icon"></i>
+      	</a>
+      </span>
+      <span class="hint--bottom" data-hint="Agenda Pendidikan">
+      	<a class="item">
+        	<i class="calendar large icon"></i>
+      	</a>
+      </span>
+      <span class="hint--bottom" data-hint="Info Beasiswa">
+      	<a class="item">
+        	<i class="student large icon"></i>
+      	</a>
+	  </span>
+      <span class="hint--bottom" data-hint="e-Learning">
+      	<a class="item">
+        	<i class="book large icon"></i>
+      	</a>
+	  </span>
 	<div class="right menu" ng-if="isLogin()" >
 		<a class="active item" data-uk-modal="{target:'#kg-modal'}" ng-click="createCatalog()">
 			<i class="pencil icon"></i> Buat
