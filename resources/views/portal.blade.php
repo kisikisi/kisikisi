@@ -46,95 +46,72 @@
 
 	<div class="ui grid container section-2">
 
-		<div class="centered row" style="margin-top:190px;" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
+		<div class="centered row" style="" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
 			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
 		</div>
-		<div class="centered row my-icon" style="margin-top:65px;" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
-			<div
-              class="fb-like"
-              data-share="true"
-              data-width="450"
-              data-show-faces="true">
-            </div>
-			<center><a class="button-scroll" href="#menu" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
-		</div>
-	</div>
-</div>
-<div id="menu" class="ui inverted menu"  data-uk-smooth-scroll>
-	<div class="ui container">
-	    <div class="item">
-	       <img src="{{asset('img/logo/logo.png')}}" class="logo" />
-	    </div>
-		<a href="dir.kisikisi.id" class="item">Direktori Sekolah</a>
-		<a href="learn.kisikisi.id" class="item">E-Learning</a>
-		<a href="kisikisi.id" class="item">Bank Soal</a>
-		<a href="kisikisi.id" class="item">Klinik Pendidikan</a>
-		<a href="news.kisikisi.id" class="item">Berita Pendidikan</a>
-		<a href="#" class="item">Agenda Pendidikan</a>
-		<a href="#" class="item">Artikel Pendidikan</a>
-		<a href="#" class="item">Forum</a>
-		<a href="#" class="item">Beasiswa</a>
-	</div>
-</div>
-<div id="menu-responsive" class="ui right fixed vertical menu">
-	<div class="item">
-	   <img src="{{asset('img/logo/logo.png')}}" class="logo" />
-	</div>
-	<i id="button-close" class="remove icon"></i>
-	<a href="dir.kisikisi.id" class="item">Direktori Sekolah</a>
-	<a href="learn.kisikisi.id" class="item">E-Learning</a>
-	<a href="kisikisi.id" class="item">Bank Soal</a>
-	<a href="kisikisi.id" class="item">Klinik Pendidikan</a>
-	<a href="news.kisikisi.id" class="item">Berita Pendidikan</a>
-	<a href="#" class="item">Agenda Pendidikan</a>
-	<a href="#" class="item">Artikel Pendidikan</a>
-	<a href="#" class="item">Forum</a>
-	<a href="#" class="item">Beasiswa</a>
-</div>
-<button class="button-responsive"><i class="sidebar icon"></i></button>
-
-<div id="section-min-1">
-	<div class="ui grid container">
-		<div class="row konten">
-			<div class="six wide mobile six wide tablet ten wide computer column">
-				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="xp:'30%',viewport:'1',target:'#section-min-1'" />
-			</div>
-			<div class="ten wide mobile ten wide tablet six wide computer column shape">
-				<h1 class="title">Latar Belakang</h1>
-				<p>Di tengah era globalisasi dan teknologi informasi yang makin menjamur, 
-				para pelaku pendidikan yang tidak terbatas pada guru dan murid membutuhkan suatu sarana dan wadah 
-				untuk ketersediaan informasi yang cepat, 
-				tepat dan akurat yang menunjang bagi peran, tugas dan tanggung jawab masing-masing</p>
-				<p>Layanan Portal Pendidikan berbasiskan teknologi informasi dipandang sebagai solusi yang sangat 
-				bermanfaat bagi para pelaku pendidikan. Dengan adanya Portal Pendidikan berbasiskan teknologi 
-				informasi maka para pelaku pendidikan yang bisa mengakses segala informasi tidak hanya terbatas pada guru 
-				dan murid saja 
-				tetapi seluruh elemen masyarakat bisa mengakses informasi yang dibutuhkan secara real time</p>
-				<p>Maka dari itu <b>Kisikisi.id</b> di ciptakan</p>
-				<a href="#section-2" class="ui button inverted white read" data-uk-smooth-scroll>Baca Lagi</a>
-			</div>
+		<div class="centered row my-icon" style="" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
 			
+			<center><a class="button-scroll" href="#section-2" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
 	</div>
 </div>
+
+{{-- <div id="menu-test" class="ui left fixed vertical menu">
+	<span class="item menu-button" style="color:#fafafa;">MENU</span>
+	<a href="dir.kisikisi.id"><div class="object">
+		<img src="{{asset('img/icon/directory.png')}}" class="item" />
+		<div class="object-content">Direktori Sekolah</div>
+	</div></a>
+	<a href="learn.kisikisi.id"><div class="object">
+		<img src="{{asset('img/icon/elearning.png')}}" class="item" />
+		<div class="object-content">E-Learning</div>
+	</div></a>
+	<a href="#"><div class="object">
+		<img src="{{asset('img/icon/banksoal.png')}}" class="item" />
+		<div class="object-content">Bank Soal</div>
+	</div></a>
+	<a href="#"><div class="object">
+		<img src="{{asset('img/icon/clinic.png')}}" class="item" />
+		<div class="object-content">Klinik Pendidikan</div>
+	</div></a>
+	<a href="#"><div class="object">
+		<img src="{{asset('img/icon/news.png')}}" class="item" />
+		<div class="object-content">Berita Pendidikan</div>
+	</div></a>
+	<a href="#"><div class="object">
+		<img src="{{asset('img/icon/agenda.png')}}" class="item" />
+		<div class="object-content">Agenda Pendidikan</div>
+	</div></a>
+	<a href="#"><div class="object">
+		<img src="{{asset('img/icon/article.png')}}" class="item" />
+		<div class="object-content">Artikel Pendidikan</div>
+	</div></a>
+	<a href="#"><div class="object">
+		<img src="{{asset('img/icon/forum.png')}}" class="item" />
+		<div class="object-content">Forum</div>
+	</div>
+	<a href="#"><div class="object">
+		<img src="{{asset('img/icon/beasiswa.png')}}" class="item" />
+		<div class="object-content">Beasiswa</div>
+	</div></a>
+
+</div> --}}
 
 <div id="section-2" data-uk-smooth-scroll >
+	{{-- <div class="masked masked-1"></div>
+	<div class="masked masked-2"></div> --}}
 	<div class="ui grid container" >
-		<div class="centered row "  >
-				<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu KisiKisi.id?</h1>
-		</div>
-		<div style="margin-top:80px;height:10px;width:100%"></div>
-		<div class="row">
-			<div class="eleven wide column text" data-uk-parallax="{x:'50',y:'-50',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
-				<img src="{{asset('img/icon/chat_baloon.svg')}}" class="chat" />
+		<div class="row" >
+			<div class="twelve wide column text" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
+				<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu Kisikisi.id?</h1>
 				<div class="texting"> <p><b>Kisikisi.id </b>merupakan portal pendidikan terbesar di Indonesia yang menyajikan
 				informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita
 				pendidikan dan informasi beasiswa. Dibangun oleh putra-putri bangsa untuk para pelaku pendidikan seperti
 				guru, siswa dan orangtua untuk mempermudah akses informasi yang terkait pendidikan.</p>
 				</div>
 			</div>
-			<div class="five wide column" >
-				<img src="{{asset('img/mascot/geek_mascot.png')}}" class="mascot-1"  data-uk-parallax="{x:'-150',y:'40',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}" />
+			<div class="sixteen wide mobile four wide tablet four wide computer column" >
+				<img src="{{asset('img/mascot/geek_mascot.png')}}" class="mascot-1"  data-uk-parallax="{xp:'-30%',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}" />
 			</div>
 		</div>
 
@@ -154,317 +131,127 @@
 	</div>
 </div>
 
-<div id="section-3">
-<div class="mask"></div>
-	<div class="ui container">
-		<h1 class="uk-text-center title">Apa saja yang ada di KisiKisi.id</h1>
-			<div class="uk-slidenav-position" data-uk-slideshow="animation:'scroll'" width="100%" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true}">
-				<ul class="uk-slideshow uk-text-center" width="100%">
-					<li style="animation-duration: 500ms;" class="uk-active" aria-hidden="false">
-					 	<div class="uk-grid">
-						 	<div class="uk-width-1-1">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 		
-						 	</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">Direktori Sekolah</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Sekolah</a></li>
-						 		<li><i class="ui icon unhide"></i><a href="#">Melihat Detail Sekolah</a></li>
-						 		<li><i class="ui icon empty star"></i><a href="#">Melihat Kualitas Sekolah</a></li>
-						 		<li><i class="ui icon plus"></i><a href="#">Mendaftarkan Sekolah</a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-                     </li>
-
-					<li>
-						<div class="uk-grid">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">E-Learning</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon add user"></i><a href="#">Login & Registrasi</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Materi</a></li>
-						 		<li><i class="ui icon upload"></i><a href="#">Upload</a></li>
-						 		<li><i class="ui icon plus"></i><a href="#">Berlangganan</a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-					</li>
-					<li>
-						<div class="uk-grid">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">Bank Soal</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Soal SD</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Soal SMP</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Soal SMA/SMK</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Soal Perguruan Tinggi</a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-					</li>
-					<li>
-						<div class="uk-grid">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">Klinik Pendidikan</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon plus"></i><a href="#">Berlangganan</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Soal SMP</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Soal SMA/SMK</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Soal Perguruan Tinggi</a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-					</li>
-					<li>
-						<div class="uk-grid">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">Berita Pendidikan</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon announcement"></i><a href="#">Update Berita Terkini Pendidikan</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Berita Pendidikan</a></li>
-						 		<li><i class="ui icon new"></i><a href="#">Melihat Berita Pendidikan</a></li>
-						 		<li><i class="ui icon comments outline"></i><a href="#">Berkomentar Pada Berita</a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-					</li>
-					<li>
-						<div class="uk-grid">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">Agenda Pendidikan</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon calendar"></i><a href="#">Melihat Kalender Pendidikan</a></li>
-						 		<li><i class="ui icon info"></i><a href="#">Melihat Hari Libur</a></li>
-						 		<li><i class="ui icon announcement"></i><a href="#">Update Terkini Jadwal Pendidikan</a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-					</li>
-					<li>
-						<div class="uk-grid">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">Artikel Pendidikan</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon announcement"></i><a href="#">Tutorial</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Berita Pendidikan</a></li>
-						 		<li><i class="ui icon unhide"></i><a href="#">Melihat Berita Pendidikan</a></li>
-						 		<li><i class="ui icon comments outline"></i><a href="#">Berkomentar Pada Berita</a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-					</li>
-					<li>
-						<div class="uk-grid">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">Forum Pendidikan</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon add user"></i><a href="#">Login & Registrasi User</a></li>
-						 		<li><i class="ui icon student"></i><a href="#">Berinteraksi Dengan User Lain</a></li>
-						 		<li><i class="ui icon write"></i><a href="#">Membuat Artikel</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mencari Artikel Oleh User Lain</a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-					</li>
-					<li>
-						<div class="uk-grid">
-						 	<div class="ui special cards slide-content" style="">
-								<div class="blurring dimmable image">
-									<div class="ui dimmer">
-										<div class="content">
-											<div class="center">
-											<div class="ui inverted button">View</div>
-											</div>
-										</div>
-									</div>
-								<img src="{{asset('img/website.png')}}" class="web-image" />
-							</div>
-						</div>
-						 	<div class="uk-width-1-1 text">
-						 		<h1 class="title-slide">Beasiswa</h1>
-						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						 	<h3>Fitur :</h3>
-						 	<ul class="fitur">
-						 		<li><i class="ui icon announcement"></i><a href="#">Melihat Kumpulan Beasiswa Se-Indonesia</a></li>
-						 		<li><i class="ui icon search"></i><a href="#">Mendaftarkan Beasiswa</a></li>
-						 		<li><i class="ui icon unhide"></i><a href="#">Mencari Beasiswa Berdasarkan Sekolah/Daerah</a></li>
-						 		<li><i class="ui icon comments outline"></i><a href="#"></a></li>
-						 	</ul>
-						 	</div>
-					 	</div>
-					</li>
-				</ul>
-				<ul>
-					
-				</ul>
-				<a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
-				<a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
-				
+<div id="section-min-1">
+	{{-- <div class="masked masked-1"></div>
+	<div class="masked masked-2"></div> --}}
+	<div class="ui grid container">
+		<div class="row konten">
+			<div class="sixteen wide mobile six wide tablet ten wide computer column">
+				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="xp:'30%',viewport:'1',target:'#section-min-1'" />
 			</div>
+			<div class="sixteen wide mobile ten wide tablet six wide computer column shape">
+				<h1 class="title">Latar Belakang</h1>
+				<p>Di tengah era globalisasi dan teknologi informasi yang makin menjamur, 
+				para pelaku pendidikan yang tidak terbatas pada guru dan murid membutuhkan suatu sarana dan wadah 
+				untuk ketersediaan informasi yang cepat, 
+				tepat dan akurat yang menunjang bagi peran, tugas dan tanggung jawab masing-masing.</p>
+				<p>Layanan Portal Pendidikan berbasiskan teknologi informasi dipandang sebagai solusi yang sangat 
+				bermanfaat bagi para pelaku pendidikan. Dengan adanya Portal Pendidikan berbasiskan teknologi 
+				informasi maka para pelaku pendidikan yang bisa mengakses segala informasi tidak hanya terbatas pada guru 
+				dan murid saja 
+				tetapi seluruh elemen masyarakat bisa mengakses informasi yang dibutuhkan secara real time.<br><br>
+				Maka dari itu <b>Kisikisi.id</b> di ciptakan.</p>
+				<p></p>
+				<a href="#section-2" class="ui button inverted white read" data-uk-smooth-scroll>Baca Lagi</a>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<div id="section-min-2">
+	<div class="ui container two column grid">
+		<div class="row">
+			<div class="sixteen wide column"><center><h1 class="title">Apa saja yang ada di kisikisi.id</h1></center></div>
+		</div>
+		<div class="row ">
+			<div class="column">
+				<h3><i class="university large icon"></i>Direktori Sekolah</h3>
+				<p>Sebagai search engine/mesin pencari untuk mencari lembaga pendidikan formal/non formal dari tingkat dasar, menengah hingga perguruan tinggi. Informasi yang ditampilkan diharapkan tidak sebatas hanya informasi umum, tapi juga menampilkan program-program unggulan yang bisa juga diupdate oleh lembaga bersangkutan.</p>
+			</div>
+			<div class="column">
+			a
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+			a
+			</div>
+			<div class="eight wide column">
+				<h3><i class="book large icon"></i>E-Learning</h3>
+				<p>Pengguna dapat mempelajari mata pelajaran sekolah secara online. Tidak terbatas hanya pada mata pelajaran umum, pengguna dapat mempelajari berbagai mata pelajaran Kejuruan.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="eight wide column">
+				<h3><i class="cubes large icon"></i>Bank Soal</h3>
+				<p>Memuat dokumentasi soal-soal yang pernah ditampilkan dalam Ujian Nasional atau Ujian Daerah. Dokumentasi Bank Soal akan dikategorikan berdasarkan Tingkat Pendidikan, Mata Pelajaran dan Tahun Ujian sehingga akan memudahkan pengguna untuk mencari mata pelajaran yang dibutuhkan. Bank Soal ini akan menjadi salah satu unggulan pada portal pendidikan untuk menarik pengguna khususnya para pelajar dan juga akan disediakan fitur searching untuk mencari soal-soal pelajaran berdasarkan kata/kalimat tertentu.</p>
+			</div>
+			<div class="column">
+			a
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+			a
+			</div>
+			<div class="eight wide column">
+				<h3><i class="add square large icon"></i>Klinik Pendidikan</h3>
+				<p>: Sebagai sarana bagi pelajar atau orang tua untuk bertanya mengenai permasalahan-permasalahan di bidang pendidikan. Modul ini nantinya akan dipandu oleh ahli atau pakar di bidang pendidikan yang bisa menjawab pertanyaan dari para pengguna sehingga diharapkan membuat portal pendidikan ini lebih hidup dan interaktif. Pada modul ini juga akan di sharing ebook/referensi yang berkaitan dengan pendidikan.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="eight wide column">
+				<h3><i class="newspaper large icon"></i>Berita Pendidikan</h3>
+				<p>: Memuat informasi terkini dan aktual mengenai berita yang terkait dengan pendidikan di Indonesia. Informasi yang muncul akan selalu di update setiap hari dan tidak terbatas hanya pada berita pendidikan nasional saja tetapi issue-issue terkait pendidikan nasional dan berita pendidikan mancanegara yang terkait dengan pendidikan nasional dapat ditampilkan juga.</p>
+			</div>
+			<div class="column">
+			a
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+			a
+			</div>
+			<div class="eight wide column">
+				<h3><i class="calendar large icon"></i>Agenda Pendidikan</h3>
+				<p>Berisikan informasi mengenai jadwal event-event pendidikan yang akan dilaksanakan di Indonesia. Event-event tersebut bisa berupa pameran, seminar, workshop/pelatihan, atau event-event lain yang terkait dengan pendidikan</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="eight wide column">
+				<h3>Artikel Pendidikan</h3>
+				<p>Memuat artikel-artikel di bidang pendidikan. Artikel Pendidikan ini dapat dibuat menjadi 2 kategori yaitu Artikel Pakar Pendidikan (berisikan artikel ilmiah yang ditulis atau kontribusi dari pakar pendidikan) dan Artikel Publik (berisikan artikel yang merupakan hasil kontribusi dari publik bisa dari pelajar, orang tua ataupun pengamat pendidikan yang layak untuk dipublikasikan di depan umum)</p>
+			</div>
+			<div class="column">
+			a
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+			a
+			</div>
+			<div class="eight wide column">
+				<h3><i class="users large icon"></i>Forum</h3>
+				<p>Sebagai tempat untuk sharing/diskusi bagi para pelaku pendidikan berdasarkan topik yang telah ditentukan. Modul ini juga akan membuat portal menjadi interaktif karena sesama pengguna akan bisa saling berdiskusi dan berkomentar mengenai suatu topik.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="eight wide column">
+				<h3><i class="student large icon"></i>Beasiswa</h3>
+				<p>Memuat informasi mengenai beasiswa baik yang diberikan oleh pemerintah, lembaga mancanegara atau swasta.</p>
+			</div>
+			<div class="column">
+			a
+			</div>
+		</div>
+
 	</div>
 </div>
 
 <div id="section-4">
 	<div class="ui container">
-		<h1 class="uk-text-center title">Kelebihan KisiKisi.id</h1>
+		<h1 class="uk-text-center title">Kelebihan Kisikisi.id</h1>
 		<div class="ui three column grid">
 			<div class="column">
 				<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
@@ -534,10 +321,11 @@
 
 	</div>
 </div>
-
+<div class="wave-2"></div>
+<div style="width:100%;height:15px;background-color:#fff;position:absolute;z-index:10;"></div>
 <div id="section-5">
 	<div class="ui container" data-uk-parallax="y:'100',target:'#section-5'">
-		<h1 class="uk-text-center title">Apa kata orang tentang KisiKisi.id</h1>
+		<h1 class="uk-text-center title">Apa kata orang tentang Kisikisi.id</h1>
 	<div class="uk-grid uk-grid-collapse" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
 		<div class="uk-width-1-3">
 			<div id="side-menu" class="ui vertical text menu">
@@ -793,6 +581,12 @@
 <div id="footer">
 	<div class="ui container">
 		<div class="uk-text-center title"><h1>Footer</h1></div>
+		<div
+              class="fb-like"
+              data-share="true"
+              data-width="450"
+              data-show-faces="true">
+            </div>
 	</div>
 </div>
 
