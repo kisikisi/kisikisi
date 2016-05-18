@@ -124,10 +124,10 @@
 	<div class="masked masked-2"></div> --}}
 	<div class="ui grid container">
 		<div class="row konten">
-			<div class="sixteen wide mobile six wide tablet ten wide computer column">
+			<div class="sixteen wide mobile ten wide tablet ten wide computer column">
 				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="xp:'30%',viewport:'1',target:'#section-min-1'" />
 			</div>
-			<div class="sixteen wide mobile ten wide tablet six wide computer column shape">
+			<div class="sixteen wide mobile six wide tablet six wide computer column shape">
 				<div class="flex center" style="text-align:center;">
 					<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Latar Belakang</h1>
 				</div>
