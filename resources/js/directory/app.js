@@ -1,4 +1,4 @@
-app = angular.module('kisiDirApp', ['ui.router', 'ngSanitize', 'satellizer', 'ngTouch', 'superswipe', 'environment','ui-notification','ngTagsInput', 'ezfb' ]);
+app = angular.module('kisiDirApp', ['ui.router', 'ngSanitize', 'satellizer', 'ngTouch', 'superswipe', 'environment','ui-notification','ngTagsInput', 'ezfb', 'infinite-scroll' ]);
 app
 /*.constant('constant', {
 	'site': '//'+host+'/',
@@ -15,14 +15,29 @@ app
 		$(element).rating();
     };
 })
-.directive('uiSticky', function() {
+/*.directive('uiSticky', function() {
 	return function (scope, element, attr) {
-		$(element).sticky();
+		$(element).sticky({
+			observeChanges: true,
+			context: "#content"
+		});
+    };
+})*/
+.directive('ukSticky', function() {
+	return function (scope, element, attr) {
+		UIkit.sticky(element);
     };
 })
 .directive('uiTab', function() {
 	return function (scope, element, attr) {
-		$(element).tab();;
+		$(element).tab();
+    };
+})
+.directive('uiDropdown', function() {
+	return function (scope, element, attr) {
+		$(element).dropdown({
+			keepOnScreen: false
+		});
     };
 })
 /*

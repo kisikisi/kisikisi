@@ -1,6 +1,14 @@
 var dirCtrl = ['$http','$scope', '$rootScope', '$location', 'Notification', 'envService', 
 function($http, $scope, $rootScope, $location, Notification, envService) {
     $rootScope.env = envService.read('all');
+	$(".ui.sidebar").sidebar("toggle");
+	$(".ui.sidebar").sidebar('attach events', '#mainNavToggle');
+
+	$scope.schools = [];
+	$scope.scrollBusy = false;
+	$scope.limit = 12;
+	$scope.after = 0;
+
     $scope.modalTemplate = 'views/directory/school.detail.html';
     //console.log($rootScope.env);
     
@@ -20,6 +28,36 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
     };
     $scope.filterSchool();
 
+	$scope.searchSchool = function(filter) {
+		$scope.after = 0;
+		$scope.schools = [];
+		$scope.nextPage();
+	}
+
+	$scope.nextPage = function() {
+		$scope.scrollBusy = true;
+		console.log($scope.filter);
+		$http.get($scope.env.api+'school/scroll/'+$scope.after+'/'+$scope.limit, {
+			params: $scope.filter
+		}).success(function (response) {
+			for (var i = 0; i < response.schools.length; i++) {
+				$scope.schools.push(response.schools[i]);
+			}
+            //$scope.schools.push(response.schools[0]);
+			if (response.schools.length > 0) $scope.after = response.schools[response.schools.length - 1].id;
+			$scope.scrollBusy = false;
+			//$('.ui.sticky').sticky('refresh');
+			//console.log($scope.schools);
+        })
+	}
+
+	/*$scope.searchSchool = function(filter) {
+		$http.post($scope.env.api+'school/search', filter)
+        .success(function (response) {
+            $scope.schools = response.schools;
+        });
+	}*/
+
     $scope.detailSchool = function(id) {
         $scope.modalTemplate = "";
         $http.get($scope.env.api+'school/'+id)
@@ -30,7 +68,6 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
         });
     };
 
-    
     var widget = this;
   
     $scope.$watch(function () {

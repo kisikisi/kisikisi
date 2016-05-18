@@ -30,7 +30,7 @@
                 <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
               </div>
             </div>
-            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/admin/pagination.tpl.html">
+            <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="views/admin/pagination.tpl.html">
             </dir-pagination-controls>
           </div>
         </div><!-- /.box-header -->
@@ -44,8 +44,8 @@
               <th>School Logo</th>
               <th></th>
             </tr>
-            <tr dir-paginate="list in school | orderBy:'-id' | itemsPerPage:limit | filter:search" current-page="currentPage">
-              <td>{{ ((currentPage-1)*limit)+$index+1 }}</td>
+            <tr dir-paginate="list in schools | orderBy:'-id' | itemsPerPage:limit | filter:search" total-items="totalSchools" current-page="pagination.current">
+              <td>{{ ((pagination.current-1)*limit)+$index+1 }}</td>
               <td>{{list.name}}</td>
               <td>{{schoolTypes[indexSearch(schoolTypes, list.school_type_id)].name}}</td>
               <td>{{cities[indexSearch(cities, list.city_id)].name}}</td>

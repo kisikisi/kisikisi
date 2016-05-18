@@ -16,13 +16,58 @@ use Auth;
 class SchoolDirectoryController extends Controller
 {
      public function __construct() {
-        $this->middleware('jwt.auth', ['except' => ['index','form','detail']]);
+        $this->middleware('jwt.auth', ['except' => ['index','form','detail','paging','scroll','search']]);
     }
 
     public function index(SchoolDirectory $school) {
-    	$data['school'] =  $school->schoolList()->get();
+    	$data['schools'] =  $school->schoolList()->get();
 
         return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+	public function search(SchoolDirectory $school, Request $request) {
+		$school_type_id = $request->input('school_type_id');
+		$city_id = $request->input('city_id');
+		$name = $request->input('name');
+
+		$search =  $school->schoolList();
+		if (!empty($school_type_id)) $search->where('school_type_id', $school_type_id);
+        if (!empty($city_id)) $search->where('city_id', $city_id);
+        if (!empty($name)) $search->where($school->table.'.name', 'like', "%$name%");
+		$data['schools'] = $search->get();
+
+        return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+	}
+
+    public function paging($page, $limit, SchoolDirectory $school) {
+    	$offset = ($page-1) * $limit;
+
+		$data['count'] = $school->count();
+        $data['schools'] =  $school->schoolList()
+            ->orderBy('id','desc')
+            ->skip($offset)
+            ->take($limit)
+            ->get();
+
+        return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+    public function scroll($after, $limit, SchoolDirectory $school, Request $request) {
+		$school_type_id = $request->input('school_type_id');
+		$city_id = $request->input('city_id');
+		$name = $request->input('name');
+
+    	$lists = $school->schoolList()
+			->orderBy($school->table.'.id', 'desc')
+			->take($limit);
+
+		if (!empty($school_type_id)) $lists->where('school_type_id', $school_type_id);
+        if (!empty($city_id)) $lists->where('city_id', $city_id);
+        if (!empty($name)) $lists->where($school->table.'.name', 'like', "%$name%");
+
+		if ($after != 0) $lists->where($school->table.'.id','<', $after);
+        $data['schools'] = $lists->get();
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function detail($id) {
@@ -34,7 +79,9 @@ class SchoolDirectoryController extends Controller
     }
     
     public function form() {
-        $data['schoolTypes'] = SchoolType::all();
+        $data['schoolTypes'] = SchoolType::orderBy('group','asc')
+			->orderBy('id','asc')
+			->get();
         $data['provinces'] = Province::select(['id','name'])->get();
         $data['cities'] = City::select(['id','province_id','name'])->get();
         
