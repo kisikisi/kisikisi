@@ -351,6 +351,10 @@ ul{
 	box-shadow:1px 2px 1px #89C4F4;
 	border-radius:25px;
 	font-size:1em;
+	overflow: hidden;
+}
+#section-4 .ui.card img{
+	position:relative;
 }
 #section-4 .header{
 	margin-top:25px;
