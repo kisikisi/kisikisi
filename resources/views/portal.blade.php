@@ -239,7 +239,7 @@
 						<h3 class="ui header"><img src="img/icon/article.png" class="ui mini image"/></i>Artikel Pendidikan</h3>
 						<p>Memuat artikel-artikel di bidang pendidikan. Artikel Pendidikan ini dapat dibuat menjadi 2 kategori yaitu Artikel Pakar Pendidikan (berisikan artikel ilmiah yang ditulis atau kontribusi dari pakar pendidikan) dan Artikel Publik (berisikan artikel yang merupakan hasil kontribusi dari publik bisa dari pelajar, orang tua ataupun pengamat pendidikan yang layak untuk dipublikasikan di depan umum)</p>
 					</div>
-				<a href="">
+				</a>
 			</div>
 			<div class="column content-image">
 				<img src="img/icon/free/poster.png" class="my-icon" />
