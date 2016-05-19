@@ -40,6 +40,7 @@ ul{
 	background-image:url('../img/background/pintu.jpg'),transparent 15%;
 	background-size: 100% 100%;
 	background-attachment: fixed;
+	min-height:100vh;
 }
 #section-1 .row:nth-child(1){
 	margin-top:190px;

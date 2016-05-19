@@ -40,16 +40,84 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+{{-- <div class="mask all"></div> --}}
+<div ui-sidebar class="ui visible inverted left vertical sidebar menu">
+	<h3 class="ui item inverted header">
+		<img src="{{asset('img/logo/logo.png')}}" alt="">
+	  <div class="content">
+		Kisikisi.id
+	  </div>
+	</h3>
+  <a class="item">
+	<i class="university large icon"></i> Direktori Sekolah
+  </a>
+  <a class="item">
+	<i class="newspaper large icon"></i> Berita Pendidikan
+  </a>
+  <a class="item">
+	<i class="calendar large icon"></i> Agenda Pendidikan
+  </a>
+  <a class="item">
+	<i class="student large icon"></i> Info Beasiswa
+  </a>
+  <a class="item">
+	<i class="book large icon"></i> E-Learning
+  </a>
+</div>
 
-<div class="mask all"></div>
+
+<div class="dimmed pusher">
+<div id="mainNav" data-uk-sticky class="ui icon blue inverted secondary pointing menu" style="z-index:99;">
+	<div class="ui container uk-visible-small">
+		<a id="sidebarToggle" class="active logo item">
+		   <img src="{{asset('img/logo/logo.png')}}" class="icon" width="30" alt=""><i class="dropdown icon"></i>
+		</a>
+		<div class="right menu">
+			<a class="ui item">
+			  <i class="user large icon"></i>
+			</a>
+		</div>
+	</div>
+	<div class="ui container uk-hidden-small">
+		  <a class="active item logo" href="http://kisikisi.id">
+			<img src="{{asset('img/logo/logo.png')}}" alt=""> Kisikisi.id
+		  </a>
+		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi Direktori Sekolah">
+			  <a class="item" >
+					<i class="university large icon"></i>
+			  </a>
+		  </span>
+		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi Berita Pendidikan">
+			<a class="item">
+				<i class="newspaper large icon"></i>
+			</a>
+		  </span>
+		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi Agenda Pendidikan">
+			<a class="item">
+				<i class="calendar large icon"></i>
+			</a>
+		  </span>
+		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi Info Beasiswa">
+			<a class="item">
+				<i class="student large icon"></i>
+			</a>
+		  </span>
+		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi E-Learning">
+			<a class="item">
+				<i class="book large icon"></i>
+			</a>
+		  </span>
+	</div>
+</div>
+
 <div id="section-1">
 
 	<div class="ui grid container section-2">
 
-		<div class="centered row" style="" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150,repeat:true}">
+		<div class="centered row" style="" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150,repeat:true}">
 			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
 		</div>
-		<div class="centered row my-icon" style="" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300,repeat:true}" >
+		<div class="centered row my-icon" style="" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300,repeat:true}" >
 			
 			<center><a class="button-scroll" href="#section-2" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
@@ -603,6 +671,7 @@
               data-show-faces="true">
             </div>
 	</div>
+</div>
 </div>
 
 <script>
