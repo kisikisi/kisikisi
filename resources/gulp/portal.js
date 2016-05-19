@@ -25,6 +25,7 @@ var portalpaths = {
 		'bower_components/uikit/js/components/slideshow.min.js',
 		'bower_components/uikit/js/components/slideshow-fx.min.js',
 		'bower_components/uikit/js/components/slider.min.js',
+		'bower_components/uikit/js/components/tooltip.min.js',
 		'bower_components/uikit/js/core/scrollspy.min.js',
 		'bower_components/uikit/js/core/switcher.min.js',
 
@@ -44,6 +45,7 @@ var portalpaths = {
 		'bower_components/uikit/css/components/slider.almost-flat.min.css',
 		'bower_components/uikit/css/components/slideshow.almost-flat.min.css',
 		'bower_components/uikit/css/components/dotnav.almost-flat.min.css',
+		'bower_components/uikit/css/components/tooltip.almost-flat.min.css',
 		
 		//custom style
 		'resources/css/kisikisi.styl',
