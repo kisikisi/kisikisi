@@ -23,14 +23,20 @@ app
 		});
     };
 })*/
-.directive('ukSticky', function() {
+/*.directive('ukTooltip', function() {
 	return function (scope, element, attr) {
-		UIkit.sticky(element);
+		UIkit.tooltip(element);
     };
-})
+})*/
 .directive('uiTab', function() {
 	return function (scope, element, attr) {
 		$(element).tab();
+    };
+})
+.directive('uiSidebar', function() {
+	return function (scope, element, attr) {
+		$(element).sidebar("toggle");
+		$(element).sidebar('attach events', attr.trigger);
     };
 })
 .directive('uiDropdown', function() {

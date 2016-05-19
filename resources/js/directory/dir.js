@@ -1,22 +1,39 @@
 var dirCtrl = ['$http','$scope', '$rootScope', '$location', 'Notification', 'envService', 
 function($http, $scope, $rootScope, $location, Notification, envService) {
     $rootScope.env = envService.read('all');
-	$(".ui.sidebar").sidebar("toggle");
-	$(".ui.sidebar").sidebar('attach events', '#mainNavToggle');
+	//$(".ui.sidebar").sidebar("toggle");
+	//$(".ui.sidebar").sidebar('attach events', '#sidebarToggle');
 
 	$scope.schools = [];
 	$scope.scrollBusy = false;
 	$scope.limit = 12;
 	$scope.after = 0;
+	$scope.onSearch = false;
 
-    $scope.modalTemplate = 'views/directory/school.detail.html';
+	$scope.$on('$includeContentLoaded', function(event) {
+		$scope.modal1 = $("#siteModal").modal();
+		$scope.modal2 = $("#basicModal").modal();
+		/*$scope.modal.modal({
+			onHide: function(){
+				$scope.modalTemplate = '';
+			}
+		});*/
+	})
+
+    //$scope.modalTemplate = 'views/partial/login.html';
     //console.log($rootScope.env);
     
-    $scope.indexSearch = function(array, id) {
+    // searching array to find index by id
+	$scope.indexSearch = function(array, id) {
 		return array.map(function(el) {
 		  return el.id;
 		}).indexOf(id);
     };
+
+	$scope.toggleSearch = function() {
+		if ($scope.onSearch == false) $scope.onSearch = true;
+		else $scope.onSearch = false;
+	}
 
     $scope.filterSchool = function() {
         $http.get($scope.env.api+'school/form')
@@ -36,7 +53,7 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
 
 	$scope.nextPage = function() {
 		$scope.scrollBusy = true;
-		console.log($scope.filter);
+		//console.log($scope.filter);
 		$http.get($scope.env.api+'school/scroll/'+$scope.after+'/'+$scope.limit, {
 			params: $scope.filter
 		}).success(function (response) {
@@ -58,13 +75,17 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
         });
 	}*/
 
+	$scope.loginForm = function() {
+        //$scope.modalTemplate = 'views/partial/login.html';
+		$scope.modal2.modal('show');
+	}
+
     $scope.detailSchool = function(id) {
-        $scope.modalTemplate = "";
         $http.get($scope.env.api+'school/'+id)
         .success(function (response) {
             $scope.detail = response.detail[0];
-            $scope.modalTemplate = 'views/directory/school.detail.html';
-            $('.ui.modal').modal({observeChanges: true}).modal('show');
+            //$scope.modalTemplate = 'views/directory/school.detail.html';
+			$scope.modal1.modal('show');
         });
     };
 

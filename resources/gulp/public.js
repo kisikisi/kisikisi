@@ -34,8 +34,9 @@ var paths = {
 
 		//UIKit
 		'bower_components/uikit/js/uikit.min.js',
+		'bower_components/uikit/js/core/modal.min.js',
 		'bower_components/uikit/js/components/sticky.min.js',
-		'bower_components/uikit/js/components/tooltip.min.js',
+		//'bower_components/uikit/js/components/tooltip.min.js',
 
         //angular
 		'bower_components/angular/angular.min.js',
@@ -61,10 +62,16 @@ var paths = {
 		//uikit
 		'resources/css/less.css',
 		'bower_components/uikit/css/components/sticky.min.css',
-		'bower_components/uikit/css/components/tooltip.min.css',
+		//'bower_components/uikit/css/components/tooltip.min.css',
+
+		'bower_components/hint.css/hint.min.css',
+		'bower_components/hint.css/hint.base.min.css',
 
 		//custom style
 		'resources/css/kisikisi.styl'
+	],
+	html: [
+		'resources/views/partial/*.html'
 	]
 };
 
@@ -107,6 +114,12 @@ gulp.task('cssmin', function () {
 		.pipe(cssmin({processImport: false}))
 		.pipe(concat('kisikisi.min.css'))
 		.pipe(gulp.dest('public/css'));
+});
+
+gulp.task('htmlmin', function(cb) {
+	return gulp.src(paths.html)
+	    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+	    .pipe(gulp.dest('public/views/partial/'))
 });
 
 /*
