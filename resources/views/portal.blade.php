@@ -46,10 +46,10 @@
 
 	<div class="ui grid container section-2">
 
-		<div class="centered row" style="" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
+		<div class="centered row" style="" data-uk-parallax="{y:'50'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150,repeat:true}">
 			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
 		</div>
-		<div class="centered row my-icon" style="" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300}" >
+		<div class="centered row my-icon" style="" data-uk-parallax="{y:'100'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300,repeat:true}" >
 			
 			<center><a class="button-scroll" href="#section-2" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
@@ -102,9 +102,9 @@
 	<div class="masked masked-2"></div> --}}
 	<div class="ui grid container" >
 		<div class="row" >
-			<div class="sixteen wide mobile twelve wide tablet twelve wide computer column text" data-uk-scrollspy="{cls:'uk-animation-fade',delay:530}" >
+			<div class="sixteen wide mobile twelve wide tablet twelve wide computer column text" >
 				<div class="flex center" >
-					<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Apa itu Kisikisi.id?</h1>
+					<h1 class="title" >Apa itu Kisikisi.id?</h1>
 				</div>
 				<div class="texting"> <p><b>Kisikisi.id </b>merupakan portal pendidikan terbesar di Indonesia yang menyajikan
 				informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita
@@ -113,7 +113,7 @@
 				</div>
 			</div>
 			<div class="sixteen wide mobile four wide tablet four wide computer column abc" >
-				<img src="{{asset('img/mascot/geek_mascot.png')}}" class="mascot-1"  data-uk-parallax="{xp:'-30%',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}" />
+				<img src="{{asset('img/mascot/geek_mascot.png')}}" class="mascot-1"  data-uk-parallax="{xp:'-30%',target:'#section-2'}" data-uk-scrollspy="{cls:'uk-animation-fade',delay:500}" />
 			</div>
 		</div>
 	</div>
@@ -125,7 +125,8 @@
 	<div class="ui grid container">
 		<div class="row konten">
 			<div class="sixteen wide mobile ten wide tablet ten wide computer column">
-				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="xp:'30%',viewport:'1',target:'#section-min-1'" />
+				<img src="{{asset('img/mascot/education_clinic.png')}}" class="mascot-1" data-uk-parallax="xp:'30%',viewport:'1',target:'#section-min-1'"
+				data-uk-scrollspy="{cls:'uk-animation-fade',delay:500}" />
 			</div>
 			<div class="sixteen wide mobile six wide tablet six wide computer column shape">
 				<div class="flex center" style="text-align:center;">
@@ -152,10 +153,10 @@
 <div id="section-min-2">
 	<div class="ui container two column stackable grid">
 		<div class="row">
-			<div class="sixteen wide column"><center><h1 class="title">Apa saja yang ada di kisikisi.id</h1></center></div>
+			<div class="sixteen wide column"><center><h1 class="title">Apa yang ada di kisikisi.id</h1></center></div>
 		</div>
 		<div class="row">
-			<div class="column content-detail" data-uk-tooltip="animation:true" title="Kunjungi Direktori Sekolah">
+			<div class="column content-detail" data-uk-tooltip="animation:true" title="Kunjungi Direktori Sekolah" data-uk-scrollspy="{cls:'uk-animation-slide-left',delay:200}">
 				<a href="http://dir.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/directory.png" class="ui mini image"/>Direktori Sekolah</h3>
@@ -171,7 +172,7 @@
 			<div class="column content-image">
 				<img src="img/icon/free/video-player.png" class="my-icon" />
 			</div>
-			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi E-Learning">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi E-Learning" data-uk-scrollspy="{cls:'uk-animation-slide-right',delay:200}">
 				<a href="http://learn.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/elearning.png" class="ui mini image"/></i>E-Learning</h3>
@@ -181,7 +182,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Bank Soal">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Bank Soal" data-uk-scrollspy="{cls:'uk-animation-slide-left',delay:200}">
 				<a href="http://soal.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/banksoal.png" class="ui mini image"/></i>Bank Soal</h3>
@@ -197,7 +198,7 @@
 			<div class="column content-image">
 				<img src="img/icon/free/pipette.png" class="my-icon" />
 			</div>
-			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Klinik Pendidikan">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Klinik Pendidikan" data-uk-scrollspy="{cls:'uk-animation-slide-right',delay:200}">
 				<a href="http://klinik.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/clinic.png" class="ui mini image"/></i>Klinik Pendidikan</h3>
@@ -207,7 +208,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Berita Pendidikan">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Berita Pendidikan" data-uk-scrollspy="{cls:'uk-animation-slide-left',delay:200}">
 				<a href="http://news.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/news.png" class="ui mini image"/></i>Berita Pendidikan</h3>
@@ -223,7 +224,7 @@
 			<div class="column content-image">
 				<img src="img/icon/free/color-circle.png" class="my-icon" />
 			</div>
-			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Agenda Pendidikan">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Agenda Pendidikan" data-uk-scrollspy="{cls:'uk-animation-slide-right',delay:200}">
 				<a href="http://agenda.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/agenda.png" class="ui mini image"/></i>Agenda Pendidikan</h3>
@@ -233,7 +234,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Artikel Pendidikan">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Artikel Pendidikan" data-uk-scrollspy="{cls:'uk-animation-slide-left',delay:200}">
 				<a href="http://article.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/article.png" class="ui mini image"/></i>Artikel Pendidikan</h3>
@@ -249,7 +250,7 @@
 			<div class="column content-image">
 				<img src="img/icon/free/chat.png" class="my-icon" />
 			</div>
-			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Forum">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Forum" data-uk-scrollspy="{cls:'uk-animation-slide-right',delay:200}">
 				<a href="http://forum.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/forum.png" class="ui mini image"/></i>Forum</h3>
@@ -259,7 +260,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'right'" title="Kunjungi Beasiswa">
+			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'right'" title="Kunjungi Beasiswa" data-uk-scrollspy="{cls:'uk-animation-slide-left',delay:200}">
 				<a href="">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/beasiswa.png" class="ui mini image"/></i>Beasiswa</h3>
