@@ -82,27 +82,27 @@
 		  <a class="active item logo" href="http://kisikisi.id">
 			<img src="{{asset('img/logo/logo.png')}}" alt=""> Kisikisi.id
 		  </a>
-		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi Direktori Sekolah">
+		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Direktori Sekolah">
 			  <a class="item" >
 					<i class="university large icon"></i>
 			  </a>
 		  </span>
-		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi Berita Pendidikan">
+		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Berita Pendidikan">
 			<a class="item">
 				<i class="newspaper large icon"></i>
 			</a>
 		  </span>
-		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi Agenda Pendidikan">
+		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Agenda Pendidikan">
 			<a class="item">
 				<i class="calendar large icon"></i>
 			</a>
 		  </span>
-		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi Info Beasiswa">
+		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Info Beasiswa">
 			<a class="item">
 				<i class="student large icon"></i>
 			</a>
 		  </span>
-		  <span class="hint--bottom" data-uk-tooltip="animation:true" title="Kunjungi E-Learning">
+		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi E-Learning">
 			<a class="item">
 				<i class="book large icon"></i>
 			</a>
@@ -224,7 +224,7 @@
 			<div class="sixteen wide column"><center><h1 class="title">Apa yang ada di kisikisi.id</h1></center></div>
 		</div>
 		<div class="row">
-			<div class="column content-detail" data-uk-tooltip="animation:true" title="Kunjungi Direktori Sekolah" data-uk-scrollspy="{cls:'uk-animation-slide-left',delay:200}">
+			<div class="column content-detail" data-uk-tooltip="{animation:true}" title="Kunjungi Direktori Sekolah" data-uk-scrollspy="{cls:'uk-animation-slide-left',delay:200}">
 				<a href="http://dir.kisikisi.id">
 					<div class="ui piled segment">
 						<h3 class="ui header"><img src="img/icon/directory.png" class="ui mini image"/>Direktori Sekolah</h3>

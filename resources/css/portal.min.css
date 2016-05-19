@@ -34,6 +34,13 @@ ul{
 #mainNav{
 	transition:all 0.5s ease-out;
 }
+#mainNav .item{
+	position: relative !important;
+}
+.myfix{
+	position: absolute;
+	top:0;
+}
 .scroll-hidden{
 	top:-20% !important;
 	transition:all 0.5s ease-out;
