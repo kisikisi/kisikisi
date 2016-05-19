@@ -34,6 +34,7 @@ var paths = {
 
 		//UIKit
 		'bower_components/uikit/js/uikit.min.js',
+		'bower_components/uikit/js/core/modal.min.js',
 		'bower_components/uikit/js/components/sticky.min.js',
 		//'bower_components/uikit/js/components/tooltip.min.js',
 
@@ -68,6 +69,9 @@ var paths = {
 
 		//custom style
 		'resources/css/kisikisi.styl'
+	],
+	html: [
+		'resources/views/partial/*.html'
 	]
 };
 
@@ -110,6 +114,12 @@ gulp.task('cssmin', function () {
 		.pipe(cssmin({processImport: false}))
 		.pipe(concat('kisikisi.min.css'))
 		.pipe(gulp.dest('public/css'));
+});
+
+gulp.task('htmlmin', function(cb) {
+	return gulp.src(paths.html)
+	    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+	    .pipe(gulp.dest('public/views/partial/'))
 });
 
 /*

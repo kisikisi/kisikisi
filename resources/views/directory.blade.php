@@ -12,25 +12,28 @@
     <script src="{{ env('APP_URL') }}/js/directory.min.js"></script>
 </head>
 <body ng-controller="dirCtrl">
+	<?php include(public_path('views/partial/sidebar.html')) ?> <!-- main sidebar -->
+	<div class="pusher">
+		<div id="mainNav" data-uk-sticky class="ui icon blue inverted secondary pointing menu">
+		  <?php include(public_path('views/partial/navbar.html')) ?> <!-- main navbar -->
+		</div>
+		<form data-uk-sticky ng-if="onSearch" class="ui attached segment form" ng-submit="searchSchool(filter)" ng-include="'views/directory/filter.form.html'">
+		</form>
 
-<?php include(public_path('views/directory/sidebar.html')) ?> <!-- main navbar -->
-<div class="pusher">
-  <?php include(public_path('views/directory/navbar.html')) ?> <!-- main navbar -->
-  <div class="ui container" data-uk-observe>
-      <div class="uk-grid">
-       <div class="uk-width-large-3-4 uk-width-medium-1-1">
-          <div id="content" ui-view></div>
-       </div>
-       <div class="uk-width-large-1-4 uk-hidden-medium">
-          <?php include(public_path('views/directory/content.sidebar.html')) ?> <!-- main sidebar -->
-       </div>
-      </div>
-  </div>
-</div>
-<div class="ui modal">
-  <i class="close icon"></i>
-  <ng-include src="modalTemplate">
-  </ng-include>
-</div>
+	  <div class="ui container" data-uk-observe>
+		  <div class="uk-grid">
+		   <div class="uk-width-large-3-4 uk-width-medium-1-1">
+			  <div id="content" ui-view></div>
+		   </div>
+		   <div class="uk-width-large-1-4 uk-hidden-medium">
+			  <?php include(public_path('views/directory/sidebar.html')) ?> <!-- content sidebar -->
+		   </div>
+		  </div>
+	  </div>
+	</div>
+	<div id="siteModal" class="ui segments modal" ng-include="'views/directory/school.detail.html'">
+	</div>
+	<div id="basicModal" class="ui small basic center aligned modal" ng-include="'views/partial/login.html'">
+	</div>
 </body>
 </html>

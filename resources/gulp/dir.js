@@ -27,3 +27,8 @@ gulp.task('dir-htmlmin', function(cb) {
 	    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
 	    .pipe(gulp.dest('public/views/directory/'))
 });
+
+gulp.task('dir-watch', function() {
+	gulp.watch(dirpaths.html, ['dir-htmlmin']);
+	gulp.watch(dirpaths.js, ['dir-jsmin']);
+})

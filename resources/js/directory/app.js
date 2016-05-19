@@ -33,6 +33,12 @@ app
 		$(element).tab();
     };
 })
+.directive('uiSidebar', function() {
+	return function (scope, element, attr) {
+		$(element).sidebar("toggle");
+		$(element).sidebar('attach events', attr.trigger);
+    };
+})
 .directive('uiDropdown', function() {
 	return function (scope, element, attr) {
 		$(element).dropdown({
