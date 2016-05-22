@@ -49,11 +49,11 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
 		$scope.after = 0;
 		$scope.schools = [];
 		$scope.nextPage();
+		$scope.filter = filter;
 	}
 
 	$scope.nextPage = function() {
 		$scope.scrollBusy = true;
-		//console.log($scope.filter);
 		$http.get($scope.env.api+'school/scroll/'+$scope.after+'/'+$scope.limit, {
 			params: $scope.filter
 		}).success(function (response) {
@@ -61,8 +61,10 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
 				$scope.schools.push(response.schools[i]);
 			}
             //$scope.schools.push(response.schools[0]);
-			if (response.schools.length > 0) $scope.after = response.schools[response.schools.length - 1].id;
-			$scope.scrollBusy = false;
+			if (response.schools.length > 0) {
+				$scope.after = response.schools[response.schools.length - 1].id;
+				$scope.scrollBusy = false;
+			}
 			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.schools);
         })

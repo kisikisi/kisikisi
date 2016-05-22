@@ -17,8 +17,7 @@
 		<div id="mainNav" data-uk-sticky class="ui icon blue inverted secondary pointing menu">
 		  <?php include(public_path('views/partial/navbar.html')) ?> <!-- main navbar -->
 		</div>
-		<form data-uk-sticky ng-if="onSearch" class="ui attached segment form" ng-submit="searchSchool(filter)" ng-include="'views/directory/filter.form.html'">
-		</form>
+		<div class="ui attached segment"  data-uk-sticky ng-if="onSearch"  ng-include="'views/directory/filter.form.html'"></div>
 
 	  <div class="ui container" data-uk-observe>
 		  <div class="uk-grid">
