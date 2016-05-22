@@ -52,6 +52,7 @@ var backpaths = {
 		'bower_components/textAngular/dist/textAngular-rangy.min.js',
 		'bower_components/textAngular/dist/textAngular-sanitize.min.js',
 		'bower_components/textAngular/dist/textAngular.min.js',
+		'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
 
         //other module
 

@@ -5,7 +5,7 @@ var posOfTld = hostNameArray.length - 1;
 var host = hostNameArray[posOfTld];
 */
 app = angular.module('kisiApp', ['ui.router', 'satellizer', 'ngTouch', 'superswipe', 
-	'angularUtils.directives.dirPagination', 'xeditable', 'environment','ui-notification','ngFileUpload','ngTagsInput','toggle-switch','textAngular' ]);
+	'angularUtils.directives.dirPagination', 'xeditable', 'environment','ui-notification','ngFileUpload','ngTagsInput','toggle-switch','textAngular', 'infinite-scroll' ]);
 app
 /*.constant('constant', {
 	'site': '//'+host+'/',
