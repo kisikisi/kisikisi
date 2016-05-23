@@ -5,22 +5,20 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
     $scope.onEdit = false;
     $scope.input = {};
     $scope.schoolAddForm = {};
-
     $scope.schools = [];
     $scope.totalSchools = 0;
-    $scope.pagination = {
-        current: 1
-    };
     $scope.limit = 20;
+	$scope.after = 0;
+	$scope.scrollBusy = false;
 
-    $scope.listSchool = function() {
+    /*$scope.listSchool = function() {
         $http.get($scope.env.api+'school')
         .success(function (response) {
             $scope.schools = response.school;
         });
-    };
+    };*/
 
-    $scope.getResultsPage = function(page) {
+    /*$scope.getResultsPage = function(page) {
         $http.get($scope.env.api+'school/paging/'+page+'/'+$scope.limit)
         .success(function (response) {
             $scope.schools = response.schools;
@@ -30,8 +28,33 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 
     $scope.pageChanged = function(page) {
         $scope.getResultsPage(page);
-    };
+    };*/
     
+	$scope.searchSchool = function(filter) {
+		$scope.after = 0;
+		$scope.schools = [];
+		$scope.nextPage();
+		$scope.filter = filter;
+	}
+
+	$scope.nextPage = function() {
+		$scope.scrollBusy = true;
+		$http.get($scope.env.api+'school/scroll/'+$scope.after+'/'+$scope.limit, {
+			params: $scope.filter
+		}).success(function (response) {
+			for (var i = 0; i < response.schools.length; i++) {
+				$scope.schools.push(response.schools[i]);
+			}
+            //$scope.schools.push(response.schools[0]);
+			if (response.schools.length > 0) {
+				$scope.after = response.schools[response.schools.length - 1].id;
+				$scope.scrollBusy = false;
+			}
+			//$('.ui.sticky').sticky('refresh');
+			//console.log($scope.schools);
+        })
+	}
+
     $scope.formSchool = function() {
         $http.get($scope.env.api+'school/form')
         .success(function (response) {
@@ -150,6 +173,6 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 	};
 
     //$scope.listSchool();
-    $scope.getResultsPage(1);
+    //$scope.getResultsPage(1);
     $scope.formSchool();
 }];

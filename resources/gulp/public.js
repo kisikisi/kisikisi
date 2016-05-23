@@ -20,9 +20,9 @@ var paths = {
 	],
 	fonts: [
 		'resources/fonts/*',
-		'bower_components/font-awesome/fonts/*',
-		'bower_components/Ionicons/fonts/*',
-		'bower_components/AdminLTE/bootstrap/fonts/*',
+		//'bower_components/font-awesome/fonts/*',
+		//'bower_components/Ionicons/fonts/*',
+		//'bower_components/AdminLTE/bootstrap/fonts/*',
 	],
 	js: [
 		//jquery
@@ -66,6 +66,12 @@ var paths = {
 
 		'bower_components/hint.css/hint.min.css',
 		'bower_components/hint.css/hint.base.min.css',
+
+		//fonts
+		'public/fonts/anagram.css',
+		'public/fonts/Folks-Bold.css',
+		'public/fonts/Folks-Normal.css',
+		'public/fonts/GlacialIndifference-Regular.css',
 
 		//custom style
 		'resources/css/kisikisi.styl'

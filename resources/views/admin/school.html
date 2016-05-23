@@ -23,20 +23,48 @@
       <div class="box">
         <div class="box-header">
           <h3 class="box-title">School List</h3>
-          <div class="box-tools">
-            <div class="input-group pull-right" style="width: 150px;">
-              <input type="text" name="table_search" ng-model="search" class="form-control input-sm pull-right" placeholder="Search">
-              <div class="input-group-btn">
-                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-            <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="views/admin/pagination.tpl.html">
-            </dir-pagination-controls>
+          <div class="box-body">
+            <form class="form-horizontal" ng-submit="searchSchool(filter)" ng-reset>
+				<div class="form-group">
+			  	  <label class="col-sm-1 control-label">Find</label>
+				  <div class="col-sm-2">
+					<select class="form-control" name="school_type_id" ng-model="filter.school_type_id" ng-options="type.id as type.name for type in schoolTypes">
+					  <option value="">--Choose Type--</option>
+					</select>
+				  </div>
+				  <div class="col-sm-2">
+					<select class="form-control" name="province_id" ng-model="filter.province_id" ng-options="prov.id as prov.name for prov in provinces">
+					  <option value="">--Pick Province--</option>
+					</select>
+				  </div>
+				  <div class="col-sm-2">
+					<select ng-if="filter.province_id" class="form-control" name="city_id" ng-model="filter.city_id" ng-options="cty.id as cty.name for cty in cities | filter:{ province_id : filter.province_id }">
+					  <option value="">--Pick City--</option>
+					</select>
+				  </div>
+				  <div class="col-sm-4">
+					<input id="name" type="text" class="form-control" name="name" ng-model="filter.name" placeholder="School Name">
+				  </div>
+				  <div class="col-sm-1">
+					  <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+				  </div>
+				</div>
+				             <!--<form class="input-group pull-right" style="width: 150px;" ngSubmit="searchSchool(filter)">
+				              <select name="school_type_id" class="form-control input-sm pull-right" ng-model="filter.school_type_id" ng-options="type.id as type.name for type in schoolTypes">
+								<option value="">--Pilih Tipe Sekolah--</option>
+							  </select>
+				              <input type="text" name="name" ng-model="filter.name" class="form-control input-sm pull-right" placeholder="Search">
+				              <div class="input-group-btn">
+				                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+				              </div>
+				            </form>-->
+			</form>
           </div>
         </div><!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
-          <table class="table table-hover">
-            <tbody><tr>
+          <table class="table table-hover" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
+            <tbody>
+            <tr>
               <th>No</th>
               <th>School Name</th>
               <th>School Type</th>
@@ -44,8 +72,10 @@
               <th>School Logo</th>
               <th></th>
             </tr>
-            <tr dir-paginate="list in schools | orderBy:'-id' | itemsPerPage:limit | filter:search" total-items="totalSchools" current-page="pagination.current">
-              <td>{{ ((pagination.current-1)*limit)+$index+1 }}</td>
+            <tr ng-repeat="list in schools">
+            <!--<tr dir-paginate="list in schools | orderBy:'-id' | itemsPerPage:limit | filter:search" total-items="totalSchools" current-page="pagination.current">-->
+              <!--<td>{{ ((pagination.current-1)*limit)+$index+1 }}</td>-->
+              <td>{{$index+1}}</td>
               <td>{{list.name}}</td>
               <td>{{schoolTypes[indexSearch(schoolTypes, list.school_type_id)].name}}</td>
               <td>{{cities[indexSearch(cities, list.city_id)].name}}</td>
