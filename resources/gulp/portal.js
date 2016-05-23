@@ -23,7 +23,6 @@ var portalpaths = {
 		'bower_components/uikit/js/uikit.min.js',
 		'bower_components/uikit/js/components/parallax.min.js',
 		'bower_components/uikit/js/components/slideshow.min.js',
-		'bower_components/uikit/js/components/slideshow-fx.min.js',
 		'bower_components/uikit/js/components/slider.min.js',
 		'bower_components/uikit/js/components/tooltip.min.js',
 		'bower_components/uikit/js/core/scrollspy.min.js',

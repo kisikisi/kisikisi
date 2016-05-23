@@ -20,8 +20,6 @@
     <meta content="923539880721-sprpmk4rgmjq1ht75govalre7gl86bbm.apps.googleusercontent.com" name="google-signin-client_id"/>
 
     <base href="/index.php"></base>
-    <script src="{{ asset('js/lib.portal.min.js') }}"></script>
-    <script src="{{ asset('js/portal.min.js') }}"></script>
 </head>
 <body>
 <script>
@@ -124,50 +122,7 @@
 	</div>
 </div>
 
-{{-- <div id="menu-test" class="ui left fixed vertical menu">
-	<span class="item menu-button" style="color:#fafafa;">MENU</span>
-	<a href="dir.kisikisi.id"><div class="object">
-		<img src="{{asset('img/icon/directory.png')}}" class="item" />
-		<div class="object-content">Direktori Sekolah</div>
-	</div></a>
-	<a href="learn.kisikisi.id"><div class="object">
-		<img src="{{asset('img/icon/elearning.png')}}" class="item" />
-		<div class="object-content">E-Learning</div>
-	</div></a>
-	<a href="#"><div class="object">
-		<img src="{{asset('img/icon/banksoal.png')}}" class="item" />
-		<div class="object-content">Bank Soal</div>
-	</div></a>
-	<a href="#"><div class="object">
-		<img src="{{asset('img/icon/clinic.png')}}" class="item" />
-		<div class="object-content">Klinik Pendidikan</div>
-	</div></a>
-	<a href="#"><div class="object">
-		<img src="{{asset('img/icon/news.png')}}" class="item" />
-		<div class="object-content">Berita Pendidikan</div>
-	</div></a>
-	<a href="#"><div class="object">
-		<img src="{{asset('img/icon/agenda.png')}}" class="item" />
-		<div class="object-content">Agenda Pendidikan</div>
-	</div></a>
-	<a href="#"><div class="object">
-		<img src="{{asset('img/icon/article.png')}}" class="item" />
-		<div class="object-content">Artikel Pendidikan</div>
-	</div></a>
-	<a href="#"><div class="object">
-		<img src="{{asset('img/icon/forum.png')}}" class="item" />
-		<div class="object-content">Forum</div>
-	</div>
-	<a href="#"><div class="object">
-		<img src="{{asset('img/icon/beasiswa.png')}}" class="item" />
-		<div class="object-content">Beasiswa</div>
-	</div></a>
-
-</div> --}}
-
 <div id="section-2" data-uk-smooth-scroll >
-	{{-- <div class="masked masked-1"></div>
-	<div class="masked masked-2"></div> --}}
 	<div class="ui grid container" >
 		<div class="row" >
 			<div class="sixteen wide mobile twelve wide tablet twelve wide computer column text" >
@@ -674,8 +629,9 @@
 </div>
 </div>
 
-<script>
-</script>
+<!-- script js -->
+<script src="{{ asset('js/lib.portal.min.js') }}"></script>
+<script src="{{ asset('js/portal.min.js') }}"></script>
 
 </body>
 </html>
