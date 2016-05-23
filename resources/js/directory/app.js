@@ -46,6 +46,11 @@ app
 		});
     };
 })
+.directive('uiAccordion', function() {
+	return function (scope, element, attr) {
+		$(element).accordion();
+    };
+})
 /*
 .directive('sidebar', function() {
 	return function (scope, element, attr) {

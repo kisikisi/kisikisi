@@ -1,5 +1,5 @@
-var dirCtrl = ['$http','$scope', '$rootScope', '$location', 'Notification', 'envService', 
-function($http, $scope, $rootScope, $location, Notification, envService) {
+var dirCtrl = ['$http','$scope', '$rootScope', '$sce', '$location', 'Notification', 'envService',
+function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
     $rootScope.env = envService.read('all');
 	//$(".ui.sidebar").sidebar("toggle");
 	//$(".ui.sidebar").sidebar('attach events', '#sidebarToggle');
@@ -89,6 +89,9 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
         $http.get($scope.env.api+'school/'+id)
         .success(function (response) {
             $scope.detail = response.detail[0];
+            $scope.detail.description = $sce.trustAsHtml(response.detail[0].description);
+            $scope.detail.data = $sce.trustAsHtml(response.detail[0].data);
+            $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail[0].map_address);
             //$scope.modalTemplate = 'views/directory/school.detail.html';
 			$scope.modal1.modal('show');
         });
