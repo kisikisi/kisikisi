@@ -13,7 +13,7 @@
 	<?php include(public_path('views/partial/sidebar.html')) ?> <!-- main sidebar -->
 	<div class="pusher">
 		<div data-uk-sticky>
-			<div id="mainNav" class="ui icon blue secondary inverted attached menu">
+			<div id="mainNav" class="ui icon secondary inverted attached menu">
 			  <?php include(public_path('views/partial/navbar.html')) ?> <!-- main navbar -->
 			</div>
 			<div id="searchBar" class="ui attached segment" ng-show="onSearch"  ng-include="'views/directory/filter.form.html'"></div>
