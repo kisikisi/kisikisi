@@ -1,9 +1,9 @@
-<div class="ui container uk-visible-small">
+<div class="ui container uk-hidden-large">
 	<a id="sidebarToggle" class="active logo item">
 	   <img class="icon" ng-src="{{ env.site }}img/logo/logo.png" width="30" alt=""><i class="dropdown icon"></i>
 	</a>
 	<div class="right menu">
-		<a class="ui item">
+		<a href="#searchBar" class="ui item">
 		  <i class="university large icon"></i>
 		</a>
 		<a class="ui item" ng-click="toggleSearch()">
@@ -14,7 +14,7 @@
 		</a>
 	</div>
 </div>
-<div class="ui container uk-hidden-small">
+<div class="ui container uk-visible-large">
 	  <a class="active item logo" href="{{ env.site }}">
 		<img ng-src="{{ env.site }}img/logo/logo.png" alt=""> Kisikisi.id
 	  </a>

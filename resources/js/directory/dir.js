@@ -9,6 +9,7 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
 	$scope.limit = 12;
 	$scope.after = 0;
 	$scope.onSearch = false;
+	$scope.filter = {};
 
 	$scope.$on('$includeContentLoaded', function(event) {
 		$scope.modal1 = $("#siteModal").modal();
@@ -50,9 +51,11 @@ function($http, $scope, $rootScope, $location, Notification, envService) {
 		$scope.schools = [];
 		$scope.nextPage();
 		$scope.filter = filter;
+		$scope.onSearch = false;
 	}
 
 	$scope.nextPage = function() {
+		//console.log($scope.filter);
 		$scope.scrollBusy = true;
 		$http.get($scope.env.api+'school/scroll/'+$scope.after+'/'+$scope.limit, {
 			params: $scope.filter
