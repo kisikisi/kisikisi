@@ -25,7 +25,7 @@
 	-o-transition:all 0.3s ease-out;
 }
 a{
-	text-decoration: none;
+	text-decoration: none !important;
 }
 ul{
 	list-style: none;
