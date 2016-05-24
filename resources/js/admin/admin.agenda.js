@@ -4,16 +4,44 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
     
     $scope.onEdit = false;
     $scope.input = {};
-    $scope.schoolAddForm = {};
-    $scope.currentPage = 1;
-	$scope.limit = 10;
+    $scope.agendaForm = {};
+    $scope.agendas = [];
+    $scope.totalAgendas = 0;
+    $scope.limit = 20;
+	$scope.after = 0;
+	$scope.scrollBusy = false;
 
-	$scope.listAgenda = function() {
+	/*$scope.listAgenda = function() {
         $http.get($scope.env.api+'agenda')
         .success(function (response) {
             $scope.agenda = response.agenda;
         })
-    }
+    }*/
+
+	$scope.searchAgenda = function(filter) {
+		$scope.after = 0;
+		$scope.agenda = [];
+		$scope.nextPage();
+		$scope.filter = filter;
+	}
+
+	$scope.nextPage = function() {
+		$scope.scrollBusy = true;
+		$http.get($scope.env.api+'agenda/scroll/'+$scope.after+'/'+$scope.limit, {
+			params: $scope.filter
+		}).success(function (response) {
+			for (var i = 0; i < response.agendas.length; i++) {
+				$scope.agendas.push(response.agendas[i]);
+			}
+            //$scope.schools.push(response.schools[0]);
+			if (response.agendas.length > 0) {
+				$scope.after = response.agendas[response.agendas.length - 1].id;
+				$scope.scrollBusy = false;
+			}
+			//$('.ui.sticky').sticky('refresh');
+			//console.log($scope.schools);
+        })
+	}
     
     $scope.formAgenda = function() {
         $http.get($scope.env.api+'agenda/form')
@@ -107,26 +135,26 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
     }
 
 	$scope.saveAgenda = function(input) {
-        input.content = $('#addContent').val();
-		
+        //input.content = $('#addContent').val();
+
         if (input.id == undefined) {
             $http.post($scope.env.api+'agenda', input)
             .success(function (response) {
                 Notification({message: response.message}, response.status);
                 if (response.status == 'success') {
                     //console.log(response.type);
-                    $scope.agenda.push(response.agenda);
+                    $scope.agendas.push(response.agenda);
                     $scope.input.id = response.agenda.id;
                 }
             });
         } else {
             //input.agenda_category_id = $scope.input.category.id;
 
-            var index = $scope.indexSearch($scope.agenda, input.id);
+            var index = $scope.indexSearch($scope.agendas, input.id);
             $http.put($scope.env.api+'agenda/'+input.id, input)
             .then(function (response) {
-                $scope.agenda[index] = response.data.agenda[0];
-                Notification({message: response.data.message}, response.status);
+                $scope.agendas[index] = response.data.agenda[0];
+                Notification({message: response.data.message}, response.data.status);
                 //$scope.onEdit = false;
             });
         }
@@ -138,6 +166,9 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
         $http.get($scope.env.api+'agenda/'+id)
         .success(function (response) {
             $scope.input = response.detail;
+			$scope.input.start_datetime = moment.unix(response.detail.start_datetime).format("MM/DD/YYYY");
+			$scope.input.end_datetime = moment.unix(response.detail.end_datetime).format("MM/DD/YYYY");
+			$scope.input.province_id = response.detail.city.province_id;
             $scope.input.agenda_label = response.agendaLabel;
             $scope.input.agenda_category_id = parseInt($scope.input.agenda_category_id);
             $scope.input.status = parseInt($scope.input.status);
@@ -161,20 +192,20 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	}*/
 
 	$scope.deleteAgenda = function(id) {
-		var index = $scope.indexSearch($scope.type, id);
-		if (confirm('delete type?')) {
+		var index = $scope.indexSearch($scope.agendas, id);
+		if (confirm('delete agenda?')) {
 			$http.delete($scope.env.api+'agenda/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
 				if (response.status == 'success') {
 					//console.log(response.type);
-					$scope.type.splice(index, 1);	
+					$scope.agendas.splice(index, 1);
 				}
 			})
 		}
 	}
 
-	$scope.listAgenda();
+	//$scope.listAgenda();
     $scope.formAgenda();
 
 }];

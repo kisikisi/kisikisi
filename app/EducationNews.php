@@ -11,7 +11,7 @@ class EducationNews extends Model
     
     use SoftDeletes;
     
-    protected $table = 'education_news';
+    public $table = 'education_news';
 	protected $fillable = [
         'news_category_id',
     	'slug',
@@ -38,15 +38,15 @@ class EducationNews extends Model
     }
     
     public function author() {
-        return $this->belongsTo('App\NewsCategory','author');
+        return $this->belongsTo('App\User','author');
     }
     
     public function createdBy() {
-        return $this->belongsTo('App\NewsCategory','created_by');
+        return $this->belongsTo('App\User','created_by');
     }
     
     public function modifiedBy() {
-        return $this->belongsTo('App\NewsCategory','modified_by');
+        return $this->belongsTo('App\User','modified_by');
     }
     
     public function newsLabel() {

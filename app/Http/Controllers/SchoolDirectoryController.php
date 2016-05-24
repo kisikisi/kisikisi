@@ -115,7 +115,7 @@ class SchoolDirectoryController extends Controller
 	        if(!$icon->move($destinationPath, $filename)) {
 	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
 	        } else {
-	        	return response()->json(['status' => 'success', 'message' => 'upload', 'image' => $filename ], 200);
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'image' => $filename ], 200, [], JSON_NUMERIC_CHECK);
 	        }
 		} else {
 	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
@@ -139,18 +139,18 @@ class SchoolDirectoryController extends Controller
     		$data['message'] = 'school failed to add';
     	}
 	
-    	return response()->json($data);
+    	return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function update(Request $request, SchoolDirectory $school, $id) {
     	$input = $request->all();
         $input['modified_by'] = Auth::user()->id;
 
-    	$type = SchoolDirectory::where('id', $id)->first();
-    	if ($type->update($input)) {
+    	$update = SchoolDirectory::where('id', $id)->first();
+    	if ($update->update($input)) {
             $data = $school->schoolList()->where($school->table.'.id', $id)->get();
-            return response()->json(['success' => 'data_updated', 'message' => 'data sekolah diperbarui', 'school' => $data], 200);
-        } else return response()->json(['error' => 'cant_update_data', 'message' => 'data sekolah gagal diperbarui'], 500);
+            return response()->json(['status' => 'success',  'message' => 'school data updated', 'school' => $data], 200, [], JSON_NUMERIC_CHECK);
+        } else return response()->json(['status' => 'error', 'message' => 'fail to update data'], 500);
     }
 
     public function delete($id) {
@@ -164,6 +164,6 @@ class SchoolDirectoryController extends Controller
     		$data['message'] = 'School failed to delete';
     	}
 
-    	return response()->json($data);
+    	return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 }

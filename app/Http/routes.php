@@ -34,27 +34,32 @@ Route::group([
 	//module school type
 	Route::get('school/type', 'SchoolTypeController@index');
     Route::get('school/type/{id}', 'SchoolTypeController@detail');
+	Route::get('school/type/scroll/{after}/{limit}', 'SchoolTypeController@scroll');
   
 	//module school
 	Route::get('school', 'SchoolDirectoryController@index');
     Route::get('school/form', 'SchoolDirectoryController@form');
 	Route::post('school/search', 'SchoolDirectoryController@search');
-	Route::get('school/{id}', 'SchoolDirectoryController@detail');
 	Route::get('school/paging/{page}/{limit}', 'SchoolDirectoryController@paging');
 	Route::get('school/scroll/{after}/{limit}', 'SchoolDirectoryController@scroll');
+	Route::get('school/{id}', 'SchoolDirectoryController@detail');
     
     //module news category
     Route::get('news/category', 'NewsCategoryController@index');
+	Route::get('news/category/scroll/{after}/{limit}', 'NewsCategoryController@scroll');
     //module news
     Route::get('news/form', 'EducationNewsController@form');
     Route::get('news', 'EducationNewsController@index');
+	Route::get('news/scroll/{after}/{limit}', 'EducationNewsController@scroll');
     Route::get('news/{id}', 'EducationNewsController@detail');
 
     //module agenda category
     Route::get('agenda/category', 'AgendaCategoryController@index');
+	Route::get('agenda/category/scroll/{after}/{limit}', 'AgendaCategoryController@scroll');
     //module agenda
     Route::get('agenda/form', 'EducationAgendaController@form');
     Route::get('agenda', 'EducationAgendaController@index');
+	Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
     Route::get('agenda/{id}', 'EducationAgendaController@detail');
     
     //module label

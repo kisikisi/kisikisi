@@ -3,13 +3,36 @@ var agendaCatCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
     
     $scope.currentPage = 1;
 	$scope.limit = 10;
+	$scope.categories = [];
+    $scope.totalCategories = 0;
+    $scope.limit = 20;
+	$scope.after = 0;
+	$scope.scrollBusy = false;
 
-	$scope.listCategory = function() {
+	/*$scope.listCategory = function() {
         $http.get($scope.env.api+'agenda/category')
         .success(function (response) {
             $scope.categories = response.categories;
         })
-    }
+    }*/
+
+	$scope.nextPage = function() {
+		$scope.scrollBusy = true;
+		$http.get($scope.env.api+'agenda/category/scroll/'+$scope.after+'/'+$scope.limit, {
+			params: $scope.filter
+		}).success(function (response) {
+			for (var i = 0; i < response.categories.length; i++) {
+				$scope.categories.push(response.categories[i]);
+			}
+            //$scope.categories.push(response.categories[0]);
+			if (response.categories.length > 0) {
+				$scope.after = response.categories[response.categories.length - 1].id;
+				$scope.scrollBusy = false;
+			}
+			//$('.ui.sticky').sticky('refresh');
+			//console.log($scope.categories);
+        })
+	}
 
 	$scope.addCategory = function(input) {
 		$http.post($scope.env.api+'agenda/category', input)
@@ -45,6 +68,6 @@ var agendaCatCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
 		}
 	}
 
-	$scope.listCategory();
+	//$scope.listCategory();
 
 }];

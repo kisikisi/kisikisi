@@ -10,7 +10,7 @@ class EducationAgenda extends Model
 {
     use SoftDeletes;
     
-    protected $table = 'education_agendas';
+    public $table = 'education_agendas';
 	protected $fillable = [
         'agenda_category_id',
     	'slug',
@@ -30,8 +30,8 @@ class EducationAgenda extends Model
     ];
     
     public function agendaList() {
-        return $this->select(DB::raw("education_agenda.id, education_agenda.title, c.name as category, education_agenda.location, education_agenda.start_datetime, education_agenda.end_datetime, education_agenda.status, education_agenda.image_cover"))
-            ->join("agenda_categories AS c", "c.id", "=", "education_agenda.agenda_category_id");
+        return $this->select(DB::raw("education_agendas.id, education_agendas.title, c.name as category, education_agendas.location, education_agendas.start_datetime, education_agendas.end_datetime, education_agendas.status, education_agendas.image_cover"))
+            ->join("agenda_categories AS c", "c.id", "=", "education_agendas.agenda_category_id");
     }
     
     public function city() {
@@ -53,7 +53,7 @@ class EducationAgenda extends Model
     public function agendaLabel() {
         //return $this->hasMany('App\AgendaLabel', 'agenda_id');
         return $this->select(DB::raw("l.*"))
-            ->join("agenda_labels AS al", "al.agenda_id", "=", "education_agenda.id")
+            ->join("agenda_labels AS al", "al.agenda_id", "=", "education_agendas.id")
             ->join("labels AS l", "l.id", "=", "al.label_id");
     }
 }
