@@ -47,6 +47,12 @@ var portalpaths = {
 		'bower_components/uikit/css/components/tooltip.almost-flat.min.css',
 		'bower_components/uikit/css/components/sticky.min.css',
 		
+		//fonts
+		'public/fonts/anagram.css',
+		'public/fonts/Folks-Bold.css',
+		'public/fonts/Folks-Normal.css',
+		'public/fonts/GlacialIndifference-Regular.css',
+
 		//custom style
 		'resources/css/kisikisi.styl',
 

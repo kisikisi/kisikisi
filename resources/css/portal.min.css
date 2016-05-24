@@ -37,8 +37,8 @@ ul{
 	z-index:-1;
 	color:#fafafa;
 	background-color:#2185D0;
-	background-image:url('../img/background/background_atas.png');
-	background-size: 100% 100%;
+	background-image:url('../img/background/background_atas.jpg');
+	background-size: cover;
 	background-attachment: fixed;
 	min-height:100vh;
 }
@@ -237,7 +237,7 @@ ul{
 	justify-content:center;
 }
 #section-min-2 .row .content-image .my-icon{
-	width:50%;
+	width:50%; height: 50%;
 }
 
 
@@ -246,7 +246,7 @@ ul{
 #section-4{
 	background-color:#59ABE3;
 	background-position:50% 0px, 0px 0px;
-	background-size:contain, auto;
+	background-size:cover, auto;
 	background-repeat:repeat-x, repeat;
 }
 #section-4 .container{
@@ -403,7 +403,6 @@ ul{
 	}
 
 	#section-2 .mascot-1{
-		width:150px;
 		height:300px;
 		top:10px;
 		right:auto;
@@ -476,7 +475,6 @@ ul{
 	}
 
 	#section-2 .mascot-1{
-		width:150px;
 		height:300px;
 		top:10px;
 		right:auto;
@@ -533,7 +531,7 @@ ul{
 		margin-left:-24px !important;
 	}
 	#section-1{
-		background-size:100% 100% !important;
+		background-size:cover !important;
 		background-repeat: no-repeat;
 	}
 
@@ -557,7 +555,6 @@ ul{
 		margin-left: 0;
 	}
 	#section-2 .mascot-1{
-		width:150px;
 		height:300px;
 		right:0;
 		left:auto;
@@ -608,7 +605,6 @@ ul{
 		margin-left:35%;
 	}
 	#section-4 .ui.card img{
-		width:80px;
 		height:80px;
 	}
 
