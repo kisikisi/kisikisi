@@ -6,10 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AlterSchoolDirectoryModule' => $baseDir . '/database/migrations/2016_05_25_181656_alter_school_directory_module.php',
     'CityTableSeeder' => $baseDir . '/database/seeds/CityTableSeeder.php',
     'CreateAgendaCategoriesTable' => $baseDir . '/database/migrations/2016_05_06_211606_create_agenda_categories_table.php',
     'CreateAgendaLabelsTable' => $baseDir . '/database/migrations/2016_05_06_222812_create_agenda_labels_table.php',
     'CreateCitiesTable' => $baseDir . '/database/migrations/2016_03_21_013238_create_cities_table.php',
+    'CreateCourseLabelsTable' => $baseDir . '/database/migrations/2016_05_25_180442_create_course_labels_table.php',
+    'CreateCoursesTable' => $baseDir . '/database/migrations/2016_05_25_171133_create_courses_table.php',
     'CreateEducationAgendasTable' => $baseDir . '/database/migrations/2016_05_06_212804_create_education_agendas_table.php',
     'CreateEducationNewsTable' => $baseDir . '/database/migrations/2016_04_03_155053_create_education_news_table.php',
     'CreateLabelsTable' => $baseDir . '/database/migrations/2016_04_25_012344_create_labels_table.php',
@@ -17,8 +20,11 @@ return array(
     'CreateNewsLabelsTable' => $baseDir . '/database/migrations/2016_04_25_012412_create_news_labels_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProvincesTable' => $baseDir . '/database/migrations/2016_03_21_013231_create_provinces_table.php',
+    'CreateScholarshipDegreesTable' => $baseDir . '/database/migrations/2016_05_25_170600_create_scholarship_degrees_table.php',
+    'CreateScholarshipsTable' => $baseDir . '/database/migrations/2016_05_25_170649_create_scholarships_table.php',
     'CreateSchoolDirectoriesTable' => $baseDir . '/database/migrations/2016_03_21_013316_create_school_directories_table.php',
     'CreateSchoolTypesTable' => $baseDir . '/database/migrations/2016_03_21_013202_create_school_types_table.php',
+    'CreateUserProfilesTable' => $baseDir . '/database/migrations/2016_05_25_183219_create_user_profiles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'EntrustSetupTables' => $baseDir . '/database/migrations/2016_04_12_053330_entrust_setup_tables.php',
