@@ -29,6 +29,8 @@ var paths = {
 		'bower_components/jquery/dist/jquery.min.js',
 		'bower_components/jquery-ui/jquery-ui.min.js',
 
+		'bower_components/moment/moment.js',
+
 		//Semantic
 		'bower_components/semantic/dist/semantic.min.js',
 

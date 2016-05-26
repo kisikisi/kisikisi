@@ -30,7 +30,7 @@ class EducationAgenda extends Model
     ];
     
     public function agendaList() {
-        return $this->select(DB::raw("education_agendas.id, education_agendas.title, c.name as category, education_agendas.location, education_agendas.start_datetime, education_agendas.end_datetime, education_agendas.status, education_agendas.image_cover"))
+        return $this->select(DB::raw("education_agendas.id, education_agendas.title, education_agendas.slug, c.name as category, education_agendas.location, education_agendas.start_datetime, education_agendas.end_datetime, education_agendas.status, education_agendas.image_cover"))
             ->join("agenda_categories AS c", "c.id", "=", "education_agendas.agenda_category_id");
     }
     

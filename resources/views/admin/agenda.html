@@ -52,7 +52,7 @@
               <td>{{list.title}}</td>
               <td>{{list.category}}</td>
               <td>{{list.location}}</td>
-              <td>{{list.date}}</td>    
+              <td>{{list.start}} - {{list.end}}</td>
               <td><img ng-if="list.image_cover != ''" ng-src="{{env.file}}agenda/cover/{{list.image_cover}}" alt="" width="100%" /></td>
               <td>{{ (list.status == 1)?"Live":"Draft"  }}</td>
               <td>

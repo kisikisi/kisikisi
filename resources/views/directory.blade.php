@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="kisiDirApp">
+<html lang="en" ng-app="kisiApp">
 <head>
     <meta charset="UTF-8">
     <title>Kisikisi.id - Direktori Sekolah</title>
@@ -37,5 +37,6 @@
 
 	<script src="{{ env('APP_URL') }}/js/kisikisi.min.js"></script>
     <script src="{{ env('APP_URL') }}/js/directory.min.js"></script>
+
 </body>
 </html>
