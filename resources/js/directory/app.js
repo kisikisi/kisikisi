@@ -1,4 +1,4 @@
-app = angular.module('kisiDirApp', ['ui.router', 'ngSanitize', 'satellizer', 'ngTouch', 'superswipe', 'environment','ui-notification','ngTagsInput', 'ezfb', 'infinite-scroll' ]);
+app = angular.module('kisiApp', ['ui.router', 'ngSanitize', 'satellizer', 'ngTouch', 'superswipe', 'environment','ui-notification','ngTagsInput', 'ezfb', 'infinite-scroll' ]);
 app
 /*.constant('constant', {
 	'site': '//'+host+'/',

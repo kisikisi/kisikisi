@@ -32,6 +32,8 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 		}).success(function (response) {
 			for (var i = 0; i < response.agendas.length; i++) {
 				$scope.agendas.push(response.agendas[i]);
+				$scope.agendas[i].start = moment.unix(response.agendas[i].start_datetime).format("MM/DD/YYYY");
+				$scope.agendas[i].end = moment.unix(response.agendas[i].end_datetime).format("MM/DD/YYYY");
 			}
             //$scope.schools.push(response.schools[0]);
 			if (response.agendas.length > 0) {

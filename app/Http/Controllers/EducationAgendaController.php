@@ -17,7 +17,7 @@ use Auth;
 class EducationAgendaController extends Controller
 {
     public function __construct(){
-		$this->middleware('jwt.auth', ['except'=>['index','detail','scroll']]);
+		$this->middleware('jwt.auth', ['except'=>['index','detail','form','scroll']]);
 	}
 
 	public function index(EducationAgenda $agenda){
@@ -105,9 +105,11 @@ class EducationAgendaController extends Controller
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
-    public function detail($id){
-        $data['detail'] = EducationAgenda::with(["agendaCategory","city.province","city"])->find($id);
-        $data['agendaLabel'] = EducationAgenda::find($id)->agendaLabel()->get();
+    public function detail($id) {
+		$agenda = explode('-', $id, 2);
+
+		$data['detail'] = EducationAgenda::with(["agendaCategory","city.province","city"])->find($agenda[0]);
+		$data['agendaLabel'] = EducationAgenda::find($agenda[0])->agendaLabel()->get();
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 

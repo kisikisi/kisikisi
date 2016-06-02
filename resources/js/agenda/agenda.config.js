@@ -21,32 +21,33 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
       return deferred.promise;
     }];
 
-	$stateProvider.state('school', {
+	$stateProvider.state('agenda', {
 		url:'/', 
-		controller: 'dirCtrl'
-	}).state('schoolDetail', {
+		controller: 'agendaIndexCtrl',
+        templateUrl: 'views/agenda/agenda.list.html'
+	}).state('agendaDetail', {
 		url:'/{id:[a-zA-Z1-9.-]*}', 
-		controller: 'dirDetailCtrl',
-        templateUrl: 'views/directory/school.detail.html'
+		controller: 'agendaDetailCtrl',
+        templateUrl: 'views/agenda/agenda.detail.html'
 	});
         
 	envServiceProvider.config({
 		domains: {
-			development: ['localhost', 'kisikisi.dev', 'dir.kisikisi.dev'],
-			production: ['103.11.74.10', 'kisikisi.id', 'dir.kisikisi.id']
+			development: ['localhost', 'kisikisi.dev', 'agenda.kisikisi.dev'],
+			production: ['103.11.74.10', 'kisikisi.id', 'agenda.kisikisi.id']
 		},
 		vars: {
 			development: {
 				site: '//kisikisi.dev/',
 				api: '//api.kisikisi.dev/',
 				file: '//files.kisikisi.dev/',
-				dir: '//dir.kisikisi.dev/'
+				agenda: '//agenda.kisikisi.dev/'
 				
 			},
 			production: {
 				site: '//kisikisi.id/',
 				api: '//api.kisikisi.id/',
-				dir: '//dir.kisikisi.id/',
+				agenda: '//agenda.kisikisi.id/',
 				file: '//files.kisikisi.id/'
 			}
 		}

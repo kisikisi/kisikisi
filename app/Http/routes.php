@@ -49,6 +49,28 @@ Route::group([
 });
 
 Route::group([
+    'domain' => 'dir.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+	    return view('directory');
+	});
+    Route::get('/{id}', function () {
+	    return view('directory');
+	});
+});
+
+Route::group([
+    'domain' => 'agenda.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+	    return view('agenda');
+	});
+	Route::get('/{id}', function () {
+	    return view('agenda');
+	});
+});
+
+Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
     Route::post('/login', 'Auth\AuthController@login');
