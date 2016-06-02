@@ -14,64 +14,86 @@
 Route::group([
     'domain' => 'admin.' . env('APP_DOMAIN')
 ], function() {
-	Route::post('/login', 'Auth\AuthController@login');	
-	Route::get('/', function () {
-	    return view('admin');
-	});	
-	Route::get('{state}', function () {
-	    return view('admin');
-	});
-	Route::get('{state}/{sub}', function () {
-	    return view('admin');
-	});
+    Route::post('/login', 'Auth\AuthController@login'); 
+    Route::get('/', function () {
+        return view('admin');
+    }); 
+    Route::get('{state}', function () {
+        return view('admin');
+    });
+    Route::get('{state}/{sub}', function () {
+        return view('admin');
+    });
+});
+
+Route::group([
+    'domain' => 'dir.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+        return view('directory');
+    });
+    Route::get('/{id}', function () {
+        return view('directory');
+    });
+});
+
+Route::group([
+    'domain' => 'agenda.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+        return view('agenda');
+    });
+    Route::get('/{id}', function () {
+        return view('agenda');
+    });
 });
 
 Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
-	Route::post('/login', 'Auth\AuthController@login');
+    Route::post('/login', 'Auth\AuthController@login');
     
-	//module school type
-	Route::get('school/type', 'SchoolTypeController@index');
+    //module school type
+    Route::get('school/type', 'SchoolTypeController@index');
     Route::get('school/type/{id}', 'SchoolTypeController@detail');
-	Route::get('school/type/scroll/{after}/{limit}', 'SchoolTypeController@scroll');
+    Route::get('school/type/scroll/{after}/{limit}', 'SchoolTypeController@scroll');
   
-	//module school
-	Route::get('school', 'SchoolDirectoryController@index');
+    //module school
+    Route::get('school', 'SchoolDirectoryController@index');
     Route::get('school/form', 'SchoolDirectoryController@form');
-	Route::post('school/search', 'SchoolDirectoryController@search');
-	Route::get('school/paging/{page}/{limit}', 'SchoolDirectoryController@paging');
-	Route::get('school/scroll/{after}/{limit}', 'SchoolDirectoryController@scroll');
-	Route::get('school/{id}', 'SchoolDirectoryController@detail');
+    Route::post('school/search', 'SchoolDirectoryController@search');
+    Route::get('school/paging/{page}/{limit}', 'SchoolDirectoryController@paging');
+    Route::get('school/scroll/{after}/{limit}', 'SchoolDirectoryController@scroll');
+    Route::get('school/{id}', 'SchoolDirectoryController@detail');
     
     //module news category
     Route::get('news/category', 'NewsCategoryController@index');
-	Route::get('news/category/scroll/{after}/{limit}', 'NewsCategoryController@scroll');
+    Route::get('news/category/scroll/{after}/{limit}', 'NewsCategoryController@scroll');
     //module news
     Route::get('news/form', 'EducationNewsController@form');
     Route::get('news', 'EducationNewsController@index');
-	Route::get('news/scroll/{after}/{limit}', 'EducationNewsController@scroll');
+    Route::get('news/scroll/{after}/{limit}', 'EducationNewsController@scroll');
     Route::get('news/{id}', 'EducationNewsController@detail');
 
     //module agenda category
     Route::get('agenda/category', 'AgendaCategoryController@index');
-	Route::get('agenda/category/scroll/{after}/{limit}', 'AgendaCategoryController@scroll');
+    Route::get('agenda/category/scroll/{after}/{limit}', 'AgendaCategoryController@scroll');
     //module agenda
     Route::get('agenda/form', 'EducationAgendaController@form');
     Route::get('agenda', 'EducationAgendaController@index');
-	Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
+    Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
     Route::get('agenda/{id}', 'EducationAgendaController@detail');
     
     //module label
     Route::get('label', 'LabelController@index');
     
     Route::group(['middleware' => 'ability:admin|manager'], function () {
-	   //module school type
+       //module school type
         Route::post('school/type', 'SchoolTypeController@add');
         Route::put('school/type/{id}', 'SchoolTypeController@update');
         Route::delete('school/type/{id}', 'SchoolTypeController@delete');
         
-	   //module school
+       //module school
         Route::post('school/logo', 'SchoolDirectoryController@uploadLogo');
         Route::post('school/image', 'SchoolDirectoryController@uploadImage');
         Route::post('school', 'SchoolDirectoryController@add');
@@ -113,25 +135,6 @@ Route::group([
         
     });
     
-});
-
-Route::group([
-    'domain' => 'dir.'.env('APP_DOMAIN')
-], function() {
-    Route::get('/', function () {
-	    return view('directory');
-	});
-    Route::get('/{id}', function () {
-	    return view('directory');
-	});
-});
-
-Route::group([
-    'domain' => 'agenda.'.env('APP_DOMAIN')
-], function() {
-    Route::get('/', function () {
-	    return view('agenda');
-	});
 });
 
 Route::get('/', function () {
