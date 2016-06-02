@@ -84,6 +84,13 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			loginRequired: loginRequired
 		}
+	}).state('course', {
+		url: '/course',
+		templateUrl: 'views/admin/course.html',
+		controller: 'courseCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
 	});
 	//controller example
 	/*.state('mapping', {

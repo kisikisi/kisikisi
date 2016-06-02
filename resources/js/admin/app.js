@@ -29,6 +29,7 @@ app
 .controller('newsCatCtrl', newsCatCtrl)
 .controller('agendaCtrl', agendaCtrl)
 .controller('agendaCatCtrl', agendaCatCtrl)
+.controller('courseCtrl', courseCtrl)
 //.controller('adminMappingCtrl', adminMappingCtrl)
 
 /*.directive('datepicker', function() {

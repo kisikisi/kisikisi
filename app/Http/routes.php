@@ -49,6 +49,17 @@ Route::group([
 });
 
 Route::group([
+    'domain' => 'course.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+	    return view('course');
+	});
+	Route::get('/{id}', function () {
+	    return view('course');
+	});
+});
+
+Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
 	Route::post('/login', 'Auth\AuthController@login');
@@ -83,6 +94,12 @@ Route::group([
     Route::get('agenda', 'EducationAgendaController@index');
 	Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
     Route::get('agenda/{id}', 'EducationAgendaController@detail');
+
+	//module course
+    Route::get('course/form', 'CourseController@form');
+    Route::get('course', 'CourseController@index');
+	Route::get('course/scroll/{after}/{limit}', 'CourseController@scroll');
+    Route::get('course/{id}', 'CourseController@detail');
     
     //module label
     Route::get('label', 'LabelController@index');
@@ -128,6 +145,16 @@ Route::group([
         Route::put('agenda/category/{id}', 'AgendaCategoryController@update');
         Route::delete('agenda/category/{id}', 'AgendaCategoryController@delete');
         
+		//module education course
+        Route::post('course/cover', 'CourseController@uploadCover');
+        Route::post('course/content', 'CourseController@uploadContent');
+        Route::post('course', 'CourseController@add');
+        Route::put('course/{id}', 'CourseController@update');
+        Route::delete('course/{id}', 'CourseController@delete');
+        //module course label
+        Route::post('course/{course_id}/label/{label_id}', 'AgendaLabelController@add');
+        Route::delete('course/{course_id}/label/{label_id}', 'AgendaLabelController@remove');
+
         //module label
         Route::post('label', 'LabelController@add');
         Route::put('label/{id}', 'LabelController@update');

@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AlterSchoolDirectoryModule' => $baseDir . '/database/migrations/2016_05_25_181656_alter_school_directory_module.php',
     'CityTableSeeder' => $baseDir . '/database/seeds/CityTableSeeder.php',
+    'CourseTableSeeder' => $baseDir . '/database/seeds/CourseTableSeeder.php',
     'CreateAgendaCategoriesTable' => $baseDir . '/database/migrations/2016_05_06_211606_create_agenda_categories_table.php',
     'CreateAgendaLabelsTable' => $baseDir . '/database/migrations/2016_05_06_222812_create_agenda_labels_table.php',
     'CreateCitiesTable' => $baseDir . '/database/migrations/2016_03_21_013238_create_cities_table.php',
@@ -101,6 +102,7 @@ return array(
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+    'LabelTableSeeder' => $baseDir . '/database/seeds/LabelTableSeeder.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit_Extensions_GroupTestSuite' => $vendorDir . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
     'PHPUnit_Extensions_PhptTestCase' => $vendorDir . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
