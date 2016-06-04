@@ -92,8 +92,18 @@ Route::group([
     //module agenda
     Route::get('agenda/form', 'EducationAgendaController@form');
     Route::get('agenda', 'EducationAgendaController@index');
+    Route::get('agenda/calendar', 'EducationAgendaController@calendar');
 	Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
     Route::get('agenda/{id}', 'EducationAgendaController@detail');
+
+	//module scholarship degree
+    Route::get('scholarship/degree', 'ScholarshipDegreeController@index');
+	Route::get('scholarship/degree/scroll/{after}/{limit}', 'ScholarshipDegreeController@scroll');
+    //module scholarship
+    Route::get('scholarship/form', 'ScholarshipController@form');
+    Route::get('scholarship', 'ScholarshipController@index');
+	Route::get('scholarship/scroll/{after}/{limit}', 'ScholarshipController@scroll');
+    Route::get('scholarship/{id}', 'ScholarshipController@detail');
 
 	//module course
     Route::get('course/form', 'CourseController@form');
@@ -145,6 +155,17 @@ Route::group([
         Route::put('agenda/category/{id}', 'AgendaCategoryController@update');
         Route::delete('agenda/category/{id}', 'AgendaCategoryController@delete');
         
+		//module education scholarship
+        Route::post('scholarship/cover', 'ScholarshipController@uploadCover');
+        Route::post('scholarship/content', 'ScholarshipController@uploadContent');
+        Route::post('scholarship', 'ScholarshipController@add');
+        Route::put('scholarship/{id}', 'ScholarshipController@update');
+        Route::delete('scholarship/{id}', 'ScholarshipController@delete');
+        //module scholarship category
+        Route::post('scholarship/category', 'ScholarshipDegreeController@add');
+        Route::put('scholarship/category/{id}', 'ScholarshipDegreeController@update');
+        Route::delete('scholarship/category/{id}', 'ScholarshipDegreeController@delete');
+
 		//module education course
         Route::post('course/cover', 'CourseController@uploadCover');
         Route::post('course/content', 'CourseController@uploadContent');

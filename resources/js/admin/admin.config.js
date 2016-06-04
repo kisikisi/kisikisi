@@ -84,6 +84,20 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			loginRequired: loginRequired
 		}
+	}).state('scholarship', {
+		url: '/scholarship',
+		templateUrl: 'views/admin/scholarship.html',
+		controller: 'scholarshipCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
+	}).state('scholarship-degree', {
+		url: '/scholarship/degree',
+		templateUrl: 'views/admin/scholarship.degree.html',
+		controller: 'scholarshipDegreeCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
 	}).state('course', {
 		url: '/course',
 		templateUrl: 'views/admin/course.html',

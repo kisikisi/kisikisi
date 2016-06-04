@@ -53,6 +53,9 @@ var paths = {
 		'bower_components/ng-tags-input/ng-tags-input.min.js',
 		'bower_components/angular-easyfb/build/angular-easyfb.min.js',
 		'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
+		'bower_components/angular-ui-calendar/src/calendar.js',
+		'bower_components/fullcalendar/dist/fullcalendar.min.js',
+		'bower_components/fullcalendar/dist/gcal.js',
     ],
 	less: [
 		'resources/assets/uikit.less',
@@ -68,6 +71,7 @@ var paths = {
 
 		'bower_components/hint.css/hint.min.css',
 		'bower_components/hint.css/hint.base.min.css',
+		'bower_components/fullcalendar/dist/fullcalendar.css',
 
 		//fonts
 		'public/fonts/anagram.css',

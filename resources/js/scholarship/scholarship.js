@@ -24,7 +24,7 @@ function($http, $scope, $rootScope, $state, $sce, $location, Notification, envSe
 
     //$scope.modalTemplate = 'views/partial/login.html';
     //console.log($rootScope.env);
-    
+
     // searching array to find index by id
 	$scope.indexSearch = function(array, id) {
 		return array.map(function(el) {
@@ -118,7 +118,7 @@ function($http, $scope, $rootScope, $state, $sce, $location, Notification, envSe
     };
 
     var widget = this;
-  
+
     $scope.$watch(function () {
         return widget.href;
     }, function () {
