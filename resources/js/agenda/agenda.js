@@ -56,6 +56,23 @@ function($http, $scope, $rootScope, $state, $sce, $location, Notification, envSe
 		$state.go('agenda');
 	}
 
+	$scope.agendaCalendar = function() {
+		$http.get($scope.env.api+'agenda/calendar')
+        .success(function (response) {
+            var calendar = response.calendar;
+			for (i=0;i<calendar.length;i++) {
+				calendar[i].start = moment.unix(response.calendar[i].start).format("YYYY-MM-DD");
+				calendar[i].end = moment.unix(response.calendar[i].end).format("YYYY-MM-DD");
+			}
+			$scope.eventSources = {
+				events: calendar,
+				color: 'yellow',   // an option!
+				textColor: 'black' // an option!
+			}
+        });
+	}
+	$scope.agendaCalendar();
+
 	$scope.nextPage = function() {
 		//console.log($scope.filter);
 		$scope.scrollBusy = true;

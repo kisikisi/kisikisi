@@ -17,13 +17,18 @@ use Auth;
 class EducationAgendaController extends Controller
 {
     public function __construct(){
-		$this->middleware('jwt.auth', ['except'=>['index','detail','form','scroll']]);
+		$this->middleware('jwt.auth', ['except'=>['index','detail','form','scroll','calendar']]);
 	}
 
 	public function index(EducationAgenda $agenda){
     	$data['agenda'] = $agenda->agendaList()->get();
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
+
+	public function calendar(EducationAgenda $agenda) {
+		$data['calendar'] = $agenda->select(['title','start_datetime as start','end_datetime as end'])->get();
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+	}
 
 	public function scroll($after, $limit, EducationAgenda $agenda, Request $request) {
 		$agenda_category_id = $request->input('agenda_category_id');

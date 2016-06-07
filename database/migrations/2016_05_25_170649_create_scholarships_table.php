@@ -18,7 +18,6 @@ class CreateScholarshipsTable extends Migration
             $table->string('slug', 256);
             $table->string('title', 256);
             $table->string('instance', 128);
-            $table->integer('degree_id');
             $table->integer('deadline');
 
 			$table->text('content');

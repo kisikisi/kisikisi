@@ -69,7 +69,6 @@ Route::group([
 	    return view('agenda');
 	});
 });
-
 Route::group([
     'domain' => 'news.'.env('APP_DOMAIN')
 ], function() {
@@ -78,6 +77,16 @@ Route::group([
     });
     Route::get('/{id}', function () {
         return view('news');
+    });
+});
+Route::group([
+    'domain' => 'course.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+        return view('course');
+    });
+    Route::get('/{id}', function () {
+        return view('course');
     });
 });
 
@@ -114,8 +123,28 @@ Route::group([
     //module agenda
     Route::get('agenda/form', 'EducationAgendaController@form');
     Route::get('agenda', 'EducationAgendaController@index');
+<<<<<<< HEAD
     Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
+=======
+    Route::get('agenda/calendar', 'EducationAgendaController@calendar');
+	Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
+>>>>>>> 8c0901adf28810891778eea862124ca35dd7a586
     Route::get('agenda/{id}', 'EducationAgendaController@detail');
+
+	//module scholarship degree
+    Route::get('scholarship/degree', 'ScholarshipDegreeController@index');
+	Route::get('scholarship/degree/scroll/{after}/{limit}', 'ScholarshipDegreeController@scroll');
+    //module scholarship
+    Route::get('scholarship/form', 'ScholarshipController@form');
+    Route::get('scholarship', 'ScholarshipController@index');
+	Route::get('scholarship/scroll/{after}/{limit}', 'ScholarshipController@scroll');
+    Route::get('scholarship/{id}', 'ScholarshipController@detail');
+
+	//module course
+    Route::get('course/form', 'CourseController@form');
+    Route::get('course', 'CourseController@index');
+	Route::get('course/scroll/{after}/{limit}', 'CourseController@scroll');
+    Route::get('course/{id}', 'CourseController@detail');
     
     //module label
     Route::get('label', 'LabelController@index');
@@ -161,6 +190,27 @@ Route::group([
         Route::put('agenda/category/{id}', 'AgendaCategoryController@update');
         Route::delete('agenda/category/{id}', 'AgendaCategoryController@delete');
         
+		//module education scholarship
+        Route::post('scholarship/cover', 'ScholarshipController@uploadCover');
+        Route::post('scholarship/content', 'ScholarshipController@uploadContent');
+        Route::post('scholarship', 'ScholarshipController@add');
+        Route::put('scholarship/{id}', 'ScholarshipController@update');
+        Route::delete('scholarship/{id}', 'ScholarshipController@delete');
+        //module scholarship category
+        Route::post('scholarship/category', 'ScholarshipDegreeController@add');
+        Route::put('scholarship/category/{id}', 'ScholarshipDegreeController@update');
+        Route::delete('scholarship/category/{id}', 'ScholarshipDegreeController@delete');
+
+		//module education course
+        Route::post('course/cover', 'CourseController@uploadCover');
+        Route::post('course/content', 'CourseController@uploadContent');
+        Route::post('course', 'CourseController@add');
+        Route::put('course/{id}', 'CourseController@update');
+        Route::delete('course/{id}', 'CourseController@delete');
+        //module course label
+        Route::post('course/{course_id}/label/{label_id}', 'AgendaLabelController@add');
+        Route::delete('course/{course_id}/label/{label_id}', 'AgendaLabelController@remove');
+
         //module label
         Route::post('label', 'LabelController@add');
         Route::put('label/{id}', 'LabelController@update');

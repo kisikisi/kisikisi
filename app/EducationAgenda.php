@@ -43,11 +43,11 @@ class EducationAgenda extends Model
     }
     
     public function createdBy() {
-        return $this->belongsTo('App\AgendaCategory','created_by');
+        return $this->belongsTo('App\User','created_by');
     }
     
     public function modifiedBy() {
-        return $this->belongsTo('App\AgendaCategory','modified_by');
+        return $this->belongsTo('App\User','modified_by');
     }
     
     public function agendaLabel() {

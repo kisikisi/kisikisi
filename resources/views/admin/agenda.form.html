@@ -67,8 +67,8 @@
                       <span class="sr-only">{{ progress1 }} Complete</span>
                     </div>
                 </div>
-                <img ng-if="input.image_cover != null" ng-src="{{ env.file }}agenda/cover/{{ input.image_cover }}" width="50%" />
-                <a type="button" class="btn btn-block btn-primary" ngf-select="uploadCover(agendaAddForm.filecover.$valid && filecover, $file)" ngf-resize="{width: 256, height: 256, centerCrop: true}" name="filecover" ng-model="filecover" ngf-pattern="'image/*'"
+                <img ng-if="input.image_cover != null" ng-src="{{ env.file }}agenda/cover/{{ input.image_cover }}" width="100%" />
+                <a type="button" class="btn btn-block btn-primary" ngf-select="uploadCover(agendaAddForm.filecover.$valid && filecover, $file)" ngf-resize="{width: 600, height: 300, centerCrop: true}" name="filecover" ng-model="filecover" ngf-pattern="'image/*'"
                     ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecover.name == null">Upload Cover Picture</span> {{filecover.name}}</a>
               </div>
               <div class="col-sm-5">
@@ -77,8 +77,8 @@
                       <span class="sr-only">{{ progress2 }} Complete</span>
                     </div>
                 </div>
-                <img ng-if="input.image_content != null" ng-src="{{ env.file }}agenda/content/{{ input.image_content }}" width="100%" />
-                <a type="button" class="btn btn-block btn-primary" ngf-select="uploadContent(agendaAddForm.filecontent.$valid && filecontent, $file)" ngf-resize="{width: 600, height: 300, centerCrop: true}" name="filecontent" ng-model="filecontent" ngf-pattern="'image/*'"
+                <img ng-if="input.image_content != null" ng-src="{{ env.file }}agenda/content/{{ input.image_content }}" width="50%" />
+                <a type="button" class="btn btn-block btn-primary" ngf-select="uploadContent(agendaAddForm.filecontent.$valid && filecontent, $file)" ngf-resize="{width: 600, height: 800, centerCrop: true}" name="filecontent" ng-model="filecontent" ngf-pattern="'image/*'"
                     ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecontent.name == null">Upload Content Picture</span> {{filecontent.name}}</a>
               </div>
             </div>
