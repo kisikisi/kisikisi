@@ -3,7 +3,7 @@
   Berita Pendidikan
 
 </h3>
-<div class="ui link three stackable cards" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
+<!-- <div class="ui link three stackable cards" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
  <div class="card"  ng-repeat="list in news" ng-click="detailnews(list.id)">
   <a ng-if="list.image" class="image">
     <img ng-src="{{ env.file }}/news/image/{{ list.image }}">
@@ -34,25 +34,34 @@
     </a>
   </div>
  </div>
-</div>
+</div> -->
 
-<div class="ui divided items">
-  <div class="item">
+<div class="ui link divided items" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
+  <div class="item" ng-repeat="list in news" ng-click="detailNews(list.id)">
       <div class="ui small image">
-          <a class="ui left corner red label">
+          <!-- <a class="ui left corner red label">
               <i class="heart icon">aaa</i>
+          </a> -->
+          <a ng-if="list.image_cover" class="image">
+            <img ng-src="{{ env.file }}/news/cover/{{ list.image_cover }}" />
           </a>
-          <img src="{{asset('img/avatar5.png')}}" />
       </div>
       <div class="content">
-          <div class="header">SMKN 5 Kota Tangerang Berhasil Mendapatkan Mendali O2SN</div>
+          <div class="header">{{ list.title }}</div>
           <div class="meta">
-              <span>16 mei 2016</span>
-              <a class="ui yellow image label">
-              <img src="/images/avatar/small/christian.jpg" />
-              Helen
+              <span class="date">{{list.date}}</span>
+              <a class="ui blue image label">
+              <img src="/images/avatar/small/veronika.jpg">
+              {{list.author}}
+              <div class="detail">Author</div>
+            </a>
+            <a class="ui red label">{{list.category}}</a>
           </div>
+        <div class="description" >
+          <p>{{list.content  | limitTo:letterLimit}} ...</p>
+        </div>
       </div>
+      
   </div>
   <!-- items close -->
 </div>

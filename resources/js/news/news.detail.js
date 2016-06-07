@@ -3,11 +3,13 @@ var newsDetailCtrl = ['$http','$scope', '$location', '$sce', '$stateParams', 'No
         
         $http.get($scope.env.api+'news/'+$stateParams.id)
         .success(function (response) {
-            $scope.detail = response.detail[0];
-            $scope.detail.description = $sce.trustAsHtml(response.detail[0].description);
-            $scope.detail.data = $sce.trustAsHtml(response.detail[0].data);
-            $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail[0].map_address);
+            $scope.detail = response.detail;
+            $scope.detail.description = $sce.trustAsHtml(response.detail.description);
+            $scope.detail.data = $sce.trustAsHtml(response.detail.data);
+            $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail.map_address);
+            
             $scope.onDetail = true;
+
 			// $location.hash('newsDetail');
         });
         
