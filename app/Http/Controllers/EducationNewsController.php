@@ -15,7 +15,7 @@ use Auth;
 class EducationNewsController extends Controller
 {
     public function __construct(){
-		$this->middleware('jwt.auth', ['except'=>['index','detail']]);
+		$this->middleware('jwt.auth', ['except'=>['index','detail','scroll','form']]);
 	}
 
 	public function index(EducationNews $news){
