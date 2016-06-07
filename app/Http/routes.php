@@ -71,6 +71,17 @@ Route::group([
 });
 
 Route::group([
+    'domain' => 'news.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+        return view('news');
+    });
+    Route::get('/{id}', function () {
+        return view('news');
+    });
+});
+
+Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
     Route::post('/login', 'Auth\AuthController@login');
