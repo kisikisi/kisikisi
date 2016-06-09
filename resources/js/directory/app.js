@@ -35,7 +35,7 @@ app
 })
 .directive('uiSidebar', function() {
 	return function (scope, element, attr) {
-		$(element).sidebar("toggle");
+		$(element).sidebar();
 		$(element).sidebar('attach events', attr.trigger);
     };
 })
