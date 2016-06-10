@@ -17,7 +17,6 @@ class CreateUserProfilesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('title', 32);
             $table->string('first_name', 32);
-            $table->string('middle_name', 32);
             $table->string('last_name', 32);
             $table->integer('born');
             $table->enum('gender', ['M','F']);
@@ -37,8 +36,6 @@ class CreateUserProfilesTable extends Migration
             $table->string('linkedin', 64);
 
             $table->timestamps();
-            $table->integer('created_by')->unsigned();
-            $table->integer('modified_by')->unsigned();
             $table->softDeletes();
         });
 
@@ -51,16 +48,6 @@ class CreateUserProfilesTable extends Migration
             $table->foreign('city_id')
                 ->references('id')
                 ->on('cities')
-                ->onDelete('cascade');
-
-            $table->foreign('created_by')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-
-            $table->foreign('modified_by')
-                ->references('id')
-                ->on('users')
                 ->onDelete('cascade');
         });
     }

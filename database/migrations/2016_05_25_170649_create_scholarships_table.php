@@ -14,7 +14,7 @@ class CreateScholarshipsTable extends Migration
     {
         Schema::create('scholarships', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('scholarship_degree_id')->unsigned();
+            //$table->integer('scholarship_degree_id')->unsigned();
             $table->string('slug', 256);
             $table->string('title', 256);
             $table->string('instance', 128);
@@ -35,10 +35,10 @@ class CreateScholarshipsTable extends Migration
         });
 
         Schema::table('scholarships', function (Blueprint $table) {
-            $table->foreign('scholarship_degree_id')
+            /*$table->foreign('scholarship_degree_id')
                 ->references('id')
                 ->on('scholarship_degrees')
-                ->onDelete('cascade');
+                ->onDelete('cascade');*/
 
             $table->foreign('created_by')
                 ->references('id')

@@ -21,33 +21,33 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
       return deferred.promise;
     }];
 
-	$stateProvider.state('agenda', {
+	$stateProvider.state('scholarship', {
 		url:'/',
-		controller: 'agendaIndexCtrl',
-        templateUrl: 'views/agenda/agenda.list.html'
-	}).state('agendaDetail', {
+		controller: 'scholarshipIndexCtrl',
+        templateUrl: 'views/scholarship/scholarship.list.html'
+	}).state('scholarshipDetail', {
 		url:'/{id:[a-zA-Z1-9.-]*}',
-		controller: 'agendaDetailCtrl',
-        templateUrl: 'views/agenda/agenda.detail.html'
+		controller: 'scholarshipDetailCtrl',
+        templateUrl: 'views/scholarship/scholarship.detail.html'
 	});
 
 	envServiceProvider.config({
 		domains: {
-			development: ['localhost', 'kisikisi.dev', 'agenda.kisikisi.dev'],
-			production: ['103.11.74.10', 'kisikisi.id', 'agenda.kisikisi.id']
+			development: ['localhost', 'kisikisi.dev', 'beasiswa.kisikisi.dev'],
+			production: ['103.11.74.10', 'kisikisi.id', 'beasiswa.kisikisi.id']
 		},
 		vars: {
 			development: {
 				site: '//kisikisi.dev/',
 				api: '//api.kisikisi.dev/',
 				file: '//files.kisikisi.dev/',
-				agenda: '//agenda.kisikisi.dev/'
+				scholarship: '//beasiswa.kisikisi.dev/'
 
 			},
 			production: {
 				site: '//kisikisi.id/',
 				api: '//api.kisikisi.id/',
-				agenda: '//agenda.kisikisi.id/',
+				scholarship: '//beasiswa.kisikisi.id/',
 				file: '//files.kisikisi.id/'
 			}
 		}

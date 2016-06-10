@@ -1,10 +1,10 @@
-var agendaCtrl = ['$http','$scope', '$rootScope', '$state', '$sce', '$location', 'Notification', 'envService',
+var scholarshipCtrl = ['$http','$scope', '$rootScope', '$state', '$sce', '$location', 'Notification', 'envService',
 function($http, $scope, $rootScope, $state, $sce, $location, Notification, envService) {
     $rootScope.env = envService.read('all');
 	//$(".ui.sidebar").sidebar("toggle");
 	//$(".ui.sidebar").sidebar('attach events', '#sidebarToggle');
 
-	$scope.agendas = [];
+	$scope.scholarships = [];
 	$scope.scrollBusy = false;
 	$scope.limit = 12;
 	$scope.after = 0;
@@ -37,27 +37,27 @@ function($http, $scope, $rootScope, $state, $sce, $location, Notification, envSe
 		else $scope.onSearch = false;
 	}
 
-    $scope.filterAgenda = function() {
-        $http.get($scope.env.api+'agenda/form')
+    /*$scope.filterScholarship = function() {
+        $http.get($scope.env.api+'scholarship/form')
         .success(function (response) {
-            $scope.agendaCategories = response.agendaCategories;
+            $scope.scholarshipCategories = response.scholarshipCategories;
             $scope.cities = response.cities;
             $scope.provinces = response.provinces;
         });
     };
-    $scope.filterAgenda();
+    $scope.filterScholarship();*/
 
-	$scope.searchAgenda = function(filter) {
+	$scope.searchScholarship = function(filter) {
 		$scope.after = 0;
-		$scope.agendas = [];
+		$scope.scholarships = [];
 		$scope.nextPage();
 		$scope.filter = filter;
 		$scope.onSearch = false;
-		$state.go('agenda');
+		$state.go('scholarship');
 	}
 
-	$scope.agendaCalendar = function() {
-		$http.get($scope.env.api+'agenda/calendar')
+	/*$scope.scholarshipCalendar = function() {
+		$http.get($scope.env.api+'scholarship/calendar')
         .success(function (response) {
             var calendar = response.calendar;
 			for (i=0;i<calendar.length;i++) {
@@ -71,31 +71,32 @@ function($http, $scope, $rootScope, $state, $sce, $location, Notification, envSe
 			}
         });
 	}
-	$scope.agendaCalendar();
+	$scope.scholarshipCalendar();*/
 
 	$scope.nextPage = function() {
 		//console.log($scope.filter);
 		$scope.scrollBusy = true;
-		$http.get($scope.env.api+'agenda/scroll/'+$scope.after+'/'+$scope.limit, {
+		$http.get($scope.env.api+'scholarship/scroll/'+$scope.after+'/'+$scope.limit, {
 			params: $scope.filter
 		}).success(function (response) {
-			for (var i = 0; i < response.agendas.length; i++) {
-				$scope.agendas.push(response.agendas[i]);
+			for (var i = 0; i < response.scholarships.length; i++) {
+				response.scholarships[i].deadline = moment.unix(response.scholarships[i].deadline).format("MM/DD/YYYY");
+				$scope.scholarships.push(response.scholarships[i]);
 			}
-            //$scope.agendas.push(response.agendas[0]);
-			if (response.agendas.length > 0) {
-				$scope.after = response.agendas[response.agendas.length - 1].id;
+            //$scope.scholarships.push(response.scholarships[0]);
+			if (response.scholarships.length > 0) {
+				$scope.after = response.scholarships[response.scholarships.length - 1].id;
 				$scope.scrollBusy = false;
 			}
 			//$('.ui.sticky').sticky('refresh');
-			//console.log($scope.agendas);
+			//console.log($scope.scholarships);
         })
 	}
 
-	/*$scope.searchAgenda = function(filter) {
-		$http.post($scope.env.api+'agenda/search', filter)
+	/*$scope.searchScholarship = function(filter) {
+		$http.post($scope.env.api+'scholarship/search', filter)
         .success(function (response) {
-            $scope.agendas = response.agendas;
+            $scope.scholarships = response.scholarships;
         });
 	}*/
 
@@ -104,15 +105,15 @@ function($http, $scope, $rootScope, $state, $sce, $location, Notification, envSe
 		$scope.modal2.modal('show');
 	}
 
-    $scope.detailAgenda = function(id) {
-        $http.get($scope.env.api+'agenda/'+id)
+    $scope.detailScholarship = function(id) {
+        $http.get($scope.env.api+'scholarship/'+id)
         .success(function (response) {
             $scope.detail = response.detail;
             $scope.detail.content = $sce.trustAsHtml(response.detail.content);
-            $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail.map_address);
-			$scope.detail.start = moment.unix(response.detail.start_datetime).format("MM/DD/YYYY");
-			$scope.detail.end = moment.unix(response.detail.end_datetime).format("MM/DD/YYYY");
-            //$scope.modalTemplate = 'views/agenda/agenda.detail.html';
+            $scope.detail.requirement = $sce.trustAsHtml(response.detail.requirement);
+            $scope.detail.registration = $sce.trustAsHtml(response.detail.registration);
+			$scope.detail.deadline = moment.unix(response.detail.deadline).format("MM/DD/YYYY");
+            //$scope.modalTemplate = 'views/scholarship/scholarship.detail.html';
 			$scope.modal1.modal('show');
         });
     };

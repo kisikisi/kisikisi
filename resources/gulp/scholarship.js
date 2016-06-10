@@ -4,31 +4,31 @@ var include = require('gulp-include');
 var htmlmin = require('gulp-htmlmin');
 var concat = require('gulp-concat');
 
-var agendapaths = {
+var scholarshippaths = {
 	html: [
-		'resources/views/agenda/*.html'
+		'resources/views/scholarship/*.html'
 	],
 	js:[
 		//angular app
-		'resources/js/agenda/agenda.*',
-		'resources/js/agenda/app.js',
+		'resources/js/scholarship/scholarship.*',
+		'resources/js/scholarship/app.js',
 	]
 }
 
-gulp.task('agenda-jsmin', function() {
-  return gulp.src(agendapaths.js)
+gulp.task('scholarship-jsmin', function() {
+  return gulp.src(scholarshippaths.js)
     .pipe(uglify())
-    .pipe(concat('agenda.min.js'))
+    .pipe(concat('scholarship.min.js'))
     .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('agenda-htmlmin', function(cb) {
-	return gulp.src(agendapaths.html)
+gulp.task('scholarship-htmlmin', function(cb) {
+	return gulp.src(scholarshippaths.html)
 	    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
-	    .pipe(gulp.dest('public/views/agenda/'))
+	    .pipe(gulp.dest('public/views/scholarship/'))
 });
 
-gulp.task('agenda-watch', function() {
-	gulp.watch(agendapaths.html, ['agenda-htmlmin']);
-	gulp.watch(agendapaths.js, ['agenda-jsmin']);
+gulp.task('scholarship-watch', function() {
+	gulp.watch(scholarshippaths.html, ['scholarship-htmlmin']);
+	gulp.watch(scholarshippaths.js, ['scholarship-jsmin']);
 })

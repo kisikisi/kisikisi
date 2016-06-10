@@ -17,11 +17,15 @@ class SchoolDirectoryTableSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('school_directories')->insert([
-                'school_type_id' => $faker->numberBetween(1,3),
+                'school_type_id' => $faker->numberBetween(1,20),
+                'npsn' => $faker->ean8,
                 'name' => $faker->company,
+                'slug' => $faker->slug,
                 'address' => $faker->address,
                 'map_address' => $faker->url,
+                'postal' => $faker->postcode,
                 'phone' => $faker->phoneNumber,
+                'fax' => $faker->phoneNumber,
                 'email' => $faker->email,
                 'website' => $faker->domainName,
                 'logo' => "1462882706.png",

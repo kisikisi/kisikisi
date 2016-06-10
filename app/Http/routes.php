@@ -12,7 +12,7 @@
 */
 
 Route::group([
-    'domain' => 'admin.' . env('APP_DOMAIN')
+    'domain' => 'setup.' . env('APP_DOMAIN')
 ], function() {
     Route::post('/login', 'Auth\AuthController@login'); 
     Route::get('/', function () {
@@ -27,7 +27,7 @@ Route::group([
 });
 
 Route::group([
-    'domain' => 'dir.'.env('APP_DOMAIN')
+    'domain' => 'direktori.'.env('APP_DOMAIN')
 ], function() {
     Route::get('/', function () {
         return view('directory');
@@ -70,7 +70,7 @@ Route::group([
 	});
 });
 Route::group([
-    'domain' => 'news.'.env('APP_DOMAIN')
+    'domain' => 'berita.'.env('APP_DOMAIN')
 ], function() {
     Route::get('/', function () {
         return view('news');
@@ -80,13 +80,24 @@ Route::group([
     });
 });
 Route::group([
-    'domain' => 'course.'.env('APP_DOMAIN')
+    'domain' => 'learning.'.env('APP_DOMAIN')
 ], function() {
     Route::get('/', function () {
         return view('course');
     });
     Route::get('/{id}', function () {
         return view('course');
+    });
+});
+
+Route::group([
+    'domain' => 'beasiswa.'.env('APP_DOMAIN')
+], function() {
+    Route::get('/', function () {
+        return view('scholarship');
+    });
+    Route::get('/{id}', function () {
+        return view('scholarship');
     });
 });
 
@@ -123,12 +134,9 @@ Route::group([
     //module agenda
     Route::get('agenda/form', 'EducationAgendaController@form');
     Route::get('agenda', 'EducationAgendaController@index');
-<<<<<<< HEAD
     Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
-=======
     Route::get('agenda/calendar', 'EducationAgendaController@calendar');
 	Route::get('agenda/scroll/{after}/{limit}', 'EducationAgendaController@scroll');
->>>>>>> 8c0901adf28810891778eea862124ca35dd7a586
     Route::get('agenda/{id}', 'EducationAgendaController@detail');
 
 	//module scholarship degree

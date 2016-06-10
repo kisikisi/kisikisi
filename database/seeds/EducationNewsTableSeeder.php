@@ -17,7 +17,7 @@ class EducationNewsTableSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('education_news')->insert([
-                'news_category_id' => $faker->numberBetween(3,50),
+                'news_category_id' => $faker->numberBetween(1,20),
                 'title' => ucwords($faker->sentence(6)),
                 'slug' => $faker->slug,
                 'image_cover' => "1464068870.jpg",

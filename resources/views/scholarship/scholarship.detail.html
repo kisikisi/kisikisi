@@ -1,5 +1,5 @@
 <div class="image">
-    <img ng-src="{{env.file}}agenda/cover/{{detail.image_cover}}" alt="" class="ui fluid image">
+    <img ng-src="{{env.file}}scholarship/cover/{{detail.image_cover}}" alt="" class="ui fluid image">
     <!--<div class="ui center aligned grid content">
 
     </div>-->
@@ -8,7 +8,7 @@
     <h2 class="ui header uk-width-medium-2-3 uk-width-small-1-1">
         <div class="content">
             {{detail.title}}
-            <div class="sub header">{{detail.agenda_category.name}}</div>
+            <div class="sub header">By {{ detail.created_by }} | {{detail.created_at}}</div>
             <div ui-rating class="ui star rating" data-rating="0" data-max-rating="5"></div>
         </div>
     </h2>
@@ -17,49 +17,53 @@
           <div class="item">
             <i class="marker icon"></i>
             <div class="ui content">
-                {{ detail.location }}
+                {{ detail.instance }}
             </div>
           </div>
           <div class="item">
             <i class="calendar icon"></i>
             <div class="content">
-              {{detail.start}} - {{detail.end}}
+              {{detail.deadline}}
             </div>
           </div>
           <div class="item">
             <i class="linkify icon"></i>
             <div class="content">
-              <a href="{{detail.site}}">{{ detail.embed }}</a>
+              <a href="{{detail.site}}">{{ detail.link }}</a>
             </div>
           </div>
         </div>
     </div>
 </div>
-<div class="ui three item top attached compact menu">
-  <a ui-tab class="active item" data-tab="description">
+<div class="ui four item top attached compact menu">
+  <a ui-tab class="active item" data-tab="content">
    <i class="list icon"></i>
+    Deskripsi
+  </a>
+  <a ui-tab class="item" data-tab="requirement">
+   <i class="table icon"></i>
+    Persyaratan
+  </a>
+  <a ui-tab class="item" data-tab="registration">
+   <i class="map icon"></i>
+    Pendaftaran
+  </a>
+  <a ui-tab class="item" data-tab="image">
+   <i class="map icon"></i>
     Gambar
   </a>
-  <a ui-tab class="item" data-tab="data">
-   <i class="table icon"></i>
-    Detil
-  </a>
-  <a ui-tab class="item" data-tab="map">
-   <i class="map icon"></i>
-    Lokasi
-  </a>
 </div>
-<div class="ui attached active tab segment" data-tab="description">
-  <img class="image" ng-src="{{env.file}}agenda/content/{{detail.image_content}}">
-</div>
-<div class="ui attached tab segment" data-tab="data">
+<div class="ui attached tab segment" data-tab="content">
   <article ng-bind-html="detail.content"></article>
 </div>
-<div class="ui attached tab segment" data-tab="map">
-    <iframe ng-if="detail.map_address != null" width="100%" ng-src="{{ detail.map_address }}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-	<div ng-if="detail.map_address == null" class="ui message">
-	  <p>Peta masih belum tersedia</p>
-	</div>
+<div class="ui attached tab segment" data-tab="requirement">
+  <article ng-bind-html="detail.requirement"></article>
+</div>
+<div class="ui attached tab segment" data-tab="registration">
+  <article ng-bind-html="detail.registration"></article>
+</div>
+<div class="ui attached active tab segment" data-tab="image">
+  <img class="image" ng-src="{{env.file}}scholarship/content/{{detail.image_content}}">
 </div>
 <div class="ui attached segment">
     <a href="http://www.facebook.com/sharer.php?u={{ url }}" target="_blank" class="ui facebook button">
@@ -80,6 +84,6 @@
     </a>
 </div>
 <div class="ui attached segment">
-    <div class="fb-comments" data-href="http://kisikisi.id/smkn5tng" data-numposts="5" data-width="100%"></div>
+    <div class="fb-comments" data-href="{{url}}" data-numposts="5" data-width="100%"></div>
 </div>
 <div ng-if="widget.rendered">rendered</div>

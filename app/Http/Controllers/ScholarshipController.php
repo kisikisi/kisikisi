@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Scholarship;
-use App\ScholarshipDegree;
+//use App\ScholarshipDegree;
 use Auth;
 
 class ScholarshipController extends Controller
@@ -23,14 +23,14 @@ class ScholarshipController extends Controller
     }
 
 	public function scroll($after, $limit, Scholarship $scholarship, Request $request) {
-		$scholarship_degree_id = $request->input('scholarship_degree_id');
+		//$scholarship_degree_id = $request->input('scholarship_degree_id');
 		$title = $request->input('title');
 
     	$lists = $scholarship->scholarshipList()
 			->orderBy($scholarship->table.'.id', 'desc')
 			->take($limit);
 
-		if (!empty($scholarship_degree_id)) $lists->where('scholarship_degree_id', $scholarship_degree_id);
+		//if (!empty($scholarship_degree_id)) $lists->where('scholarship_degree_id', $scholarship_degree_id);
         if (!empty($title)) $lists->where($scholarship->table.'.title', 'like', "%$title%");
 
 		if ($after != 0) $lists->where($scholarship->table.'.id','<', $after);
@@ -38,10 +38,10 @@ class ScholarshipController extends Controller
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
-    public function form() {
+    /*public function form() {
         $data['scholarshipDegrees'] = ScholarshipDegree::all();
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
-    }
+    }*/
 
     public function uploadCover() {
         $logo = Input::file('image');
@@ -99,7 +99,7 @@ class ScholarshipController extends Controller
     public function detail($id) {
 		$scholarship = explode('-', $id, 2);
 
-		$data['detail'] = Scholarship::with(["scholarshipDegree","city.province","city"])->find($scholarship[0]);
+		$data['detail'] = Scholarship::find($scholarship[0]);
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 

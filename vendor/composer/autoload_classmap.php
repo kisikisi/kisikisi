@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AgendaCategoriesTableSeeder' => $baseDir . '/database/seeds/AgendaCategoriesTableSeeder.php',
     'AlterSchoolDirectoryModule' => $baseDir . '/database/migrations/2016_05_25_181656_alter_school_directory_module.php',
     'CityTableSeeder' => $baseDir . '/database/seeds/CityTableSeeder.php',
     'CourseTableSeeder' => $baseDir . '/database/seeds/CourseTableSeeder.php',
@@ -21,7 +22,6 @@ return array(
     'CreateNewsLabelsTable' => $baseDir . '/database/migrations/2016_04_25_012412_create_news_labels_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProvincesTable' => $baseDir . '/database/migrations/2016_03_21_013231_create_provinces_table.php',
-    'CreateScholarshipDegreesTable' => $baseDir . '/database/migrations/2016_05_25_170600_create_scholarship_degrees_table.php',
     'CreateScholarshipsTable' => $baseDir . '/database/migrations/2016_05_25_170649_create_scholarships_table.php',
     'CreateSchoolDirectoriesTable' => $baseDir . '/database/migrations/2016_03_21_013316_create_school_directories_table.php',
     'CreateSchoolTypesTable' => $baseDir . '/database/migrations/2016_03_21_013202_create_school_types_table.php',
@@ -103,8 +103,8 @@ return array(
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
-    'NewsCategoryTableSeeder' => $baseDir . '/database/seeds/NewsCategoryTableSeeder.php',
     'LabelTableSeeder' => $baseDir . '/database/seeds/LabelTableSeeder.php',
+    'NewsCategoriesTableSeeder' => $baseDir . '/database/seeds/NewsCategoriesTableSeeder.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit_Extensions_GroupTestSuite' => $vendorDir . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
     'PHPUnit_Extensions_PhptTestCase' => $vendorDir . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
@@ -504,8 +504,10 @@ return array(
     'RoleUserTableSeeder' => $baseDir . '/database/seeds/RoleUserTableSeeder.php',
     'RolesTableSeeder' => $baseDir . '/database/seeds/RolesTableSeeder.php',
     'ScholarshipDegreesTableSeeder' => $baseDir . '/database/seeds/ScholarshipDegreesTableSeeder.php',
+    'ScholarshipLabels' => $baseDir . '/database/migrations/2016_06_09_064503_scholarship_labels.php',
     'ScholarshipsTableSeeder' => $baseDir . '/database/seeds/ScholarshipsTableSeeder.php',
     'SchoolDirectoryTableSeeder' => $baseDir . '/database/seeds/SchoolDirectoryTableSeeder.php',
+    'SchoolTypesTableSeeder' => $baseDir . '/database/seeds/SchoolTypesTableSeeder.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
     'SebastianBergmann\\Comparator\\Comparator' => $vendorDir . '/sebastian/comparator/src/Comparator.php',
     'SebastianBergmann\\Comparator\\ComparisonFailure' => $vendorDir . '/sebastian/comparator/src/ComparisonFailure.php',
@@ -544,6 +546,7 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'UserProfilesTableSeeder' => $baseDir . '/database/seeds/UserProfilesTableSeeder.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
     'Zizaco\\Entrust\\MigrationCommand' => $vendorDir . '/zizaco/entrust/src/commands/MigrationCommand.php',
 );

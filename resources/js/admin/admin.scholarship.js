@@ -44,12 +44,12 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
         })
 	}
 
-    $scope.formScholarship = function() {
+    /*$scope.formScholarship = function() {
         $http.get($scope.env.api+'scholarship/form')
         .success(function (response) {
             $scope.scholarshipDegrees = response.scholarshipDegrees;
         })
-    }
+    }*/
 
     $scope.slug = function(str) {
         str = str.replace(/[^a-zA-Z0-9\s]/g,"");
@@ -58,7 +58,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
         return str;
     }
 
-    /*$scope.loadLabels = function(query) {
+    $scope.loadLabels = function(query) {
         return $scope.labels;
     }
 
@@ -82,7 +82,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 		} else {
 			return false;
 		}
-    }*/
+    }
 
     $scope.uploadCover = function(isValid, file) {
         if (isValid) {
@@ -201,6 +201,6 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	}
 
 	//$scope.listScholarship();
-    $scope.formScholarship();
+    //$scope.formScholarship();
 
 }];

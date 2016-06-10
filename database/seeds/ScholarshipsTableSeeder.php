@@ -17,7 +17,6 @@ class ScholarshipsTableSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('scholarships')->insert([
-                'scholarship_degree_id' => $faker->numberBetween(1,10),
                 'slug' => $faker->slug,
                 'title' => ucwords($faker->sentence(6)),
                 'instance' => $faker->company,

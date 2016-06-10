@@ -33,21 +33,21 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
         
 	envServiceProvider.config({
 		domains: {
-			development: ['localhost', 'kisikisi.dev', 'news.kisikisi.dev'],
-			production: ['103.11.74.10', 'kisikisi.id', 'news.kisikisi.id']
+			development: ['localhost', 'kisikisi.dev', 'berita.kisikisi.dev'],
+			production: ['103.11.74.10', 'kisikisi.id', 'berita.kisikisi.id']
 		},
 		vars: {
 			development: {
 				site: '//kisikisi.dev/',
 				api: '//api.kisikisi.dev/',
 				file: '//files.kisikisi.dev/',
-				news: '//news.kisikisi.dev/'
+				news: '//berita.kisikisi.dev/'
 				
 			},
 			production: {
 				site: '//kisikisi.id/',
 				api: '//api.kisikisi.id/',
-				news: '//news.kisikisi.id/',
+				news: '//berita.kisikisi.id/',
 				file: '//files.kisikisi.id/'
 			}
 		}

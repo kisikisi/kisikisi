@@ -30,8 +30,7 @@ class Scholarship extends Model
     ];
 
     public function scholarshipList() {
-        return $this->select(DB::raw("scholarships.id, scholarships.title, scholarships.slug, c.name as degree, scholarships.instance, scholarships.deadline, scholarships.status, scholarships.image_cover"))
-            ->join("scholarship_degrees AS c", "c.id", "=", "scholarships.scholarship_degree_id");
+        return $this->select('id','title', 'slug', 'instance', 'deadline', 'status', 'image_cover');
     }
 
     public function scholarshipDegree() {

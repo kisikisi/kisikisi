@@ -7,9 +7,9 @@ app
 	'embedly': '8081dea79e164014bcd7cd7e1ab2363a'
 })*/
 .config(config)
-.controller('agendaCtrl', agendaCtrl)
-.controller('agendaIndexCtrl', agendaIndexCtrl)
-.controller('agendaDetailCtrl', agendaDetailCtrl)
+.controller('scholarshipCtrl', scholarshipCtrl)
+.controller('scholarshipIndexCtrl', scholarshipIndexCtrl)
+.controller('scholarshipDetailCtrl', scholarshipDetailCtrl)
 .directive('uiRating', function() {
 	return function (scope, element, attr) {
 		$(element).rating();
