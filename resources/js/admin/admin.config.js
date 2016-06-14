@@ -84,6 +84,20 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			loginRequired: loginRequired
 		}
+	}).state('scholarship', {
+		url: '/scholarship',
+		templateUrl: 'views/admin/scholarship.html',
+		controller: 'scholarshipCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
+	}).state('course', {
+		url: '/course',
+		templateUrl: 'views/admin/course.html',
+		controller: 'courseCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
 	});
 	//controller example
 	/*.state('mapping', {
@@ -97,21 +111,21 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	
 	envServiceProvider.config({
 		domains: {
-			development: ['localhost', 'kisikisi.dev', 'admin.kisikisi.dev'],
-			production: ['103.11.74.10', 'kisikisi.id', 'admin.kisikisi.id']
+			development: ['localhost', 'kisikisi.dev', 'setup.kisikisi.dev'],
+			production: ['103.11.74.10', 'kisikisi.id', 'setup.kisikisi.id']
 		},
 		vars: {
 			development: {
 				site: '//kisikisi.dev/',
 				api: '//api.kisikisi.dev/',
-				admin: '//admin.kisikisi.dev/',
+				admin: '//setup.kisikisi.dev/',
 				file: '//files.kisikisi.dev/'
 				
 			},
 			production: {
 				site: '//kisikisi.id/',
 				api: '//api.kisikisi.id/',
-				admin: '//admin.kisikisi.id/',
+				admin: '//setup.kisikisi.id/',
 				file: '//files.kisikisi.id/'
 			}
 		}

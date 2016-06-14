@@ -23,14 +23,13 @@ var portalpaths = {
 		'bower_components/uikit/js/uikit.min.js',
 		'bower_components/uikit/js/components/parallax.min.js',
 		'bower_components/uikit/js/components/slideshow.min.js',
-		'bower_components/uikit/js/components/slideshow-fx.min.js',
 		'bower_components/uikit/js/components/slider.min.js',
+		'bower_components/uikit/js/components/tooltip.min.js',
 		'bower_components/uikit/js/core/scrollspy.min.js',
 		'bower_components/uikit/js/core/switcher.min.js',
-
+		'bower_components/uikit/js/components/sticky.min.js',
 
 		//typed js
-		'bower_components/typed.js/dist/typed.min.js',
 
     ],
 	js:[
@@ -45,7 +44,15 @@ var portalpaths = {
 		'bower_components/uikit/css/components/slider.almost-flat.min.css',
 		'bower_components/uikit/css/components/slideshow.almost-flat.min.css',
 		'bower_components/uikit/css/components/dotnav.almost-flat.min.css',
+		'bower_components/uikit/css/components/tooltip.almost-flat.min.css',
+		'bower_components/uikit/css/components/sticky.min.css',
 		
+		//fonts
+		'public/fonts/anagram.css',
+		'public/fonts/Folks-Bold.css',
+		'public/fonts/Folks-Normal.css',
+		'public/fonts/GlacialIndifference-Regular.css',
+
 		//custom style
 		'resources/css/kisikisi.styl',
 

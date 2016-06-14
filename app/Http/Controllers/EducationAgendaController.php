@@ -17,12 +17,35 @@ use Auth;
 class EducationAgendaController extends Controller
 {
     public function __construct(){
-		$this->middleware('jwt.auth', ['except'=>['index','detail']]);
+		$this->middleware('jwt.auth', ['except'=>['index','detail','form','scroll','calendar']]);
 	}
 
 	public function index(EducationAgenda $agenda){
     	$data['agenda'] = $agenda->agendaList()->get();
-    	return response()->json($data);
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+    }
+
+	public function calendar(EducationAgenda $agenda) {
+		$data['calendar'] = $agenda->select(['title','start_datetime as start','end_datetime as end'])->get();
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+	}
+
+	public function scroll($after, $limit, EducationAgenda $agenda, Request $request) {
+		$agenda_category_id = $request->input('agenda_category_id');
+		$city_id = $request->input('city_id');
+		$title = $request->input('title');
+
+    	$lists = $agenda->agendaList()
+			->orderBy($agenda->table.'.id', 'desc')
+			->take($limit);
+
+		if (!empty($agenda_category_id)) $lists->where('agenda_category_id', $agenda_category_id);
+        if (!empty($city_id)) $lists->where('city_id', $city_id);
+        if (!empty($title)) $lists->where($agenda->table.'.title', 'like', "%$title%");
+
+		if ($after != 0) $lists->where($agenda->table.'.id','<', $after);
+        $data['agendas'] = $lists->get();
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function form() {
@@ -30,7 +53,7 @@ class EducationAgendaController extends Controller
         $data['provinces'] = Province::select(['id','name'])->get();
         $data['cities'] = City::select(['id','province_id','name'])->get();
         $data['labels'] = Label::all();
-    	return response()->json($data);
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
     
     public function uploadCover() {
@@ -43,7 +66,7 @@ class EducationAgendaController extends Controller
 	        if(!$logo->move($destinationPath, $filename)) {
 	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
 	        } else {
-	        	return response()->json(['status' => 'success', 'message' => 'upload', 'cover' => $filename], 200);
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'cover' => $filename], 200, [], JSON_NUMERIC_CHECK);
 	        }
 		} else {
 	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
@@ -60,7 +83,7 @@ class EducationAgendaController extends Controller
 	        if(!$icon->move($destinationPath, $filename)) {
 	            return response()->json(['status' => 'error', 'message' => 'cant_upload'], 400);
 	        } else {
-	        	return response()->json(['status' => 'success', 'message' => 'upload', 'content' => $filename ], 200);
+	        	return response()->json(['status' => 'success', 'message' => 'upload', 'content' => $filename ], 200, [], JSON_NUMERIC_CHECK);
 	        }
 		} else {
 	        return response()->json(['status' => 'error', 'message' => 'empty'], 400);
@@ -84,13 +107,15 @@ class EducationAgendaController extends Controller
     		$data['status'] = 'error';
     		$data['message'] = 'education agenda  failed to add';
     	}
-        return response()->json($data);
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
-    public function detail($id){
-        $data['detail'] = EducationAgenda::with(["agendaCategory","city"])->find($id);
-        $data['agendaLabel'] = EducationAgenda::find($id)->agendaLabel()->get();
-        return response()->json($data);
+    public function detail($id) {
+		$agenda = explode('-', $id, 2);
+
+		$data['detail'] = EducationAgenda::with(["agendaCategory","city.province","city"])->find($agenda[0]);
+		$data['agendaLabel'] = EducationAgenda::find($agenda[0])->agendaLabel()->get();
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function update(Request $request, EducationAgenda $agenda,$id){
@@ -100,8 +125,10 @@ class EducationAgendaController extends Controller
     	$input['modified_by'] = Auth::user()->id;
 
     	$type = EducationAgenda::where('id', $id)->first();
-    	if ($type->update($input)) return response()->json(['success' => 'data_updated'], 200);
-    	else return response()->json(['error' => 'cant_update_data'], 500);
+    	if ($type->update($input)) {
+            $data = $agenda->agendaList()->where($agenda->table.'.id', $id)->get();
+            return response()->json(['status' => 'success', 'message' => 'agenda data updated', 'agenda' => $data], 200);
+        } else return response()->json(['status' => 'error', 'message' => 'fail to update data'], 500);
     }
 
     public function delete($id){
@@ -115,6 +142,6 @@ class EducationAgendaController extends Controller
     		$data['message'] = 'Agenda failed to delete';
     	}
 
-    	return response()->json($data);
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 }

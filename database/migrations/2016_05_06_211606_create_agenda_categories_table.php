@@ -15,6 +15,7 @@ class CreateAgendaCategoriesTable extends Migration
         Schema::create('agenda_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 128);
+            $table->string('slug', 128);
             $table->timestamps();
             $table->integer('created_by')->unsigned();
             $table->integer('modified_by')->unsigned();

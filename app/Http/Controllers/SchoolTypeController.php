@@ -12,13 +12,23 @@ use Auth;
 class SchoolTypeController extends Controller
 {
     public function __construct() {
-        $this->middleware('jwt.auth', ['except' => ['index','detail']]);
+        $this->middleware('jwt.auth', ['except' => ['index','scroll','detail']]);
     }
 
     public function index() {
     	$data['type'] =  SchoolType::all();
         
         return response()->json($data);
+    }
+
+	public function scroll($after, $limit, SchoolType $type, Request $request) {
+
+    	$lists = $type->orderBy('id', 'desc')
+				 ->take($limit);
+
+		if ($after != 0) $lists->where('id','<', $after);
+        $data['types'] = $lists->get();
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function detail($id) {

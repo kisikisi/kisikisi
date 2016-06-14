@@ -2,15 +2,36 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
     
     $.AdminLTE.layout.fix();
     
-	$scope.currentPage = 1;
-	$scope.limit = 10;
+	$scope.types = [];
+	$scope.totalTypes = 0;
+	$scope.limit = 20;
+	$scope.after = 0;
+	$scope.scrollBusy = false;
 
-    $scope.listType = function() {
+    /*$scope.listType = function() {
         $http.get($scope.env.api+'school/type')
         .success(function (response) {
             $scope.type = response.type;
         })
-    }
+    }*/
+
+	$scope.nextPage = function() {
+		$scope.scrollBusy = true;
+		$http.get($scope.env.api+'school/type/scroll/'+$scope.after+'/'+$scope.limit, {
+			params: $scope.filter
+		}).success(function (response) {
+			for (var i = 0; i < response.types.length; i++) {
+				$scope.types.push(response.types[i]);
+			}
+            //$scope.types.push(response.types[0]);
+			if (response.types.length > 0) {
+				$scope.after = response.types[response.types.length - 1].id;
+				$scope.scrollBusy = false;
+			}
+			//$('.ui.sticky').sticky('refresh');
+			//console.log($scope.types);
+        })
+	}
 
 	$scope.addType = function(input) {
 		$http.post($scope.env.api+'school/type', input)
@@ -44,5 +65,5 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
 		}
 	}
 
-    $scope.listType();
+    //$scope.listType();
 }];

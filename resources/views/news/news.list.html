@@ -1,0 +1,67 @@
+<h3 class="ui horizontal divider header">
+  <img ng-src="{{ env.site }}/img/icon/directory.png" width="30">
+  Berita Pendidikan
+
+</h3>
+<!-- <div class="ui link three stackable cards" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
+ <div class="card"  ng-repeat="list in news" ng-click="detailnews(list.id)">
+  <a ng-if="list.image" class="image">
+    <img ng-src="{{ env.file }}/news/image/{{ list.image }}">
+  </a>
+  <div class="content">
+    <a class="header">
+        <img ng-if="list.logo" ng-src="{{ env.file }}/news/logo/{{ list.logo }}" alt="" class="right floated mini ui image">
+        {{ list.name }}
+    </a>
+    <div class="meta">
+      <span class="date">{{ newsTypes[indexSearch(newsTypes, list.news_type_id)].name }} </span>
+    </div>
+    <div class="extra">
+      <div ui-rating class="ui star rating" data-rating="0" data-max-rating="5"></div>
+    </div>
+    <div class="description">
+      {{ cities[indexSearch(cities, list.city_id)].name  }}
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      0 Siswa
+    </a>
+    <a>
+      <i class="heart icon"></i>
+      0 Favorit
+    </a>
+  </div>
+ </div>
+</div> -->
+
+<div class="ui link divided items" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
+  <div class="item" ng-repeat="list in news" ng-click="detailNews(list.id)">
+      <div class="ui small image">
+          <!-- <a class="ui left corner red label">
+              <i class="heart icon">aaa</i>
+          </a> -->
+          <a ng-if="list.image_cover" class="image">
+            <img ng-src="{{ env.file }}/news/cover/{{ list.image_cover }}" />
+          </a>
+      </div>
+      <div class="content">
+          <div class="header">{{ list.title }}</div>
+          <div class="meta">
+              <span class="date">{{list.date}}</span>
+              <a class="ui blue image label">
+              <img src="/images/avatar/small/veronika.jpg">
+              {{list.author}}
+              <div class="detail">Author</div>
+            </a>
+            <a class="ui red label">{{list.category}}</a>
+          </div>
+        <div class="description" >
+          <p>{{list.content  | limitTo:letterLimit}} ...</p>
+        </div>
+      </div>
+      
+  </div>
+  <!-- items close -->
+</div>
