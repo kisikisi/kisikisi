@@ -50,14 +50,37 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
+    protected function validator(array $data) {
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }
+
+	public function getAuthUser($json = false) {
+        /*try {
+
+        } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+            return response()->json(['token_expired'], $e->getStatusCode());
+        } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+            return response()->json(['token_invalid'], $e->getStatusCode());
+        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+            return response()->json(['token_absent'], $e->getStatusCode());
+        }*/
+		if (JWTAuth::getToken()) {
+			if (! $user = JWTAuth::parseToken()->authenticate()) {
+				$data = ['message'=>'user_not_found'];
+				$status = 404;
+			} else {
+				$data = ['user'=>$user];
+				$status = 200;
+			}
+			if ($json == true) return response()->json($data, $status);
+			else return $user;
+		} return false;
+		// the token is valid and we have found the user via the sub claim
+	}
 
     /**
      * Create a new user instance after a valid registration.

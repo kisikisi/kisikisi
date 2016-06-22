@@ -13,11 +13,12 @@ use App\Label;
 use App\Province;
 use App\City;
 use Auth;
+use App\Http\Controllers\Auth\AuthController;
+//use Entrust;
 
-class EducationAgendaController extends Controller
-{
+class EducationAgendaController extends Controller {
     public function __construct(){
-		$this->middleware('jwt.auth', ['except'=>['index','detail','form','scroll','calendar']]);
+		$this->middleware('jwt.auth', ['except'=>['index','detail','scroll','form','calendar']]);
 	}
 
 	public function index(EducationAgenda $agenda){
@@ -26,11 +27,12 @@ class EducationAgendaController extends Controller
     }
 
 	public function calendar(EducationAgenda $agenda) {
-		$data['calendar'] = $agenda->select(['title','start_datetime as start','end_datetime as end'])->get();
+		$data['calendar'] = $agenda->select(['title','start_datetime as start','end_datetime as end'])
+			->where('status',1)->get();
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
 	}
 
-	public function scroll($after, $limit, EducationAgenda $agenda, Request $request) {
+	public function scroll($after, $limit, EducationAgenda $agenda, Request $request, AuthController $auth) {
 		$agenda_category_id = $request->input('agenda_category_id');
 		$city_id = $request->input('city_id');
 		$title = $request->input('title');
@@ -38,6 +40,8 @@ class EducationAgendaController extends Controller
     	$lists = $agenda->agendaList()
 			->orderBy($agenda->table.'.id', 'desc')
 			->take($limit);
+		if (!$user = $auth->getAuthUser())  $lists->where('status', 1);
+		else if (!$user->hasRole(['admin','manager'])) $lists->where('status', 1);
 
 		if (!empty($agenda_category_id)) $lists->where('agenda_category_id', $agenda_category_id);
         if (!empty($city_id)) $lists->where('city_id', $city_id);
@@ -46,6 +50,8 @@ class EducationAgendaController extends Controller
 		if ($after != 0) $lists->where($agenda->table.'.id','<', $after);
         $data['agendas'] = $lists->get();
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
+		//print_r(Auth::user()->name);
+
     }
 
     public function form() {

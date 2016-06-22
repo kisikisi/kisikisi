@@ -130,10 +130,10 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
             //input.city_id = $scope.input.city.id;
             //input.school_type_id = $scope.input.school_type.id;
 
-            var index = $scope.indexSearch($scope.schools, input.id);
+            //var index = $scope.indexSearch($scope.schools, input.id);
             return $http.put($scope.env.api+'school/'+input.id, input)
             .then(function (response) {
-                $scope.schools[index] = response.data.school[0];
+                //$scope.schools[index] = response.data.school[0];
                 Notification({message: response.data.message}, response.status);
                 //$scope.onEdit = false;
             });

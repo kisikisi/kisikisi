@@ -1,5 +1,5 @@
-var agendaCtrl = ['$http','$scope', '$rootScope', '$state', '$sce', '$location', 'Notification', 'envService',
-function($http, $scope, $rootScope, $state, $sce, $location, Notification, envService) {
+var agendaCtrl = ['$http','$scope', '$rootScope', '$state', '$auth', '$sce', '$location', 'Notification', 'envService',
+function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification, envService) {
     $rootScope.env = envService.read('all');
 	//$(".ui.sidebar").sidebar("toggle");
 	//$(".ui.sidebar").sidebar('attach events', '#sidebarToggle');
@@ -11,6 +11,8 @@ function($http, $scope, $rootScope, $state, $sce, $location, Notification, envSe
 	$scope.onSearch = false;
 	$scope.filter = {};
 	$scope.url = $location.absUrl();
+
+	if ($auth.getToken() == null) $auth.setToken();
 
 	$scope.$on('$includeContentLoaded', function(event) {
 		$scope.modal1 = $("#siteModal").modal();

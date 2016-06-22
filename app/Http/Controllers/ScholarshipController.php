@@ -10,6 +10,8 @@ use App\Http\Requests;
 use App\Scholarship;
 //use App\ScholarshipDegree;
 use Auth;
+use Entrust;
+use App\Http\Controllers\Auth\AuthController;
 
 class ScholarshipController extends Controller
 {
@@ -22,7 +24,7 @@ class ScholarshipController extends Controller
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
-	public function scroll($after, $limit, Scholarship $scholarship, Request $request) {
+	public function scroll($after, $limit, Scholarship $scholarship, Request $request, AuthController $auth) {
 		//$scholarship_degree_id = $request->input('scholarship_degree_id');
 		$title = $request->input('title');
 
@@ -30,8 +32,11 @@ class ScholarshipController extends Controller
 			->orderBy($scholarship->table.'.id', 'desc')
 			->take($limit);
 
+		if (!$user = $auth->getAuthUser())  $lists->where('status', 1);
+		else if (!$user->hasRole(['admin','manager'])) $lists->where('status', 1);
+
 		//if (!empty($scholarship_degree_id)) $lists->where('scholarship_degree_id', $scholarship_degree_id);
-        if (!empty($title)) $lists->where($scholarship->table.'.title', 'like', "%$title%");
+		if (!empty($title)) $lists->where($scholarship->table.'.title', 'like', "%$title%");
 
 		if ($after != 0) $lists->where($scholarship->table.'.id','<', $after);
         $data['scholarships'] = $lists->get();
