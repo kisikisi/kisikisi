@@ -12,6 +12,8 @@ use App\Province;
 use App\City;
 use App\SchoolType;
 use Auth;
+use Entrust;
+use App\Http\Controllers\Auth\AuthController;
 
 class SchoolDirectoryController extends Controller
 {
@@ -31,6 +33,7 @@ class SchoolDirectoryController extends Controller
 		$name = $request->input('name');
 
 		$search =  $school->schoolList();
+		if (! Entrust::hasRole(['admin','manager'])) $lists->where('status', 1);
 		if (!empty($school_type_id)) $search->where('school_type_id', $school_type_id);
         if (!empty($city_id)) $search->where('city_id', $city_id);
         if (!empty($name)) $search->where($school->table.'.name', 'like', "%$name%");
@@ -52,7 +55,7 @@ class SchoolDirectoryController extends Controller
         return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
-    public function scroll($after, $limit, SchoolDirectory $school, Request $request) {
+    public function scroll($after, $limit, SchoolDirectory $school, Request $request, AuthController $auth) {
 		$school_type_id = $request->input('school_type_id');
 		$city_id = $request->input('city_id');
 		$name = $request->input('name');
@@ -60,6 +63,9 @@ class SchoolDirectoryController extends Controller
     	$lists = $school->schoolList()
 			->orderBy($school->table.'.id', 'desc')
 			->take($limit);
+
+		if (!$user = $auth->getAuthUser())  $lists->where('status', 1);
+		else if (!$user->hasRole(['admin','manager'])) $lists->where('status', 1);
 
 		if (!empty($school_type_id)) $lists->where('school_type_id', $school_type_id);
         if (!empty($city_id)) $lists->where('city_id', $city_id);

@@ -11,6 +11,8 @@ use App\Course;
 use App\CourseLabel;
 use App\Label;
 use Auth;
+use Entrust;
+use App\Http\Controllers\Auth\AuthController;
 
 class CourseController extends Controller
 {
@@ -23,11 +25,13 @@ class CourseController extends Controller
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
-	public function scroll($after, $limit, Course $course, Request $request) {
+	public function scroll($after, $limit, Course $course, Request $request, AuthController $auth) {
 		$title = $request->input('title');
 
     	$lists = $course->courseList()
 			->take($limit);
+		if (!$user = $auth->getAuthUser())  $lists->where('status', 1);
+		else if (!$user->hasRole(['admin','manager'])) $lists->where('status', 1);
 
 		if (!empty($title)) $lists->where($course->table.'.title', 'like', "%$title%");
 

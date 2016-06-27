@@ -2,7 +2,7 @@
 <html lang="en" ng-app="kisiApp">
 <head>
     <meta charset="UTF-8">
-    <title>Kisikisi.id - Agenda Pendidikan</title>
+    <title>Kisikisi.id - Info Beasiswa</title>
     <link rel="shortcut icon" href="{{ env('APP_URL') }}/img/logo/logo.png">
     <link rel="stylesheet" href="{{ env('APP_URL') }}/css/kisikisi.min.css" media="screen">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />

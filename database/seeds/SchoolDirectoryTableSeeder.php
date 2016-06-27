@@ -32,7 +32,8 @@ class SchoolDirectoryTableSeeder extends Seeder
                 'image' => "1462730388.jpg",
                 'city_id' => $faker->numberBetween(3171,3175),
                 'description' => $faker->paragraph(6),
-                'data' => $faker->paragraph(6)
+                'data' => $faker->paragraph(6),
+				'status' => 1
             ]);
         }
     }

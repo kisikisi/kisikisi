@@ -11,6 +11,8 @@ use App\EducationNews;
 use App\NewsCategory;
 use App\Label;
 use Auth;
+use Entrust;
+use App\Http\Controllers\Auth\AuthController;
 
 class EducationNewsController extends Controller
 {
@@ -23,7 +25,7 @@ class EducationNewsController extends Controller
     	return response()->json($data);
     }
 
-	public function scroll($after, $limit, EducationNews $news, Request $request) {
+	public function scroll($after, $limit, EducationNews $news, Request $request, AuthController $auth) {
 		$news_category_id = $request->input('news_category_id');
 		$title = $request->input('title');
 
@@ -31,6 +33,10 @@ class EducationNewsController extends Controller
 			->orderBy($news->table.'.id', 'desc')
 			->take($limit);
 
+		if (!$user = $auth->getAuthUser())  $lists->where('status', 1);
+		else if (!$user->hasRole(['admin','manager'])) $lists->where('status', 1);
+
+		if (! Entrust::hasRole(['admin','manager'])) $lists->where('status', 1);
 		if (!empty($news_category_id)) $lists->where('news_category_id', $news_category_id);
         if (!empty($title)) $lists->where($news->table.'.title', 'like', "%$title%");
 
