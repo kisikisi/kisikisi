@@ -23,6 +23,7 @@
 </head>
 <body>
 <script>
+
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '607018229476252',
@@ -43,7 +44,7 @@
 	<h3 class="ui item inverted header">
 		<img src="{{asset('img/logo/logo.png')}}" alt="">
 	  <div class="content">
-		Kisikisi.id
+		KISIKISI
 	  </div>
 	</h3>
   <a class="item">
@@ -62,11 +63,32 @@
 	<i class="book large icon"></i> E-Learning
   </a>
 </div>
-
+<div class="ui large basic center aligned modal" >
+	<div class="header">
+        Latar Belakang
+    </div>
+    <div class="image content">
+        <div class="image">
+            <i class="undo icon"></i>
+        </div>
+        <div class="description">
+		<p>Di tengah era globalisasi dan teknologi informasi yang makin menjamur, 
+		para pelaku pendidikan yang tidak terbatas pada guru dan murid membutuhkan suatu sarana dan wadah 
+		untuk ketersediaan informasi yang cepat, 
+		tepat dan akurat yang menunjang bagi peran, tugas dan tanggung jawab masing-masing.</p>
+		<p>Layanan Portal Pendidikan berbasiskan teknologi informasi dipandang sebagai solusi yang sangat..
+		bermanfaat bagi para pelaku pendidikan. Dengan adanya Portal Pendidikan berbasiskan teknologi 
+		informasi maka para pelaku pendidikan yang bisa mengakses segala informasi tidak hanya terbatas pada guru 
+		dan murid saja 
+		tetapi seluruh elemen masyarakat bisa mengakses informasi yang dibutuhkan secara real time.<br><br>
+		Maka dari itu <b>Kisikisi.id</b> di ciptakan.</p>
+		</div>
+	</div>
+</div>
 
 <div class="dimmed pusher">
 <div id="mainNav" data-uk-sticky class="ui icon blue inverted secondary pointing menu" style="z-index:99;">
-	<div class="ui container uk-visible-small">
+	<div class="ui container uk-hidden-large">
 		<a id="sidebarToggle" class="active logo item">
 		   <img src="{{asset('img/logo/logo.png')}}" class="icon" width="30" alt=""><i class="dropdown icon"></i>
 		</a>
@@ -76,32 +98,33 @@
 			</a>
 		</div>
 	</div>
-	<div class="ui container uk-hidden-small">
+	<div class="ui container uk-visible-large">
 		  <a class="active item logo" href="http://kisikisi.id">
-			<img src="{{asset('img/logo/logo.png')}}" alt=""> Kisikisi.id
+			<img src="{{asset('img/logo/logo.png')}}" alt="">
+			<span class="content">isikisi</span>
 		  </a>
 		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Direktori Sekolah">
-			  <a class="item" >
+			  <a class="item" href="http://direktori.kisikisi.id">
 					<i class="university large icon"></i>
 			  </a>
 		  </span>
 		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Berita Pendidikan">
-			<a class="item">
+			<a class="item" href="http://berita.kisikisi.id">
 				<i class="newspaper large icon"></i>
 			</a>
 		  </span>
 		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Agenda Pendidikan">
-			<a class="item">
+			<a class="item" href="http://agenda.kisikisi.id">
 				<i class="calendar large icon"></i>
 			</a>
 		  </span>
 		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Info Beasiswa">
-			<a class="item">
+			<a class="item" href="http://beasiswa.kisikisi.id">
 				<i class="student large icon"></i>
 			</a>
 		  </span>
 		  <span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi E-Learning">
-			<a class="item">
+			<a class="item" href="http://learning.kisikisi.id">
 				<i class="book large icon"></i>
 			</a>
 		  </span>
@@ -111,11 +134,13 @@
 <div id="section-1">
 
 	<div class="ui grid container section-2">
-
-		<div class="centered row" style="" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150,repeat:true}">
+		<div class="centered row uk-margin-bottom-remove">
+			<span style="font-weight:bold;font-family:anagram;color:#fff;font-size:48px;">Kisikisi.id</span>
+		</div>
+		<div class="centered row uk-margin-top" style="margin-top:0;" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150,repeat:true}">
 			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
 		</div>
-		<div class="centered row my-icon" style="" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300,repeat:true}" >
+		<div class="centered row my-icon uk-margin-large-top" style="" data-uk-scrollspy="{cls:'uk-animation-fade',delay:300,repeat:true}" >
 			
 			<center><a class="button-scroll" href="#section-2" data-uk-smooth-scroll>Memulai KisiKisi</a></center>
 		</div>
@@ -127,7 +152,7 @@
 		<div class="row" >
 			<div class="sixteen wide mobile twelve wide tablet twelve wide computer column text" >
 				<div class="flex center" >
-					<h1 class="title" >Apa itu Kisikisi.id?</h1>
+					<h1 class="title"><i class="info circle icon"></i>Apa itu Kisikisi.id?</h1>
 				</div>
 				<div class="texting"> <p><b>Kisikisi.id </b>merupakan portal pendidikan terbesar di Indonesia yang menyajikan
 				informasi terlengkap dan terupdate mengenai direktori pendidikan, agenda pendidikan, berita
@@ -153,20 +178,20 @@
 			</div>
 			<div class="sixteen wide mobile six wide tablet six wide computer column shape">
 				<div class="flex center" style="text-align:center;">
-					<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" >Latar Belakang</h1>
+					<h1 class="title" data-uk-scrollspy="{cls:'uk-animation-fade',delay:50}" ><i class="undo icon"></i>Latar Belakang</h1>
 				</div>
 				<p>Di tengah era globalisasi dan teknologi informasi yang makin menjamur, 
 				para pelaku pendidikan yang tidak terbatas pada guru dan murid membutuhkan suatu sarana dan wadah 
 				untuk ketersediaan informasi yang cepat, 
 				tepat dan akurat yang menunjang bagi peran, tugas dan tanggung jawab masing-masing.</p>
-				<p>Layanan Portal Pendidikan berbasiskan teknologi informasi dipandang sebagai solusi yang sangat 
-				bermanfaat bagi para pelaku pendidikan. Dengan adanya Portal Pendidikan berbasiskan teknologi 
+				<p>Layanan Portal Pendidikan berbasiskan teknologi informasi dipandang sebagai solusi yang sangat.. </p>
+				{{-- bermanfaat bagi para pelaku pendidikan. Dengan adanya Portal Pendidikan berbasiskan teknologi 
 				informasi maka para pelaku pendidikan yang bisa mengakses segala informasi tidak hanya terbatas pada guru 
 				dan murid saja 
 				tetapi seluruh elemen masyarakat bisa mengakses informasi yang dibutuhkan secara real time.<br><br>
-				Maka dari itu <b>Kisikisi.id</b> di ciptakan.</p>
-				<p></p>
-				<a href="#section-2" class="ui button inverted white read" data-uk-smooth-scroll>Baca Lagi</a>
+				Maka dari itu <b>Kisikisi.id</b> di ciptakan.</p> --}}
+				
+				<a id="#baca" class="ui button inverted white read">Baca Selengkapnya</a>
 			</div>
 			
 		</div>
@@ -176,7 +201,7 @@
 <div id="section-min-2">
 	<div class="ui container two column stackable grid">
 		<div class="row">
-			<div class="sixteen wide column"><center><h1 class="title">Apa yang ada di kisikisi.id</h1></center></div>
+			<div class="sixteen wide column"><center><h1 class="title"><i class="help circle icon"></i>Apa yang ada di kisikisi.id</h1></center></div>
 		</div>
 		<div class="row">
 			<div class="column content-detail" data-uk-tooltip="{animation:true}" title="Kunjungi Direktori Sekolah" data-uk-scrollspy="{cls:'uk-animation-slide-left',delay:200}">
@@ -188,12 +213,12 @@
 				</a>
 			</div>
 			<div class="column content-image">
-				<img src="img/icon/free/search.png" class="my-icon" />
+				<img src="img/icon/section/dir.png" class="ui centered small image" />
 			</div>
 		</div>
 		<div class="row">
 			<div class="column content-image">
-				<img src="img/icon/free/video-player.png" class="my-icon" />
+				<img src="img/icon/section/e_learning.png" class="ui centered small image my-icon" />
 			</div>
 			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi E-Learning" data-uk-scrollspy="{cls:'uk-animation-slide-right',delay:200}">
 				<a href="http://learn.kisikisi.id">
@@ -214,12 +239,12 @@
 				</a>
 			</div>
 			<div class="column content-image">
-				<img src="img/icon/free/folder.png" class="my-icon" />
+				<img src="img/icon/section/bank_soal.png" class="ui centered small image my-icon" />
 			</div>
 		</div>
 		<div class="row">
 			<div class="column content-image">
-				<img src="img/icon/free/pipette.png" class="my-icon" />
+				<img src="img/icon/section/clinic.png" class="ui centered small image my-icon" />
 			</div>
 			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Klinik Pendidikan" data-uk-scrollspy="{cls:'uk-animation-slide-right',delay:200}">
 				<a href="http://klinik.kisikisi.id">
@@ -240,12 +265,12 @@
 				</a>
 			</div>
 			<div class="column content-image">
-				<img src="img/icon/free/screen-1.png" class="my-icon" />
+				<img src="img/icon/section/edu_news.png" class="ui centered small image my-icon" />
 			</div>
 		</div>
 		<div class="row">
 			<div class="column content-image">
-				<img src="img/icon/free/color-circle.png" class="my-icon" />
+				<img src="img/icon/section/agenda.png" class="ui centered tiny image my-icon" />
 			</div>
 			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Agenda Pendidikan" data-uk-scrollspy="{cls:'uk-animation-slide-right',delay:200}">
 				<a href="http://agenda.kisikisi.id">
@@ -266,12 +291,12 @@
 				</a>
 			</div>
 			<div class="column content-image">
-				<img src="img/icon/free/poster.png" class="my-icon" />
+				<img src="img/icon/section/artikel.png" class="ui centered small image my-icon" />
 			</div>
 		</div>
 		<div class="row">
 			<div class="column content-image">
-				<img src="img/icon/free/chat.png" class="my-icon" />
+				<img src="img/icon/section/forum.png" class="ui centered small image my-icon" />
 			</div>
 			<div class="column content-detail" data-uk-tooltip="animation:true,pos:'left'" title="Kunjungi Forum" data-uk-scrollspy="{cls:'uk-animation-slide-right',delay:200}">
 				<a href="http://forum.kisikisi.id">
@@ -292,7 +317,7 @@
 				</a>
 			</div>
 			<div class="column content-image">
-				<img src="img/icon/free/statistics.png" class="my-icon" />
+				<img src="img/icon/section/beasiswa.png" class="ui centered small image my-icon" />
 			</div>
 		</div>
 
@@ -301,11 +326,11 @@
 
 <div id="section-4">
 	<div class="ui container">
-		<h1 class="uk-text-center title">Kelebihan Kisikisi.id</h1>
+		<h1 class="uk-text-center title"><i class="plus icon"></i>Kelebihan Kisikisi.id</h1>
 		<div class="ui three doubling stackable cards">
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
+					<center><img src="{{asset('img/icon/aktual_icon.png')}}"  /></center>
 					<h2 class="header ">TERLENGKAP</h2>
 					<div class="description">Kisikisi merupakan website dengan cakupan tema pendidikan dengan fitur
 					yang terluas yang di dukung langsung oleh Kementerian Pendidikan.
@@ -314,7 +339,7 @@
 			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:200}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
+					<center><img src="{{asset('img/icon/updt.png')}}"  /></center>
 					<h2 class="header">TERAKTUAL</h2>
 					<div class="description">Informasi yang ada selalu di update oleh para kontributor dan staff.
 					</div>
@@ -322,15 +347,24 @@
 			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:300}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
+					<center><img src="{{asset('img/icon/snipe.png')}}"  /></center>
 					<h2 class="header ">TERAKURAT</h2>
 					<div class="description">Informasi di dapat dari sumber terpercaya secara langsung.
 					</div>
 				</div>
 			</div>
+			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:600}">
+				<div class="content ">
+					<center><img src="{{asset('img/icon/termudah_icon.png')}}"  /></center>
+					<h2 class="header ">TERMUDAH</h2>
+					<div class="description">Dibuat oleh anak bangsa yang memiliki kemampuan handal, dan bercita cita
+					memajukan bangsa indonesia dalam bidang pendidikan melalui sarana online yang cepat,tepat dan teraktual.
+					</div>
+				</div>
+			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:400}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
+					<center><img src="{{asset('img/icon/ofa.png')}}"  /></center>
 					<h2 class="header ">1 AKUN UNTUK SEMUA</h2>
 					<div class="description">Hanya perlu mendaftarkan satu akun, kamu bisa menggunakan fitur sesuai
 					keperluan.
@@ -339,22 +373,14 @@
 			</div>
 			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:500}">
 				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
+					<center><img src="{{asset('img/icon/save.png')}}"  /></center>
 					<h2 class="header ">KEAMANAN</h2>
 					<div class="description">Privasi user terjaga dengan maksimal, dan semua konten di dalam website ini
 					 memiliki hak cipta.
 					</div>
 				</div>
 			</div>
-			<div class="ui card"  data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:600}">
-				<div class="content ">
-					<center><img src="{{asset('img/icon/elearning.png')}}"  /></center>
-					<h2 class="header ">KARYA ANAK BANGSA</h2>
-					<div class="description">Dibuat oleh anak bangsa yang memiliki kemampuan handal, dan bercita cita
-					memajukan bangsa indonesia dalam bidang pendidikan melalui sarana online yang cepat,tepat dan teraktual.
-					</div>
-				</div>
-			</div>
+
 		</div>
 
 	</div>
@@ -362,18 +388,18 @@
 {{-- <div class="wave-2"></div>
 <div style="width:100%;height:15px;background-color:#fff;position:absolute;z-index:10;"></div> --}}
 <div id="section-5">
-	<div class="ui container" data-uk-parallax="y:'100',target:'#section-5'">
-		<h1 class="uk-text-center title">Apa kata orang tentang Kisikisi.id</h1>
+	<div class="ui container">
+		<h1 class="uk-text-center title"><i class="comment outline icon"></i>Apa kata orang tentang Kisikisi.id</h1>
 	<div class="uk-grid uk-grid-collapse" data-uk-scrollspy="{cls:'uk-animation-fade',repeat:true,delay:100}">
 		<div class="uk-width-small-1-1 uk-width-medium-1-3 uk-width-large-1-3">
 			<div id="side-menu" class="ui vertical text menu">
-				<div class="header item">Menurut orang lainnya</div>
+				<div class="header item"><i class="users icon"></i>Menurut orang lainnya</div>
 				<ul id="inside-menu" data-uk-switcher="{connect:'#switch-content',animation:'slide-right'}">
-					<li aria-expanded="true"><a class="active item">Pengguna</a></li>
-					<li aria-expanded="false"><a class="item">Pelajar</a></li>
-					<li aria-expanded="false"><a class="item">Guru guru</a></li>
-					<li aria-expanded="false"><a class="item">Para orang tua</a></li>
-					<li aria-expanded="false"><a class="item">Tim kisikisi.id</a></li>
+					<li aria-expanded="true"><a class="active item"><i class="user icon"></i>Pengguna</a></li>
+					<li aria-expanded="false"><a class="item"><i class="student icon"></i>Pelajar</a></li>
+					<li aria-expanded="false"><a class="item"><i class="male icon"></i>Guru guru</a></li>
+					<li aria-expanded="false"><a class="item"><i class="female icon"></i>Para orang tua</a></li>
+					<li aria-expanded="false"><a class="item"><i class="doctor icon"></i>Tim kisikisi.id</a></li>
 				</ul>
 			</div>
 		</div>
@@ -618,7 +644,19 @@
 
 <div id="footer">
 	<div class="ui container">
-		<div class="uk-text-center title"><h1>Footer</h1></div>
+		{{-- <div class="uk-text-center title"><h1>Footer</h1></div> --}}
+		<div class="ui center aligned grid">
+			<div class="row">
+				<a href="https://www.facebook.com/kisikisi.id/"><i class="facebook square big icon"></i></a>
+				<a href="https://www.instagram.com/kisikisi_id/"><i class="instagram big icon"></i></a>
+				<a href="#"><i class="twitter big icon"></i></a>
+				<a href="#"><i class="youtube big icon"></i></a>
+				<a href="#"><i class="google plus big icon"></i></a>
+			</div>
+			<div class="row">
+				Copyright 2016 <i class="copyright icon"></i>Kisikisi.id. All Right Reserved
+			</div>
+		</div>
 		<div
               class="fb-like"
               data-share="true"
