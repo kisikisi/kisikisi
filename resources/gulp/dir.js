@@ -17,6 +17,7 @@ var dirpaths = {
 
 gulp.task('dir-jsmin', function() {
   return gulp.src(dirpaths.js)
+  	.pipe(include()).on('error', console.log)
     .pipe(uglify())
     .pipe(concat('directory.min.js'))
     .pipe(gulp.dest('public/js'));

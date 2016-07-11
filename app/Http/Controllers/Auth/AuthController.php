@@ -5,12 +5,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use App\UserProfile;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Hash;
 use JWTAuth;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -88,8 +90,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data) {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -97,7 +98,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function login(Request $request) {
+    public function login(Request $request, $role) {
         // grab credentials from the request
         $credentials = $request->only('name', 'password');
 
@@ -117,7 +118,54 @@ class AuthController extends Controller
             return response()->json($data, 500);
         }
 
+		if ($role == 'setup') {
+			$user = Auth::user();
+			if (!$user->hasRole(['admin', 'manager'])) {
+				$data['message'] = "user has invalid role";
+                $data['error'] = "invalid_credential";
+                $data['status'] = "error";
+                return response()->json($data, 401);
+			}
+		}
+
         // all good so return the token
         return response()->json(compact('token'));
+    }
+
+	public function register(Request $request)
+    {
+        /*$input['level_id'] = '3';
+        $input['name'] = $request->input('name');
+        $input['email'] = $request->input('email');
+        $input['password'] = ;*/
+
+        $user = new User;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+        $inputProfile['user_id'] = $user->id;
+        $inputProfile['fullname'] = $request->input('name');
+
+        if($inputProfile != NULL) {
+            UserProfile::create($inputProfile);
+            $user->roles()->attach(3);
+        }
+
+        $credentials = $request->only('name', 'password');
+
+        try {
+            // attempt to verify the credentials and create a token for the user
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'invalid_credentials'], 401);
+            }
+        } catch (JWTException $e) {
+            // something went wrong whilst attempting to encode the token
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+
+        // all good so return the token
+        return response()->json(compact('token'));
+
     }
 }

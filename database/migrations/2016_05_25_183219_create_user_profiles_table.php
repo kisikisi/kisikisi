@@ -20,7 +20,7 @@ class CreateUserProfilesTable extends Migration
             $table->string('last_name', 32);
             $table->integer('born');
             $table->enum('gender', ['M','F']);
-            $table->integer('city_id')->unsigned();
+            $table->integer('city_id')->unsigned()->nullable();
             $table->integer('address');
             $table->string('image_profile', 256);
             $table->string('image_cover' , 256);

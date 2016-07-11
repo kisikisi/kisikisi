@@ -1,5 +1,5 @@
-var dirCtrl = ['$http','$scope', '$rootScope', '$sce', '$location', 'Notification', 'envService',
-function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
+var dirCtrl = ['$http','$scope', '$rootScope', '$sce', '$auth', '$location', 'Notification', 'envService',
+function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envService) {
     $rootScope.env = envService.read('all');
 	//$(".ui.sidebar").sidebar("toggle");
 	//$(".ui.sidebar").sidebar('attach events', '#sidebarToggle');
@@ -11,6 +11,13 @@ function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
 	$scope.onSearch = false;
 	$scope.filter = {};
 
+	$scope.popup = function() {
+		$('.browse').popup({ inline: true, hoverable: true,
+			delay: {
+				show: 300,
+				hide: 800
+			} });
+	}
 	$scope.$on('$includeContentLoaded', function(event) {
 		$scope.modal1 = $("#siteModal").modal();
 		$scope.modal2 = $("#basicModal").modal();
@@ -35,7 +42,10 @@ function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
 		if ($scope.onSearch == false) $scope.onSearch = true;
 		else $scope.onSearch = false;
 	}
-
+	$scope.resetFilter = function() {
+		var filter = {};
+		$scope.searchSchool(filter);
+	}
     $scope.filterSchool = function() {
         $http.get($scope.env.api+'school/form')
         .success(function (response) {
@@ -49,8 +59,7 @@ function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
 	$scope.searchSchool = function(filter) {
 		$scope.after = 0;
 		$scope.schools = [];
-		$scope.nextPage();
-		$scope.filter = filter;
+		if ($scope.filter = filter)	$scope.nextPage();
 		$scope.onSearch = false;
 	}
 
@@ -73,19 +82,7 @@ function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
         })
 	}
 
-	/*$scope.searchSchool = function(filter) {
-		$http.post($scope.env.api+'school/search', filter)
-        .success(function (response) {
-            $scope.schools = response.schools;
-        });
-	}*/
-
-	$scope.loginForm = function() {
-        //$scope.modalTemplate = 'views/partial/login.html';
-		$scope.modal2.modal('show');
-	}
-
-    $scope.detailSchool = function(id) {
+	$scope.detailSchool = function(id) {
         $http.get($scope.env.api+'school/'+id)
         .success(function (response) {
             $scope.detail = response.detail[0];
@@ -97,8 +94,18 @@ function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
         });
     };
 
+
+	/*$scope.searchSchool = function(filter) {
+		$http.post($scope.env.api+'school/search', filter)
+        .success(function (response) {
+            $scope.schools = response.schools;
+        });
+	}*/
+
+	//include authentication script
+	//=include ../public.auth.js
+
     var widget = this;
-  
     $scope.$watch(function () {
         return widget.href;
     }, function () {

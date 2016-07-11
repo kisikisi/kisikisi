@@ -138,6 +138,6 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	$locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise('/');
 	
-	$authProvider.loginUrl = '/login';
+	$authProvider.loginUrl = '/login/setup';
 	
 }]

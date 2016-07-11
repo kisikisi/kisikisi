@@ -24,7 +24,7 @@
 		   <div class="uk-width-large-3-4 uk-width-medium-1-1">
 			  <div id="content" ui-view></div>
 		   </div>
-		   <div class="uk-width-large-1-4 uk-hidden-medium">
+		   <div class="uk-width-large-1-4 uk-hidden-medium uk-hidden-small">
 			  <?php include(public_path('views/directory/sidebar.html')) ?> <!-- content sidebar -->
 		   </div>
 		  </div>
@@ -32,7 +32,8 @@
 	</div>
 	<div id="siteModal" class="ui segments modal" ng-include="'views/directory/school.detail.html'">
 	</div>
-	<div id="basicModal" class="ui small basic center aligned modal" ng-include="'views/partial/login.html'">
+	<div id="basicModal" class="ui small basic center aligned modal">
+		 <ng-include src="smallModal"></ng-include>
 	</div>
 
 	<script src="{{ env('APP_URL') }}/js/kisikisi.min.js"></script>

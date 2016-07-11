@@ -27,7 +27,7 @@ var paths = {
 	js: [
 		//jquery
 		'bower_components/jquery/dist/jquery.min.js',
-		'bower_components/jquery-ui/jquery-ui.min.js',
+		//'bower_components/jquery-ui/jquery-ui.min.js',
 
 		'bower_components/moment/moment.js',
 
@@ -47,6 +47,7 @@ var paths = {
 		'bower_components/angular-touch/angular-touch.min.js',
 		'bower_components/angular-resource/angular-resource.min.js',
 		'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+		'bower_components/angular-cookies/angular-cookies.min.js',
 		'bower_components/satellizer/satellizer.min.js',
 		'bower_components/angular-environment/dist/angular-environment.min.js',
 		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
@@ -56,6 +57,8 @@ var paths = {
 		'bower_components/angular-ui-calendar/src/calendar.js',
 		'bower_components/fullcalendar/dist/fullcalendar.min.js',
 		'bower_components/fullcalendar/dist/gcal.js',
+		'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
+		'resources/js/satellizer-storage-decorator.js',
     ],
 	less: [
 		'resources/assets/uikit.less',
@@ -132,6 +135,12 @@ gulp.task('htmlmin', function(cb) {
 	return gulp.src(paths.html)
 	    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
 	    .pipe(gulp.dest('public/views/partial/'))
+});
+
+gulp.task('watch', function() {
+  gulp.watch(paths.js, ['jsmin']);
+  gulp.watch(paths.css, ['cssmin']);
+  gulp.watch(paths.html, ['htmlmin']);
 });
 
 /*

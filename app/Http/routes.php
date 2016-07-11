@@ -14,7 +14,7 @@
 Route::group([
     'domain' => 'setup.' . env('APP_DOMAIN')
 ], function() {
-    Route::post('/login', 'Auth\AuthController@login'); 
+    Route::post('/login/{role}', 'Auth\AuthController@login')->where('role', '(setup)');
     Route::get('/', function () {
         return view('admin');
     }); 
@@ -101,11 +101,18 @@ Route::group([
     });
 });
 
+Route::group(['domain' => '{module}.'.env('APP_DOMAIN')], function () {
+    Route::post('/login', 'Auth\AuthController@login');
+    Route::post('/register', 'Auth\AuthController@register');
+    Route::get('/auth/user', 'Auth\AuthController@getAuthUser');
+});
+
 Route::group([
     'domain' => 'api.' . env('APP_DOMAIN')
 ], function() {
-    Route::post('/login', 'Auth\AuthController@login');
-    
+    //Route::post('/login', 'Auth\AuthController@login');
+    //Route::post('/login/{role}', 'Auth\AuthController@login')->where('role', '(setup)');
+
     //module school type
     Route::get('school/type', 'SchoolTypeController@index');
     Route::get('school/type/{id}', 'SchoolTypeController@detail');
