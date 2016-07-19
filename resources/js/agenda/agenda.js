@@ -101,11 +101,6 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
         });
 	}*/
 
-	$scope.loginForm = function() {
-        //$scope.modalTemplate = 'views/partial/login.html';
-		$scope.modal2.modal('show');
-	}
-
     $scope.detailAgenda = function(id) {
         $http.get($scope.env.api+'agenda/'+id)
         .success(function (response) {
@@ -118,6 +113,9 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
 			$scope.modal1.modal('show');
         });
     };
+
+	//include authentication script
+	//=include ../public.auth.js
 
     var widget = this;
   

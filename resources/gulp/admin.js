@@ -53,6 +53,7 @@ var backpaths = {
 		'bower_components/textAngular/dist/textAngular-sanitize.min.js',
 		'bower_components/textAngular/dist/textAngular.min.js',
 		'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
+		'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
 
         //other module
 

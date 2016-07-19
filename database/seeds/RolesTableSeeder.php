@@ -25,9 +25,15 @@ class RolesTableSeeder extends Seeder
         $manager->save();
         
         $member = new Role();
-        $member->name         = 'member';
-        $member->display_name = 'Site Member'; // optional
-        $member->description  = 'Anggota, baik sekolah, guru maupun siswa'; // optional
+        $member->name         = 'institute';
+        $member->display_name = 'Institute'; // optional
+        $member->description  = 'Anggota berbentuk institusi, baik sekolah, lembaga, organisasi, perusahaan, dll'; // optional
+        $member->save();
+
+		$member = new Role();
+        $member->name         = 'personal';
+        $member->display_name = 'Personal'; // optional
+        $member->description  = 'Pelajar, mahasiswa, pengajar, dll'; // optional
         $member->save();
     }
 }

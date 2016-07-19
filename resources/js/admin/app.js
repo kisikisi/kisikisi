@@ -33,6 +33,7 @@ app
 .controller('scholarshipCtrl', scholarshipCtrl)
 //.controller('scholarshipDegreeCtrl', scholarshipDegreeCtrl)
 .controller('courseCtrl', courseCtrl)
+.controller('userCtrl', userCtrl)
 //.controller('adminMappingCtrl', adminMappingCtrl)
 
 /*.directive('datepicker', function() {

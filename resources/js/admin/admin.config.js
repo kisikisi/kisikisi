@@ -98,6 +98,13 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		resolve: {
 			loginRequired: loginRequired
 		}
+	}).state('user', {
+		url: '/user',
+		templateUrl: 'views/admin/user.html',
+		controller: 'userCtrl',
+		resolve: {
+			loginRequired: loginRequired
+		}
 	});
 	//controller example
 	/*.state('mapping', {

@@ -39,7 +39,7 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
             Notification({message: response.message}, response.status);
 			if (response.status == 'success') {
 				//console.log(response.type);
-				$scope.type.push(response.type);
+				$scope.types.push(response.type);
 				$scope.input = {};
 				$('#code').focus();
 			}
@@ -52,14 +52,14 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
 		})*/
 	}
 	$scope.deleteType = function(id) {
-		var index = $scope.indexSearch($scope.type, id);
+		var index = $scope.indexSearch($scope.types, id);
 		if (confirm('delete type?')) {
 			$http.delete($scope.env.api+'school/type/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
 				if (response.status == 'success') {
 					//console.log(response.type);
-					$scope.type.splice(index, 1);	
+					$scope.types.splice(index, 1);
 				}
 			})
 		}

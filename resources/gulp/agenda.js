@@ -17,6 +17,7 @@ var agendapaths = {
 
 gulp.task('agenda-jsmin', function() {
   return gulp.src(agendapaths.js)
+    .pipe(include()).on('error', console.log)
     .pipe(uglify())
     .pipe(concat('agenda.min.js'))
     .pipe(gulp.dest('public/js'));

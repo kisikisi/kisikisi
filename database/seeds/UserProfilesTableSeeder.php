@@ -13,9 +13,9 @@ class UserProfilesTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 54;
+        $limit = 55;
 
-        for ($i = 4; $i < $limit; $i++) {
+        for ($i = 1; $i < $limit; $i++) {
             DB::table('user_profiles')->insert([
 				'user_id' => $i,
 				'title' => $faker->title,

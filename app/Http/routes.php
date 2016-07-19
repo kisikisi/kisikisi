@@ -112,6 +112,7 @@ Route::group([
 ], function() {
     //Route::post('/login', 'Auth\AuthController@login');
     //Route::post('/login/{role}', 'Auth\AuthController@login')->where('role', '(setup)');
+	Route::get('user/form', 'UserController@form');
 
     //module school type
     Route::get('school/type', 'SchoolTypeController@index');
@@ -165,6 +166,10 @@ Route::group([
     Route::get('label', 'LabelController@index');
     
     Route::group(['middleware' => 'ability:admin|manager'], function () {
+		//module user
+		Route::get('user', 'UserController@index');
+		Route::get('user/scroll/{after}/{limit}', 'UserController@scroll');
+
        //module school type
         Route::post('school/type', 'SchoolTypeController@add');
         Route::put('school/type/{id}', 'SchoolTypeController@update');
@@ -232,7 +237,13 @@ Route::group([
         Route::delete('label/{id}', 'LabelController@delete');
         
     });
-    
+    Route::group(['middleware' => 'ability:admin'], function () {
+		//user module
+		Route::post('user', 'UserController@add');
+		Route::get('user/{id}', 'UserController@edit');
+        Route::put('user/{id}', 'UserController@update');
+        Route::delete('user/{id}', 'UserController@delete');
+	});
 });
 
 Route::get('/', function () {

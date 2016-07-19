@@ -57,6 +57,7 @@ class SchoolDirectoryController extends Controller
 
     public function scroll($after, $limit, SchoolDirectory $school, Request $request, AuthController $auth) {
 		$school_type_id = $request->input('school_type_id');
+		$province_id = $request->input('province_id');
 		$city_id = $request->input('city_id');
 		$name = $request->input('name');
 
@@ -66,6 +67,12 @@ class SchoolDirectoryController extends Controller
 
 		if (!$user = $auth->getAuthUser())  $lists->where('status', 1);
 		else if (!$user->hasRole(['admin','manager'])) $lists->where('status', 1);
+
+		if (!empty($province_id) and empty($city_id)) {
+			//$data['city'] = Province::find($province_id)->city()->select('id','name')->get();
+			$lists->join('cities', 'school_directories.city_id', '=', 'cities.id')
+				->where('cities.province_id', $province_id);
+		}
 
 		if (!empty($school_type_id)) $lists->where('school_type_id', $school_type_id);
         if (!empty($city_id)) $lists->where('city_id', $city_id);
