@@ -13,17 +13,14 @@ var portalpaths = {
 	libjs: [
 		//jquery
 		'bower_components/jquery/dist/jquery.min.js',
-		'bower_components/jquery-ui/jquery-ui.min.js',
 
 		//Semantic
 		'bower_components/semantic/dist/semantic.min.js',
-
 
 		// uikit
 		'bower_components/uikit/js/uikit.min.js',
 		'bower_components/uikit/js/components/parallax.min.js',
 		'bower_components/uikit/js/components/slideshow.min.js',
-		'bower_components/uikit/js/components/slider.min.js',
 		'bower_components/uikit/js/components/tooltip.min.js',
 		'bower_components/uikit/js/core/scrollspy.min.js',
 		'bower_components/uikit/js/core/switcher.min.js',
@@ -41,7 +38,6 @@ var portalpaths = {
 		'bower_components/semantic/dist/semantic.min.css',
 		'bower_components/uikit/css/uikit.almost-flat.min.css',
 		'bower_components/uikit/css/components/slidenav.almost-flat.min.css',
-		'bower_components/uikit/css/components/slider.almost-flat.min.css',
 		'bower_components/uikit/css/components/slideshow.almost-flat.min.css',
 		'bower_components/uikit/css/components/dotnav.almost-flat.min.css',
 		'bower_components/uikit/css/components/tooltip.almost-flat.min.css',
