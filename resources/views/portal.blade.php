@@ -15,8 +15,8 @@
     <meta content="id_ID" property="og:locale"/>
     <meta content="http://kisikisi.id/" property="og:url"/>
     <meta content="Kisikisi.id - Portal pendidikan" property="og:site_name"/>
-    <meta content="http://kisikisi.id/img/background/background_portal.jpg" property="og:image"/>
-    <meta content="http://kisikisi.id/img/background/background_portal.jpg" property="og:image:url"/>
+    <meta content="http://kisikisi.id/img/background/profile.png" property="og:image"/>
+    <meta content="http://kisikisi.id/img/background/profile.png" property="og:image:url"/>
     <meta content="923539880721-sprpmk4rgmjq1ht75govalre7gl86bbm.apps.googleusercontent.com" name="google-signin-client_id"/>
 
     <base href="/index.php"></base>
@@ -184,14 +184,8 @@
 				para pelaku pendidikan yang tidak terbatas pada guru dan murid membutuhkan suatu sarana dan wadah 
 				untuk ketersediaan informasi yang cepat, 
 				tepat dan akurat yang menunjang bagi peran, tugas dan tanggung jawab masing-masing.</p>
-				<p>Layanan Portal Pendidikan berbasiskan teknologi informasi dipandang sebagai solusi yang sangat.. </p>
-				{{-- bermanfaat bagi para pelaku pendidikan. Dengan adanya Portal Pendidikan berbasiskan teknologi 
-				informasi maka para pelaku pendidikan yang bisa mengakses segala informasi tidak hanya terbatas pada guru 
-				dan murid saja 
-				tetapi seluruh elemen masyarakat bisa mengakses informasi yang dibutuhkan secara real time.<br><br>
-				Maka dari itu <b>Kisikisi.id</b> di ciptakan.</p> --}}
-				
-				<a id="#baca" class="ui button inverted white read">Baca Selengkapnya</a>
+				<p>Layanan Portal Pendidikan berbasiskan teknologi informasi dipandang sebagai solusi yang sangat.. 
+				bermanfaat bagi para pelaku pendidikan.</p> 
 			</div>
 			
 		</div>
