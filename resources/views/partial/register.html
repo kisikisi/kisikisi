@@ -26,6 +26,24 @@
 		    masukkan email dengan benar
 		  </div>
         </div>
+        <div class="inline fields">
+           <label for="fruit">Mendaftar Sebagai:</label>
+			<div class="field">
+			  <div class="ui radio checkbox">
+				<input type="radio" name="role_id" ng-model="user.role_id" value="4" tabindex="0" required>
+				<label>Personal</label>
+			  </div>
+			</div>
+			<div class="field">
+			  <div class="ui radio checkbox">
+				<input type="radio" name="role_id" ng-model="user.role_id" value="3" tabindex="0" required>
+				<label>Instansi</label>
+			  </div>
+			</div>
+       		<div ng-show="regForm.role_id.$dirty && regForm.role_id.$invalid" class="ui pointing label">
+			  pilih tipe keanggotaan
+		    </div>
+        </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>

@@ -51,6 +51,11 @@ app
 		$(element).accordion();
     };
 })
+.directive('uiCheckbox', function() {
+	return function (scope, element, attr) {
+		$(element).checkbox('toggle');
+    };
+})
 /*
 .directive('sidebar', function() {
 	return function (scope, element, attr) {

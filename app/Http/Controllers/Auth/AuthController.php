@@ -142,6 +142,7 @@ class AuthController extends Controller
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+		$role_id = $request->input('role_id');
         $user->password = Hash::make($request->input('password'));
         $user->save();
         $inputProfile['user_id'] = $user->id;
@@ -149,7 +150,8 @@ class AuthController extends Controller
 
         if($inputProfile != NULL) {
             UserProfile::create($inputProfile);
-            $user->roles()->attach(3);
+			if ($role_id == '3') $user->roles()->attach('3');
+			else if ($role_id == '4') $user->roles()->attach('4');
         }
 
         $credentials = $request->only('name', 'password');

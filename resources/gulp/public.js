@@ -75,6 +75,7 @@ var paths = {
 		'bower_components/hint.css/hint.min.css',
 		'bower_components/hint.css/hint.base.min.css',
 		'bower_components/fullcalendar/dist/fullcalendar.css',
+		'bower_components/angular-ui-notification/dist/angular-ui-notification.min.css',
 
 		//fonts
 		'public/fonts/anagram.css',

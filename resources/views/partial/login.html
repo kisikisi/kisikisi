@@ -34,21 +34,21 @@
         Login Sebagai Pengguna
       </div>
     </h2>
-    <form class="ui large form" ng-submit="login(user)">
+    <form name="loginForm" class="ui large form" ng-submit="login(user)" novalidate>
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="username" ng-model="user.name" placeholder="username">
+            <input type="text" name="username" ng-model="user.name" placeholder="username" required>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" ng-model="user.password" placeholder="password">
+            <input type="password" name="password" ng-model="user.password" placeholder="password" required>
           </div>
         </div>
-        <button type="submit" class="ui fluid large violet bg-base submit button">Login</button>
+        <button type="submit" ng-disabled="!loginForm.$valid" class="ui fluid large violet bg-base submit button">Login</button>
         <div class="field">
 			<div class="ui horizontal divider">
 				atau

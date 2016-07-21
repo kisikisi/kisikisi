@@ -1,5 +1,5 @@
 $scope.smallModal = 'views/partial/login.html';
-
+//$('.ui.radio.checkbox').checkbox();
 $scope.loginForm = function() {
 	$scope.smallModal = 'views/partial/login.html';
 	$scope.modal2.modal('show');
@@ -42,9 +42,10 @@ $scope.login = function(user) {
 		//console.log(response.token)
 		$scope.modal2.modal('hide');
 		$scope.getAuthUser();
+		//Notification({message: response.data.message}, response.data.status);
 	  })
 	  .catch(function(response) {
-		Notification({message: response.data.message}, response.status);
+		Notification({message: response.data.message}, response.data.status);
 	  });
 };
 $scope.register = function(user) {
