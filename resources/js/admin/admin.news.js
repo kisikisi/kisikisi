@@ -10,6 +10,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
     $scope.limit = 20;
 	$scope.after = 0;
 	$scope.scrollBusy = false;
+	$scope.scrollLast = false;
 
 	/*$scope.listNews = function() {
         $http.get($scope.env.api+'news')
@@ -36,8 +37,10 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             //$scope.newss.push(response.newss[0]);
 			if (response.news.length > 0) {
 				$scope.after = response.news[response.news.length - 1].id;
-				$scope.scrollBusy = false;
+			} else {
+				$scope.scrollLast = true;
 			}
+			$scope.scrollBusy = false;
 			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.newss);
         })
@@ -135,7 +138,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 
 	$scope.saveNews = function(input) {
         //input.content = $('#addContent').val();
-		
+		$scope.onSave = true;
         if (input.id == undefined) {
             $http.post($scope.env.api+'news', input)
             .success(function (response) {
@@ -145,6 +148,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
                     $scope.news.push(response.news);
                     $scope.input.id = response.news.id;
                 }
+				$scope.onSave = false;
             });
         } else {
             //input.news_category_id = $scope.input.news_category.id;
@@ -155,6 +159,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
                 $scope.news[index] = response.data.news[0];
                 Notification({message: response.data.message}, response.data.status);
                 //$scope.onEdit = false;
+				$scope.onSave = false;
             });
         }
         
@@ -191,6 +196,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	$scope.deleteNews = function(id) {
 		var index = $scope.indexSearch($scope.type, id);
 		if (confirm('delete type?')) {
+			$scope.onLoad = true;
 			$http.delete($scope.env.api+'news/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
@@ -198,6 +204,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 					//console.log(response.type);
 					$scope.type.splice(index, 1);	
 				}
+				$scope.onLoad = false;
 			})
 		}
 	}

@@ -43,7 +43,7 @@
             </div><!-- /.col -->
             <div class="col-md-2">
               <div class="form-group">
-                <button type="submit" class="btn btn-block btn-primary">Save</button>
+                <button type="submit" ng-disabled="onAdd" class="btn btn-block btn-primary">Save</button>
               </div><!-- /.form-group -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -92,8 +92,8 @@
                   </button>
                 </form>
                 <div class="btn-group" ng-show="!rowform.$visible">
-                  <button type="button" class="btn btn-default" ng-click="rowform.$show()"><i class="fa fa-edit"></i></button>
-                  <button type="button" class="btn btn-default" ng-click="deleteType(list.id)"><i class="fa fa-remove"></i></button>
+                  <button type="button" ng-disabled="onSave" class="btn btn-default" ng-click="rowform.$show()"><i class="fa fa-edit"></i></button>
+                  <button type="button" ng-disabled="onDelete" class="btn btn-default" ng-click="deleteType(list.id)"><i class="fa fa-remove"></i></button>
                 </div>
               </td>
             </tr>

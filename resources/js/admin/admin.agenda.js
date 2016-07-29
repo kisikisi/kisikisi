@@ -10,6 +10,7 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
     $scope.limit = 20;
 	$scope.after = 0;
 	$scope.scrollBusy = false;
+	$scope.scrollLast = false;
 
 	/*$scope.listAgenda = function() {
         $http.get($scope.env.api+'agenda')
@@ -38,8 +39,10 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             //$scope.schools.push(response.schools[0]);
 			if (response.agendas.length > 0) {
 				$scope.after = response.agendas[response.agendas.length - 1].id;
-				$scope.scrollBusy = false;
+			} else {
+				$scope.scrollLast = true;
 			}
+			$scope.scrollBusy = false;
 			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.schools);
         })
@@ -138,7 +141,7 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 
 	$scope.saveAgenda = function(input) {
         //input.content = $('#addContent').val();
-
+		$scope.onSave = true;
         if (input.id == undefined) {
             $http.post($scope.env.api+'agenda', input)
             .success(function (response) {
@@ -148,6 +151,7 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
                     $scope.agendas.push(response.agenda);
                     $scope.input.id = response.agenda.id;
                 }
+				$scope.onSave = false;
             });
         } else {
             //input.agenda_category_id = $scope.input.category.id;
@@ -158,6 +162,7 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
                 $scope.agendas[index] = response.data.agenda[0];
                 Notification({message: response.data.message}, response.data.status);
                 //$scope.onEdit = false;
+				$scope.onSave = false;
             });
         }
         
@@ -196,6 +201,7 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	$scope.deleteAgenda = function(id) {
 		var index = $scope.indexSearch($scope.agendas, id);
 		if (confirm('delete agenda?')) {
+			$scope.onLoad = true;
 			$http.delete($scope.env.api+'agenda/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
@@ -203,6 +209,7 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 					//console.log(response.type);
 					$scope.agendas.splice(index, 1);
 				}
+				$scope.onLoad = false;
 			})
 		}
 	}

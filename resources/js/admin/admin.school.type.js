@@ -34,6 +34,7 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
 	}
 
 	$scope.addType = function(input) {
+		$scope.onAdd = true;
 		$http.post($scope.env.api+'school/type', input)
 		.success(function (response) {
             Notification({message: response.message}, response.status);
@@ -43,17 +44,22 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
 				$scope.input = {};
 				$('#code').focus();
 			}
+			$scope.onAdd = false;
 		})
 	}
 	$scope.saveType = function(data, id) {
-		return $http.put($scope.env.api+'school/type/'+id, data);
-		/*.success(function (response) {
-            Notification({message: response.data.message}, response.status);
-		})*/
+		$scope.onSave = true;
+		$http.put($scope.env.api+'school/type/'+id, data)
+		.success(function (response) {
+            $scope.onSave = false;
+			return true;
+			//Notification({message: response.data.message}, response.status);
+		})
 	}
 	$scope.deleteType = function(id) {
 		var index = $scope.indexSearch($scope.types, id);
 		if (confirm('delete type?')) {
+			$scope.onDelete = true;
 			$http.delete($scope.env.api+'school/type/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
@@ -61,6 +67,7 @@ var schoolTypeCtrl = ['$http','$scope', 'Notification', function($http, $scope, 
 					//console.log(response.type);
 					$scope.types.splice(index, 1);
 				}
+				$scope.onDelete = false;
 			})
 		}
 	}

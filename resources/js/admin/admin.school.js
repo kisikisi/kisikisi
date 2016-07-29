@@ -10,6 +10,7 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
     $scope.limit = 20;
 	$scope.after = 0;
 	$scope.scrollBusy = false;
+	$scope.scrollLast = false;
 
     /*$scope.listSchool = function() {
         $http.get($scope.env.api+'school')
@@ -48,8 +49,10 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
             //$scope.schools.push(response.schools[0]);
 			if (response.schools.length > 0) {
 				$scope.after = response.schools[response.schools.length - 1].id;
-				$scope.scrollBusy = false;
+			} else {
+				$scope.scrollLast = true;
 			}
+			$scope.scrollBusy = false;
 			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.schools);
         })
@@ -113,7 +116,7 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
     };
 
 	$scope.saveSchool = function(input) {
-        
+        $scope.onSave = true;
         if (input.id === undefined) {
             $http.post($scope.env.api+'school', input)
             .success(function (response) {
@@ -125,17 +128,20 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
                     //$scope.fileicon = {};
                     //$('#name').focus();
                 }
+				$scope.onSave = false;
             });
         } else {
             //input.city_id = $scope.input.city.id;
             //input.school_type_id = $scope.input.school_type.id;
 
             //var index = $scope.indexSearch($scope.schools, input.id);
-            return $http.put($scope.env.api+'school/'+input.id, input)
-            .then(function (response) {
+
+            $http.put($scope.env.api+'school/'+input.id, input)
+            .success(function (response) {
                 //$scope.schools[index] = response.data.school[0];
-                Notification({message: response.data.message}, response.status);
+                Notification({message: response.message}, response.status);
                 //$scope.onEdit = false;
+				$scope.onSave = false;
             });
         }
 	};
@@ -161,6 +167,7 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 	$scope.deleteSchool = function(id) {
 		var index = $scope.indexSearch($scope.schools, id);
 		if (confirm('delete school?')) {
+			$scope.onLoad = true;
 			$http.delete($scope.env.api+'school/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
@@ -168,9 +175,17 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 					//console.log(response.type);
 					$scope.schools.splice(index, 1);
 				}
+				$scope.onLoad = false;
 			});
 		}
 	};
+
+	$scope.slug = function(npsn, str) {
+        str = str.replace(/[^a-zA-Z0-9\s]/g,"");
+        str = str.toLowerCase();
+        str = str.replace(/\s/g,'-');
+        return npsn+'-'+str;
+    }
 
     //$scope.listSchool();
     //$scope.getResultsPage(1);

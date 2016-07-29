@@ -10,6 +10,7 @@ var courseCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
     $scope.limit = 20;
 	$scope.after = 0;
 	$scope.scrollBusy = false;
+	$scope.scrollLast = false;
 
 	/*$scope.listCourse = function() {
         $http.get($scope.env.api+'course')
@@ -36,8 +37,10 @@ var courseCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             //$scope.schools.push(response.schools[0]);
 			if (response.courses.length > 0) {
 				$scope.after = response.courses[response.courses.length - 1].id;
-				$scope.scrollBusy = false;
+			} else {
+				$scope.scrollLast = true;
 			}
+			$scope.scrollBusy = false;
 			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.schools);
         })
@@ -133,7 +136,7 @@ var courseCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 
 	$scope.saveCourse = function(input) {
         //input.content = $('#addContent').val();
-
+		$scope.onSave = true;
         if (input.id == undefined) {
             $http.post($scope.env.api+'course', input)
             .success(function (response) {
@@ -143,15 +146,15 @@ var courseCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
                     $scope.courses.push(response.course);
                     $scope.input.id = response.course.id;
                 }
+				$scope.onSave = false;
             });
         } else {
-
             var index = $scope.indexSearch($scope.courses, input.id);
             $http.put($scope.env.api+'course/'+input.id, input)
             .then(function (response) {
                 $scope.courses[index] = response.data.course[0];
                 Notification({message: response.data.message}, response.data.status);
-                //$scope.onEdit = false;
+                $scope.onSave = false;
             });
         }
 
@@ -184,6 +187,7 @@ var courseCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	$scope.deleteCourse = function(id) {
 		var index = $scope.indexSearch($scope.courses, id);
 		if (confirm('delete course?')) {
+			$scope.onLoad = true;
 			$http.delete($scope.env.api+'course/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
@@ -191,6 +195,7 @@ var courseCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 					//console.log(response.type);
 					$scope.courses.splice(index, 1);
 				}
+				$scope.onLoad = false;
 			})
 		}
 	}

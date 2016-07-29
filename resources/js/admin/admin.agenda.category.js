@@ -8,6 +8,7 @@ var agendaCatCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
     $scope.limit = 20;
 	$scope.after = 0;
 	$scope.scrollBusy = false;
+	$scope.scrollLast = false;
 
 	/*$scope.listCategory = function() {
         $http.get($scope.env.api+'agenda/category')
@@ -27,14 +28,17 @@ var agendaCatCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
             //$scope.categories.push(response.categories[0]);
 			if (response.categories.length > 0) {
 				$scope.after = response.categories[response.categories.length - 1].id;
-				$scope.scrollBusy = false;
+			} else {
+				$scope.scrollLast = true;
 			}
+			$scope.scrollBusy = false;
 			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.categories);
         })
 	}
 
 	$scope.addCategory = function(input) {
+		$scope.onAdd = true;
 		$http.post($scope.env.api+'agenda/category', input)
 		.success(function (response) {
             Notification({message: response.message}, response.status);
@@ -44,19 +48,23 @@ var agendaCatCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
 				$scope.input = {};
 				$('#name').focus();
 			}
+			$scope.onAdd = false;
 		})
 	}
 
 	$scope.saveCategory = function(data, id) {
-		return $http.put($scope.env.api+'agenda/category/'+id, data);
-		/*.success(function (response) {
+		$scope.onLoad = true;
+		$http.put($scope.env.api+'agenda/category/'+id, data)
+		.success(function (response) {
             Notification({message: response.data.message}, response.status);
-		})*/
+			$scope.onLoad = false;
+		});
 	}
 
 	$scope.deleteCategory = function(id) {
 		var index = $scope.indexSearch($scope.type, id);
 		if (confirm('delete agenda category?')) {
+			$scope.onLoad = true;
 			$http.delete($scope.env.api+'agenda/category/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
@@ -64,6 +72,7 @@ var agendaCatCtrl = ['$http','$scope', 'Notification', function($http, $scope, N
 					//console.log(response.type);
 					$scope.categories.splice(index, 1);	
 				}
+				$scope.onLoad = false;
 			})
 		}
 	}

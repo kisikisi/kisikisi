@@ -13,8 +13,7 @@ class Scholarship extends Model
 
     public $table = 'scholarships';
 	protected $fillable = [
-        'scholarship_degree_id',
-    	'slug',
+        'slug',
         'title',
         'instance',
         'deadline',

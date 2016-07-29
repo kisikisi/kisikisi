@@ -6,19 +6,19 @@
         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
       </div>
     </div><!-- /.box-header -->
-    <form name="agendaAddForm" class="form-horizontal" ng-submit="saveAgenda(input)">
+    <form name="agendaAddForm" class="form-horizontal" ng-submit="saveAgenda(input)" novalidate>
         <div class="box-body">
             <div class="form-group">
                 <label class="col-sm-2 control-label"> Title</label>
                 <div class="col-sm-10">
-                    <input id="title" type="text" class="form-control" name="title" ng-model="input.title" ng-change="input.slug = slug(input.title)" placeholder=" Title">
-                    <input id="slug" type="text" class="form-control" name="slug" ng-model="input.slug" placeholder=" Slug" readonly>
+                    <input id="title" type="text" class="form-control" name="title" ng-model="input.title" ng-change="input.slug = slug(input.title)" placeholder=" Title" required>
+                    <input id="slug" type="text" class="form-control" name="slug" ng-model="input.slug" placeholder=" Slug" readonly required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Category</label>
                 <div class="col-sm-4">
-                <select class="form-control" name="agenda_category_id" ng-model="input.agenda_category_id" ng-options="cat.id as cat.name for cat in agendaCategories">
+                <select class="form-control" name="agenda_category_id" ng-model="input.agenda_category_id" ng-options="cat.id as cat.name for cat in agendaCategories" required>
                   <option value="">--Choose Category--</option>
                 </select>
                 </div>
@@ -27,7 +27,7 @@
                 <label class="col-sm-2 control-label">Agenda Date & Time</label>
                 <label class="col-sm-1 control-label">From</label>
                 <div class="col-sm-4">
-                    <input datepicker id="start_datetime" type="text" class="form-control" name="start_datetime" ng-model="input.start_datetime" placeholder="mm/dd/yyyy">
+                    <input datepicker id="start_datetime" type="text" class="form-control" name="start_datetime" ng-model="input.start_datetime" placeholder="mm/dd/yyyy" required>
                 </div>
                 <label class="col-sm-1 control-label">To</label>
                 <div class="col-sm-4">
@@ -37,18 +37,18 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Location</label>
               <div class="col-sm-10">
-                <textarea class="form-control textarea" name="location" ng-model="input.location" placeholder="" cols="100%" rows="2"></textarea>
+                <textarea class="form-control textarea" name="location" ng-model="input.location" placeholder="" cols="100%" rows="2" required></textarea>
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label">Province/City</label>
               <div class="col-sm-5">
-                <select class="form-control" name="province_id" ng-model="input.province_id" ng-options="prov.id as prov.name for prov in provinces">
+                <select class="form-control" name="province_id" ng-model="input.province_id" ng-options="prov.id as prov.name for prov in provinces" required>
                   <option value="">--Pick Province--</option>
                 </select>
               </div>
               <div class="col-sm-5">
-                <select ng-if="input.province_id" class="form-control" name="city_id" ng-model="input.city_id" ng-options="cty.id as cty.name for cty in cities | filter:{ province_id : input.province_id }">
+                <select ng-if="input.province_id" class="form-control" name="city_id" ng-model="input.city_id" ng-options="cty.id as cty.name for cty in cities | filter:{ province_id : input.province_id }" required>
                   <option value="">--Pick City--</option>
                 </select>
               </div>
@@ -85,7 +85,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label"> Content</label>
               <div class="col-sm-10">
-                <div text-angular ng-model="input.content"></div>
+                <div name="content" text-angular ng-model="input.content" required></div>
               </div>
             </div>
             <div class="form-group">
@@ -123,7 +123,7 @@
         </div><!-- /.box-body -->
         <div class="box-footer">
             <button type="reset" class="btn btn-default" ng-click="resetAgenda()">Cancel</button>
-            <button type="submit" class="btn btn-primary pull-right">Save</button>
+            <button ng-disabled="onSave || !agendaAddForm.$valid" type="submit" class="btn btn-primary pull-right">Save</button>
         </div><!-- /.box-footer -->
     </form>
 </div><!-- /.box -->

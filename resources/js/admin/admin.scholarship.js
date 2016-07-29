@@ -10,6 +10,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
     $scope.limit = 20;
 	$scope.after = 0;
 	$scope.scrollBusy = false;
+	$scope.scrollLast = false;
 
 	/*$scope.listScholarship = function() {
         $http.get($scope.env.api+'scholarship')
@@ -37,8 +38,10 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             //$scope.schools.push(response.schools[0]);
 			if (response.scholarships.length > 0) {
 				$scope.after = response.scholarships[response.scholarships.length - 1].id;
-				$scope.scrollBusy = false;
+			} else {
+				$scope.scrollLast = true;
 			}
+			$scope.scrollBusy = false;
 			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.schools);
         })
@@ -134,7 +137,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 
 	$scope.saveScholarship = function(input) {
         //input.content = $('#addContent').val();
-
+		$scope.onSave = true;
         if (input.id == undefined) {
             $http.post($scope.env.api+'scholarship', input)
             .success(function (response) {
@@ -144,6 +147,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
                     $scope.scholarships.push(response.scholarship);
                     $scope.input.id = response.scholarship.id;
                 }
+				$scope.onSave = false;
             });
         } else {
             //input.scholarship_degree_id = $scope.input.degree.id;
@@ -154,6 +158,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
                 $scope.scholarships[index] = response.data.scholarship[0];
                 Notification({message: response.data.message}, response.data.status);
                 //$scope.onEdit = false;
+				$scope.onSave = false;
             });
         }
 
@@ -189,6 +194,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	$scope.deleteScholarship = function(id) {
 		var index = $scope.indexSearch($scope.scholarships, id);
 		if (confirm('delete scholarship?')) {
+			$scope.onLoad = true;
 			$http.delete($scope.env.api+'scholarship/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
@@ -196,6 +202,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 					//console.log(response.type);
 					$scope.scholarships.splice(index, 1);
 				}
+				$scope.onLoad = false;
 			})
 		}
 	}

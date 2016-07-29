@@ -10,6 +10,7 @@ var userCtrl = ['$http','$scope', '$location', 'Notification','Upload',
     $scope.limit = 20;
 	$scope.after = 0;
 	$scope.scrollBusy = false;
+	$scope.scrollLast = false;
 
     /*$scope.listUser = function() {
         $http.get($scope.env.api+'user')
@@ -48,8 +49,10 @@ var userCtrl = ['$http','$scope', '$location', 'Notification','Upload',
             //$scope.users.push(response.users[0]);
 			if (response.users.length > 0) {
 				$scope.after = response.users[response.users.length - 1].id;
-				$scope.scrollBusy = false;
+			} else {
+				$scope.scrollLast = true;
 			}
+			$scope.scrollBusy = false;
 			//$('.ui.sticky').sticky('refresh');
 			//console.log($scope.users);
         })
@@ -90,7 +93,7 @@ var userCtrl = ['$http','$scope', '$location', 'Notification','Upload',
     };
 
 	$scope.saveUser = function(input) {
-
+		$scope.onSave = true;
         if (input.id === undefined) {
             $http.post($scope.env.api+'user', input)
             .success(function (response) {
@@ -102,6 +105,7 @@ var userCtrl = ['$http','$scope', '$location', 'Notification','Upload',
                     //$scope.fileicon = {};
                     //$('#name').focus();
                 }
+				$scope.onSave = true;
             });
         } else {
             //input.city_id = $scope.input.city.id;
@@ -119,6 +123,7 @@ var userCtrl = ['$http','$scope', '$location', 'Notification','Upload',
                 	Notification({message: "failed to update"}, "error");
 				}
                 //$scope.onEdit = false;
+				$scope.onSave = true;
             });
         }
 	};
@@ -145,6 +150,7 @@ var userCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 	$scope.deleteUser = function(id) {
 		var index = $scope.indexSearch($scope.users, id);
 		if (confirm('delete user?')) {
+			$scope.onLoad = true;
 			$http.delete($scope.env.api+'user/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
@@ -152,6 +158,7 @@ var userCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 					//console.log(response.type);
 					$scope.users.splice(index, 1);
 				}
+				$scope.onLoad = false;
 			});
 		}
 	};
