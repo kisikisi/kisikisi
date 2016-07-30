@@ -17,6 +17,7 @@ var coursepaths = {
 
 gulp.task('course-jsmin', function() {
   return gulp.src(coursepaths.js)
+    .pipe(include()).on('error', console.log)
     .pipe(uglify())
     .pipe(concat('course.min.js'))
     .pipe(gulp.dest('public/js'));

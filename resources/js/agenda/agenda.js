@@ -14,6 +14,13 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
 
 	if ($auth.getToken() == null) $auth.setToken();
 
+	$scope.popup = function() {
+		$('.browse').popup({ inline: true, hoverable: true,
+			delay: {
+				show: 300,
+				hide: 800
+			} });
+	}
 	$scope.$on('$includeContentLoaded', function(event) {
 		$scope.modal1 = $("#siteModal").modal();
 		$scope.modal2 = $("#basicModal").modal();

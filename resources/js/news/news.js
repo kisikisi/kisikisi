@@ -1,5 +1,5 @@
-var	newsCtrl = ['$http','$scope', '$rootScope', '$sce', '$location', 'Notification', 'envService',
-function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
+var	newsCtrl = ['$http','$scope', '$rootScope', '$sce', '$auth', '$location', 'Notification', 'envService',
+function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envService) {
     $rootScope.env = envService.read('all');
 	//$(".ui.sidebar").sidebar("toggle");
 	//$(".ui.sidebar").sidebar('attach events', '#sidebarToggle');
@@ -12,6 +12,13 @@ function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
 	$scope.filter = {};
 	$scope.letterLimit = 200;
 
+	$scope.popup = function() {
+		$('.browse').popup({ inline: true, hoverable: true,
+			delay: {
+				show: 300,
+				hide: 800
+			} });
+	}
 	$scope.$on('$includeContentLoaded', function(event) {
 		$scope.modal1 = $("#siteModal").modal();
 		$scope.modal2 = $("#basicModal").modal();
@@ -84,11 +91,6 @@ function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
         });
 	}
 
-	$scope.loginForm = function() {
-        //$scope.modalTemplate = 'views/partial/login.html';
-		$scope.modal2.modal('show');
-	}
-
     $scope.detailNews = function(id) {
         $http.get($scope.env.api+'news/'+id)
         .success(function (response) {
@@ -102,8 +104,10 @@ function($http, $scope, $rootScope, $sce, $location, Notification, envService) {
         });
     };
 
+	//include authentication script
+	//=include ../public.auth.js
+
     var widget = this;
-  
     $scope.$watch(function () {
         return widget.href;
     }, function () {

@@ -32,7 +32,8 @@
 	</div>
 	<div id="siteModal" class="ui segments modal" ng-include="'views/scholarship/scholarship.detail.html'">
 	</div>
-	<div id="basicModal" class="ui small basic center aligned modal" ng-include="'views/partial/login.html'">
+	<div id="basicModal" class="ui small basic center aligned modal">
+		 <ng-include src="smallModal"></ng-include>
 	</div>
 
 	<script src="{{ env('APP_URL') }}/js/kisikisi.min.js"></script>

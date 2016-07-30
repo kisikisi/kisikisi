@@ -17,6 +17,7 @@ var scholarshippaths = {
 
 gulp.task('scholarship-jsmin', function() {
   return gulp.src(scholarshippaths.js)
+    .pipe(include()).on('error', console.log)
     .pipe(uglify())
     .pipe(concat('scholarship.min.js'))
     .pipe(gulp.dest('public/js'));

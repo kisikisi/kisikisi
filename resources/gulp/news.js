@@ -17,6 +17,7 @@ var newspaths = {
 
 gulp.task('news-jsmin', function() {
   return gulp.src(newspaths.js)
+    .pipe(include()).on('error', console.log)
     .pipe(uglify())
     .pipe(concat('news.min.js'))
     .pipe(gulp.dest('public/js'));
