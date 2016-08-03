@@ -235,10 +235,10 @@ ul{
 #section-min-2 .row .content-detail a{
 	color:#333;
 }
-#section-min-2 .row .content-image{
+/*#section-min-2 .row .content-image{
 	display:flex;
 	justify-content:flex-start;
-}
+}*/
 #section-min-2 .row:nth-child(2) .content-image img{
 	width:250px !important;
 }
