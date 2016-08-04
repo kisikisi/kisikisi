@@ -106,7 +106,7 @@ class EducationNewsController extends Controller
     }
 
     public function detail($id){
-        $data['detail'] = EducationNews::with(["newsCategory"])->find($id);
+        $data['detail'] = EducationNews::with(["newsCategory",'author'])->find($id);
         $data['newsLabel'] = EducationNews::find($id)->newsLabel()->get();
         return response()->json($data);
     }

@@ -76,6 +76,7 @@ class AuthController extends Controller
 				$status = 404;
 			} else {
 				$data = ['user'=>$user];
+				$data['user']['role'] = User::find($user->id)->roles[0];
 				$status = 200;
 			}
 			if ($json == true) return response()->json($data, $status);

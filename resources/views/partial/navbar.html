@@ -2,7 +2,12 @@
 	<a id="sidebarToggle" class="active logo item">
 	   <img class="icon" ng-src="{{ env.site }}img/logo/logo.png" width="30" alt=""><i class="dropdown icon"></i>
 	</a>
-	<div class="right menu">
+	<div class="right menu" ng-if="!isLogin()" >
+		<a class="item" ng-click="loginForm()">
+			<i class="unlock large icon"></i>
+		</a>
+	</div>
+	<div class="right menu" ng-if="isLogin()">
 		<a class="ui item" ng-click="resetFilter()">
 		  <i class="home large icon"></i>
 		</a>
@@ -10,7 +15,8 @@
 		  <i class="search large icon"></i
 		</a>
 		<a class="ui browse item" data-position="bottom right">
-		  <i class="user large icon"></i>
+		  <img ng-if="auth.user_pict" class="ui circular image" ng-src="{{ env.site }}img/avatar.png" style="width:30px" >
+		  <i ng-if="! auth.user_pict" class="user icon"></i>
 		</a>
 		<div class="ui popup bottom right transition hidden">
 			<div class="uk-grid uk-grid-small">

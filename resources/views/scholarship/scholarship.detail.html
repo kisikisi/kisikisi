@@ -8,7 +8,16 @@
     <h2 class="ui header uk-width-medium-2-3 uk-width-small-1-1">
         <div class="content">
             {{detail.title}}
-            <div class="sub header">By {{ detail.created_by }} | {{detail.created_at}}</div>
+            <div class="sub header">
+            	<a class="ui teal image label">
+				  <i class="user icon"></i>
+				  <div class="detail">{{detail.created_by.name}}</div>
+				</a>
+           		<a class="ui blue image label">
+            	  <i class="calendar icon"></i>
+				  <div class="detail">{{ detail.created_at }}</div>
+				</a>
+            </div>
             <div ui-rating class="ui star rating" data-rating="0" data-max-rating="5"></div>
         </div>
     </h2>
@@ -53,7 +62,7 @@
     Gambar
   </a>
 </div>
-<div class="ui attached tab segment" data-tab="content">
+<div class="ui active attached tab segment" data-tab="content">
   <article ng-bind-html="detail.content"></article>
 </div>
 <div class="ui attached tab segment" data-tab="requirement">

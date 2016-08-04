@@ -104,7 +104,7 @@ class ScholarshipController extends Controller
     public function detail($id) {
 		$scholarship = explode('-', $id, 2);
 
-		$data['detail'] = Scholarship::find($scholarship[0]);
+		$data['detail'] = Scholarship::with('createdBy')->find($scholarship[0]);
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 

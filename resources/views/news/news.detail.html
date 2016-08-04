@@ -1,32 +1,23 @@
-<div class="image">
-    <img ng-src="{{env.file}}news/image/{{detail.image_cover}}" alt="" class="ui fluid image">
-    <!--<div class="ui center aligned grid content">
-
-    </div>-->
-</div>
+<!--<div class="image">
+    <img ng-src="{{env.file}}news/cover/{{detail.image_cover}}" alt="" class="ui fluid image">
+</div>-->
 <div class="ui segment">
-    <h2 class="ui header uk-width-medium-2-3 uk-width-small-1-1">
-        <img ng-src="{{env.file}}news/logo/{{detail.logo}}">
+    <h2 class="ui header">
         <div class="content">
             {{detail.title}}
             <div class="sub header">{{detail.date}}</div>
-            <img src="" class="ui avatar image" />
+            <img src="{{env.file}}user/picture/{{detail.author.picture}}" class="ui avatar image" />
             <a class="ui blue image label">
-              <img src="/images/avatar/small/veronika.jpg">
-              {{detail.author}}
+              {{detail.author.name}}
               <div class="detail">Author</div>
             </a>
             <a class="ui red label">{{detail.news_category.name}}</a>
-            
+		</div>
     </h2>
 </div>
 <div class="ui segment">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	<div class="ui image"><img ng-src="{{env.file}}news/content/{{detail.image_content}}"></div>
+	<article ng-bind-html="detail.content"></article>
 </div>
 <div class="ui attached segment">
     <button class="ui facebook button">
