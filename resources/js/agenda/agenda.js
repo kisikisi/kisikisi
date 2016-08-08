@@ -72,10 +72,12 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
 			for (i=0;i<calendar.length;i++) {
 				calendar[i].start = moment.unix(response.calendar[i].start).format("YYYY-MM-DD");
 				calendar[i].end = moment.unix(response.calendar[i].end).format("YYYY-MM-DD");
+				if (i % 2 == 0) calendar[i].color = '#E13E95';
+				else calendar[i].color = '#933894';
 			}
 			$scope.eventSources = {
 				events: calendar,
-				color: 'yellow',   // an option!
+				//color: 'yellow',   // an option!
 				textColor: 'black' // an option!
 			}
         });

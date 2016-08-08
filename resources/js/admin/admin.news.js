@@ -154,6 +154,7 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             //input.news_category_id = $scope.input.news_category.id;
 
             var index = $scope.indexSearch($scope.news, input.id);
+			input.author = input.author.id;
             $http.put($scope.env.api+'news/'+input.id, input)
             .then(function (response) {
                 $scope.news[index] = response.data.news[0];
