@@ -153,6 +153,7 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             //input.scholarship_degree_id = $scope.input.degree.id;
 
             var index = $scope.indexSearch($scope.scholarships, input.id);
+			input.created_by = input.created_by.id;
             $http.put($scope.env.api+'scholarship/'+input.id, input)
             .then(function (response) {
                 $scope.scholarships[index] = response.data.scholarship[0];
