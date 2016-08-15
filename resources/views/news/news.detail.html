@@ -6,7 +6,7 @@
         <div class="content">
             {{detail.title}}
             <div class="sub header">{{detail.date}}</div>
-            <img ng-if="detail.author.picture != null" src="{{env.file}}user/picture/{{detail.author.picture}}" class="ui avatar image" />
+            <img ng-if="detail.author.picture != ''" src="{{env.file}}user/picture/{{detail.author.picture}}" class="ui avatar image" />
             <a class="ui blue image label">
               {{detail.author.name}}
               <div class="detail">Author</div>
