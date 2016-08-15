@@ -138,7 +138,9 @@ var userCtrl = ['$http','$scope', '$location', 'Notification','Upload',
 			$scope.input.name = response.user.name;
 			$scope.input.email = response.user.email;
 
-            $("[data-widget='collapse']").click();
+            if ($(".box.box-default").hasClass('collapsed-box')) {
+				$("[data-widget='collapse']").click();
+			}
             $location.hash('userForm');
         });
     };

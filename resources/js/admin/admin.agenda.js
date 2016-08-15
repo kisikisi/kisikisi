@@ -180,7 +180,9 @@ var agendaCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
             $scope.input.agenda_category_id = parseInt($scope.input.agenda_category_id);
             $scope.input.status = parseInt($scope.input.status);
 
-            $("[data-widget='collapse']").click();
+            if ($(".box.box-default").hasClass('collapsed-box')) {
+				$("[data-widget='collapse']").click();
+			}
             $location.hash('agendaForm');
         })
     }

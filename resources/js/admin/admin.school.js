@@ -155,7 +155,9 @@ var schoolCtrl = ['$http','$scope', '$location', 'Notification','Upload',
             $scope.input.province_id = parseInt($scope.input.city.province_id);
             $scope.input.city_id = parseInt($scope.input.city_id);
 
-            $("[data-widget='collapse']").click();
+            if ($(".box.box-default").hasClass('collapsed-box')) {
+				$("[data-widget='collapse']").click();
+			}
             $location.hash('schoolForm');
         });
     };

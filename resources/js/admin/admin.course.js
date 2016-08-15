@@ -166,7 +166,9 @@ var courseCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
         .success(function (response) {
             $scope.input = response.detail;
 
-            $("[data-widget='collapse']").click();
+           if ($(".box.box-default").hasClass('collapsed-box')) {
+				$("[data-widget='collapse']").click();
+			}
             $location.hash('courseForm');
         })
     }

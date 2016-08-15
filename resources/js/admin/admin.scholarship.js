@@ -174,7 +174,9 @@ var scholarshipCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 			$scope.input.scholarship_degree_id = parseInt($scope.input.scholarship_degree_id);
             $scope.input.status = parseInt($scope.input.status);
 
-            $("[data-widget='collapse']").click();
+            if ($(".box.box-default").hasClass('collapsed-box')) {
+				$("[data-widget='collapse']").click();
+			}
             $location.hash('scholarshipForm');
         })
     }
