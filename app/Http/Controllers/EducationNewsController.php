@@ -42,6 +42,10 @@ class EducationNewsController extends Controller
 
 		if ($after != 0) $lists->where($news->table.'.id','<', $after);
         $data['news'] = $lists->get();
+
+		for ($i=0;$i < count($data['news']); $i++ ) {
+			$data['news'][$i]->content = substr(strip_tags($data['news'][$i]->content), 0, 100);
+		}
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
