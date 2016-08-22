@@ -40,7 +40,7 @@
     </footer>
     
     <!-- Control Sidebar -->
-    <?php include(public_path('views/admin/sidebar.control.html')) ?>
+    <?php //include(public_path('views/admin/sidebar.control.html')) ?>
     <!-- /.control-sidebar -->
 
     <!-- Add the sidebar's background. This div must be placed

@@ -33,21 +33,21 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
         
 	envServiceProvider.config({
 		domains: {
-			development: ['localhost', 'kisikisi.dev', 'dir.kisikisi.dev'],
-			production: ['103.11.74.10', 'kisikisi.id', 'dir.kisikisi.id']
+			development: ['localhost', 'kisikisi.dev', 'direktori.kisikisi.dev'],
+			production: ['103.11.74.10', 'kisikisi.id', 'direktori.kisikisi.id']
 		},
 		vars: {
 			development: {
 				site: '//kisikisi.dev/',
 				api: '//api.kisikisi.dev/',
 				file: '//files.kisikisi.dev/',
-				dir: '//dir.kisikisi.dev/'
+				dir: '//direktori.kisikisi.dev/'
 				
 			},
 			production: {
 				site: '//kisikisi.id/',
 				api: '//api.kisikisi.id/',
-				dir: '//dir.kisikisi.id/',
+				dir: '//direktori.kisikisi.id/',
 				file: '//files.kisikisi.id/'
 			}
 		}
@@ -61,6 +61,7 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	$urlRouterProvider.otherwise('/');
 	
 	$authProvider.loginUrl = '/login';
+	$authProvider.signupUrl = '/register';
         
     ezfbProvider.setInitParams({
         appId: '135688693164869'

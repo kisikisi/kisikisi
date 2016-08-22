@@ -6,8 +6,9 @@ var dirDetailCtrl = ['$http','$scope', '$location', '$sce', '$stateParams', 'Not
             $scope.detail = response.detail[0];
             $scope.detail.description = $sce.trustAsHtml(response.detail[0].description);
             $scope.detail.data = $sce.trustAsHtml(response.detail[0].data);
+            $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail[0].map_address);
             $scope.onDetail = true;
-            // $location.hash('schoolDetail');
+			// $location.hash('schoolDetail');
         });
         
 }];

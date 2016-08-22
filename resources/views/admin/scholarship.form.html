@@ -1,0 +1,118 @@
+<div class="box box-default collapsed-box">
+    <div class="box-header with-border">
+      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> Scholarship Form</h3>
+      <div class="box-tools pull-right">
+        <!--<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>-->
+        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+      </div>
+    </div><!-- /.box-header -->
+    <form name="scholarshipAddForm" class="form-horizontal" ng-submit="saveScholarship(input)" novalidate>
+        <div class="box-body">
+            <div class="form-group">
+                <label class="col-sm-2 control-label"> Title</label>
+                <div class="col-sm-10">
+                    <input id="title" type="text" class="form-control" name="title" ng-model="input.title" ng-change="input.slug = slug(input.title)" placeholder=" Title" required>
+                    <input id="slug" type="text" class="form-control" name="slug" ng-model="input.slug" placeholder=" Slug" readonly required>
+                </div>
+            </div>
+            <!--<div class="form-group">
+                <label class="col-sm-2 control-label">Degree</label>
+                <div class="col-sm-4">
+                <select class="form-control" name="scholarship_degree_id" ng-model="input.scholarship_degree_id" ng-options="deg.id as deg.name for deg in scholarshipDegrees">
+                  <option value="">--Choose Degree--</option>
+                </select>
+                </div>
+            </div>-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Deadline Date</label>
+                <div class="col-sm-10">
+                    <input datepicker id="deadline" type="text" class="form-control" name="deadline" ng-model="input.deadline" placeholder="mm/dd/yyyy">
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Instance</label>
+              <div class="col-sm-10">
+              	<input id="instance" type="text" class="form-control" name="instance" ng-model="input.instance" placeholder="Instance" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Upload Image</label>
+              <div class="col-sm-5">
+                <div ng-if="onProgress1" class="progress progress-sm active">
+                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ progress1 }}" aria-valuemin="0" aria-valuemax="100">
+                      <span class="sr-only">{{ progress1 }} Complete</span>
+                    </div>
+                </div>
+                <img ng-if="input.image_cover != null" ng-src="{{ env.file }}scholarship/cover/{{ input.image_cover }}" width="100%" />
+                <a type="button" class="btn btn-block btn-primary" ngf-select="uploadCover(scholarshipAddForm.filecover.$valid && filecover, $file)" ngf-resize="{width: 600, height: 300, centerCrop: true}" name="filecover" ng-model="filecover" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecover.name == null">Upload Cover Picture</span> {{filecover.name}}</a>
+              </div>
+              <div class="col-sm-5">
+                <div ng-if="onProgress2" class="progress progress-sm active">
+                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ progress2 }}" aria-valuemin="0" aria-valuemax="100">
+                      <span class="sr-only">{{ progress2 }} Complete</span>
+                    </div>
+                </div>
+                <img ng-if="input.image_content != null" ng-src="{{ env.file }}scholarship/content/{{ input.image_content }}" width="50%" />
+                <a type="button" class="btn btn-block btn-primary" ngf-select="uploadContent(scholarshipAddForm.filecontent.$valid && filecontent, $file)" ngf-resize="{width: 600, height: 800, centerCrop: true}" name="filecontent" ng-model="filecontent" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecontent.name == null">Upload Content Picture</span> {{filecontent.name}}</a>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label"> Content</label>
+              <div class="col-sm-10">
+                <div text-angular name="content" ng-model="input.content" required></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label"> Requirement</label>
+              <div class="col-sm-10">
+                <div text-angular ng-model="input.requirement"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label"> Registration</label>
+              <div class="col-sm-10">
+                <div text-angular ng-model="input.registration"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Link</label>
+              <div class="col-sm-10">
+                <input type="url" class="form-control" name="link" ng-model="input.link" placeholder="http://your.site.com/link-to-your-content">
+              </div>
+            </div>
+
+            <div class="form-group" ng-if="input.id">
+                <label class="col-sm-2 control-label"> Label</label>
+                <div class="col-sm-10">
+                    <tags-input ng-model="input.course_label"
+                        display-property="name"
+                        key-property="id"
+                        placeholder="Add Label"
+                        add-on-space="true"
+                        addFromAutocompleteOnly="true"
+                        on-tag-adding="addLabel($tag, input.id)"
+            	        on-tag-removing="removeLabel($tag, input.id)">
+                            <auto-complete source="loadLabels($query)" select-first-match="false" highlight-matched-text="true"></auto-complete>
+                    </tags-input>
+                </div>
+            </div>
+            <div class="form-group" ng-if="input.id">
+                <label class="col-sm-2 control-label"> Status</label>
+                <div class="col-sm-10">
+                    <toggle-switch
+                      ng-model="input.status"
+                      on-label="Live"
+                      off-label="Draft">
+                    </toggle-switch>
+                </div>
+            </div>
+
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+            <button type="reset" class="btn btn-default" ng-click="resetScholarship()">Cancel</button>
+            <button ng-disabled="onSave || !scholarshipAddForm.$valid" type="submit" class="btn btn-primary pull-right">Save</button>
+        </div><!-- /.box-footer -->
+    </form>
+</div><!-- /.box -->

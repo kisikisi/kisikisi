@@ -1,0 +1,86 @@
+<!--<i class="close icon"></i>
+<div class="header">
+	Masuk Sebagai Pengguna
+</div>
+<div class="image content">
+	<div class="ui small image">
+	  <img class="image" src="{{ env.site }}img/mascot/geek_mascot.png" alt="">
+	</div>
+	<div class="description">
+		<form class="ui inverted form">
+		  <div class="field">
+			<label>First Name</label>
+			<input type="text" name="first-name" placeholder="First Name">
+		  </div>
+		  <div class="field">
+			<label>Last Name</label>
+			<input type="text" name="last-name" placeholder="Last Name">
+		  </div>
+		  <div class="field">
+			<div class="ui checkbox">
+			  <input type="checkbox" tabindex="0" class="hidden">
+			  <label>I agree to the Terms and Conditions</label>
+			</div>
+		  </div>
+		  <button class="ui inverted blue fluid button" type="submit">Submit</button>
+		</form>
+	</div>
+</div>-->
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <img src="{{ env.site }}img/logo/logo.png" class="image">
+      <div class="content">
+        Login Sebagai Pengguna
+      </div>
+    </h2>
+    <form name="loginForm" class="ui large form" ng-submit="login(user)" novalidate>
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="username" ng-model="user.name" placeholder="username" required>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" ng-model="user.password" placeholder="password" required>
+          </div>
+        </div>
+        <button type="submit" ng-disabled="!loginForm.$valid" class="ui fluid large violet bg-base submit button">Login</button>
+        <div class="field">
+			<div class="ui horizontal divider">
+				atau
+			</div>
+		  </div>
+
+		 <div class="field">
+			<a class="ui fluid facebook button" ng-click="authenticate('facebook')"><i class="facebook icon"></i> Masuk dengan Facebook</a>
+		</div>
+		 <div class="field">
+			<a class="ui fluid google plus button" ng-click="authenticate('google')"><i class="google icon"></i> Masuk dengan Google</a>
+		</div>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+
+    <div class="ui message">
+      Pengguna baru? <a href="#" ng-click="registerPage()">Daftar</a>
+    </div>
+  </div>
+</div>
+<!--<div class="actions">
+	<div class="two fluid ui inverted buttons">
+	  <div class="ui red basic inverted button">
+		<i class="remove icon"></i>
+		No
+	  </div>
+	  <div class="ui green basic inverted button">
+		<i class="checkmark icon"></i>
+		Yes
+	  </div>
+	</div>
+</div>-->

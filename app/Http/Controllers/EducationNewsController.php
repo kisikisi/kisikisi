@@ -11,16 +11,42 @@ use App\EducationNews;
 use App\NewsCategory;
 use App\Label;
 use Auth;
+use Entrust;
+use App\Http\Controllers\Auth\AuthController;
 
 class EducationNewsController extends Controller
 {
     public function __construct(){
-		$this->middleware('jwt.auth', ['except'=>['index','detail']]);
+		$this->middleware('jwt.auth', ['except'=>['index','detail','scroll','form']]);
 	}
 
 	public function index(EducationNews $news){
     	$data['news'] = $news->newsList()->get();
     	return response()->json($data);
+    }
+
+	public function scroll($after, $limit, EducationNews $news, Request $request, AuthController $auth) {
+		$news_category_id = $request->input('news_category_id');
+		$title = $request->input('title');
+
+    	$lists = $news->newsList()
+			->orderBy($news->table.'.id', 'desc')
+			->take($limit);
+
+		if (!$user = $auth->getAuthUser())  $lists->where('status', 1);
+		else if (!$user->hasRole(['admin','manager'])) $lists->where('status', 1);
+
+		if (! Entrust::hasRole(['admin','manager'])) $lists->where('status', 1);
+		if (!empty($news_category_id)) $lists->where('news_category_id', $news_category_id);
+        if (!empty($title)) $lists->where($news->table.'.title', 'like', "%$title%");
+
+		if ($after != 0) $lists->where($news->table.'.id','<', $after);
+        $data['news'] = $lists->get();
+
+		for ($i=0;$i < count($data['news']); $i++ ) {
+			$data['news'][$i]->content = substr(strip_tags($data['news'][$i]->content), 0, 100);
+		}
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function form() {
@@ -84,7 +110,7 @@ class EducationNewsController extends Controller
     }
 
     public function detail($id){
-        $data['detail'] = EducationNews::with(["newsCategory","author"])->find($id);
+        $data['detail'] = EducationNews::with(["newsCategory",'author'])->find($id);
         $data['newsLabel'] = EducationNews::find($id)->newsLabel()->get();
         return response()->json($data);
     }
@@ -94,9 +120,11 @@ class EducationNewsController extends Controller
         $input['date'] = strtotime($input['date']);
         $input['modified_by'] = Auth::user()->id;
 
-    	$type = EducationNews::where('id', $id)->first();
-    	if ($type->update($input)) return response()->json(['success' => 'data_updated'], 200);
-    	else return response()->json(['error' => 'cant_update_data'], 500);
+    	$update = EducationNews::where('id', $id)->first();
+    	if ($update->update($input)) {
+            $data = $news->newsList()->where($news->table.'.id', $id)->get();
+            return response()->json(['status' => 'success',  'message' => 'news data updated', 'news' => $data], 200, [], JSON_NUMERIC_CHECK);
+        } else return response()->json(['status' => 'error', 'message' => 'fail to update data'], 500);
     }
 
     public function delete($id){

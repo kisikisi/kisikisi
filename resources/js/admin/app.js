@@ -5,7 +5,8 @@ var posOfTld = hostNameArray.length - 1;
 var host = hostNameArray[posOfTld];
 */
 app = angular.module('kisiApp', ['ui.router', 'satellizer', 'ngTouch', 'superswipe', 
-	'angularUtils.directives.dirPagination', 'xeditable', 'environment','ui-notification','ngFileUpload','ngTagsInput','toggle-switch','textAngular' ]);
+	'angularUtils.directives.dirPagination', 'xeditable', 'environment','ui-notification',
+	'ngFileUpload','ngTagsInput','toggle-switch','textAngular', 'infinite-scroll','validation.match' ]);
 app
 /*.constant('constant', {
 	'site': '//'+host+'/',
@@ -29,6 +30,10 @@ app
 .controller('newsCatCtrl', newsCatCtrl)
 .controller('agendaCtrl', agendaCtrl)
 .controller('agendaCatCtrl', agendaCatCtrl)
+.controller('scholarshipCtrl', scholarshipCtrl)
+//.controller('scholarshipDegreeCtrl', scholarshipDegreeCtrl)
+.controller('courseCtrl', courseCtrl)
+.controller('userCtrl', userCtrl)
 //.controller('adminMappingCtrl', adminMappingCtrl)
 
 /*.directive('datepicker', function() {

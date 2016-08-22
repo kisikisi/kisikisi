@@ -1,12 +1,12 @@
-font-kg="DHF Broffont Script"
-font-base="Glametrix"
+font-logo="anagram"
+font-base="Glacial Indifference"
 font-nav="Titillium Web"
-font-heading="CaviarDreams"
+font-header="Folks-Bold"
 
-color-base=#0079ab
-color-base2=#00ABA9
-bg-base=#0079ab
-bg-base2=#00ABA9
+color-base=#933894
+color-base2=#E13E95
+bg-base=#933894
+bg-base2=#E13E95
 
 /* Kisikisi CSS Styles */
 @font-face {
@@ -20,9 +20,26 @@ bg-base2=#00ABA9
   text-transform: none;
 }
 
+body { font-family: font-base; }
+
 /* semantic custom */
 .ui.secondary.pointing.menu .active.item, .ui.secondary.pointing.menu .active.item:hover { border-color: color-base2; color: color-base2; }
 .ui.menu .item { color: color-base; }
+.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover { z-index: 1; }
 /*.segments>.image>.content { position: absolute; width: 100%; top: 100px; margin: 0 auto; }*/
 .ui.icon.header .icon.logo { width: 150px; }
-.ks.bg.base {  }
+.ui.header, .ui.cards>.card>.content>.header { font-family: font-header; color: color-base; }
+.ui.menu, .ui.message .header { font-family: font-base; }
+.uk-sticky-init, .ui.styled.accordion, .ui.styled.accordion .accordion { z-index: 1; }
+
+.bg-base { background: bg-base !important; }
+.bg-base2 { background: bg-base2 !important; }
+.color-base { color: color-base }
+.color-base2 { color: color-base2 }
+.item.logo>.content { font-family: font-logo; font-size: 1.5em; margin-left:0.1em; letter-spacing:0.04em; }
+.item.header.logo>.content { font-size: 1em; letter-spacing:0.1em; }
+
+#mainNav { z-index: 1; background: bg-base; }
+#mainNav .item { padding: 1.2em;  }
+#mainNav .item.logo { padding-top: 0.2em; padding-bottom: 0.2em; -webkit-align-self: auto; align-self: auto;  }
+#content { margin-top: 2em; }

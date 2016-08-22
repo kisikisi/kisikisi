@@ -12,10 +12,14 @@ class SchoolDirectory extends Model
     public $table = 'school_directories';
 	protected $fillable = [
     	'school_type_id',
+		'npsn',
         'name',
+		'slug',
         'address',
         'map_address',
+		'postal',
         'phone',
+		'fax',
         'email',
         'website',
         'logo',
@@ -23,6 +27,7 @@ class SchoolDirectory extends Model
         'city_id',
         'description',
         'data',
+		'status',
         'created_by',
         'modified_by'
     ];

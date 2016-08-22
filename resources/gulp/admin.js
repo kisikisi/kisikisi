@@ -10,17 +10,7 @@ var fontmin = require('fontmin');
 var concat = require('gulp-concat');
 
 var backpaths = {
-	images: [
-		'resources/img/*',
-		'resources/img/**/*',
-		'bower_components/AdminLTE/dist/img/*'
-	],
-	fonts: [
-		'resources/fonts/*',
-		'bower_components/font-awesome/fonts/*',
-		'bower_components/Ionicons/fonts/*',
-		'bower_components/AdminLTE/bootstrap/fonts/*',
-	],
+
 	libjs: [
 		//jquery
 		'bower_components/jquery/dist/jquery.min.js',
@@ -62,6 +52,8 @@ var backpaths = {
 		'bower_components/textAngular/dist/textAngular-rangy.min.js',
 		'bower_components/textAngular/dist/textAngular-sanitize.min.js',
 		'bower_components/textAngular/dist/textAngular.min.js',
+		'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
+		'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
 
         //other module
 
@@ -115,26 +107,6 @@ var backpaths = {
 };
 
 // back-end
-
-gulp.task('back-imagemin', function() {
-  return gulp.src(backpaths.images)
-    .pipe(imagemin({ progressive: true }))
-    .pipe(gulp.dest('public/img'));
-});
-
-gulp.task('back-fontmin', function() {
-  fontmin().src(backpaths.fonts)
-    .use(fontmin.otf2ttf())
-    .use(fontmin.ttf2woff())
-    .use(fontmin.ttf2eot())
-    .use(fontmin.ttf2svg())
-  	.use(fontmin.css({
-        fontPath: '../fonts/'
-    }))
-  	.dest('public/fonts')
-    .run();
-});
-
 gulp.task('back-libjsmin', function() {
   return gulp.src(backpaths.libjs)
     .pipe(uglify())

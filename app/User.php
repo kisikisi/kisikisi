@@ -13,11 +13,13 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
                                     CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, EntrustUserTrait;
-    //use SoftDeletes;
+    use Authenticatable, CanResetPassword;
+    use SoftDeletes;
+	use EntrustUserTrait {
+		EntrustUserTrait::restore insteadof SoftDeletes;
+	}
     protected $table = 'users';
 
     /**
@@ -26,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'picture'
     ];
 
     /**

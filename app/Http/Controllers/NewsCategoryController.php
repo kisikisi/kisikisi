@@ -12,12 +12,22 @@ use Auth;
 class NewsCategoryController extends Controller
 {
 	public function __construct(){
-		$this->middleware('jwt.auth', ['except'=>['index']]);
+		$this->middleware('jwt.auth', ['except'=>['index','scroll']]);
 	}
 
     public function index(NewsCategory $news){
     	$data['categories'] = NewsCategory::all();
     	return response()->json($data);
+    }
+
+	public function scroll($after, $limit, NewsCategory $category, Request $request) {
+
+    	$lists = $category->orderBy('id', 'desc')
+			->take($limit);
+
+		if ($after != 0) $lists->where('id','<', $after);
+        $data['categories'] = $lists->get();
+		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function add(Request $request, NewsCategory $news){
