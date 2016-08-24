@@ -61,7 +61,8 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	$urlRouterProvider.otherwise('/');
 	
 	$authProvider.loginUrl = '/login';
-        
+    $authProvider.signupUrl = '/register';
+
     ezfbProvider.setInitParams({
         appId: '135688693164869'
     });
