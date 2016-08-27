@@ -68,11 +68,11 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
 		$http.get($scope.env.api+'news/scroll/'+$scope.after+'/'+$scope.limit, {
 			params: $scope.filter
 		}).success(function (response) {
+			for(var i = 0; i < response.news.length; i++){
+				response.news[i].date = moment.unix(response.news[i].date).format("MM/DD/YYYY");
+			}
 			for (var i = 0; i < response.news.length; i++) {
 				$scope.news.push(response.news[i]);
-			}
-			for(var i = 0; i < response.news.length; i++){
-				$scope.news[i].date = moment.unix(response.news[i].date).format("MM/DD/YYYY");
 			}
             //$scope.schools.push(response.schools[0]);
 			if (response.news.length > 0) {
