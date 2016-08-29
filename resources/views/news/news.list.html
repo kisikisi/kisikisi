@@ -49,12 +49,14 @@
       <div class="content">
           <div class="header">{{ list.title }}</div>
           <div class="meta">
-              <span class="date">{{list.date}}</span>
-              <a class="ui blue image label">
+              <span class="author"><i class="user icon"></i> {{list.author}} </span>
+              <span class="date"><i class="wait icon"></i> {{list.date}}</span>
+              <span class="tag"><i class="hash tag icon"></i> {{list.category}}</span>
+              <!--<a class="ui blue image label">
               oleh
               <div class="detail">{{list.author}}</div>
             </a>
-            <a class="ui red label">{{list.category}}</a>
+            <a class="ui red label">{{list.category}}</a>-->
           </div>
         <div class="description" >
           <p>{{list.content}} ...</p>
