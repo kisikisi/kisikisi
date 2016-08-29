@@ -44,7 +44,7 @@ class EducationNewsController extends Controller
         $data['news'] = $lists->get();
 
 		for ($i=0;$i < count($data['news']); $i++ ) {
-			$data['news'][$i]->content = substr(strip_tags($data['news'][$i]->content), 0, 100);
+			$data['news'][$i]->content = utf8_encode(substr(strip_tags($data['news'][$i]->content), 0, 100));
 		}
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }
