@@ -19,7 +19,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
 			} });
 	}
 	$scope.$on('$includeContentLoaded', function(event) {
-		$scope.modal1 = $("#siteModal").modal();
+		$rootScope.modal1 = $("#siteModal").modal();
 		$scope.modal2 = $("#basicModal").modal();
 		/*$scope.modal.modal({
 			onHide: function(){
@@ -82,7 +82,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
         })
 	}
 
-	$scope.detailSchool = function(id) {
+	$rootScope.detailSchool = function(id) {
         $http.get($scope.env.api+'school/'+id)
         .success(function (response) {
             $scope.detail = response.detail[0];
@@ -90,7 +90,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
             $scope.detail.data = $sce.trustAsHtml(response.detail[0].data);
             $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail[0].map_address);
             //$scope.modalTemplate = 'views/directory/school.detail.html';
-			$scope.modal1.modal('show');
+			$rootScope.modal1.modal('show');
         });
     };
 

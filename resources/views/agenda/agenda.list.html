@@ -9,7 +9,7 @@
 	</div>
 </div>
 <div class="ui link three stackable cards uk-margin-top" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
- <div class="card"  ng-repeat="list in agendas" ng-click="detailAgenda(list.id)">
+ <div class="card"  ng-repeat="list in agendas" ui-sref="agenda.detail({id: list.id, slug: list.slug })" data-ui-sref-opts="{notify: false}">
   <a ng-if="list.image_cover" class="image">
     <img ng-src="{{ env.file }}/agenda/cover/{{ list.image_cover }}">
   </a>

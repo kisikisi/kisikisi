@@ -20,7 +20,7 @@ function($http, $scope, $rootScope, $state, $sce, $auth, $location, Notification
 			} });
 	}
 	$scope.$on('$includeContentLoaded', function(event) {
-		$scope.modal1 = $("#siteModal").modal();
+		$rootScope.modal1 = $("#siteModal").modal();
 		$scope.modal2 = $("#basicModal").modal();
 		/*$scope.modal.modal({
 			onHide: function(){
@@ -89,14 +89,14 @@ function($http, $scope, $rootScope, $state, $sce, $auth, $location, Notification
         });
 	}*/
 
-    $scope.detailCourse = function(id) {
+    $rootScope.detailCourse = function(id) {
         $http.get($scope.env.api+'course/'+id)
         .success(function (response) {
             $scope.detail = response.detail;
             $scope.detail.description = $sce.trustAsHtml(response.detail.description);
             $scope.detail.embed = $sce.trustAsResourceUrl(response.detail.embed);
             //$scope.modalTemplate = 'views/course/course.detail.html';
-			$scope.modal1.modal('show');
+			$rootScope.modal1.modal('show');
         });
     };
 

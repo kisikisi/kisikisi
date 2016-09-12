@@ -20,7 +20,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
 			} });
 	}
 	$scope.$on('$includeContentLoaded', function(event) {
-		$scope.modal1 = $("#siteModal").modal();
+		$rootScope.modal1 = $("#siteModal").modal();
 		$scope.modal2 = $("#basicModal").modal();
 		/*$scope.modal.modal({
 			onHide: function(){
@@ -88,7 +88,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
         });
 	}
 
-    $scope.detailNews = function(id) {
+    $rootScope.detailNews = function(id) {
         $http.get($scope.env.api+'news/'+id)
         .success(function (response) {
             $scope.detail = response.detail;
@@ -97,7 +97,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
             $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail.map_address);
             $scope.detail.date = moment.unix(response.detail.date).format("MM/DD/YYYY");
             //$scope.modalTemplate = 'views/directory/school.detail.html';
-			$scope.modal1.modal('show');
+			$rootScope.modal1.modal('show');
         });
     };
 

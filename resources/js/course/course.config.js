@@ -25,10 +25,15 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		url:'/',
 		controller: 'courseIndexCtrl',
         templateUrl: 'views/course/course.list.html'
-	}).state('courseDetail', {
-		url:'/{id:[a-zA-Z1-9.-]*}',
-		controller: 'courseDetailCtrl',
-        templateUrl: 'views/course/course.detail.html'
+	}).state('course.detail', {
+		url:'{id:[a-zA-Z0-9.-]*}/{slug}',
+		onEnter: [ '$stateParams', '$rootScope', function($stateParams, $rootScope) {
+			$rootScope.detailCourse($stateParams.id);
+		}],
+		onExit: [ '$stateParams', '$rootScope', function($stateParams, $rootScope) {
+			$rootScope.modal1.modal('hide');
+			//console.log($stateParams.productId);
+		}]
 	});
 
 	envServiceProvider.config({

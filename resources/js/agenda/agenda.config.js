@@ -25,10 +25,15 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		url:'/', 
 		controller: 'agendaIndexCtrl',
         templateUrl: 'views/agenda/agenda.list.html'
-	}).state('agendaDetail', {
-		url:'/{id:[a-zA-Z1-9.-]*}', 
-		controller: 'agendaDetailCtrl',
-        templateUrl: 'views/agenda/agenda.detail.html'
+	}).state('agenda.detail', {
+		url:'{id:[a-zA-Z0-9.-]*}/{slug}',
+		onEnter: [ '$stateParams', '$rootScope', function($stateParams, $rootScope) {
+			$rootScope.detailAgenda($stateParams.id);
+		}],
+		onExit: [ '$stateParams', '$rootScope', function($stateParams, $rootScope) {
+			$rootScope.modal1.modal('hide');
+			//console.log($stateParams.productId);
+		}]
 	});
         
 	envServiceProvider.config({

@@ -25,10 +25,15 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		url:'/', 
 		controller: 'newsIndexCtrl',
         templateUrl: 'views/news/news.list.html'
-	}).state('newsDetail', {
-		url:'/{id:[a-zA-Z1-9.-]*}', 
-		controller: 'newsDetailCtrl',
-        templateUrl: 'views/news/news.detail.html'
+	}).state('news.detail', {
+		url:'{id:[a-zA-Z0-9.-]*}/{slug}',
+		onEnter: [ '$stateParams', '$rootScope', function($stateParams, $rootScope) {
+			$rootScope.detailNews($stateParams.id);
+		}],
+		onExit: [ '$stateParams', '$rootScope', function($stateParams, $rootScope) {
+			$rootScope.modal1.modal('hide');
+			//console.log($stateParams.productId);
+		}]
 	});
         
 	envServiceProvider.config({

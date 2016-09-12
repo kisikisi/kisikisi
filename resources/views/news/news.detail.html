@@ -20,7 +20,7 @@
 	</h2>
 	<div class="ui list">
 		<div class="item">
-		<img ng-if="detail.author.picture != ''" src="{{env.file}}user/picture/{{detail.author.picture}}" class="ui avatar image" />
+		<img ng-if="detail.author.picture != ''" ng-src="{{env.file}}user/picture/{{detail.author.picture}}" class="ui avatar image" />
 			<div class="content">
 			  <a class="header">{{detail.author.name}}</a>
 			  <div class="description">Diposkan pada {{detail.date}}</div>

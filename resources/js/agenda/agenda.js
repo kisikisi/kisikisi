@@ -22,7 +22,7 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
 			} });
 	}
 	$scope.$on('$includeContentLoaded', function(event) {
-		$scope.modal1 = $("#siteModal").modal();
+		$rootScope.modal1 = $("#siteModal").modal();
 		$scope.modal2 = $("#basicModal").modal();
 		/*$scope.modal.modal({
 			onHide: function(){
@@ -110,7 +110,7 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
         });
 	}*/
 
-    $scope.detailAgenda = function(id) {
+    $rootScope.detailAgenda = function(id) {
         $http.get($scope.env.api+'agenda/'+id)
         .success(function (response) {
             $scope.detail = response.detail;
@@ -119,7 +119,7 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
 			$scope.detail.start = moment.unix(response.detail.start_datetime).format("MM/DD/YYYY");
 			$scope.detail.end = moment.unix(response.detail.end_datetime).format("MM/DD/YYYY");
             //$scope.modalTemplate = 'views/agenda/agenda.detail.html';
-			$scope.modal1.modal('show');
+			$rootScope.modal1.modal('show');
         });
     };
 
