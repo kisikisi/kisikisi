@@ -1,4 +1,4 @@
-<div class="image">
+<div ng-if="detail.image !=''" class="image">
     <img ng-src="{{env.file}}school/image/{{detail.image}}" alt="" class="ui fluid image">
     <!--<div class="ui center aligned grid content">
 
@@ -6,7 +6,7 @@
 </div>
 <div class="ui segment uk-grid">
     <h2 class="ui header uk-width-medium-2-3 uk-width-small-1-1">
-        <img ng-src="{{env.file}}school/logo/{{detail.logo}}">
+        <img  ng-if="detail.logo !=''" ng-src="{{env.file}}school/logo/{{detail.logo}}">
         <div class="content">
             {{detail.name}}
             <div class="sub header">{{detail.school_type.name}}</div>
