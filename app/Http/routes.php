@@ -49,7 +49,7 @@ Route::group([
 });
 
 Route::group([
-    'domain' => 'dir.'.env('APP_DOMAIN')
+    'domain' => 'direktori.'.env('APP_DOMAIN')
 ], function() {
     Route::get('/', function () {
 	    return view('directory');
@@ -57,6 +57,9 @@ Route::group([
     Route::get('/{id}', function () {
 	    return view('directory');
 	});
+	Route::get('/{id}/{slug}', function () {
+        return view('directory');
+    });
 });
 
 Route::group([
@@ -68,6 +71,9 @@ Route::group([
 	Route::get('/{id}', function () {
 	    return view('agenda');
 	});
+	Route::get('/{id}/{slug}', function () {
+        return view('agenda');
+    });
 });
 Route::group([
     'domain' => 'berita.'.env('APP_DOMAIN')
@@ -76,6 +82,9 @@ Route::group([
         return view('news');
     });
     Route::get('/{id}', function () {
+        return view('news');
+    });
+	Route::get('/{id}/{slug}', function () {
         return view('news');
     });
 });
@@ -88,6 +97,9 @@ Route::group([
     Route::get('/{id}', function () {
         return view('course');
     });
+	Route::get('/{id}/{slug}', function () {
+        return view('course');
+    });
 });
 
 Route::group([
@@ -97,6 +109,9 @@ Route::group([
         return view('scholarship');
     });
     Route::get('/{id}', function () {
+        return view('scholarship');
+    });
+	Route::get('/{id}/{slug}', function () {
         return view('scholarship');
     });
 });

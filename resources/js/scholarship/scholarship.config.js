@@ -25,10 +25,15 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 		url:'/',
 		controller: 'scholarshipIndexCtrl',
         templateUrl: 'views/scholarship/scholarship.list.html'
-	}).state('scholarshipDetail', {
-		url:'/{id:[a-zA-Z1-9.-]*}',
-		controller: 'scholarshipDetailCtrl',
-        templateUrl: 'views/scholarship/scholarship.detail.html'
+	}).state('scholarship.detail', {
+		url:'{id:[a-zA-Z0-9.-]*}/{slug}',
+		onEnter: [ '$stateParams', '$rootScope', function($stateParams, $rootScope) {
+			$rootScope.detailScholarship($stateParams.id);
+		}],
+		onExit: [ '$stateParams', '$rootScope', function($stateParams, $rootScope) {
+			$rootScope.modal1.modal('hide');
+			//console.log($stateParams.productId);
+		}]
 	});
 
 	envServiceProvider.config({
@@ -61,6 +66,7 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	$urlRouterProvider.otherwise('/');
 
 	$authProvider.loginUrl = '/login';
+	$authProvider.signupUrl = '/register';
 
     ezfbProvider.setInitParams({
         appId: '135688693164869'

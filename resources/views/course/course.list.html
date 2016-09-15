@@ -3,7 +3,7 @@
   e-Learning
 </h3>
 <div class="ui link two stackable cards" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
- <div class="card"  ng-repeat="list in courses" ng-click="detailCourse(list.id)">
+ <div class="card"  ng-repeat="list in courses" ui-sref="course.detail({id: list.id, slug: list.slug })" data-ui-sref-opts="{notify: false}">
   <a ng-if="list.image_cover" class="image">
     <img ng-src="{{ env.file }}/course/cover/{{ list.image_cover }}">
   </a>

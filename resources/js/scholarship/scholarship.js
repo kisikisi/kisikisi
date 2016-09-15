@@ -20,7 +20,7 @@ function($http, $scope, $rootScope, $state, $sce, $auth, $location, Notification
 			} });
 	}
 	$scope.$on('$includeContentLoaded', function(event) {
-		$scope.modal1 = $("#siteModal").modal();
+		$rootScope.modal1 = $("#siteModal").modal();
 		$scope.modal2 = $("#basicModal").modal();
 		/*$scope.modal.modal({
 			onHide: function(){
@@ -107,7 +107,7 @@ function($http, $scope, $rootScope, $state, $sce, $auth, $location, Notification
         });
 	}*/
 
-    $scope.detailScholarship = function(id) {
+    $rootScope.detailScholarship = function(id) {
         $http.get($scope.env.api+'scholarship/'+id)
         .success(function (response) {
             $scope.detail = response.detail;
@@ -116,7 +116,7 @@ function($http, $scope, $rootScope, $state, $sce, $auth, $location, Notification
             $scope.detail.registration = $sce.trustAsHtml(response.detail.registration);
 			$scope.detail.deadline = moment.unix(response.detail.deadline).format("MM/DD/YYYY");
             //$scope.modalTemplate = 'views/scholarship/scholarship.detail.html';
-			$scope.modal1.modal('show');
+			$rootScope.modal1.modal('show');
         });
     };
 
