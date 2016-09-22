@@ -261,9 +261,7 @@ Route::group([
 	});
 });
 
-Route::get('/', function () {
-    return view('portal');
-});
+Route::get('/', 'PortalController@index');
 
 /*
 |--------------------------------------------------------------------------
