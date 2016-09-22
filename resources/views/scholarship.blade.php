@@ -8,9 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   	<base href="/index.php"></base>
+  	<style>
+  	#mainNav{background: #A78F2F !important;}
+  	.ui.horizontal.divider.header{color:#A78F2F !important;}
+  	.ui.violet.bg-base.fluid.button{background:#A78F2F !important;}
+  	</style>
+  	
 </head>
 <body ng-controller="scholarshipCtrl">
+	<div class="uk-hidden-large">
 	<?php include(public_path('views/partial/sidebar.html')) ?> <!-- main sidebar -->
+	</div>
 	<div class="pusher">
 		<div data-uk-sticky>
 			<div id="mainNav" class="ui icon secondary inverted attached menu">
@@ -18,17 +26,18 @@
 			</div>
 			<div id="searchBar" class="ui attached segment" ng-show="onSearch"  ng-include="'views/scholarship/filter.form.html'"></div>
 		</div>
-
-	  <div class="ui container" data-uk-observe>
+		<img src="{{ env('APP_URL') }}/img/header/beasiswa.jpg" />
+	  <div class="ui container uk-margin-large-bottom" data-uk-observe>
 		  <div class="uk-grid">
 		   <div class="uk-width-large-3-4 uk-width-medium-1-1">
 			  <div id="content" ui-view></div>
 		   </div>
-		   <div class="uk-width-large-1-4 uk-hidden-medium">
+		   <div class="uk-width-large-1-4 uk-hidden-medium uk-margin-large-top">
 			  <?php include(public_path('views/scholarship/sidebar.html')) ?> <!-- content sidebar -->
 		   </div>
 		  </div>
 	  </div>
+	  <?php include(public_path('views/partial/footer.html')) ?>
 	</div>
 	<div id="siteModal" class="ui segments modal" ng-include="'views/scholarship/scholarship.detail.html'">
 	</div>

@@ -20,10 +20,42 @@
     <meta content="923539880721-sprpmk4rgmjq1ht75govalre7gl86bbm.apps.googleusercontent.com" name="google-signin-client_id"/>
 
     <base href="/index.php"></base>
+<style>
+	/* custom color */
+
+/* hero header component */
+#header{
+	background-image:url("img/{{ $data->header_url }}");
+	background-position: {{ $data->header_position }};
+	background-size: cover;
+	height:700px;
+}
+/* section which has background color */
+#section-1, #section-min-1, #section-4, #mainNav,#section-4 .ui.card{
+	background-color: {{ $data->background_color }};
+}
+/* section which has background color */
+#kisititle, #section-1,#section-min-1 .title, #section-4 .title,#section-4 *{
+	color:#fff !important;
+	text-shadow :0px 1px 0px #fafafa;
+}
+/* section which do not has background color (white) */
+#section-2 .title, #section-min-2 .title,#section-5 .title,.ui.header,#section-4 .ui.card{
+	color:{{ $data->color }} !important;
+	text-shadow :0px 1px 0px #fafafa;
+}
+/* section which has card content */
+#section-4 .ui.card{
+	border:{{ $data->card_border }} !important;
+	box-shadow:0px 0px 0px #89C4F4;
+}
+
+/* end custom color */
+
+</style>
 </head>
 <body>
 <script>
-
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '607018229476252',
@@ -45,27 +77,32 @@
 		<h3 class="ui item inverted header">
 			<img src="{{asset('img/logo/logo.png')}}" alt="">
 		  <div class="content">
-			KISIKISI
+			<a href="http://kisikisi.id">KISIKISI.ID</a>
 		  </div>
 		</h3>
-	  <a class="item">
+	  <a class="item" href="http://direktori.kisikisi.id">
 		<i class="university large icon"></i> Direktori Sekolah
 	  </a>
 	  <a class="item">
-		<i class="newspaper large icon"></i> Berita Pendidikan
+		<i class="newspaper large icon" href="http://berita.kisikisi.id"></i> Berita Pendidikan
 	  </a>
 	  <a class="item">
-		<i class="calendar large icon"></i> Agenda Pendidikan
+		<i class="calendar large icon" href="http://agenda.kisikisi.id"></i> Agenda Pendidikan
 	  </a>
 	  <a class="item">
-		<i class="student large icon"></i> Info Beasiswa
+		<i class="student large icon" href="http://beasiswa.kisikisi.id"></i> Info Beasiswa
 	  </a>
 	  <a class="item">
-		<i class="book large icon"></i> E-Learning
+		<i class="book large icon" href="http://learning.kisikisi.id"></i> E-Learning
 	  </a>
 	</div>
 </div>
-
+<div class="ui small modal">
+	<center><div class="ui header uk-margin-small-top">Coming Soon</div></center>
+	<div class="content">
+	  <img class="ui image uk-align-center" src="{{asset('img/rocketship.png')}}">
+	</div>
+</div>
 <div class="dimmed pusher">
 <div id="mainNav" data-uk-sticky class="ui icon blue inverted secondary pointing menu" style="z-index:99;">
 	<div class="ui container uk-hidden-large">
@@ -90,7 +127,7 @@
 		</a>
 		</span>
 		<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Forum Pendidikan">
-		<a class="item" href="http://berita.kisikisi.id">
+		<a class="item" id="forum">
 		<i class="users large icon"></i>
 		</a>
 		</span>
@@ -100,17 +137,17 @@
 		</a>
 		  
 		  <div class="right menu">
-		  	<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Agenda Pendidikan">
+		  	<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-right',cls:'myfix'}" title="Kunjungi Agenda Pendidikan">
 				<a class="item" href="http://agenda.kisikisi.id">
 					<i class="calendar large icon"></i>
 				</a>
 		  	</span>
-			<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Info Beasiswa">
+			<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-right',cls:'myfix'}" title="Kunjungi Info Beasiswa">
 				<a class="item" href="http://beasiswa.kisikisi.id">
 					<i class="student large icon"></i>
 				</a>
 			</span>
-			<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi E-Learning">
+			<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-right',cls:'myfix'}" title="Kunjungi E-Learning">
 				<a class="item" href="http://learning.kisikisi.id">
 					<i class="book large icon"></i>
 				</a>
@@ -124,7 +161,7 @@
 <div id="section-1" style="margin-top:-80px;z-index:10">
 	<div class="ui grid container section-2">
 		<div class="centered row uk-margin-bottom-remove uk-margin-large-top">
-			<span style="font-weight:bold;font-family:anagram;color:#fff;font-size:48px;">Kisikisi.id</span>
+			<span id="kisititle" style="font-weight:bold;font-family:anagram;font-size:48px;">Kisikisi.id</span>
 		</div>
 		<div class="centered row uk-margin-top" style="margin-top:0;" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
 			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
@@ -152,7 +189,7 @@
 			</div> --}}
 		</div>
 	</div>
-	<img src="{{asset('img/kisiadaptation.png')}}" class="uk-margin-large-right uk-margin-large-bottom uk-hidden-small kisiimage"  />
+	<img src="img/{{ $data->content_url }}" class="uk-margin-large-right uk-margin-large-bottom uk-hidden-small kisiimage"  />
 </div>
 
 <div id="section-min-1" style="position:relative;">
@@ -365,7 +402,7 @@
 </div>
 {{-- <div class="wave-2"></div>
 <div style="width:100%;height:15px;background-color:#fff;position:absolute;z-index:10;"></div> --}}
-<div id="section-5">
+{{-- <div id="section-5">
 	<div class="ui container">
 		<h1 class="uk-text-center title uk-margin-large-bottom"><i class="comment outline icon"></i>Apa kata orang tentang Kisikisi.id</h1>
 	<div class="uk-grid uk-grid-collapse" data-uk-scrollspy="{cls:'uk-animation-fade',delay:100}">
@@ -618,7 +655,7 @@
 		
 	</div>
 	</div>
-</div>
+</div> --}}
 
 <div id="footer">
 	<div class="ui container">
