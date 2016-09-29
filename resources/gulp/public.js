@@ -30,6 +30,7 @@ var paths = {
 		//'bower_components/jquery-ui/jquery-ui.min.js',
 
 		'bower_components/moment/moment.js',
+		'bower_components/moment/locale/id.js',
 
 		//Semantic
 		'bower_components/semantic/dist/semantic.min.js',

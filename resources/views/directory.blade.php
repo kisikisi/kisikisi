@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ env('APP_URL') }}/css/kisikisi.min.css" media="screen">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  	<meta property="fb:app_id" content="607018229476252" />
   	<base href="/index.php"></base>
   	<style>
   	#mainNav{background: #4A9E9E !important;box-shadow: 0px 1px 0px #909090}

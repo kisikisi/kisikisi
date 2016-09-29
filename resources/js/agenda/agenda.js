@@ -91,6 +91,7 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
 			params: $scope.filter
 		}).success(function (response) {
 			for (var i = 0; i < response.agendas.length; i++) {
+				response.agendas[i].start_datetime = moment.unix(response.agendas[i].start_datetime).format('Do MMM YYYY');
 				$scope.agendas.push(response.agendas[i]);
 			}
             //$scope.agendas.push(response.agendas[0]);
@@ -116,8 +117,8 @@ function($http, $scope, $rootScope, $state, $auth, $sce, $location, Notification
             $scope.detail = response.detail;
             $scope.detail.content = $sce.trustAsHtml(response.detail.content);
             $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail.map_address);
-			$scope.detail.start = moment.unix(response.detail.start_datetime).format("MM/DD/YYYY");
-			$scope.detail.end = moment.unix(response.detail.end_datetime).format("MM/DD/YYYY");
+			$scope.detail.start = moment.unix(response.detail.start_datetime).format("Do MMM YYYY");
+			$scope.detail.end = moment.unix(response.detail.end_datetime).format("Do MMM YYYY");
             //$scope.modalTemplate = 'views/agenda/agenda.detail.html';
 			$rootScope.modal1.modal('show');
         });

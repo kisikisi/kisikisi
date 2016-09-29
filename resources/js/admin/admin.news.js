@@ -198,15 +198,15 @@ var newsCtrl = ['$http','$scope', '$location', 'Upload', 'Notification',
 	}*/
 
 	$scope.deleteNews = function(id) {
-		var index = $scope.indexSearch($scope.type, id);
-		if (confirm('delete type?')) {
+		var index = $scope.indexSearch($scope.news, id);
+		if (confirm('delete news?')) {
 			$scope.onLoad = true;
 			$http.delete($scope.env.api+'news/'+id)
 			.success(function (response) {
 				Notification({message: response.message}, response.status);
 				if (response.status == 'success') {
 					//console.log(response.type);
-					$scope.type.splice(index, 1);	
+					$scope.news.splice(index, 1);
 				}
 				$scope.onLoad = false;
 			})

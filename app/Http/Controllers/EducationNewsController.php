@@ -46,7 +46,6 @@ class EducationNewsController extends Controller
 
 		for ($i=0;$i < count($data['news']); $i++ ) {
 			$data['news'][$i]->content = utf8_encode(substr(strip_tags($data['news'][$i]->content), 0, 400));
-			$data['news'][$i]->date = Carbon::createFromTimestamp($data['news'][$i]->date)->diffForHumans();
 		}
 		return response()->json($data, 200, [], JSON_NUMERIC_CHECK);
     }

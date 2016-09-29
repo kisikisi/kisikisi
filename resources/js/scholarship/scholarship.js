@@ -87,7 +87,7 @@ function($http, $scope, $rootScope, $state, $sce, $auth, $location, Notification
 			params: $scope.filter
 		}).success(function (response) {
 			for (var i = 0; i < response.scholarships.length; i++) {
-				response.scholarships[i].deadline = moment.unix(response.scholarships[i].deadline).format("MM/DD/YYYY");
+				response.scholarships[i].deadline = moment.unix(response.scholarships[i].deadline).format("Do MMM YYYY");
 				$scope.scholarships.push(response.scholarships[i]);
 			}
             //$scope.scholarships.push(response.scholarships[0]);
@@ -114,7 +114,7 @@ function($http, $scope, $rootScope, $state, $sce, $auth, $location, Notification
             $scope.detail.content = $sce.trustAsHtml(response.detail.content);
             $scope.detail.requirement = $sce.trustAsHtml(response.detail.requirement);
             $scope.detail.registration = $sce.trustAsHtml(response.detail.registration);
-			$scope.detail.deadline = moment.unix(response.detail.deadline).format("MM/DD/YYYY");
+			$scope.detail.deadline = moment.unix(response.detail.deadline).format("dddd, Do MMM YYYY");
             //$scope.modalTemplate = 'views/scholarship/scholarship.detail.html';
 			$rootScope.modal1.modal('show');
         });

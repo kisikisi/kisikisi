@@ -69,6 +69,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
 			params: $scope.filter
 		}).success(function (response) {
 			for (var i = 0; i < response.news.length; i++) {
+				response.news[i].date =  moment(response.news[i].date, 'X').fromNow();
 				$scope.news.push(response.news[i]);
 			}
             //$scope.schools.push(response.schools[0]);
@@ -95,7 +96,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
             $scope.detail.description = $sce.trustAsHtml(response.detail.description);
             $scope.detail.data = $sce.trustAsHtml(response.detail.data);
             $scope.detail.map_address = $sce.trustAsResourceUrl(response.detail.map_address);
-            $scope.detail.date = moment.unix(response.detail.date).format("MM/DD/YYYY");
+            $scope.detail.date = moment.unix(response.detail.date).format("dddd, Do MMM YYYY, h:mm [WIB]");
             //$scope.modalTemplate = 'views/directory/school.detail.html';
 			$rootScope.modal1.modal('show');
         });

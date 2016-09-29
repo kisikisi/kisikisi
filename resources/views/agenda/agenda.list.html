@@ -18,11 +18,12 @@
         {{ list.title }}
     </a>
     <div class="meta">
-      <span class="date">{{ agendaCategories[indexSearch(agendaCategories, list.agenda_category_id)].title }} </span>
+      <i class="tag icon"></i> {{ list.category }}
+      <i class="wait icon"></i> {{ list.start_datetime }}
     </div>
-    <div class="extra">
+    <!--<div class="extra">
       <div ui-rating class="ui star rating" data-rating="0" data-max-rating="5"></div>
-    </div>
+    </div>-->
     <div class="description">
       {{ cities[indexSearch(cities, list.city_id)].name }}
     </div>
