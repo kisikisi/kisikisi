@@ -161,7 +161,7 @@
 <div id="section-1" style="margin-top:-80px;z-index:10">
 	<div class="ui grid container section-2">
 		<div class="centered row uk-margin-bottom-remove uk-margin-large-top">
-			<span id="kisititle" style="font-weight:bold;font-family:anagram;font-size:48px;">Kisikisi.id</span>
+			<span id="kisititle" style="font-weight:bold;font-family:anagram;font-size:48px; letter-spacing:0.1em">Kisikisi.id</span>
 		</div>
 		<div class="centered row uk-margin-top" style="margin-top:0;" data-uk-scrollspy="{cls:'uk-animation-fade',delay:150}">
 			<span id="landing-title" class="title kisi">Informasi Pendidikan Anak Bangsa</span>
