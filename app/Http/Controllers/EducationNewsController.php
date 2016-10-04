@@ -18,7 +18,7 @@ use App\Http\Controllers\Auth\AuthController;
 class EducationNewsController extends Controller
 {
     public function __construct(){
-		$this->middleware('jwt.auth', ['except'=>['index','detail','scroll','form']]);
+		$this->middleware('jwt.auth', ['except'=>['index','detail','scroll','form', 'share']]);
 	}
 
 	public function index(EducationNews $news){
@@ -115,6 +115,13 @@ class EducationNewsController extends Controller
         $data['newsLabel'] = EducationNews::find($id)->newsLabel()->get();
         return response()->json($data);
     }
+
+	public function share($id) {
+		$data['news'] = EducationNews::with(['newsCategory'])->find($id);
+        $data['files'] = 'http://files.'.env('APP_DOMAIN');
+		//$data['newsLabel'] = EducationNews::find($id)->newsLabel()->get();
+        return view('news/share', $data);
+	}
 
     public function update(Request $request, EducationNews $news,$id){
     	$input = $request->all();

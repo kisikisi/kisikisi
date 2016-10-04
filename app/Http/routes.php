@@ -180,6 +180,8 @@ Route::group([
     //module label
     Route::get('label', 'LabelController@index');
     
+    Route::get('news/{id}/share', 'EducationNewsController@share');
+
     Route::group(['middleware' => 'ability:admin|manager'], function () {
 		//module user
 		Route::get('user', 'UserController@index');

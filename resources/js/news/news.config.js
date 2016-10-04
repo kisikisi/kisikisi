@@ -69,7 +69,7 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
     $authProvider.signupUrl = '/register';
 
     ezfbProvider.setInitParams({
-        appId: '135688693164869'
+        appId: '607018229476252'
     });
 	
 }]
