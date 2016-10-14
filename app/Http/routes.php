@@ -183,6 +183,10 @@ Route::group([
     Route::get('news/{id}/share', 'EducationNewsController@share');
 
     Route::group(['middleware' => 'ability:admin|manager'], function () {
+
+		//module dashboard
+		Route::get('dashboard', 'DashboardController@index');
+
 		//module user
 		Route::get('user', 'UserController@index');
 		Route::get('user/scroll/{after}/{limit}', 'UserController@scroll');
