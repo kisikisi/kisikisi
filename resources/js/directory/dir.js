@@ -69,6 +69,7 @@ function($http, $scope, $rootScope, $sce, $auth, $location, Notification, envSer
 		$http.get($scope.env.api+'school/scroll/'+$scope.after+'/'+$scope.limit, {
 			params: $scope.filter
 		}).success(function (response) {
+			$scope.total = response.total;
 			for (var i = 0; i < response.schools.length; i++) {
 				$scope.schools.push(response.schools[i]);
 			}

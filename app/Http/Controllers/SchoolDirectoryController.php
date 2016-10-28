@@ -77,6 +77,7 @@ class SchoolDirectoryController extends Controller
 		if (!empty($school_type_id)) $lists->where('school_type_id', $school_type_id);
         if (!empty($city_id)) $lists->where('city_id', $city_id);
         if (!empty($name)) $lists->where($school->table.'.name', 'like', "%$name%");
+		$data['total'] = $lists->count();
 
 		if ($after != 0) $lists->where($school->table.'.id','<', $after);
         $data['schools'] = $lists->get();
