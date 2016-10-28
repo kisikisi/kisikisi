@@ -67,7 +67,19 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	
 	$authProvider.loginUrl = '/login';
 	$authProvider.signupUrl = '/register';
-        
+
+	$authProvider.facebook({
+	  //for development
+      //clientId: '1496399374007633', // for live
+      clientId: '607018229476252',
+      url: '//api.kisikisi.id/auth/facebook'
+    });
+
+    $authProvider.google({
+      clientId: '923539880721-sprpmk4rgmjq1ht75govalre7gl86bbm.apps.googleusercontent.com',
+      url: '//api.kisikisi.id/auth/google'
+    });
+
     ezfbProvider.setInitParams({
         appId: '607018229476252'
     });

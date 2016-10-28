@@ -128,6 +128,8 @@ Route::group([
     //Route::post('/login', 'Auth\AuthController@login');
     //Route::post('/login/{role}', 'Auth\AuthController@login')->where('role', '(setup)');
 	Route::get('user/form', 'UserController@form');
+	Route::post('auth/facebook', 'AuthController@facebook');
+	Route::post('auth/google', 'AuthController@google');
 
     //module school type
     Route::get('school/type', 'SchoolTypeController@index');

@@ -2,6 +2,18 @@
 
 return [
 
+	'token_secret' => 'kisikisi',
+    'facebook_secret' => 'e4821a11720b78a871e74dae12ed243e',
+    'foursquare_secret' => '',
+    'google_secret' => 'UbYuMUr0nxfCb_nidD8mZfS',
+    'github_secret' => '',
+    'instagram_secret' => '',
+    'linkedin_secret' => '',
+    'live_secret' => '',
+    'yahoo_secret' => '',
+    'twitter_key' => '',
+    'twitter_secret' => '',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
