@@ -10,8 +10,11 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use GuzzleHttp;
+use GuzzleHttp\Subscriber\Oauth\Oauth1;
 use Hash;
 use JWTAuth;
+use JWTFactory;
 use Auth;
 
 class AuthController extends Controller
