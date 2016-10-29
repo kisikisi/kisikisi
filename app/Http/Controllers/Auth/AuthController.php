@@ -246,11 +246,11 @@ class AuthController extends Controller
 
             $user->attachRole('4');
 
-            /*$uProfile = new UserProfile;
+            $uProfile = new UserProfile;
             $uProfile->user_id = $user->id;
             $uProfile->fullname = $profile['name'];
             $profile->profile = $profile['bio'];
-            $uProfile->save();*/
+            $uProfile->save();
 
             $token = JWTAuth::fromUser($user, $customClaims);
 			//$user = Auth::user();
@@ -321,11 +321,11 @@ class AuthController extends Controller
 
 			$user->attachRole('4');
 
-            /*$uProfile = new UserProfile;
+            $uProfile = new UserProfile;
             $uProfile->user_id = $user->id;
             $uProfile->fullname = $profile['name'];
             $uProfile->summary = $profile['profile'];
-            $uProfile->save();*/
+            $uProfile->save();
 
 			$token = JWTAuth::fromUser($user, $customClaims);
 			//$user = Auth::user();
