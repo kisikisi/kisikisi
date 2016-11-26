@@ -19,8 +19,8 @@ $scope.getAuthUser = function() {
 $scope.authenticate = function(provider) {
 	$auth.authenticate(provider)
 	  .then(function(response) {
+	  	$scope.modal2.modal('hide');
 		$scope.getAuthUser();
-		$scope.modal2.hide();
 	  })
 	  .catch(function(error) {
 		//UIkit.notify(response.message);
