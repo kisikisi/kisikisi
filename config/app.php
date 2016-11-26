@@ -5,7 +5,8 @@ return [
 	'token_secret' => 'kisikisi',
     'facebook_secret' => 'e4821a11720b78a871e74dae12ed243e',
     'foursquare_secret' => '',
-    'google_secret' => 'UbYuMUr0nxfCb_nidD8mZfS',
+    /*'google_secret' => 'UbYuMUr0nxfCb_nidD8mZfS',*/
+    'google_secret'=>'7g89iI2RMbnpVr_qpzk4q8qW', // development 
     'github_secret' => '',
     'instagram_secret' => '',
     'linkedin_secret' => '',

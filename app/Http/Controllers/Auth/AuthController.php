@@ -209,7 +209,7 @@ class AuthController extends Controller
         if ($request->header('Authorization')) {
 
 			//check user facebook id
-            $user = UserProfile::where('facebook', '=', $profile['id'])->user;
+            $user = UserProfile::where('facebook', '=', $profile['id']);
             if ($user->first()) {
                 return response()->json(['message' => 'Akun facebook tersebut sudah terdaftar'], 409);
             }
@@ -224,7 +224,6 @@ class AuthController extends Controller
             $user->save();
 
             $token = JWTAuth::fromUser($user, $customClaims);
-			//$user = Auth::user();
             return response()->json(['token' => $token, 'user' => $user]);
         } else {
 			// Step 3b. Create a new user account or return an existing one.
@@ -244,7 +243,6 @@ class AuthController extends Controller
             
             $newuser->email = $profile['email'];
             $newuser->name = $username[0];
-            //$user->name = $profile['name'];
             $newuser->save(); 
             $newuser->attachRole('4');
 
@@ -255,7 +253,6 @@ class AuthController extends Controller
             $uProfile->save();
 
             $token = JWTAuth::fromUser($newuser, $customClaims);
-			//$user = Auth::user();
             return response()->json(['token' => $token, 'user' => $newuser]);
         }
     }
@@ -286,52 +283,51 @@ class AuthController extends Controller
         ]);
         $profile = json_decode($profileResponse->getBody(), true);
 
-        $customClaims = ['foo' => 'bar', 'baz' => 'bob'];
+        $customClaims = [];
         // Step 3a. If user is already signed in then link accounts.
         if ($request->header('Authorization'))  {
-            $user = User::where('google', '=', $profile['sub']);
+            $user = UserProfile::where('google', '=', $profile['sub'])->first();
 
-            if ($user->first()) return response()->json(['message' => 'Akun google tersebut sudah terdaftar'], 409);
+            if (!empty($user)) return response()->json(['message' => 'Akun google tersebut sudah terdaftar'], 409);
 
             $token = explode(' ', $request->header('Authorization'))[1];
             $payload = JWTAuth::decode($token, $customClaims);
 
-            $user = User::find($payload['sub']);
-            $user->google = $profile['sub'];
+            $user = User::find($user->user_id);
+            /*$user->google = $profile['sub'];*/
             $user->name = $user->name ?: $profile['name'];
             $user->save();
 
 			JWTAuth::fromUser($user, $customClaims);
-			//$user = Auth::user();
             return response()->json(['token' => $token, 'user' => $user]);
         } else {
 		// Step 3b. Create a new user account or return an existing one.
-            $user = User::where('google', '=', $profile['sub']);
+            $user = UserProfile::where('google', '=', $profile['sub']);
             $username = explode('@', $profile['email']);
+            $userCount = User::where('name', $username)->count();
 
-            if ($user->first())  {
-                return response()->json(['token' => JWTAuth::fromUser($user->first(), $customClaims)]);
-            } else if ($user = User::where('name', $username)) return response()->json(['message' => 'Akun dengan username serupa sudah terdaftar, silahkan daftar akun baru'], 409);
+            if ($u = $user->first())  {
+                $user = User::find($u->user_id);
+                return response()->json(['token' => JWTAuth::fromUser($user, $customClaims)]);
+            } else if ($userCount > 0) return response()->json(['message' => 'Akun dengan username serupa sudah terdaftar, silahkan daftar akun baru'], 409);
 
-            //return response()->json(['profile' =>$profile]);
+            // register user
+            $newuser = new User;
+            
+            $newuser->email = $profile['email'];
+            $newuser->name = $username[0];
+            $newuser->save(); 
+            $newuser->attachRole('4');
 
-            $user = new User;
-            $user->google = $profile['sub'];
-            $user->name = $username[0];
-            $user->email= $profile['email'];
-            $user->save();
+            $uProfile = new UserProfile;
+            $uProfile->user_id = $newuser->id;
+            $uProfile->first_name = $profile['name'];
+            $uProfile->google = $profile['sub'];
+            $uProfile->save();
 
-			$user->attachRole('4');
+            $token = JWTAuth::fromUser($newuser, $customClaims);
 
-            /*$uProfile = new UserProfile;
-            $uProfile->user_id = $user->id;
-            $uProfile->fullname = $profile['name'];
-            $uProfile->summary = $profile['profile'];
-            $uProfile->save();*/
-
-			$token = JWTAuth::fromUser($user, $customClaims);
-			//$user = Auth::user();
-            return response()->json(['token' => $token, 'user' => $user]);
+            return response()->json(['token' => $token, 'user' => $newuser]);
         }
     }
 }

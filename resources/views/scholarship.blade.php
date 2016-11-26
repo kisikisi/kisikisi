@@ -27,7 +27,7 @@
 			</div>
 			<div id="searchBar" class="ui attached segment" ng-show="onSearch"  ng-include="'views/scholarship/filter.form.html'"></div>
 		</div>
-		<img src="{{ env('APP_URL') }}/img/header/beasiswa.jpg" />
+		<img src="{{ env('APP_URL') }}/img/header/beasiswa.jpg" class="ui image" />
 	  <div class="ui container uk-margin-large-bottom" data-uk-observe>
 		  <div class="uk-grid">
 		   <div class="uk-width-large-3-4 uk-width-medium-1-1">

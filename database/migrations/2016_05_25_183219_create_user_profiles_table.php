@@ -31,6 +31,7 @@ class CreateUserProfilesTable extends Migration
             $table->string('email', 64);
             $table->string('website', 64);
             $table->string('facebook', 64);
+            $table->string('google', 64);
             $table->string('twitter', 64);
             $table->string('instagram', 64);
             $table->string('linkedin', 64);
