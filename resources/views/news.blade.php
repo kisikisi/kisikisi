@@ -29,13 +29,18 @@
 		<img id="headImage" src="{{ env('APP_URL') }}/img/header/edunews.jpg" class="ui image" />
 	  <div class="ui container uk-margin-large-bottom" data-uk-observe>
 		  <div class="uk-grid">
-		   <div class="uk-width-large-3-4 uk-width-medium-1-1">
-			  <div id="content" ui-view></div>
-		   </div>
-		   <div class="uk-width-large-1-4 uk-hidden-medium uk-margin-large-top">
-			  <?php include(public_path('views/news/sidebar.html')) ?> <!-- content sidebar -->
-		   </div>
+		  	<div class="uk-width-large-1-4 uk-hidden-large uk-margin-large-top">
+			<?php include(public_path('views/news/sidebar.html')) ?> <!-- content sidebar -->
+			</div>
+			<div class="uk-width-large-3-4 uk-width-medium-1-1">
+				<div id="content" ui-view></div>
+			</div>
+			<div class="uk-width-large-1-4 uk-hidden-medium uk-hidden-small uk-margin-large-top">
+			<?php include(public_path('views/news/sidebar.html')) ?> <!-- content sidebar -->
+			</div>
+		   
 		  </div>
+		  <div style="clear:both;"></div>
 	  </div>
 	  <?php include(public_path('views/partial/footer.html')) ?>
 	</div>
