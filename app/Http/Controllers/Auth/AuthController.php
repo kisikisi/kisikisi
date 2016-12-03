@@ -17,7 +17,6 @@ use Hash;
 use JWTAuth;
 use JWTFactory;
 use Auth;
-use Config;
 use GuzzleHttp;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
