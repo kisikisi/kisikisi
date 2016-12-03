@@ -39,4 +39,8 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function userProfile() {
+        return $this->hasOne('App\UserProfile');
+    }
 }
