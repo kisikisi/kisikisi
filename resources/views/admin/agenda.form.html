@@ -1,6 +1,6 @@
 <div class="box box-default collapsed-box">
     <div class="box-header with-border">
-      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> Agenda Form</h3>
+      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> Tambahkan Agenda</h3>
       <div class="box-tools pull-right">
         <!--<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>-->
         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -9,58 +9,58 @@
     <form name="agendaAddForm" class="form-horizontal" ng-submit="saveAgenda(input)" novalidate>
         <div class="box-body">
             <div class="form-group">
-                <label class="col-sm-2 control-label"> Title</label>
+                <label class="col-sm-2 control-label"> Judul</label>
                 <div class="col-sm-10">
-                    <input id="title" type="text" class="form-control" name="title" ng-model="input.title" ng-change="input.slug = slug(input.title)" placeholder=" Title" required>
+                    <input id="title" type="text" class="form-control" name="title" ng-model="input.title" ng-change="input.slug = slug(input.title)" placeholder=" Judul" required>
                     <input id="slug" type="text" class="form-control" name="slug" ng-model="input.slug" placeholder=" Slug" readonly required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Category</label>
+                <label class="col-sm-2 control-label">Kategori</label>
                 <div class="col-sm-4">
                 <select class="form-control" name="agenda_category_id" ng-model="input.agenda_category_id" ng-options="cat.id as cat.name for cat in agendaCategories" required>
-                  <option value="">--Choose Category--</option>
+                  <option value="">--Pilih Kategori--</option>
                 </select>
                 </div>
             </div>
             <div class="form-group"> 
-                <label class="col-sm-2 control-label">Agenda Date & Time</label>
-                <label class="col-sm-1 control-label">From</label>
+                <label class="col-sm-2 control-label">Tanggal & Waktu Agenda</label>
+                <label class="col-sm-1 control-label">Mulai dari</label>
                 <div class="col-sm-4">
                     <input datepicker id="start_datetime" type="text" class="form-control" name="start_datetime" ng-model="input.start_datetime" placeholder="mm/dd/yyyy" required>
                 </div>
-                <label class="col-sm-1 control-label">To</label>
+                <label class="col-sm-1 control-label">Hingga</label>
                 <div class="col-sm-4">
                     <input datepicker id="end_datetime" type="text" class="form-control" name="end_datetime" ng-model="input.end_datetime" placeholder="mm/dd/yyyy">
                 </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Location</label>
+              <label class="col-sm-2 control-label">Lokasi</label>
               <div class="col-sm-10">
                 <textarea class="form-control textarea" name="location" ng-model="input.location" placeholder="" cols="100%" rows="2" required></textarea>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Province/City</label>
+              <label class="col-sm-2 control-label">Provinsi & Kota</label>
               <div class="col-sm-5">
                 <select class="form-control" name="province_id" ng-model="input.province_id" ng-options="prov.id as prov.name for prov in provinces" required>
-                  <option value="">--Pick Province--</option>
+                  <option value="">--Pilih Provinsi--</option>
                 </select>
               </div>
               <div class="col-sm-5">
                 <select ng-if="input.province_id" class="form-control" name="city_id" ng-model="input.city_id" ng-options="cty.id as cty.name for cty in cities | filter:{ province_id : input.province_id }" required>
-                  <option value="">--Pick City--</option>
+                  <option value="">--Pilih Kota--</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Map Address</label>
+              <label class="col-sm-2 control-label">URL Map (Google Map)</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" name="map_address" ng-model="input.map_address" placeholder="">
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Upload Image</label>
+              <label class="col-sm-2 control-label">Upload Foto</label>
               <div class="col-sm-5">
                 <div ng-if="onProgress1" class="progress progress-sm active">
                     <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ progress1 }}" aria-valuemin="0" aria-valuemax="100">
@@ -69,7 +69,7 @@
                 </div>
                 <img ng-if="input.image_cover != null" ng-src="{{ env.file }}agenda/cover/{{ input.image_cover }}" width="100%" />
                 <a type="button" class="btn btn-block btn-primary" ngf-select="uploadCover(agendaAddForm.filecover.$valid && filecover, $file)" ngf-resize="{width: 600, height: 300, centerCrop: true}" name="filecover" ng-model="filecover" ngf-pattern="'image/*'"
-                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecover.name == null">Upload Cover Picture</span> {{filecover.name}}</a>
+                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecover.name == null">Upload Foto Cover</span> {{filecover.name}}</a>
               </div>
               <div class="col-sm-5">
                 <div ng-if="onProgress2" class="progress progress-sm active">
@@ -79,11 +79,11 @@
                 </div>
                 <img ng-if="input.image_content != null" ng-src="{{ env.file }}agenda/content/{{ input.image_content }}" width="50%" />
                 <a type="button" class="btn btn-block btn-primary" ngf-select="uploadContent(agendaAddForm.filecontent.$valid && filecontent, $file)" ngf-resize="{width: 600, height: 800, centerCrop: true}" name="filecontent" ng-model="filecontent" ngf-pattern="'image/*'"
-                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecontent.name == null">Upload Content Picture</span> {{filecontent.name}}</a>
+                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecontent.name == null">Upload Foto Konten</span> {{filecontent.name}}</a>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label"> Content</label>
+              <label class="col-sm-2 control-label"> Konten</label>
               <div class="col-sm-10">
                 <div name="content" text-angular ng-model="input.content" required></div>
               </div>
@@ -122,8 +122,8 @@
             
         </div><!-- /.box-body -->
         <div class="box-footer">
-            <button type="reset" class="btn btn-default" ng-click="resetAgenda()">Cancel</button>
-            <button ng-disabled="onSave || !agendaAddForm.$valid" type="submit" class="btn btn-primary pull-right">Save</button>
+            <button type="reset" class="btn btn-default" ng-click="resetAgenda()">Batalkan</button>
+            <button ng-disabled="onSave || !agendaAddForm.$valid" type="submit" class="btn btn-primary pull-right">Simpan</button>
         </div><!-- /.box-footer -->
     </form>
 </div><!-- /.box -->

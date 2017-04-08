@@ -70,13 +70,13 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	  //for development
       //clientId: '1496399374007633', // for live
       clientId: '607018229476252',
-      url: '//api.kisikisi.id/auth/facebook'
+      url: '//api.kisikisi.dev/auth/facebook'
     });
 
     $authProvider.google({
       /*clientId: '923539880721-sprpmk4rgmjq1ht75govalre7gl86bbm.apps.googleusercontent.com',*/
       clientId: '184079557512-d60g6d3mfa3c6j62lk8kp0p692gvcd3c.apps.googleusercontent.com', // for development
-      url: '//api.kisikisi.id/auth/google',
+      url: '//api.kisikisi.dev/auth/google',
     });
 	
 	$authProvider.loginUrl = '/login';

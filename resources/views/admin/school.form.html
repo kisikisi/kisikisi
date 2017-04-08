@@ -1,6 +1,6 @@
 <div class="box box-default collapsed-box">
     <div class="box-header with-border">
-      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> School Form </h3>
+      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> Buat Direktori Sekolah </h3>
       <div class="box-tools pull-right">
         <!--<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>-->
         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -9,13 +9,13 @@
     <form name="schoolAddForm" class="form-horizontal" ng-submit="saveSchool(input)" ng-reset novalidate>
         <div class="box-body">
             <div class="form-group">
-              <label class="col-sm-2 control-label">School Name</label>
+              <label class="col-sm-2 control-label">Nama Sekolah</label>
               <div class="col-sm-2">
                 <input id="name" type="text" class="form-control" name="npsn" ng-model="input.npsn" placeholder="NPSN" required>
               </div>
               <div class="col-sm-3">
                 <select class="form-control" name="school_type_id" ng-model="input.school_type_id" ng-options="type.id as type.name for type in schoolTypes" required>
-                  <option value="">--Choose Type--</option>
+                  <option value="">--Tipe Sekolah--</option>
                 </select>
               </div>
               <div class="col-sm-5">
@@ -25,24 +25,24 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Slug</label>
               <div class="col-sm-10">
-                <input id="name" type="text" class="form-control" name="slug" ng-model="input.slug" placeholder="Slug" readonly required>
+                <input id="name" type="text" class="form-control" name="slug" ng-model="input.slug" placeholder="Slug" readonly>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Location</label>
+              <label class="col-sm-2 control-label">Lokasi</label>
               <div class="col-sm-5">
                 <select class="form-control" name="province_id" ng-model="input.province_id" ng-options="prov.id as prov.name for prov in provinces" required>
-                  <option value="">--Pick Province--</option>
+                  <option value="">--Pilih Provinsi--</option>
                 </select>
               </div>
               <div class="col-sm-5">
                 <select ng-if="input.province_id" class="form-control" name="city_id" ng-model="input.city_id" ng-options="cty.id as cty.name for cty in cities | filter:{ province_id : input.province_id }" required>
-                  <option value="">--Pick City--</option>
+                  <option value="">--Pilih Kota--</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Address</label>
+              <label class="col-sm-2 control-label">Alamat Lengkap</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control" name="address" ng-model="input.address" placeholder="Address" required>
               </div>
@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Contact</label>
+              <label class="col-sm-2 control-label">Kontak</label>
               <div class="col-sm-2">
                 <input type="text" class="form-control" name="phone" ng-model="input.phone" placeholder="phone">
               </div>
@@ -66,7 +66,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Picture</label>
+              <label class="col-sm-2 control-label">Foto</label>
               <div class="col-sm-5">
                 <div ng-if="onProgress1" class="progress progress-sm active">
                     <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ progress1 }}" aria-valuemin="0" aria-valuemax="100">
@@ -75,7 +75,7 @@
                 </div>
                 <img ng-if="input.logo != null" ng-src="{{ env.file }}school/logo/{{ input.logo }}" width="50%" />
                 <a type="button" class="btn btn-block btn-primary" ngf-select="uploadLogo(schoolAddForm.filelogo.$valid && filelogo, $file)" ngf-resize="{width: 256, height: 256, centerCrop: true}" name="filelogo" ng-model="filelogo" ngf-pattern="'image/*'"
-                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filelogo.name == null">Upload Icon</span> {{filelogo.name}}</a>
+                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filelogo.name == null">Upload Logo</span> {{filelogo.name}}</a>
               </div>
               <div class="col-sm-5">
                 <div ng-if="onProgress2" class="progress progress-sm active">
@@ -85,17 +85,17 @@
                 </div>
                 <img ng-if="input.image != null" ng-src="{{ env.file }}school/image/{{ input.image }}" width="100%" />
                 <a type="button" class="btn btn-block btn-primary" ngf-select="uploadImage(schoolAddForm.fileimage.$valid && fileimage, $file)" ngf-resize="{width: 600, height: 300, centerCrop: true}" name="fileimage" ng-model="fileimage" ngf-pattern="'image/*'"
-                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="fileimage.name == null">Upload Photo</span> {{fileimage.name}}</a>
+                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="fileimage.name == null">Upload Foto Sekolah</span> {{fileimage.name}}</a>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Map Address</label>
+              <label class="col-sm-2 control-label">URL Alamat Sekolah (Google Map)</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" name="map_address" ng-model="input.map_address" placeholder="">
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Description</label>
+              <label class="col-sm-2 control-label">Deskripsi</label>
               <div class="col-sm-10">
                 <div text-angular ng-model="input.description"></div>
               </div>
@@ -107,7 +107,7 @@
               </div>
             </div>
             <div class="form-group" ng-if="input.id">
-                <label class="col-sm-2 control-label">Record Status</label>
+                <label class="col-sm-2 control-label">Status</label>
                 <div class="col-sm-10">
                     <toggle-switch
                       ng-model="input.status"
@@ -118,8 +118,8 @@
             </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
-            <button type="reset" class="btn btn-default" ng-click="resetSchool()">Cancel</button>
-            <button ng-disabled="onSave || !schoolAddForm.$valid" type="submit" class="btn btn-primary pull-right">Save</button>
+            <button type="reset" class="btn btn-default" ng-click="resetSchool()">Batalkan</button>
+            <button ng-disabled="schoolAddForm.$valid" type="submit" class="btn btn-primary pull-right">Simpan</button>
         </div><!-- /.box-footer -->
     </form>
 </div><!-- /.box -->

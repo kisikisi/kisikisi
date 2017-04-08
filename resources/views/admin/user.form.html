@@ -1,6 +1,6 @@
 <div class="box box-default collapsed-box">
     <div class="box-header with-border">
-      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> User Form</h3>
+      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> Tambahkan Pengguna</h3>
       <div class="box-tools pull-right">
         <!--<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>-->
         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -9,16 +9,16 @@
     <form name="userAddForm" class="form-horizontal" ng-submit="saveUser(input)" novalidate>
         <div class="box-body">
             <div class="form-group">
-                <label class="col-sm-2 control-label"> Name</label>
+                <label class="col-sm-2 control-label"> Username</label>
                 <div class="col-sm-10">
                     <input id="name" type="text" class="form-control" name="name" ng-model="input.name" placeholder="username" required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Role</label>
+                <label class="col-sm-2 control-label">Hak Akses</label>
                 <div class="col-sm-4">
                 <select id="role_id" class="form-control" name="role_id" ng-model="input.role_id" ng-options="role.id as role.name for role in roles" required>
-                  <option value="">--Choose Role--</option>
+                  <option value="">--Pilih Tingkat--</option>
                 </select>
                 </div>
             </div>
@@ -50,8 +50,8 @@
 
         </div><!-- /.box-body -->
         <div class="box-footer">
-            <button type="reset" class="btn btn-default" ng-click="resetUser()">Cancel</button>
-            <button ng-disabled="onSave || !userAddForm.$valid" type="submit" class="btn btn-primary pull-right">Save</button>
+            <button type="reset" class="btn btn-default" ng-click="resetUser()">Batalkan</button>
+            <button ng-disabled="onSave || !userAddForm.$valid" type="submit" class="btn btn-primary pull-right">Simpan</button>
         </div><!-- /.box-footer -->
     </form>
 </div><!-- /.box -->

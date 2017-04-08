@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Kisikisi.id</title>
+  <title>Kisikisi.id - Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <base href="/index.php"></base>
   <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.min.css') }}">
+  <link rel="shortcut icon" href="{{ asset('img/logo/logo.png') }}" />
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,7 +16,34 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+<style>
+.skin-blue .main-header .navbar {
+  background: #933894;
+}
+.skin-blue .main-header .logo {
+  background: #933894;
+}
+.skin-blue .main-header .logo:hover {
+  background: #933894;
+}
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+ background: #933894; 
+}
+.skin-blue .main-header li.user-header{
+  background: #fff;
+}
+a{
+ color: #933894; 
+}
+.btn-primary.hover, .btn-primary:active, .btn-primary{
+  background: #933894;
+  border:0px solid #fff !important;
+}
+.btn-primary.hover, .btn-primary:active, .btn-primary:hover{
+  background: #802484 !important;
+}
 
+</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini login-page" ng-controller="kisiCtrl">
   <div class="wrapper" ng-if="isAuthenticated()">
@@ -34,9 +62,9 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          <b>Version</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="http://almsaeedstudio.com">Kisikisi.id</a>.</strong> All rights reserved.
     </footer>
     
     <!-- Control Sidebar -->

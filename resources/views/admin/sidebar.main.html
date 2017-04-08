@@ -13,7 +13,7 @@
       </div>
     </div>
     <!-- search form -->
-    <form action="#" method="get" class="sidebar-form">
+    <!-- <form action="#" method="get" class="sidebar-form">
       <div class="input-group">
         <input type="text" name="q" class="form-control" placeholder="Search...">
             <span class="input-group-btn">
@@ -21,77 +21,79 @@
               </button>
             </span>
       </div>
-    </form>
+    </form> -->
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
-      <li class="header">MAIN NAVIGATION</li>
-      <li><a href="/"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
+      <li class="header">Navigasi</li>
+      <li><a href="/"><i class="fa fa-book"></i> <span>Halaman Utama</span></a></li>
+      
       <li class="treeview">
         <a href="#">
           <i class="fa fa-folder-open-o"></i>
-          <span>Education Directory</span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/school/type"><i class="fa fa-th-list"></i> School Type</a></li>
-          <li><a href="/school"><i class="fa fa-university"></i> School Directory</a></li>
-        </ul>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-folder-open-o"></i>
-          <span>Education Agenda</span>
+          <span>Agenda Pendidikan</span>
         </a>
         <ul class="treeview-menu">
           <li><a href="/agenda"><i class="fa fa-newspaper-o"></i> Agenda</a></li>
-          <li><a href="/agenda/category"><i class="fa fa-th-list"></i> Agenda Category</a></li>
+          <li><a href="/agenda/category"><i class="fa fa-th-list"></i> Kategori Agenda</a></li>
           <li><a href="/label"><i class="fa fa-tag"></i> Label</a></li>
         </ul>
       </li>
       <li class="treeview">
         <a href="#">
           <i class="fa fa-folder-open-o"></i>
-          <span>Education News</span>
+          <span>Berita Pendidikan</span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="/news"><i class="fa fa-newspaper-o"></i> News Post</a></li>
-          <li><a href="/news/category"><i class="fa fa-th-list"></i> News Category</a></li>
+          <li><a href="/news"><i class="fa fa-newspaper-o"></i> Posting Berita</a></li>
+          <li><a href="/news/category"><i class="fa fa-th-list"></i> Kategori Berita</a></li>
           <li><a href="/label"><i class="fa fa-tag"></i> Label</a></li>
         </ul>
       </li>
       <li class="treeview">
         <a href="#">
           <i class="fa fa-folder-open-o"></i>
-          <span>Education Blog</span>
-        </a>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-folder-open-o"></i>
-          <span>Course</span>
+          <span>Beasiswa</span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="/course"><i class="fa fa-newspaper-o"></i>Course</a></li>
-          <li><a href="/label"><i class="fa fa-tag"></i> Label</a></li>
+          <li><a href="/scholarship"><i class="fa fa-newspaper-o"></i> List Beasiswa</a></li>
+          <li><a href="/label"><i class="fa fa-th-list"></i> Label</a></li>
+        </ul>
+      </li>
+      <!-- <li class="treeview">
+        <a href="#">
+          <i class="fa fa-folder-open-o"></i>
+          <span>Blog Pendidikan</span>
+        </a>
+      </li> -->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-folder-open-o"></i>
+          <span>Direktori Pendidikan</span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/school/type"><i class="fa fa-th-list"></i> Tipe Sekolah</a></li>
+          <li><a href="/school"><i class="fa fa-university"></i> Direktori Sekolah</a></li>
         </ul>
       </li>
       <li class="treeview">
+        <a href="#">
+          <i class="fa fa-folder-open-o"></i>
+          <span>E-Learning</span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/course"><i class="fa fa-newspaper-o"></i>Kisi Learning</a></li>
+          <li><a href="/label"><i class="fa fa-tag"></i> Label</a></li>
+        </ul>
+      </li>
+      <!-- <li class="treeview">
         <a href="#">
           <i class="fa fa-folder-open-o"></i>
           <span>Education Exam</span>
         </a>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-folder-open-o"></i>
-          <span>Scholarship</span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/scholarship"><i class="fa fa-newspaper-o"></i> Scholarship</a></li>
-          <li><a href="/label"><i class="fa fa-th-list"></i> Label</a></li>
-        </ul>
-      </li>
-      <li class="treeview">
+      </li> -->
+      
+      <!-- <li class="treeview">
         <a href="#">
           <i class="fa fa-folder-open-o"></i>
           <span>Education Consult</span>
@@ -102,9 +104,9 @@
           <i class="fa fa-folder-open-o"></i>
           <span>Education Forum</span>
         </a>
-      </li>
-      <li ng-if="auth.role.id == 1"><a href="/user"><i class="fa fa-book"></i><span>User</span></a></li>
-      <li><a href="documentation/index.html"><i class="fa fa-book"></i><span>Documentation</span></a></li>
+      </li> -->
+      <li ng-if="auth.role.id == 1"><a href="/user"><i class="fa fa-book"></i><span>Pengaturan Pengguna</span></a></li>
+      <li><a href="documentation/index.html"><i class="fa fa-book"></i><span>Dokumentasi</span></a></li>
     </ul>
   </section>
   <!-- /.sidebar -->

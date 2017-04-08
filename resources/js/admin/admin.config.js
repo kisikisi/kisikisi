@@ -118,8 +118,8 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	
 	envServiceProvider.config({
 		domains: {
-			development: ['localhost', 'kisikisi.dev', 'setup.kisikisi.dev'],
-			production: ['103.11.74.10', 'kisikisi.id', 'setup.kisikisi.id']
+			development: ['localhost', 'kisikisi.dev', 'setup.kisikisi.dev','files.kisikisi.dev'],
+			production: ['103.11.74.10', 'kisikisi.id', 'setup.kisikisi.id','files.kisikisi.id']
 		},
 		vars: {
 			development: {

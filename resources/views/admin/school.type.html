@@ -1,12 +1,12 @@
 <section class="content-header">
   <h1>
-    School Type
-    <small>Categories of School</small>
+    Tipe Sekolah
+    <small>Klasifikasi Sekolah Berdasarkan Kategori</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">School Directory</a></li>
-    <li class="active">School Type</li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> Halaman Utama</a></li>
+    <li><a href="#">Direktori Pendidikan</a></li>
+    <li class="active">Tipe Sekolah</li>
   </ol>
 </section>
 <section class="content">
@@ -14,7 +14,7 @@
     <div class="col-xs-12">
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Add School Type</h3>
+          <h3 class="box-title">Tambahkan Tipe Sekolah Baru</h3>
           <div class="box-tools pull-right">
             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
             <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -24,18 +24,18 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <input class="form-control" name="name" ng-model="input.name" type="text" placeholder="School Type Name" required>
+                <input class="form-control" name="name" ng-model="input.name" type="text" placeholder="Nama Tipe" required>
               </div><!-- /.form-group -->
             </div><!-- /.col -->
             <div class="col-md-2">
               <div class="form-group">
-                <input class="form-control" name="alias" ng-model="input.alias" type="text" placeholder="School Type Alias" required>
+                <input class="form-control" name="alias" ng-model="input.alias" type="text" placeholder="Tipe Alias" required>
               </div><!-- /.form-group -->
             </div><!-- /.col -->
             <div class="col-md-2">
               <div class="form-group">
                 <select class="form-control" name="group" ng-model="input.group">
-                    <option value="">--Pick Group--</option>
+                    <option value="">--Pilih Jenis--</option>
                     <option value="F">Formal</option>
                     <option value="N">Non-Formal</option>
                 </select>
@@ -43,7 +43,7 @@
             </div><!-- /.col -->
             <div class="col-md-2">
               <div class="form-group">
-                <button type="submit" ng-disabled="onAdd" class="btn btn-block btn-primary">Save</button>
+                <button type="submit" ng-disabled="onAdd" class="btn btn-block btn-primary">Simpan</button>
               </div><!-- /.form-group -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -55,7 +55,7 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">School Type List</h3>
+          <h3 class="box-title">List Tipe Sekolah</h3>
           <div class="box-tools">
             <div class="input-group pull-right" style="width: 150px;">
               <input type="text" name="table_search" ng-model="search" class="form-control input-sm pull-right" placeholder="Search">
@@ -71,9 +71,9 @@
           <table class="table table-hover" infinite-scroll='nextPage()' infinite-scroll-distance='1' infinite-scroll-disabled='scrollBusy'>
             <tbody><tr>
               <th>No</th>
-              <th>School Type</th>
+              <th>Nama Tipe</th>
               <th>Alias</th>
-              <th>Group</th>
+              <th>Jenis</th>
               <th></th>
             </tr>
             <tr ng-repeat="list in types | orderBy:'-id' | filter:search">

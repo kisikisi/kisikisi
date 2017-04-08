@@ -1,6 +1,6 @@
 <div class="box box-default collapsed-box">
     <div class="box-header with-border">
-      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> Scholarship Form</h3>
+      <h3 class="box-title"><a data-widget="collapse" class="btn btn-primary"><i class="fa fa-plus"></i></a> Tambahkan Beasiswa</h3>
       <div class="box-tools pull-right">
         <!--<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>-->
         <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -9,9 +9,9 @@
     <form name="scholarshipAddForm" class="form-horizontal" ng-submit="saveScholarship(input)" novalidate>
         <div class="box-body">
             <div class="form-group">
-                <label class="col-sm-2 control-label"> Title</label>
+                <label class="col-sm-2 control-label"> Judul</label>
                 <div class="col-sm-10">
-                    <input id="title" type="text" class="form-control" name="title" ng-model="input.title" ng-change="input.slug = slug(input.title)" placeholder=" Title" required>
+                    <input id="title" type="text" class="form-control" name="title" ng-model="input.title" ng-change="input.slug = slug(input.title)" placeholder=" Judul" required>
                     <input id="slug" type="text" class="form-control" name="slug" ng-model="input.slug" placeholder=" Slug" readonly required>
                 </div>
             </div>
@@ -24,19 +24,19 @@
                 </div>
             </div>-->
             <div class="form-group">
-                <label class="col-sm-2 control-label">Deadline Date</label>
+                <label class="col-sm-2 control-label">Tanggal Batas Terakhir</label>
                 <div class="col-sm-10">
                     <input datepicker id="deadline" type="text" class="form-control" name="deadline" ng-model="input.deadline" placeholder="mm/dd/yyyy">
                 </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Instance</label>
+              <label class="col-sm-2 control-label">Instansi</label>
               <div class="col-sm-10">
               	<input id="instance" type="text" class="form-control" name="instance" ng-model="input.instance" placeholder="Instance" required>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Upload Image</label>
+              <label class="col-sm-2 control-label">Upload Foto</label>
               <div class="col-sm-5">
                 <div ng-if="onProgress1" class="progress progress-sm active">
                     <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ progress1 }}" aria-valuemin="0" aria-valuemax="100">
@@ -45,7 +45,7 @@
                 </div>
                 <img ng-if="input.image_cover != null" ng-src="{{ env.file }}scholarship/cover/{{ input.image_cover }}" width="100%" />
                 <a type="button" class="btn btn-block btn-primary" ngf-select="uploadCover(scholarshipAddForm.filecover.$valid && filecover, $file)" ngf-resize="{width: 600, height: 300, centerCrop: true}" name="filecover" ng-model="filecover" ngf-pattern="'image/*'"
-                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecover.name == null">Upload Cover Picture</span> {{filecover.name}}</a>
+                    ngf-accept="'image/*'"><i class="fa fa-file-image-o"></i> <span ng-if="filecover.name == null">Upload Foto Cover</span> {{filecover.name}}</a>
               </div>
               <div class="col-sm-5">
                 <div ng-if="onProgress2" class="progress progress-sm active">
@@ -59,19 +59,19 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label"> Content</label>
+              <label class="col-sm-2 control-label"> Konten</label>
               <div class="col-sm-10">
                 <div text-angular name="content" ng-model="input.content" required></div>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label"> Requirement</label>
+              <label class="col-sm-2 control-label"> Syarat & Ketentuan</label>
               <div class="col-sm-10">
                 <div text-angular ng-model="input.requirement"></div>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label"> Registration</label>
+              <label class="col-sm-2 control-label"> Pendaftaran</label>
               <div class="col-sm-10">
                 <div text-angular ng-model="input.registration"></div>
               </div>
@@ -111,8 +111,8 @@
 
         </div><!-- /.box-body -->
         <div class="box-footer">
-            <button type="reset" class="btn btn-default" ng-click="resetScholarship()">Cancel</button>
-            <button ng-disabled="onSave || !scholarshipAddForm.$valid" type="submit" class="btn btn-primary pull-right">Save</button>
+            <button type="reset" class="btn btn-default" ng-click="resetScholarship()">Batalkan</button>
+            <button ng-disabled="onSave || !scholarshipAddForm.$valid" type="submit" class="btn btn-primary pull-right">Simpan</button>
         </div><!-- /.box-footer -->
     </form>
 </div><!-- /.box -->

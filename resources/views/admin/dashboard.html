@@ -1,12 +1,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Dashboard
-    <small>Control panel</small>
+    Halaman Utama
+    <small>Panel</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Dashboard</li>
+    <li><a href="#" class="active"><i class="fa fa-dashboard"></i> Halaman Utama</a></li>
   </ol>
 </section>
 
@@ -14,18 +13,19 @@
 <section class="content">
   <!-- Small boxes (Stat box) -->
   <div class="row">
+    <!-- ./col -->
     <div class="col-lg-2 col-xs-6">
       <!-- small box -->
-      <div class="small-box bg-aqua">
+      <div class="small-box bg-yellow">
         <div class="inner">
-          <h3>{{count.directories_count}}</h3>
+          <h3>{{count.agendas_count}}</h3>
 
-          <p>School Directories</p>
+          <p>Agenda Pendidikan</p>
         </div>
         <div class="icon">
-          <i class="fa fa-university"></i>
+          <i class="fa fa-calendar"></i>
         </div>
-        <a href="/school" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="/agenda" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -35,27 +35,40 @@
         <div class="inner">
           <h3>{{count.news_count}}</h3>
 
-          <p>Education News</p>
+          <p>Berita Pendidikan</p>
         </div>
         <div class="icon">
           <i class="fa fa-newspaper-o"></i>
         </div>
-        <a href="/news" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="/news" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
-    <!-- ./col -->
     <div class="col-lg-2 col-xs-6">
       <!-- small box -->
-      <div class="small-box bg-yellow">
+      <div class="small-box bg-blue">
         <div class="inner">
-          <h3>{{count.agendas_count}}</h3>
+          <h3>{{count.scholarships_count}}</h3>
 
-          <p>Education Agenda</p>
+          <p>Beasiswa</p>
         </div>
         <div class="icon">
-          <i class="fa fa-calendar"></i>
+          <i class="fa fa-graduation-cap"></i>
         </div>
-        <a href="/agenda" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="/scholarship" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <div class="col-lg-2 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-aqua">
+        <div class="inner">
+          <h3>{{count.directories_count}}</h3>
+
+          <p>Direktori Pendidikan</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-university"></i>
+        </div>
+        <a href="/school" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -65,28 +78,15 @@
         <div class="inner">
           <h3>{{count.courses_count}}</h3>
 
-          <p>Courses</p>
+          <p>E-Learning</p>
         </div>
         <div class="icon">
           <i class="fa fa-file-video-o"></i>
         </div>
-        <a href="/course" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="/course" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
-    <div class="col-lg-2 col-xs-6">
-      <!-- small box -->
-      <div class="small-box bg-blue">
-        <div class="inner">
-          <h3>{{count.scholarships_count}}</h3>
-
-          <p>Scholarships</p>
-        </div>
-        <div class="icon">
-          <i class="fa fa-graduation-cap"></i>
-        </div>
-        <a href="/scholarship" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
+    
     <!-- ./col -->
   </div>
   <!-- /.row -->
