@@ -4,12 +4,13 @@ var include = require('gulp-include');
 var imagemin = require('gulp-imagemin');
 var cssmin = require('gulp-cssmin');
 var stylus = require('gulp-stylus');
+var less = require('gulp-less');
 var htmlmin = require('gulp-htmlmin');
 var jsonmin = require('gulp-jsonmin');
 var fontmin = require('fontmin');
 var concat = require('gulp-concat');
 
-var portalpaths = {
+var paths = {
 	libjs: [
 		//jquery
 		'bower_components/jquery/dist/jquery.min.js',
@@ -19,10 +20,9 @@ var portalpaths = {
 
 		// uikit
 		'bower_components/uikit/js/uikit.min.js',
-		'bower_components/uikit/js/components/slideshow.min.js',
-		'bower_components/uikit/js/components/tooltip.min.js',
+		/*'bower_components/uikit/js/components/slideshow.min.js',*/
 		'bower_components/uikit/js/core/scrollspy.min.js',
-		'bower_components/uikit/js/core/switcher.min.js',
+		/*'bower_components/uikit/js/core/switcher.min.js',*/
 		'bower_components/uikit/js/components/sticky.min.js',
 
 		//typed js
@@ -32,54 +32,58 @@ var portalpaths = {
 		//Portal js
 		'resources/js/portal/portal.min.js'
 	],
+	less: [
+		'resources/assets/semantic.less'
+	],
 	css: [
-		//UIKit
-		'bower_components/semantic/dist/semantic.min.css',
-		'bower_components/uikit/css/uikit.almost-flat.min.css',
-		'bower_components/uikit/css/components/slidenav.almost-flat.min.css',
-		'bower_components/uikit/css/components/slideshow.almost-flat.min.css',
-		'bower_components/uikit/css/components/dotnav.almost-flat.min.css',
-		'bower_components/uikit/css/components/tooltip.almost-flat.min.css',
-		'bower_components/uikit/css/components/sticky.min.css',
-		
+
 		//fonts
 		'public/fonts/anagram.css',
-		'public/fonts/Folks-Bold.css',
+		/*'public/fonts/Folks-Bold.css',
 		'public/fonts/Folks-Normal.css',
-		'public/fonts/GlacialIndifference-Regular.css',
-
-		//custom style
-		'resources/css/kisikisi.styl',
-
-		'resources/css/portal.min.css'
+		'public/fonts/GlacialIndifference-Regular.css',*/
+		'resources/css/portal.less.css',
+		'bower_components/uikit/css/uikit.almost-flat.min.css',
+		'bower_components/uikit/css/components/sticky.min.css',
+		'bower_components/hint.css/hint.min.css',
+		'bower_components/hint.css/hint.base.min.css',
+	
+		'resources/css/portal.styl'
 	]
 };
 
-// back-end
 gulp.task('portal-libjsmin', function() {
-  return gulp.src(portalpaths.libjs)
+  return gulp.src(paths.libjs)
     .pipe(uglify())
     .pipe(concat('lib.portal.min.js'))
     .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('portal-jsmin', function() {
-  return gulp.src(portalpaths.js)
+  return gulp.src(paths.js)
     .pipe(uglify())
     .pipe(concat('portal.min.js'))
     .pipe(gulp.dest('public/js'));
 });
 
+gulp.task('portal-less', function () {
+  return gulp.src(paths.less)
+    .pipe(less())
+	.pipe(concat('portal.less.css'))
+    .pipe(gulp.dest('resources/css'));
+});
+
 gulp.task('portal-cssmin', function () {
-	return gulp.src(portalpaths.css)
+	return gulp.src(paths.css)
 		.pipe(stylus())
 		.pipe(cssmin({processImport: false}))
 		.pipe(concat('portal.min.css'))
 		.pipe(gulp.dest('public/css'));
 });
+
 gulp.task('portal-watch', function() {
-  gulp.watch(portalpaths.js, ['portal-jsmin']);
-  gulp.watch(portalpaths.css, ['portal-cssmin']);
+  gulp.watch(paths.js, ['portal-jsmin']);
+  gulp.watch(paths.css, ['portal-cssmin']);
 });
 /*
 gulp.task('dir-htmlmin', function(cb) {

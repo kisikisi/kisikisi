@@ -104,57 +104,7 @@
 	</div>
 </div>
 <div class="dimmed pusher">
-<div id="mainNav" data-uk-sticky class="ui icon blue inverted secondary pointing menu" style="z-index:99;">
-	<div class="ui container uk-hidden-large">
-		<a id="sidebarToggle" class="active logo item">
-		   <img src="{{asset('img/logo/logo.png')}}" class="icon" width="30" alt=""><i class="dropdown icon"></i>
-		</a>
-		<div class="right menu">
-			<a class="ui item">
-			  <i class="user large icon"></i>
-			</a>
-		</div>
-	</div>
-	<div class="ui container uk-visible-large">
-		<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Direktori Sekolah">
-		  <a class="item" href="http://direktori.kisikisi.id">
-				<i class="university large icon"></i>
-		  </a>
-		</span>
-		<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Berita Pendidikan">
-		<a class="item" href="http://berita.kisikisi.id">
-			<i class="newspaper large icon"></i>
-		</a>
-		</span>
-		<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-left',cls:'myfix'}" title="Kunjungi Forum Pendidikan">
-		<a class="item" id="forum">
-		<i class="users large icon"></i>
-		</a>
-		</span>
-		<a class="item logo" href="http://kisikisi.id">
-			<img src="{{asset('img/logo/logo.png')}}" alt="">
-			<span class="content">isikisi</span>
-		</a>
-		  
-		  <div class="right menu">
-		  	<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-right',cls:'myfix'}" title="Kunjungi Agenda Pendidikan">
-				<a class="item" href="http://agenda.kisikisi.id">
-					<i class="calendar large icon"></i>
-				</a>
-		  	</span>
-			<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-right',cls:'myfix'}" title="Kunjungi Info Beasiswa">
-				<a class="item" href="http://beasiswa.kisikisi.id">
-					<i class="student large icon"></i>
-				</a>
-			</span>
-			<span class="hint--bottom" data-uk-tooltip="{animation:true,pos:'bottom-right',cls:'myfix'}" title="Kunjungi E-Learning">
-				<a class="item" href="http://learning.kisikisi.id">
-					<i class="book large icon"></i>
-				</a>
-			</span>
-		  </div>
-	</div>
-</div>
+
 <div id="header" style="background-color:#933894;">
 	
 </div>

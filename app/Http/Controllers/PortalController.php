@@ -19,9 +19,9 @@ class PortalController extends Controller
 	}
 
     public function index() {
-    	$data = DB::table('style')->first();
+    	/*$data = DB::table('style')->first();*/
     	
-    	return view('portal', ['data'=>$data]);
+    	return view('portal2' );
     }
 
     public function style() {

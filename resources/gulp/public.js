@@ -87,6 +87,7 @@ var paths = {
 		//custom style
 		'resources/css/kisikisi.styl'
 	],
+	
 	html: [
 		'resources/views/partial/*.html'
 	]
@@ -117,6 +118,8 @@ gulp.task('jsmin', function() {
     .pipe(concat('kisikisi.min.js'))
     .pipe(gulp.dest('public/js'));
 });
+
+
 
 gulp.task('less', function () {
   return gulp.src(paths.less)
