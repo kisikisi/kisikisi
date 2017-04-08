@@ -65,7 +65,7 @@ var config = [ '$stateProvider', '$httpProvider', '$urlRouterProvider', '$authPr
 	$locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise('/');
 	$authProvider.withCredentials = false;
-	
+
 	$authProvider.facebook({
 	  //for development
       //clientId: '1496399374007633', // for live

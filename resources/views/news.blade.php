@@ -38,7 +38,7 @@
 			<div class="uk-width-large-1-4 uk-hidden-medium uk-hidden-small uk-margin-large-top">
 			<?php include(public_path('views/news/sidebar.html')) ?> <!-- content sidebar -->
 			</div>
-		   
+
 		  </div>
 		  <div style="clear:both;"></div>
 	  </div>

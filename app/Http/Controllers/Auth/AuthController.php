@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 
+use Config;
 use App\Http\Requests;
 use App\User;
 use App\UserProfile;
@@ -12,8 +13,8 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Hash;
 use JWTAuth;
+use JWTFactory;
 use Auth;
-use Config;
 use GuzzleHttp;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
@@ -172,7 +173,6 @@ class AuthController extends Controller
 
         // all good so return the token
         return response()->json(compact('token'));
-
     }
 
 	/**
@@ -240,10 +240,10 @@ class AuthController extends Controller
 
             // register user
 			$newuser = new User;
-            
+
             $newuser->email = $profile['email'];
             $newuser->name = $username[0];
-            $newuser->save(); 
+            $newuser->save();
             $newuser->attachRole('4');
 
             $uProfile = new UserProfile;
@@ -313,10 +313,10 @@ class AuthController extends Controller
 
             // register user
             $newuser = new User;
-            
+
             $newuser->email = $profile['email'];
             $newuser->name = $username[0];
-            $newuser->save(); 
+            $newuser->save();
             $newuser->attachRole('4');
 
             $uProfile = new UserProfile;

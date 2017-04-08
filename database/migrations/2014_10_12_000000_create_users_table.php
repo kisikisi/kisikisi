@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->string('picture', 128);
+            $table->string('facebook', 128);
+            $table->string('google', 128);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
